@@ -1,0 +1,3687 @@
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4324031262274941),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114185296334206161),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114058494224813575),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114881358966483699),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114448428893081081),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114726078730003578),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114420440767255513),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114707119233402625),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114696610367477647),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114681861147311352),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114113830251446191),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114290625748431268),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114595803528454952),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114792083837745182),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114103364113727072),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114679925851742711),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114210409675858525),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114402784720660687),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114243440617360501),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114791560712170500),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114936600317126270),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114172997671375488),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114052817102909476),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114322508071040690),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114134521877643595),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114549396716150239),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114529625705819772),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114930527580608915),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114419278808080345),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114018253975656975),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114624984081816665),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114035134886912358),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114058829231182431),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114062419666570569),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114866384421971028),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114220059094367429),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114166735880685266),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114941045471839939),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114389316160639352),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114463606909248197),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114846838222243057),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114374855481806189),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114599029643699049),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114354983753568190),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114777544010717768),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("CoalGatherer"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [
+            Mapping {
+                "fileID": Number(4339692901579676),
+            },
+            Mapping {
+                "fileID": Number(4489810224541385),
+            },
+            Mapping {
+                "fileID": Number(4126679016020373),
+            },
+            Mapping {
+                "fileID": Number(4863644397807537),
+            },
+            Mapping {
+                "fileID": Number(4170940045699263),
+            },
+        ],
+        "m_Father": Mapping {
+            "fileID": Number(0),
+        },
+        "m_RootOrder": Number(0),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("6219336138908849fca2c4c8fb8c7e83"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "_buildingPanelName": Null,
+        "_constructionBarLabel": Null,
+        "_buyPermit": Mapping {
+            "fileID": Number(0),
+        },
+        "buildingName": String("COAL MINE"),
+        "description": String("The Coal Mine uses Harvesters to collect units of Coal from Coal deposits placed on Land tiles across the map. "),
+        "baseCost": Number(225000),
+        "spawnDust": Mapping {
+            "fileID": Number(198227747048912142),
+            "guid": String("8ce4e431ac91e3f4f99c13eda37564d2"),
+            "type": Number(2),
+        },
+        "uiOrder": Number(2),
+        "svgIcon": Mapping {
+            "_defaultValue": Mapping {
+                "fileID": Number(11400000),
+                "guid": String("abe2a4dac29e5cd4e85dc94c92c9a78e"),
+                "type": Number(2),
+            },
+        },
+        "constructionBarIcon": Mapping {
+            "_defaultValue": Mapping {
+                "fileID": Number(21300000),
+                "guid": String("736590cb0d7d4f844b24a6612509975b"),
+                "type": Number(2),
+            },
+        },
+        "buildingPanelHeaderImage": Mapping {
+            "_defaultValue": Mapping {
+                "fileID": Number(21300000),
+                "guid": String("8143b70bfc4df504e9312a0fd1ed76ab"),
+                "type": Number(2),
+            },
+        },
+        "placementAudioEvent": Mapping {
+            "_defaultValue": Mapping {
+                "fileID": Number(11400000),
+                "guid": String("7d0c33ec79726ef4f8d6bc8a43d0e143"),
+                "type": Number(2),
+            },
+        },
+        "tags": Sequence [
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("79a8000595e723e44ad0630d7f9250a9"),
+                "type": Number(2),
+            },
+        ],
+        "category": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("35cbd5f8a9b7ff844b29b3a7324bc8a1"),
+            "type": Number(2),
+        },
+        "onlyEnabledOnBuildingRunning": Sequence [
+            Mapping {
+                "fileID": Number(1511192384870486),
+            },
+        ],
+        "buildPermit": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("b327ff77f1970c540996dfa6518ca419"),
+            "type": Number(2),
+        },
+        "prefab": Mapping {
+            "fileID": Number(0),
+        },
+        "region": Mapping {
+            "fileID": Number(0),
+        },
+        "settlement": Mapping {
+            "fileID": Number(0),
+        },
+        "buildingStateFlags": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("2cafc42823a354fcf7c0170bea0bcb7d"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "initialRecipe": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("a32e46a2e1865bc4c906a19d47e6b100"),
+            "type": Number(2),
+        },
+        "productionSpeed": Number(1),
+        "availableRecipes": Sequence [
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("a32e46a2e1865bc4c906a19d47e6b100"),
+                "type": Number(2),
+            },
+        ],
+        "productionAnalysisItemDef": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("cc16f073d8ab93246b33b8eab9401d50"),
+            "type": Number(2),
+        },
+        "efficiencyAnalysisItemDef": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("02593cb3fee3c1243a19d121d0924aaa"),
+            "type": Number(2),
+        },
+        "producedGoodsStat": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("4c97b066449e9954fbcba70d54ef23ca"),
+            "type": Number(2),
+        },
+        "producedLastMonth": Number(0),
+        "producedThisMonth": Number(0),
+        "totalProduced": Number(0),
+        "currentProducedAverage": Mapping {},
+        "productIconPrefab": Mapping {
+            "fileID": Number(114658829136356164),
+            "guid": String("b652f23f3fa85f84e984cd046866d084"),
+            "type": Number(2),
+        },
+        "productIcon": Mapping {
+            "fileID": Number(0),
+        },
+        "productIconUpdaterInterval": Number(1),
+        "rebuildHarvestersAccordingToRecipe": Number(1),
+        "productionIsDeliveredToHub": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("c43c470e0cf26833c86402e7850f4b68"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "slots": Number(40),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("bc987c176d272ba4d7686bdd489a8690"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "modulePrefab": Mapping {
+            "fileID": Number(114574782389415356),
+            "guid": String("bb70c26985fe3614388b7ea3422a6094"),
+            "type": Number(2),
+        },
+        "modules": Sequence [],
+        "maxModuleCount": Number(3),
+        "radius": Number(15),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("4387df3aee5466cdbd622922edc9fc25"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "highlightedResourceNodes": Sequence [
+            Mapping {
+                "fileID": Number(114331396853329357),
+                "guid": String("c4979802e127a7c4c9e970ef57957bbf"),
+                "type": Number(2),
+            },
+        ],
+        "_radius": Number(15),
+        "heightOffset": Number(0),
+        "highlightColor": Mapping {
+            "r": Number(1),
+            "g": Number(1),
+            "b": Number(1),
+            "a": Number(0.03137255),
+        },
+        "highlightOutline": Mapping {
+            "r": Number(1),
+            "g": Number(1),
+            "b": Number(1),
+            "a": Number(1),
+        },
+        "highlightValue": Number(3),
+        "highlightWidth": Number(10),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("3737c2ed4585e32b1f39a6789c5ebb94"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "checkInterval": Mapping {
+            "intervalMin": Number(3),
+            "intervalMax": Number(5),
+        },
+        "alertIconPrefab": Mapping {
+            "fileID": Number(114698055787031791),
+            "guid": String("767cb09f681f8b44cab36fd88b0c0ed3"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("3ef633e43f35d74272960c07d55c1fff"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "causesBuildingDeactivation": Number(1),
+        "notification": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("61dd5c5f292a0934a970607ffa317d67"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("e8a2ad0e98d815859eaf50347363676a"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "causesBuildingDeactivation": Number(1),
+        "notification": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("7e877bbaeac2a5d4ab615d48d49d414e"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("22cf2dcde51b2662c2c588ebdfd4669f"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "monthlyUpkeep": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("16aa8dc4b9b6e6548a768da10ca2923c"),
+            "type": Number(2),
+        },
+        "minUpkeep": Number(0.25),
+        "requireCanWorkState": Number(1),
+        "buildingCostPercentage": Number(0.025),
+        "onlyIfUserEnabled": Number(1),
+        "upkeepAnalysisItemDef": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("5d408d5ecab6b3440b2f8f5231001079"),
+            "type": Number(2),
+        },
+        "uptimeAnalysisItemDef": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("a70a44b3c42eb85478b04b90fcd531a9"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("40da71813dd9fface5478280e439bece"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "canAcceptAndProvideAll": Number(0),
+        "isOnlyAccessibleForOwner": Number(0),
+        "acceptedProducts": Sequence [],
+        "outgoingProducts": Sequence [],
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("c99374ac3e99f2fe73662e28d8b6a31f"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "oneWayConnections": Number(0),
+        "connections": Sequence [
+            Mapping {
+                "x": Number(-1),
+                "y": Number(0),
+                "direction": Number(1),
+                "tilesAmt": Number(1),
+                "network": String("Road"),
+                "preventDemolish": Number(0),
+                "tier": Number(1),
+                "invisible": Number(0),
+                "impliesConnectivities": Number(1),
+                "connectionType": Number(3),
+            },
+        ],
+        "parkingPath": Sequence [
+            Mapping {
+                "fileID": Number(4489810224541385),
+            },
+        ],
+        "leavingPath": Sequence [
+            Mapping {
+                "fileID": Number(4489810224541385),
+            },
+        ],
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("861a7d7d4e48c0fbd3e8b10445ecf525"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "cachingEnabled": Number(1),
+        "boundObject": Mapping {
+            "fileID": Number(114185296334206161),
+        },
+        "staticType": Mapping {
+            "nameSpace": Null,
+            "typeName": Null,
+            "fqtn": Null,
+        },
+        "staticFieldProperty": Mapping {
+            "isField": Number(0),
+            "fqDeclaringTypeName": Null,
+            "fieldPropertyName": Null,
+        },
+        "isStaticDirectBinding": Number(0),
+        "isBindingToStaticFieldProperty": Number(0),
+        "bindingName": Null,
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("05c94d6cd431178add4544bc883c3549"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "dataBinding": Mapping {
+            "fileID": Number(114595803528454952),
+        },
+        "targetField": Mapping {
+            "isField": Number(1),
+            "fqDeclaringTypeName": String("ProjectAutomata.Building, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"),
+            "fieldPropertyName": String("buildingName"),
+        },
+        "isDirectBinding": Number(0),
+        "updateInterval": Number(0.15),
+        "_randomUpdateOffset": Number(1),
+        "debugUpdate": Number(0),
+        "disableAwakeUpdate": Number(0),
+        "disableOnEnableUpdate": Number(0),
+        "labelOverridePrefab": Mapping {
+            "fileID": Number(0),
+        },
+        "labelOverridePrefabIfNotPlayer": Mapping {
+            "fileID": Number(1531126147102113),
+            "guid": String("dfb8916446ffe1c418a724e455a1d50b"),
+            "type": Number(2),
+        },
+        "tooltipOffset": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "alwaysVisible": Number(0),
+        "labelType": Number(4),
+        "visibilityMaxOrthoSize": Number(25),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("a70d435628d0726bfe883d740ba3deb6"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "vehiclePrefab": Mapping {
+            "fileID": Number(114500175386433921),
+            "guid": String("a7a9af4320dfe024ab9405190ec60911"),
+            "type": Number(2),
+        },
+        "initialAmount": Number(5),
+        "infiniteAmount": Number(1),
+        "maximumVehicleAmount": Number(25),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("3b2f2defc9b126897cd689a2afa400b0"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("1635593435f134deb3ce5283bcf7bad4"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "prefabType": String("ProjectAutomata.Building, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"),
+        "prefabName": String("CoalGatherer"),
+        "globalEffects": Sequence [
+            Mapping {
+                "fileID": Number(114257416969884365),
+                "guid": String("87dc1c362dd54714f9605457ba30b5e4"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(114354610114462157),
+                "guid": String("83a9c221dab3a6448aa6058168f120ec"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(114976971462647180),
+                "guid": String("4178939c1be1c6547a1b8716b5b90428"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(114323300711886889),
+                "guid": String("d0097c3e4493eca4ca061c46141d8c25"),
+                "type": Number(2),
+            },
+        ],
+        "_effects": Sequence [],
+        "_executedEffects": Sequence [],
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("799c08bed2010cec0ff1f45d3fa57b18"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "affectedTiles": Sequence [
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(0),
+                    "y": Number(-2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(1),
+                    "y": Number(-2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(2),
+                    "y": Number(-2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(3),
+                    "y": Number(-2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(4),
+                    "y": Number(-2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(5),
+                    "y": Number(-2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(0),
+                    "y": Number(-1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(1),
+                    "y": Number(-1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(2),
+                    "y": Number(-1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(3),
+                    "y": Number(-1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(4),
+                    "y": Number(-1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(5),
+                    "y": Number(-1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(0),
+                    "y": Number(0),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(1),
+                    "y": Number(0),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(2),
+                    "y": Number(0),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(3),
+                    "y": Number(0),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(4),
+                    "y": Number(0),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(5),
+                    "y": Number(0),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(0),
+                    "y": Number(1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(1),
+                    "y": Number(1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(2),
+                    "y": Number(1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(3),
+                    "y": Number(1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(4),
+                    "y": Number(1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(5),
+                    "y": Number(1),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(0),
+                    "y": Number(2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(1),
+                    "y": Number(2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(2),
+                    "y": Number(2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(3),
+                    "y": Number(2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(4),
+                    "y": Number(2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(5),
+                    "y": Number(2),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(0),
+                    "y": Number(3),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(1),
+                    "y": Number(3),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(2),
+                    "y": Number(3),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(3),
+                    "y": Number(3),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(4),
+                    "y": Number(3),
+                },
+                "tags": Sequence [],
+            },
+            Mapping {
+                "offset": Mapping {
+                    "x": Number(5),
+                    "y": Number(3),
+                },
+                "tags": Sequence [],
+            },
+        ],
+        "_initWidth": Number(0),
+        "_initHeight": Number(0),
+        "useCollider": Number(1),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("db660542f316152aaca8b88cc076b8b6"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "restrictions": Sequence [
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("279e6381621f9194593bb40648081f21"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("5a09713f11aedce4b8f7c6bca1a43b79"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("692481a31de206d459e878927bafe6cb"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("9c006e28fe4e91a4cba0a375da0ccfb7"),
+                "type": Number(2),
+            },
+        ],
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("0fb54c9f22de9e535868777ede261d50"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "nameFormat": String("%n %i"),
+        "nameUpToDate": Number(0),
+        "usingCustomName": Number(0),
+        "index": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("9886b9a4549519a7b1d94adebb270ee0"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "forceEffects": Number(0),
+        "forceEffectsValue": Number(0),
+        "offsetAnimations": Number(1),
+        "averageUpdateInterval": Number(1),
+        "cullGroup": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("686981d35f8d8b94b927960e1341e2e6"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("c108ebcb24b35036a58d3452c85a91aa"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "causesBuildingDeactivation": Number(0),
+        "notification": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("77e092db8134f1c449ab8b6a00a97ed4"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("a702b08ac1c7ce44571168aa00843bf3"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "causesBuildingDeactivation": Number(0),
+        "localCheckInterval": Mapping {
+            "intervalMin": Number(3),
+            "intervalMax": Number(5),
+        },
+        "cannotReachWarehouseNotification": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("d51dd60909507c4408740d31ac6da159"),
+            "type": Number(2),
+        },
+        "cannotGoBackFromWarehouseNotification": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("33976cc0e48fe674cad7a20840e7e772"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("332f4ba5ebe5a2e12caf31efef57a90c"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "ui": Mapping {
+            "fileID": Number(114078980997771460),
+            "guid": String("304222cd7d642474b9b774f43ac44db8"),
+            "type": Number(2),
+        },
+        "onlyOneAtATime": Number(1),
+        "module": Mapping {
+            "fileID": Number(0),
+        },
+        "playerOwnedOnly": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("43cc64e50db03186dafa3023ce085319"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(0),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("64a1ff10e31f3d2468dde0bb1c3f61c9"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "ignoreLayer": String("IgnoreHighlight"),
+        "filters": Sequence [],
+        "highlightWidth": Number(5),
+        "highlightValue": Number(5),
+        "highlightColor": Mapping {
+            "r": Number(1),
+            "g": Number(1),
+            "b": Number(1),
+            "a": Number(1),
+        },
+        "highlightStrenght": Number(1),
+        "highlightCount": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("d1a936e3a6d51b3247abf09e466a8b27"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("30dab28ef273e5f08930920cadcd0b97"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "basicEfficiencyModifierValues": Sequence [
+            Number(0.25),
+            Number(0.5),
+            Number(0.75),
+            Number(1),
+            Number(1.25),
+            Number(1.5),
+            Number(2),
+        ],
+        "upkeepModifierValues": Sequence [
+            Number(0.25),
+            Number(0.5),
+            Number(0.75),
+            Number(1),
+            Number(1.25),
+            Number(1.5),
+            Number(2),
+        ],
+        "unlocks": Sequence [
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("1125a1cda5ad97743a52601c764a1eee"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("680716885d7ccd54e99e36bdf422fb0c"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("d1f7df490928e1a4aaa9563de930bc23"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(0),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("d1f7df490928e1a4aaa9563de930bc23"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("680716885d7ccd54e99e36bdf422fb0c"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("1125a1cda5ad97743a52601c764a1eee"),
+                "type": Number(2),
+            },
+        ],
+        "initialEfficiencyIndex": Number(3),
+        "efficiencyIconPrefab": Mapping {
+            "fileID": Number(114968714176754585),
+            "guid": String("93712a1334b5e7245bbb1a18cbbf40c8"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("838fcd4a89bfeda80a948392e9ac7919"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "_showNonOwned": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("9e62e76c8353cd1896df09e1d6a254be"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "pathRecalc": Number(2),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("e18e7bfd8d29f5c2771efc53d6a9c781"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "interval": Mapping {
+            "intervalMin": Number(0.15),
+            "intervalMax": Number(0.3),
+        },
+        "_paymentHandler": Mapping {
+            "fileID": Number(114035134886912358),
+        },
+        "cannotReachDestinationError": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("66e7d647ff90c7144b2df6c1e07d42da"),
+            "type": Number(2),
+        },
+        "cannotGoBackToOriginError": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("dc7e97ae95ae0384b9f32eb2ff492f7d"),
+            "type": Number(2),
+        },
+        "reservationError": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("71342f51f5e048242aab4d83c05334da"),
+            "type": Number(2),
+        },
+        "_canUseProductDistributor": Number(1),
+        "_warehousesInRange": Sequence [],
+        "cyclesMin": Number(0),
+        "cyclesMax": Number(3),
+        "_cycles": Number(2),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("c7a52b546572eb02fa9819f63c8e5acb"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "formula": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("d30ee2c2bc8b9bf4391b165b601be8b2"),
+            "type": Number(2),
+        },
+        "billCategory": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("6eceafbb4240168458d27a0735f1e4aa"),
+            "type": Number(2),
+        },
+        "analysisItem": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("ffe347fc350e0cc4cb4141f74fbbdcb0"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("64bb3b435d736454a3ce817e714d2ab7"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "interval": Mapping {
+            "intervalMin": Number(0.15),
+            "intervalMax": Number(0.3),
+        },
+        "_paymentHandler": Mapping {
+            "fileID": Number(114062419666570569),
+        },
+        "cannotReachDestinationError": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("66e7d647ff90c7144b2df6c1e07d42da"),
+            "type": Number(2),
+        },
+        "cannotGoBackToOriginError": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("dc7e97ae95ae0384b9f32eb2ff492f7d"),
+            "type": Number(2),
+        },
+        "reservationError": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("71342f51f5e048242aab4d83c05334da"),
+            "type": Number(2),
+        },
+        "_infiniteSlots": Number(0),
+        "_slotCount": Number(3),
+        "_slots": Sequence [],
+        "networkName": Null,
+        "canWaitTillVehicleFull": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("c7a52b546572eb02fa9819f63c8e5acb"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "formula": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("b61ad5a470075e841a0829a31a72e0d7"),
+            "type": Number(2),
+        },
+        "billCategory": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("6eceafbb4240168458d27a0735f1e4aa"),
+            "type": Number(2),
+        },
+        "analysisItem": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("ffe347fc350e0cc4cb4141f74fbbdcb0"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("0dc1f8cb50949b873c35a07fc5f3b13d"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "causesBuildingDeactivation": Number(0),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("916d8388603b12ff0ebfe424dce082ff"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "fleet": Mapping {
+            "fileID": Number(114103364113727072),
+        },
+        "maxDispatchedVehiclesDaily": Number(3),
+        "vehicleTripsStat": Mapping {
+            "fileID": Number(0),
+        },
+        "dispatchCountAnalysisItemDef": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("39ce0bd0c35514941b934a42153ec354"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("26cb8f4514e3c94b7973fa01a58c715e"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "priority": Number(0),
+        "audioEvent": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("a7e4da7271011594689713570b2dda38"),
+            "type": Number(2),
+        },
+        "volume": Number(1),
+        "pitch": Number(1),
+        "queueOnAwake": Number(1),
+        "loop": Number(1),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("1261acc956e765563a9c9c1b89df3f0d"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("2a89b55676f57c9ad3a7cc605981e5b3"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "visualization": Mapping {
+            "fileID": Number(1382511086141216),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("eecd35b4fa92ede2b17f356a925faea9"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "pollutionRate": Number(0.065),
+        "aiPollutionFactor": Number(0.75),
+        "_updateInterval": Mapping {
+            "intervalMin": Number(1),
+            "intervalMax": Number(2),
+        },
+        "efficiencyFormula": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("be32bd6c1da0aae4093f6e670ed5ec7f"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("2849d9d7cc1b79854c803db618a1e909"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "help": Mapping {
+            "fileID": Number(11400000),
+            "guid": String("61427546f0c8d7c499d27b7c18037da4"),
+            "type": Number(2),
+        },
+        "showAIControlInfo": Number(1),
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("70382bb773d14ec63a625c4503bedc9b"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "networkName": String("Road"),
+        "updateInterval": Mapping {
+            "intervalMin": Number(0.1),
+            "intervalMax": Number(0.2),
+        },
+        "capacity": Number(8),
+        "vehicleQueueIconPrefab": Mapping {
+            "fileID": Number(114828080519040181),
+            "guid": String("f70492fa6da32844e864335c8d3f3d87"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("5b94bd739e35b239b8a89d05d9c61a70"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "placementWeight": Number(1),
+        "placementMetrics": Sequence [
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("f473a53cd83a627409acb08cc0698643"),
+                "type": Number(2),
+            },
+            Mapping {
+                "fileID": Number(11400000),
+                "guid": String("029630dfd0094c340a4c8cd77057f973"),
+                "type": Number(2),
+            },
+        ],
+        "pathsWeight": Number(0),
+        "enableDefaultPathsMetric": Number(1),
+        "defaultPathsMetricType": Number(0),
+        "network": Mapping {
+            "fileID": Number(114019624910662601),
+            "guid": String("74ef2c358ab6aae409862fc6d9f5685c"),
+            "type": Number(2),
+        },
+        "placeNetworkTilePenalty": Number(0.01),
+        "pathsMetrics": Sequence [],
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("4202a2b8db3b045a35f746451e2b86aa"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "objectiveGuid": String("4b8d5898-7e85-45dd-8b60-84e987bc142e"),
+        "_indicatorAnchor": Mapping {
+            "fileID": Number(4170940045699263),
+        },
+        "siblingIndex": Number(-1),
+        "targetObject": Mapping {
+            "fileID": Number(0),
+        },
+        "targetProperty": Null,
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1089863510004786),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("43c59e72a0ad0a63a9652326dd22f242"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "_radius": Number(3.5),
+        "_offset": Mapping {
+            "x": Number(2.5),
+            "y": Number(0),
+            "z": Number(0.5),
+        },
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4339692901579676),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("Visuals"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1382511086141216),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(-0.7071068),
+            "z": Number(0),
+            "w": Number(0.7071068),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [
+            Mapping {
+                "fileID": Number(4637004158017689),
+            },
+        ],
+        "m_Father": Mapping {
+            "fileID": Number(4324031262274941),
+        },
+        "m_RootOrder": Number(0),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(90),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4637004158017689),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(111759509706033095),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("CoalGathererModel"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1915148992400116),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0.5),
+            "y": Number(0),
+            "z": Number(0.5),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [
+            Mapping {
+                "fileID": Number(4745369218915572),
+            },
+            Mapping {
+                "fileID": Number(4525101711242576),
+            },
+            Mapping {
+                "fileID": Number(4588192111078637),
+            },
+        ],
+        "m_Father": Mapping {
+            "fileID": Number(4339692901579676),
+        },
+        "m_RootOrder": Number(0),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "Animation": Mapping {
+        "serializedVersion": Number(3),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1915148992400116),
+        },
+        "m_Enabled": Number(1),
+        "m_Animation": Mapping {
+            "fileID": Number(7400000),
+            "guid": String("3f3f4ea8ab4f54645a4aa2deab33ef13"),
+            "type": Number(2),
+        },
+        "m_Animations": Sequence [
+            Mapping {
+                "fileID": Number(7400000),
+                "guid": String("3f3f4ea8ab4f54645a4aa2deab33ef13"),
+                "type": Number(2),
+            },
+        ],
+        "m_WrapMode": Number(0),
+        "m_PlayAutomatically": Number(1),
+        "m_AnimatePhysics": Number(0),
+        "m_CullingType": Number(0),
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4745369218915572),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("BldgGathCoal"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1370048384544509),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(8.146034e-8),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [
+            Mapping {
+                "fileID": Number(4620068468200494),
+            },
+        ],
+        "m_Father": Mapping {
+            "fileID": Number(4637004158017689),
+        },
+        "m_RootOrder": Number(0),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(9.334668e-6),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4620068468200494),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("polySurface3"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1166216266574850),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [
+            Mapping {
+                "fileID": Number(4796446125072075),
+            },
+        ],
+        "m_Father": Mapping {
+            "fileID": Number(4745369218915572),
+        },
+        "m_RootOrder": Number(0),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4796446125072075),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(33791649998604977),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(23899580748294602),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("polySurface4"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1343485177384181),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0.1306412),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(0.1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [],
+        "m_Father": Mapping {
+            "fileID": Number(4620068468200494),
+        },
+        "m_RootOrder": Number(0),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "MeshFilter": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1343485177384181),
+        },
+        "m_Mesh": Mapping {
+            "fileID": Number(4300000),
+            "guid": String("7b63c5dfd0a58e94c8cb4b428e678e21"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MeshRenderer": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1343485177384181),
+        },
+        "m_Enabled": Number(1),
+        "m_CastShadows": Number(1),
+        "m_ReceiveShadows": Number(1),
+        "m_DynamicOccludee": Number(1),
+        "m_MotionVectors": Number(1),
+        "m_LightProbeUsage": Number(1),
+        "m_ReflectionProbeUsage": Number(1),
+        "m_RenderingLayerMask": Number(4294967295),
+        "m_RendererPriority": Number(0),
+        "m_Materials": Sequence [
+            Mapping {
+                "fileID": Number(2100000),
+                "guid": String("10a99cef266fef54e98af885a78dd4ec"),
+                "type": Number(2),
+            },
+        ],
+        "m_StaticBatchInfo": Mapping {
+            "firstSubMesh": Number(0),
+            "subMeshCount": Number(0),
+        },
+        "m_StaticBatchRoot": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ProbeAnchor": Mapping {
+            "fileID": Number(0),
+        },
+        "m_LightProbeVolumeOverride": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ScaleInLightmap": Number(1),
+        "m_PreserveUVs": Number(0),
+        "m_IgnoreNormalsForChartDetection": Number(0),
+        "m_ImportantGI": Number(0),
+        "m_StitchLightmapSeams": Number(0),
+        "m_SelectedEditorRenderState": Number(3),
+        "m_MinimumChartSize": Number(4),
+        "m_AutoUVMaxDistance": Number(0.5),
+        "m_AutoUVMaxAngle": Number(89),
+        "m_LightmapParameters": Mapping {
+            "fileID": Number(0),
+        },
+        "m_SortingLayerID": Number(0),
+        "m_SortingLayer": Number(0),
+        "m_SortingOrder": Number(0),
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4525101711242576),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(33781802846570323),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(23234300259499325),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("polySurface14221"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1188806671025695),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(-2.164891e-17),
+            "y": Number(-0.7071067),
+            "z": Number(-2.1648905e-17),
+            "w": Number(0.7071069),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(-0.5357802),
+            "y": Number(0.03281358),
+            "z": Number(-3.3624318),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [
+            Mapping {
+                "fileID": Number(4581101833756361),
+            },
+        ],
+        "m_Father": Mapping {
+            "fileID": Number(4637004158017689),
+        },
+        "m_RootOrder": Number(1),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(-3.5083552e-15),
+            "y": Number(89.999985),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "MeshFilter": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1188806671025695),
+        },
+        "m_Mesh": Mapping {
+            "fileID": Number(4300000),
+            "guid": String("5246d872bef1c2b46b50566537211b93"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MeshRenderer": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1188806671025695),
+        },
+        "m_Enabled": Number(1),
+        "m_CastShadows": Number(1),
+        "m_ReceiveShadows": Number(1),
+        "m_DynamicOccludee": Number(1),
+        "m_MotionVectors": Number(1),
+        "m_LightProbeUsage": Number(1),
+        "m_ReflectionProbeUsage": Number(1),
+        "m_RenderingLayerMask": Number(4294967295),
+        "m_RendererPriority": Number(0),
+        "m_Materials": Sequence [
+            Mapping {
+                "fileID": Number(2100000),
+                "guid": String("650a478a50876d34098f173c33ce66dd"),
+                "type": Number(2),
+            },
+        ],
+        "m_StaticBatchInfo": Mapping {
+            "firstSubMesh": Number(0),
+            "subMeshCount": Number(0),
+        },
+        "m_StaticBatchRoot": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ProbeAnchor": Mapping {
+            "fileID": Number(0),
+        },
+        "m_LightProbeVolumeOverride": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ScaleInLightmap": Number(1),
+        "m_PreserveUVs": Number(0),
+        "m_IgnoreNormalsForChartDetection": Number(0),
+        "m_ImportantGI": Number(0),
+        "m_StitchLightmapSeams": Number(0),
+        "m_SelectedEditorRenderState": Number(3),
+        "m_MinimumChartSize": Number(4),
+        "m_AutoUVMaxDistance": Number(0.5),
+        "m_AutoUVMaxAngle": Number(89),
+        "m_LightmapParameters": Mapping {
+            "fileID": Number(0),
+        },
+        "m_SortingLayerID": Number(0),
+        "m_SortingLayer": Number(0),
+        "m_SortingOrder": Number(0),
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4581101833756361),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(33048713118036688),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(23134908116015831),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("coaltruckpile"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1953221700389039),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(-2.4802269e-10),
+            "y": Number(-4.4207436e-8),
+            "z": Number(2.3283891e-10),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(-0.20240265),
+            "y": Number(0.14640981),
+            "z": Number(-0.0023202896),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(0.99999994),
+            "y": Number(1),
+            "z": Number(1.12514),
+        },
+        "m_Children": Sequence [],
+        "m_Father": Mapping {
+            "fileID": Number(4525101711242576),
+        },
+        "m_RootOrder": Number(0),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(-2.8421308e-8),
+            "y": Number(5.065799e-6),
+            "z": Number(-2.6681375e-8),
+        },
+    },
+}
+Mapping {
+    "MeshFilter": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1953221700389039),
+        },
+        "m_Mesh": Mapping {
+            "fileID": Number(4300000),
+            "guid": String("6f8575c6b6c0b094fb3357d1478b7d4d"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MeshRenderer": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1953221700389039),
+        },
+        "m_Enabled": Number(1),
+        "m_CastShadows": Number(1),
+        "m_ReceiveShadows": Number(1),
+        "m_DynamicOccludee": Number(1),
+        "m_MotionVectors": Number(1),
+        "m_LightProbeUsage": Number(1),
+        "m_ReflectionProbeUsage": Number(1),
+        "m_RenderingLayerMask": Number(4294967295),
+        "m_RendererPriority": Number(0),
+        "m_Materials": Sequence [
+            Mapping {
+                "fileID": Number(2100000),
+                "guid": String("53d895d9fd9a8e245ba93f1d130ba93f"),
+                "type": Number(2),
+            },
+        ],
+        "m_StaticBatchInfo": Mapping {
+            "firstSubMesh": Number(0),
+            "subMeshCount": Number(0),
+        },
+        "m_StaticBatchRoot": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ProbeAnchor": Mapping {
+            "fileID": Number(0),
+        },
+        "m_LightProbeVolumeOverride": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ScaleInLightmap": Number(1),
+        "m_PreserveUVs": Number(0),
+        "m_IgnoreNormalsForChartDetection": Number(0),
+        "m_ImportantGI": Number(0),
+        "m_StitchLightmapSeams": Number(0),
+        "m_SelectedEditorRenderState": Number(3),
+        "m_MinimumChartSize": Number(4),
+        "m_AutoUVMaxDistance": Number(0.5),
+        "m_AutoUVMaxAngle": Number(89),
+        "m_LightmapParameters": Mapping {
+            "fileID": Number(0),
+        },
+        "m_SortingLayerID": Number(0),
+        "m_SortingLayer": Number(0),
+        "m_SortingOrder": Number(0),
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4588192111078637),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(33582632012774540),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(23150665311217964),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("polySurface14346"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1821188217069287),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(8.146034e-8),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [],
+        "m_Father": Mapping {
+            "fileID": Number(4637004158017689),
+        },
+        "m_RootOrder": Number(2),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(9.334668e-6),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "MeshFilter": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1821188217069287),
+        },
+        "m_Mesh": Mapping {
+            "fileID": Number(4300000),
+            "guid": String("a57ce03d1122c1240be2c895becf5039"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "MeshRenderer": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1821188217069287),
+        },
+        "m_Enabled": Number(1),
+        "m_CastShadows": Number(1),
+        "m_ReceiveShadows": Number(1),
+        "m_DynamicOccludee": Number(1),
+        "m_MotionVectors": Number(1),
+        "m_LightProbeUsage": Number(1),
+        "m_ReflectionProbeUsage": Number(1),
+        "m_RenderingLayerMask": Number(4294967295),
+        "m_RendererPriority": Number(0),
+        "m_Materials": Sequence [
+            Mapping {
+                "fileID": Number(2100000),
+                "guid": String("10a99cef266fef54e98af885a78dd4ec"),
+                "type": Number(2),
+            },
+        ],
+        "m_StaticBatchInfo": Mapping {
+            "firstSubMesh": Number(0),
+            "subMeshCount": Number(0),
+        },
+        "m_StaticBatchRoot": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ProbeAnchor": Mapping {
+            "fileID": Number(0),
+        },
+        "m_LightProbeVolumeOverride": Mapping {
+            "fileID": Number(0),
+        },
+        "m_ScaleInLightmap": Number(1),
+        "m_PreserveUVs": Number(0),
+        "m_IgnoreNormalsForChartDetection": Number(0),
+        "m_ImportantGI": Number(0),
+        "m_StitchLightmapSeams": Number(0),
+        "m_SelectedEditorRenderState": Number(3),
+        "m_MinimumChartSize": Number(4),
+        "m_AutoUVMaxDistance": Number(0.5),
+        "m_AutoUVMaxAngle": Number(89),
+        "m_LightmapParameters": Mapping {
+            "fileID": Number(0),
+        },
+        "m_SortingLayerID": Number(0),
+        "m_SortingLayer": Number(0),
+        "m_SortingOrder": Number(0),
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4489810224541385),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("ParkingSpot"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1531227024759839),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(-0.7071068),
+            "z": Number(0),
+            "w": Number(0.7071068),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [],
+        "m_Father": Mapping {
+            "fileID": Number(4324031262274941),
+        },
+        "m_RootOrder": Number(1),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(90),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4126679016020373),
+                },
+            },
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(114928021115876070),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("Smoke"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1511192384870486),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0.83),
+            "y": Number(2.7),
+            "z": Number(-1.33),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [],
+        "m_Father": Mapping {
+            "fileID": Number(4324031262274941),
+        },
+        "m_RootOrder": Number(2),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "MonoBehaviour": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1511192384870486),
+        },
+        "m_Enabled": Number(1),
+        "m_EditorHideFlags": Number(0),
+        "m_Script": Mapping {
+            "fileID": Number(11500000),
+            "guid": String("5e7588de139863ea8c7ff7548a921f72"),
+            "type": Number(3),
+        },
+        "m_Name": Null,
+        "m_EditorClassIdentifier": Null,
+        "prefab": Mapping {
+            "fileID": Number(1652040601173660),
+            "guid": String("0f74a7f35808f9e47a177a9848bcf4eb"),
+            "type": Number(2),
+        },
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4863644397807537),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("Unlocks"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1352799342896043),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [],
+        "m_Father": Mapping {
+            "fileID": Number(4324031262274941),
+        },
+        "m_RootOrder": Number(3),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
+Mapping {
+    "GameObject": Mapping {
+        "serializedVersion": Number(6),
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_Component": Sequence [
+            Mapping {
+                "component": Mapping {
+                    "fileID": Number(4170940045699263),
+                },
+            },
+        ],
+        "m_Layer": Number(0),
+        "m_Name": String("TutorialIndicatorAnchor"),
+        "m_TagString": String("Untagged"),
+        "m_Icon": Mapping {
+            "fileID": Number(0),
+        },
+        "m_NavMeshLayer": Number(0),
+        "m_StaticEditorFlags": Number(0),
+        "m_IsActive": Number(1),
+    },
+}
+Mapping {
+    "Transform": Mapping {
+        "m_ObjectHideFlags": Number(0),
+        "m_CorrespondingSourceObject": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabInstance": Mapping {
+            "fileID": Number(0),
+        },
+        "m_PrefabAsset": Mapping {
+            "fileID": Number(0),
+        },
+        "m_GameObject": Mapping {
+            "fileID": Number(1585171273979440),
+        },
+        "m_LocalRotation": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+            "w": Number(1),
+        },
+        "m_LocalPosition": Mapping {
+            "x": Number(2.5),
+            "y": Number(0),
+            "z": Number(0.5),
+        },
+        "m_LocalScale": Mapping {
+            "x": Number(1),
+            "y": Number(1),
+            "z": Number(1),
+        },
+        "m_Children": Sequence [],
+        "m_Father": Mapping {
+            "fileID": Number(4324031262274941),
+        },
+        "m_RootOrder": Number(4),
+        "m_LocalEulerAnglesHint": Mapping {
+            "x": Number(0),
+            "y": Number(0),
+            "z": Number(0),
+        },
+    },
+}
