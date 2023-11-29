@@ -227,15 +227,89 @@ impl GameData {
         self.products.iter()
     }
 
+    pub fn product(&self, name: &str) -> &Product {
+        let mut iter = self.products().filter(|&product| product.name == name);
+        let Some(first) = iter.next() else {
+            panic!("No product with name {name:?}");
+        };
+        if iter.next().is_some() {
+            panic!("More than one product with name {name:?}");
+        }
+        first
+    }
+
     pub fn recipes(&self) -> impl Iterator<Item = &'_ Recipe> {
         self.recipes.iter()
+    }
+
+    pub fn recipe(&self, name: &str) -> &Recipe {
+        let mut iter = self.recipes().filter(|&recipe| recipe.name == name);
+        let Some(first) = iter.next() else {
+            panic!("No recipe with name {name:?}");
+        };
+        if iter.next().is_some() {
+            panic!("More than one recipe with name {name:?}");
+        }
+        first
+    }
+
+    pub fn building_recipe<'a>(&'a self, building: &'a Building, name: &str) -> &'a Recipe {
+        let mut iter = building
+            .available_recipes(self)
+            .filter(|&recipe| recipe.name == name);
+        let Some(first) = iter.next() else {
+            panic!(
+                "No recipe with name {name:?} for building {:?}",
+                &building.name
+            );
+        };
+        if iter.next().is_some() {
+            panic!(
+                "More than one recipe with name {name:?} for building {:?}",
+                &building.name
+            );
+        }
+        first
     }
 
     pub fn buildings(&self) -> impl Iterator<Item = &'_ Building> {
         self.buildings.iter()
     }
 
+    pub fn building(&self, name: &str) -> &Building {
+        let mut iter = self.buildings().filter(|&building| building.name == name);
+        let Some(first) = iter.next() else {
+            panic!("No building with name {name:?}");
+        };
+        if iter.next().is_some() {
+            panic!("More than one building with name {name:?}");
+        }
+        first
+    }
+
     pub fn modules(&self) -> impl Iterator<Item = &'_ Module> {
         self.modules.iter()
+    }
+
+    pub fn module(&self, name: &str) -> &Module {
+        let mut iter = self.modules().filter(|&module| module.name == name);
+        let Some(first) = iter.next() else {
+            panic!("No module with name {name:?}");
+        };
+        if iter.next().is_some() {
+            panic!("More than one module with name {name:?}");
+        }
+        first
+    }
+
+    pub fn recipe_module<'a>(&'a self, recipe: &'a Recipe) -> &'a Module {
+        let mut iter = recipe.required_modules(self);
+        let Some(first) = iter.next() else {
+            panic!("No module for recipe {:?}", &recipe.name);
+        };
+        if iter.next().is_some() {
+            panic!("More than one module for recipe {:?}", &recipe.name);
+        }
+        first
     }
 }

@@ -2,7 +2,9 @@
 
 use std::{collections::HashMap, rc::Rc};
 
-use rise_of_industry_calculator::{BuildingId, GameData, ModuleId, Product, ProductId, RecipeId};
+use rise_of_industry_calculator::{
+    Building, BuildingId, GameData, Module, ModuleId, Product, ProductId, Recipe, RecipeId,
+};
 
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
 // This variable is called `buildingCostPercentage` and comes from the prefab files.
@@ -105,51 +107,165 @@ where
     }
 }
 
+struct Context<'a> {
+    cocoa: &'a Product,
+    water: &'a Product,
+    cotton: &'a Product,
+    fibers: &'a Product,
+    napkins: &'a Product,
+    berries: &'a Product,
+    light_fabric: &'a Product,
+
+    farm: &'a Building,
+    plantation: &'a Building,
+    water_siphon: &'a Building,
+    water_well: &'a Building,
+
+    cocoa_recipe: &'a Recipe,
+    cotton_recipe: &'a Recipe,
+    fibers_recipe: &'a Recipe,
+    napkins_recipe: &'a Recipe,
+    berry_recipe: &'a Recipe,
+    water_well_water_recipe: &'a Recipe,
+    water_siphon_water_recipe: &'a Recipe,
+
+    cocoa_field: &'a Module,
+    cotton_field: &'a Module,
+    berry_field: &'a Module,
+}
+
 fn main() {
     env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn")).init();
 
     let data = &GameData::load(std::path::Path::new("data.json")).unwrap();
 
-    let plantation = data.buildings().find(|&x| x.name == "PLANTATION").unwrap();
-    let cocoa = data.products().find(|&x| x.name == "Cocoa").unwrap();
-    let cocoa_recipe = plantation
-        .available_recipes(data)
-        .find(|&recipe| recipe.name == "Cocoas")
-        .unwrap();
-    let cocoa_field = cocoa_recipe.required_modules(data).exactly_one().unwrap();
+    let cocoa = data.product("Cocoa");
+    let water = data.product("Water");
+    let cotton = data.product("Cotton");
+    let fibers = data.product("Fibers");
+    let light_fabric = data.product("Light Fabric");
+    let napkins = data.product("Napkins");
+    let berries = data.product("Berries");
+    let dye = data.product("Dye");
 
-    let water_siphon = data
-        .buildings()
-        .find(|&x| x.name == "WATER SIPHON")
-        .unwrap();
-    let water = data.products().find(|&x| x.name == "Water").unwrap();
-    let water_recipe = water_siphon
-        .available_recipes(data)
-        .filter(|&recipe| {
-            recipe
-                .products(data)
-                .any(|x| x.product.id == water.id && x.amount > 0)
-        })
-        .exactly_one()
-        .unwrap();
-    let water_well_harvester = water_recipe.required_modules(data).exactly_one().unwrap();
+    let plantation = data.building("PLANTATION");
+    let farm = data.building("CROP FARM");
+    let water_siphon = data.building("WATER SIPHON");
+    let water_well = data.building("WATER WELL");
+    let textile_factory = data.building("TEXTILE FACTORY");
 
-    let water_harvesters = (
-        1i64,
+    let cocoa_recipe = data.recipe("Cocoas");
+    let cotton_recipe = data.recipe("Cotton");
+    let fibers_recipe = data.recipe("Fibers");
+    let light_fabric_recipe = data.recipe("Light Fabric");
+    let napkins_recipe = data.recipe("Napkins");
+    let berry_recipe = data.recipe("Berries");
+    let dye_recipe = data.recipe("Dye");
+
+    let water_well_water_recipe = data.building_recipe(water_well, "Water");
+    let water_siphon_water_recipe = data.building_recipe(water_siphon, "Water");
+
+    let cocoa_field = data.recipe_module(cocoa_recipe);
+    let cotton_field = data.recipe_module(cotton_recipe);
+    let berry_field = data.recipe_module(berry_recipe);
+
+    let context = Context {
+        cocoa,
+        water,
+        cotton,
+        fibers,
+        napkins,
+        berries,
+        light_fabric,
+
+        farm,
+        plantation,
+        water_siphon,
+        water_well,
+
+        cocoa_recipe,
+        cotton_recipe,
+        fibers_recipe,
+        napkins_recipe,
+        berry_recipe,
+        water_well_water_recipe,
+        water_siphon_water_recipe,
+
+        cocoa_field,
+        cotton_field,
+        berry_field,
+    };
+
+    let napkin_factories = (
+        3i64,
         BuildingInstance {
-            id: water_siphon.id,
-            recipe_id: water_recipe.id,
-            modules: Some((5, water_well_harvester.id)),
+            id: textile_factory.id,
+            recipe_id: napkins_recipe.id,
+            modules: None,
             efficiency: Default::default(),
         },
     );
 
-    let cocoa_plantations: (i64, BuildingInstance) = (
+    let light_fabric_factories = (
+        3i64,
+        BuildingInstance {
+            id: textile_factory.id,
+            recipe_id: light_fabric_recipe.id,
+            modules: None,
+            efficiency: Default::default(),
+        },
+    );
+
+    // -2 cotton/+2 fiber per 15 days per factory
+    let fibers_factories = (
         2i64,
         BuildingInstance {
-            id: plantation.id,
-            recipe_id: cocoa_recipe.id,
-            modules: Some((5, cocoa_field.id)),
+            id: textile_factory.id,
+            recipe_id: fibers_recipe.id,
+            modules: None,
+            efficiency: Default::default(),
+        },
+    );
+
+    // -1 water/2 cotton per 30 days per field
+    let cotton_farms = (
+        1,
+        BuildingInstance {
+            id: farm.id,
+            recipe_id: cotton_recipe.id,
+            modules: Some((5, cotton_field.id)),
+            efficiency: Default::default(),
+        },
+    );
+
+    // -2 berries/-1 water/+2 dye per 15 days per factory
+    let dye_factories = (
+        1i64,
+        BuildingInstance {
+            id: textile_factory.id,
+            recipe_id: dye_recipe.id,
+            modules: None,
+            efficiency: Default::default(),
+        },
+    );
+
+    // -1 water/2 cotton per 30 days per field
+    let berry_farms = (
+        1,
+        BuildingInstance {
+            id: farm.id,
+            recipe_id: berry_recipe.id,
+            modules: Some((5, berry_field.id)),
+            efficiency: Default::default(),
+        },
+    );
+
+    let water_siphons = (
+        2,
+        BuildingInstance {
+            id: water_siphon.id,
+            recipe_id: water_siphon_water_recipe.id,
+            modules: Some((3, data.recipe_module(water_siphon_water_recipe).id)),
             efficiency: Default::default(),
         },
     );
@@ -163,35 +279,116 @@ fn main() {
     let transports = vec![
         Transport {
             kind: Rc::clone(&truck),
-            description: "Water to Cocoa Plantations".to_string(),
-            tiles: 10,
-            amount_per_day: water_harvesters.0 as f64
-                * water_harvesters
+            description: "Local Transport".to_string(),
+            tiles: 15,
+            amount_per_day: water_siphons.0 as f64
+                * water_siphons
                     .1
                     .production_per_day_of(data, water.id)
-                    .unwrap(),
+                    .unwrap()
+                + berry_farms.0 as f64
+                    * berry_farms
+                        .1
+                        .production_per_day_of(data, berries.id)
+                        .unwrap()
+                + dye_factories.0 as f64
+                    * dye_factories.1.production_per_day_of(data, dye.id).unwrap()
+                + cotton_farms.0 as f64
+                    * cotton_farms
+                        .1
+                        .production_per_day_of(data, cotton.id)
+                        .unwrap(),
         },
         Transport {
             kind: Rc::clone(&truck),
-            description: "Cocoa Plantations to Farmers Market".to_string(),
-            tiles: 100,
-            amount_per_day: cocoa_plantations.0 as f64
-                * cocoa_plantations
+            description: "Sale Transport".to_string(),
+            tiles: 200,
+            amount_per_day: light_fabric_factories.0 as f64
+                * light_fabric_factories
                     .1
-                    .production_per_day_of(data, cocoa.id)
-                    .unwrap(),
+                    .production_per_day_of(data, light_fabric.id)
+                    .unwrap()
+                + napkin_factories.0 as f64
+                    * napkin_factories
+                        .1
+                        .production_per_day_of(data, napkins.id)
+                        .unwrap()
+                + fibers_factories.0 as f64
+                    * fibers_factories
+                        .1
+                        .production_per_day_of(data, fibers.id)
+                        .unwrap(),
         },
     ];
 
-    let building_groups = vec![water_harvesters, cocoa_plantations];
+    let building_groups = vec![
+        napkin_factories,
+        light_fabric_factories,
+        fibers_factories,
+        cotton_farms,
+        dye_factories,
+        berry_farms,
+        water_siphons,
+    ];
 
-    simulate(data, building_groups, cocoa, transports);
+    // let water_harvesters = (
+    //     1i64,
+    //     BuildingInstance {
+    //         id: water_siphon.id,
+    //         recipe_id: water_siphon_water_recipe.id,
+    //         modules: Some((5, data.recipe_module(water_siphon_water_recipe).id)),
+    //         efficiency: Default::default(),
+    //     },
+    // );
+
+    // let cocoa_plantations: (i64, BuildingInstance) = (
+    //     2i64,
+    //     BuildingInstance {
+    //         id: plantation.id,
+    //         recipe_id: cocoa_recipe.id,
+    //         modules: Some((5, cocoa_field.id)),
+    //         efficiency: Default::default(),
+    //     },
+    // );
+
+    // let building_groups = vec![water_harvesters, cocoa_plantations];
+
+    // let truck = Rc::new(TransportKind {
+    //     name: "Truck".to_string(),
+    //     base_price: 250,
+    //     tile_price: 10,
+    // });
+
+    // let transports = vec![
+    //     Transport {
+    //         kind: Rc::clone(&truck),
+    //         description: "Water to Cocoa Plantations".to_string(),
+    //         tiles: 10,
+    //         amount_per_day: water_harvesters.0 as f64
+    //             * water_harvesters
+    //                 .1
+    //                 .production_per_day_of(data, water.id)
+    //                 .unwrap(),
+    //     },
+    //     Transport {
+    //         kind: Rc::clone(&truck),
+    //         description: "Cocoa Plantations to Farmers Market".to_string(),
+    //         tiles: 100,
+    //         amount_per_day: cocoa_plantations.0 as f64
+    //             * cocoa_plantations
+    //                 .1
+    //                 .production_per_day_of(data, cocoa.id)
+    //                 .unwrap(),
+    //     },
+    // ];
+
+    simulate(data, &context, building_groups, transports);
 }
 
 fn simulate(
     data: &GameData,
+    context: &Context<'_>,
     building_groups: Vec<(i64, BuildingInstance)>,
-    cocoa: &Product,
     transports: Vec<Transport>,
 ) {
     let mut monthly_operational_costs = building_groups
@@ -214,12 +411,34 @@ fn simulate(
         }
     }
 
-    let monthly_revenue = production_map[&cocoa.id] * 30.0 * 12661.0;
+    let prices = [
+        (context.berries.id, 12660.0),
+        (context.light_fabric.id, 55650.0),
+        (context.cotton.id, 13560.0),
+        (context.fibers.id, 27220.0),
+        (context.napkins.id, 109830.0),
+    ];
+
+    println!("sales per month:");
+    let mut monthly_revenue = 0.0;
+    for (product_id, price) in prices {
+        let units_per_month = production_map.get(&product_id).copied().unwrap_or_default() * 30.0;
+        let total = units_per_month * price;
+        println!(
+            "  | {name:20} | {units:7.1} units | {price:7.1}k $/unit | {total:7.1}k $ |",
+            name = &data[product_id].name,
+            units = units_per_month,
+            price = price / 1000.0,
+            total = total / 1000.0
+        );
+        monthly_revenue += total;
+    }
+    println!();
 
     println!("production per month:");
     for (&product_id, &amount_per_day) in &production_map {
         println!(
-            "| {:20} | {:7.1} units |",
+            "  | {:20} | {:7.1} units |",
             &data[product_id].name,
             amount_per_day * 30.0
         );
@@ -233,7 +452,7 @@ fn simulate(
             * (transport.kind.base_price + transport.tiles * transport.kind.tile_price) as f64;
         monthly_operational_costs += price_per_month;
         println!(
-            "| {kind:7} | {amount:7.1} deliveries | {tiles:7} tiles | {total:7.1}k | {description:40} |",
+            "  | {kind:7} | {amount:7.1} deliveries | {tiles:7} tiles | {total:7.1}k | {description:40} |",
             kind = &transport.kind.name,
             amount = transport.amount_per_day * 30.0,
             tiles = transport.tiles,
