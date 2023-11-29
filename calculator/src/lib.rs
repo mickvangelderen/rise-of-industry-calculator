@@ -34,7 +34,10 @@ impl Recipe {
     }
 
     pub fn easy_chains_days(&self) -> f64 {
-        f64::max((self.days as f64 / EASY_CHAIN_DAYS).round() * EASY_CHAIN_DAYS, EASY_CHAIN_DAYS)
+        f64::max(
+            (self.days as f64 / EASY_CHAIN_DAYS).round() * EASY_CHAIN_DAYS,
+            EASY_CHAIN_DAYS,
+        )
     }
 }
 

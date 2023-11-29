@@ -2,7 +2,7 @@
 
 use std::{collections::HashMap, rc::Rc};
 
-use rise_of_industry_calculator::{BuildingId, GameData, ModuleId, ProductId, RecipeId};
+use rise_of_industry_calculator::{BuildingId, GameData, ModuleId, Product, ProductId, RecipeId};
 
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
 // This variable is called `buildingCostPercentage` and comes from the prefab files.
@@ -144,7 +144,7 @@ fn main() {
         },
     );
 
-    let cocoa_plantations = (
+    let cocoa_plantations: (i64, BuildingInstance) = (
         2i64,
         BuildingInstance {
             id: plantation.id,
@@ -154,31 +154,46 @@ fn main() {
         },
     );
 
-    // let truck = Rc::new(TransportKind {
-    //     name: "Truck".to_string(),
-    //     base_price: 250.0,
-    //     tile_price: 10.0,
-    // });
+    let truck = Rc::new(TransportKind {
+        name: "Truck".to_string(),
+        base_price: 250,
+        tile_price: 10,
+    });
 
-    // let transports = vec![
-    //     Transport {
-    //         kind: Rc::clone(&truck),
-    //         description: "Water to Cocoa Plantations".to_string(),
-    //         tiles: 10,
-    //         amount_per_day: water_harvesters.0 as f64
-    //             * water_harvesters.1.production_per_day_of(&water).unwrap(),
-    //     },
-    //     Transport {
-    //         kind: Rc::clone(&truck),
-    //         description: "Cocoa Plantations to Farmers Market".to_string(),
-    //         tiles: 100,
-    //         amount_per_day: cocoa_plantations.0 as f64
-    //             * cocoa_plantations.1.production_per_day_of(&cocoa).unwrap(),
-    //     },
-    // ];
+    let transports = vec![
+        Transport {
+            kind: Rc::clone(&truck),
+            description: "Water to Cocoa Plantations".to_string(),
+            tiles: 10,
+            amount_per_day: water_harvesters.0 as f64
+                * water_harvesters
+                    .1
+                    .production_per_day_of(data, water.id)
+                    .unwrap(),
+        },
+        Transport {
+            kind: Rc::clone(&truck),
+            description: "Cocoa Plantations to Farmers Market".to_string(),
+            tiles: 100,
+            amount_per_day: cocoa_plantations.0 as f64
+                * cocoa_plantations
+                    .1
+                    .production_per_day_of(data, cocoa.id)
+                    .unwrap(),
+        },
+    ];
 
     let building_groups = vec![water_harvesters, cocoa_plantations];
 
+    simulate(data, building_groups, cocoa, transports);
+}
+
+fn simulate(
+    data: &GameData,
+    building_groups: Vec<(i64, BuildingInstance)>,
+    cocoa: &Product,
+    transports: Vec<Transport>,
+) {
     let mut monthly_operational_costs = building_groups
         .iter()
         .map(|&(count, ref instance)| count as f64 * instance.upkeep_per_month(data))
@@ -194,38 +209,39 @@ fn main() {
         let recipe = &data[instance.recipe_id];
         for ingredient in recipe.products(data) {
             *production_map.entry(ingredient.product.id).or_default() +=
-                count as f64 * instance.productivity() * ingredient.amount as f64 / recipe.easy_chains_days();
+                count as f64 * instance.productivity() * ingredient.amount as f64
+                    / recipe.easy_chains_days();
         }
     }
 
     let monthly_revenue = production_map[&cocoa.id] * 30.0 * 12661.0;
 
-    println!("production:");
+    println!("production per month:");
     for (&product_id, &amount_per_day) in &production_map {
         println!(
-            "| {:20} | {:7.1} per month |",
+            "| {:20} | {:7.1} units |",
             &data[product_id].name,
             amount_per_day * 30.0
         );
     }
     println!();
 
-    // println!("transportation:");
-    // for transport in &transports {
-    //     let total_per_month = transport.amount_per_day
-    //         * 30.0
-    //         * (transport.kind.base_price + transport.tiles as f64 * transport.kind.tile_price);
-    //     monthly_operational_costs += total_per_month;
-    //     println!(
-    //         "| {kind:7} | {amount:7.1} | {tiles:7} | {total:7}k per month | {description:40} |",
-    //         kind = &transport.kind.name,
-    //         amount = transport.amount_per_day * 30.0,
-    //         tiles = transport.tiles,
-    //         total = total_per_month / 1000.0,
-    //         description = transport.description,
-    //     )
-    // }
-    // println!();
+    println!("transportation costs per month:");
+    for transport in &transports {
+        let price_per_month = transport.amount_per_day
+            * 30.0
+            * (transport.kind.base_price + transport.tiles * transport.kind.tile_price) as f64;
+        monthly_operational_costs += price_per_month;
+        println!(
+            "| {kind:7} | {amount:7.1} deliveries | {tiles:7} tiles | {total:7.1}k | {description:40} |",
+            kind = &transport.kind.name,
+            amount = transport.amount_per_day * 30.0,
+            tiles = transport.tiles,
+            total = price_per_month / 1000.0,
+            description = transport.description,
+        )
+    }
+    println!();
 
     let monthly_profit = monthly_revenue - monthly_operational_costs;
 
