@@ -11,10 +11,12 @@ const BASE_COST_TO_UPKEEP: f64 = 0.025;
 type Currency = f64;
 
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\BuildingEfficiency.cs
+#[derive(Default)]
 enum BuildingEfficiency {
     P025,
     P050,
     P075,
+    #[default]
     P100,
     P125,
     P150,
@@ -37,12 +39,6 @@ impl BuildingEfficiency {
     // See Assets\Scripts\Assembly-CSharp\ProjectAutomata\ContentCreationModels\CCCBuildingEfficiencyModel.cs.
     fn upkeep(&self) -> f64 {
         self.production()
-    }
-}
-
-impl Default for BuildingEfficiency {
-    fn default() -> Self {
-        BuildingEfficiency::P100
     }
 }
 
@@ -203,12 +199,12 @@ fn main() {
     let mut monthly_operational_costs = building_groups
         .iter()
         .map(|&(count, ref instance)| count as f64 * instance.upkeep_per_month())
-        .sum::<Currency>() as f64;
+        .sum::<Currency>();
 
     let initial_costs = building_groups
         .iter()
         .map(|&(count, ref instance)| count as f64 * instance.purchase_price())
-        .sum::<Currency>() as f64;
+        .sum::<Currency>();
 
     let mut production_map: HashMap<Rc<ProductKind>, f64> = HashMap::new();
     for &(count, ref instance) in &building_groups {
@@ -234,8 +230,7 @@ fn main() {
     for transport in &transports {
         let total_per_month = transport.amount_per_day
             * 30.0
-            * (transport.kind.base_price + transport.tiles as f64 * transport.kind.tile_price)
-                as f64;
+            * (transport.kind.base_price + transport.tiles as f64 * transport.kind.tile_price);
         monthly_operational_costs += total_per_month;
         println!(
             "| {kind:7} | {amount:7.1} | {tiles:7} | {total:7}k per month | {description:40} |",

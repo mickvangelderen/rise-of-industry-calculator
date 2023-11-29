@@ -3,88 +3,181 @@
 // Import assets exported from the game files with https://assetripper.github.io/AssetRipper/articles/Downloads.html.
 
 use std::{
+    borrow::Cow,
+    collections::BTreeMap,
     ffi::{OsStr, OsString},
-    path::{Path, PathBuf}, collections::BTreeMap, fs::FileType,
+    fs::FileType,
+    path::{Path, PathBuf},
 };
 
 use log::{debug, info, warn};
 use serde::{Deserialize, Serialize};
 
-struct Script<'a> {
-    path: &'a str,
-    guid: &'a str,
-}
-
-const RECIPE_SCRIPT: Script<'static> = Script {
-    path: "ExportedProject/Assets/Scripts/Assembly-CSharp/ProjectAutomata/Recipe.cs",
-    guid: "86eee4258519014ad55f04d4a92d2556",
-};
-
-const PRODUCT_DEFINITION_GUID: &str = "23940808cf3b3e11ddbcefa65cb07256";
-const PRODUCT_DEFINITION_ROOTS: &[&str] = &[
-    "ExportedProject/Assets/MonoBehavior",
-    "ExportedProject/Assets/Resources/gamedata",
-];
-
 #[derive(Debug, Deserialize)]
-struct MonoBehaviourDocument {
-    #[serde(rename = "MonoBehaviour")]
-    mono_behavior: serde_yaml::Value,
+pub struct MetaDocument {
+    #[serde(rename = "guid")]
+    pub guid: String,
 }
 
 #[derive(Debug, Deserialize)]
-struct MonoBehaviourMetaData {
+pub struct MonoBehaviourMeta {
     #[serde(rename = "m_Script")]
-    script: ScriptReference,
+    pub script: ScriptReference,
+}
+
+#[derive(Debug)]
+pub enum Document {
+    Known(KnownDocument),
+    Unknown(serde_yaml::Value),
 }
 
 #[derive(Debug, Deserialize)]
-struct ScriptReference {
+pub enum KnownDocument {
+    MonoBehaviour(MonoBehaviour),
+}
+
+impl<'de> Deserialize<'de> for Document {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let value = serde_yaml::Value::deserialize(deserializer)?;
+
+        #[derive(Deserialize)]
+        #[serde(deny_unknown_fields)]
+        struct MonoBehaviourDocument {
+            #[serde(rename = "MonoBehaviour")]
+            mono_behaviour: serde_yaml::Value,
+        }
+
+        Ok(
+            if let Ok(document) = MonoBehaviourDocument::deserialize(&value) {
+                Document::Known(KnownDocument::MonoBehaviour(
+                    MonoBehaviour::deserialize(document.mono_behaviour)
+                        .map_err(serde::de::Error::custom)?,
+                ))
+            } else {
+                Document::Unknown(value)
+            },
+        )
+    }
+}
+
+#[derive(Debug, Deserialize)]
+#[cfg_attr(test, derive(Eq, PartialEq))]
+pub struct ScriptReference {
     // #[serde(rename = "")]
     // file_id: u64,
     #[serde(rename = "guid")]
-    guid: String,
+    pub guid: String,
     // #[serde(rename = "type")]
     // ty: u64,
 }
 
+#[derive(Debug)]
+pub enum MonoBehaviour {
+    Known(KnownMonoBehaviour),
+    Unknown(serde_yaml::Value),
+}
+
+#[derive(Debug)]
+pub enum KnownMonoBehaviour {
+    Recipe(RecipeMonoBehaviour),
+    ProductDefinition(ProductDefinitionMonoBehaviour),
+    GathererHub(GathererHubMonoBehaviour),
+    Building(BuildingMonoBehaviour),
+}
+
+impl<'de> Deserialize<'de> for MonoBehaviour {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let value = serde_yaml::Value::deserialize(deserializer)?;
+
+        let meta = MonoBehaviourMeta::deserialize(&value).map_err(serde::de::Error::custom)?;
+
+        Ok(match meta.script.guid.as_str() {
+            "86eee4258519014ad55f04d4a92d2556" => MonoBehaviour::Known(KnownMonoBehaviour::Recipe(
+                Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+            )),
+            "23940808cf3b3e11ddbcefa65cb07256" => {
+                MonoBehaviour::Known(KnownMonoBehaviour::ProductDefinition(
+                    Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+                ))
+            }
+            "2cafc42823a354fcf7c0170bea0bcb7d" => {
+                MonoBehaviour::Known(KnownMonoBehaviour::GathererHub(
+                    Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+                ))
+            }
+            "6219336138908849fca2c4c8fb8c7e83" => {
+                MonoBehaviour::Known(KnownMonoBehaviour::Building(
+                    Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+                ))
+            }
+            _ => MonoBehaviour::Unknown(value),
+        })
+    }
+}
+
 #[derive(Debug, Deserialize)]
-struct RecipeMonoBehaviour {
+pub struct RecipeMonoBehaviour {
     #[serde(rename = "Title")]
-    name: String,
+    pub name: String,
 
     #[serde(rename = "ingredients")]
-    ingredients: ProductList,
+    pub ingredients: ProductList,
 
     #[serde(rename = "result")]
-    result: ProductList,
+    pub result: ProductList,
+
+    #[serde(rename = "requiredModules")]
+    pub required_modules: Vec<ScriptReference>,
 }
 
 #[derive(Debug, Deserialize)]
-struct ProductList {
+pub struct ProductList {
     #[serde(rename = "entries")]
-    entries: Vec<Ingredient>,
+    pub entries: Vec<Ingredient>,
 }
 
 #[derive(Debug, Deserialize)]
-struct Ingredient {
+pub struct Ingredient {
     #[serde(rename = "_definition")]
-    definition: ScriptReference,
+    pub definition: ScriptReference,
 
     #[serde(rename = "amount")]
-    amount: u64,
+    pub amount: u64,
 }
 
 #[derive(Debug, Deserialize)]
-struct ProductMonoBehavior {
+pub struct ProductDefinitionMonoBehaviour {
     #[serde(rename = "productName")]
-    title: String,
-
-    #[serde(rename = "price")]
-    ingredients: ProductList,
-
-    #[serde(rename = "result")]
-    result: ProductList,
+    pub name: String,
 }
 
-const PRODUCT_GUID: &str = "140d8ecb3bb64d6ce76eb1e625f1a7a8";
+#[derive(Debug, Deserialize)]
+#[cfg_attr(test, derive(Eq, PartialEq))]
+pub struct GathererHubMonoBehaviour {
+    #[serde(rename = "availableRecipes")]
+    pub available_recipes: Vec<ScriptReference>,
+}
+
+#[derive(Debug, Deserialize)]
+#[cfg_attr(test, derive(Eq, PartialEq))]
+pub struct BuildingMonoBehaviour {
+    #[serde(rename = "buildingName")]
+    pub name: String,
+
+    #[serde(rename = "baseCost")]
+    pub base_cost: i64,
+}
+
+pub fn rewrite_yaml_tags(value: &str) -> Cow<'_, str> {
+    let regex = regex::RegexBuilder::new("^---.*$")
+        .multi_line(true)
+        .build()
+        .unwrap();
+    regex.replace_all(value, "---")
+}

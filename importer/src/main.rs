@@ -1,98 +1,195 @@
-use std::{
-    ffi::{OsStr, OsString},
-    path::{Path, PathBuf}, collections::BTreeMap, fs::FileType,
-};
+// use std::{
+//     collections::BTreeMap,
+//     ffi::{OsStr, OsString},
+//     fs::FileType,
+//     path::{Path, PathBuf},
+// };
 
-use log::{debug, info, warn};
-use serde::{Deserialize, Serialize};
-use rise_of_industry_importer::*;
+// use ignore::DirEntry;
+// use log::{debug, info, warn};
+// use rise_of_industry_calculator::serialization::{
+//     CountedProductId, GameData, Module, Product, Recipe,
+// };
+// use rise_of_industry_importer::*;
+// use serde::{Deserialize, Serialize};
 
-fn main() {
-    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn")).init();
+// fn main() {
+//     env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn")).init();
 
-    // let asset_path: PathBuf = std::env::args_os()
-    //     .nth(1)
-    //     .expect("Pass the path to the assets")
-    //     .into();
+//     // let asset_path: PathBuf = std::env::args_os()
+//     //     .nth(1)
+//     //     .expect("Pass the path to the assets")
+//     //     .into();
 
-    let asset_path = PathBuf::from("import_data");
+//     let input_path = PathBuf::from("rise-of-industry-data");
+//     let output_path = PathBuf::from("data.json");
 
-    let walk = ignore::Walk::new(asset_path);
-    // let walk = ignore::Walk::new(asset_path.join("ExportedProject\\Assets\\Resources\\gamedata"));
+//     let walk = ignore::Walk::new(input_path);
 
-    let mut extension_to_files: BTreeMap<OsString, Vec<(PathBuf, u64)>> = BTreeMap::new();
-    
-    for entry in walk {
-        let entry = match entry {
-            Ok(entry) => entry,
-            Err(error) => {
-                warn!("Encountered an error while walking the assets: {error:?}.");
-                continue;
-            }
-        };
+//     let mut game_data = GameData::default();
 
-        let Ok(meta) = entry.metadata().map_err(|error| {
-            warn!(
-                "Failed to get file {:?} metadata: {error:?}.",
-                entry.path().display()
-            );
-        }) else {
-            continue;
-        };
+//     for entry in walk {
+//         let entry = match entry {
+//             Ok(entry) => entry,
+//             Err(error) => {
+//                 warn!("Encountered an error while walking the assets: {error:?}.");
+//                 continue;
+//             }
+//         };
 
-        if (!meta.file_type().is_file()) {
-            continue;
-        }
+//         match entry.path().extension() {
+//             Some(ext) if ext == OsStr::new("asset") => {
+//                 process_asset(&mut game_data, entry);
+//             }
+//             Some(ext) if ext == OsStr::new("prefab") => {
+//                 process_prefab(&mut game_data, entry);
+//             }
+//             _ => {
+//                 continue;
+//             }
+//         }
+//     }
 
-        let Some(extension) = entry.path().extension() else {
-            continue;
-        };
+//     std::fs::write(
+//         output_path,
+//         serde_json::to_string_pretty(&game_data).unwrap(),
+//     )
+//     .unwrap();
+// }
 
-        extension_to_files.entry(extension.to_owned()).or_default().push((entry.path().to_owned(), meta.len()));
+// fn read_yaml(path: &Path) -> std::io::Result<String> {
+//     let contents = std::fs::read_to_string(path)?;
+//     Ok(rewrite_yaml_tags(&contents).to_string())
+// }
 
-        // let Some(ext) = entry.path().extension() {
-        //     Some(ext) if ext == OsStr::new("asset") || ext == OsStr::new("prefab") => {
-        //         // Great.
-        //     }
-        //     _ => {
-        //         continue;
-        //     }
-        // }
+// fn read_meta_yaml(original_path: &Path) -> std::io::Result<MetaDocument> {
+//     let file_path = {
+//         let mut file_path = original_path.file_name().unwrap().to_owned();
+//         file_path.push(".meta");
+//         original_path.with_file_name(file_path)
+//     };
+//     let meta_contents = read_yaml(&file_path)?;
+//     Ok(serde_yaml::from_str(&meta_contents).unwrap())
+// }
 
-        // let contents = std::fs::read_to_string(entry.path()).unwrap();
-        // let regex = regex::RegexBuilder::new("^---.*$")
-        //     .multi_line(true)
-        //     .build()
-        //     .unwrap();
-        // let contents = regex.replace_all(&contents, "---");
+// fn process_asset(game_data: &mut GameData, entry: DirEntry) {
+//     let contents = read_yaml(entry.path()).unwrap();
+//     for deserializer in serde_yaml::Deserializer::from_str(&contents) {
+//         let Ok(document) = MonoBehaviourDocument::deserialize(deserializer) else {
+//             continue;
+//         };
 
-        // for deserializer in serde_yaml::Deserializer::from_str(&contents) {
-        //     let Ok(document) = MonoBehaviourDocument::deserialize(deserializer) else {
-        //         continue;
-        //     };
+//         match document.script_guid() {
+//             x if x == RecipeMonoBehaviour::GUID => {
+//                 info!("Found recipe at {:?}", entry.path().display());
+//                 let meta_document = read_meta_yaml(entry.path()).unwrap();
+//                 let recipe = RecipeMonoBehaviour::deserialize(&document.mono_behavior).unwrap();
+//                 process_recipe(game_data, meta_document, recipe);
+//             }
+//             x if x == ProductDefinitionMonoBehaviour::GUID => {
+//                 info!("Found product definition at {:?}", entry.path().display());
+//                 let meta_document = read_meta_yaml(entry.path()).unwrap();
+//                 let product =
+//                     ProductDefinitionMonoBehaviour::deserialize(&document.mono_behavior).unwrap();
+//                 process_product(game_data, meta_document, product);
+//             }
+//             _ => {
+//                 continue;
+//             }
+//         }
+//     }
+// }
 
-        //     let Ok(meta_data) = MonoBehaviourMetaData::deserialize(&document.mono_behavior) else {
-        //         continue;
-        //     };
+// fn process_recipe(
+//     game_data: &mut GameData,
+//     meta_document: MetaDocument,
+//     recipe: RecipeMonoBehaviour,
+// ) {
+//     assert!(game_data
+//         .recipes
+//         .insert(
+//             meta_document.guid,
+//             Recipe {
+//                 name: recipe.name,
+//                 products: std::iter::Iterator::chain(
+//                     recipe
+//                         .ingredients
+//                         .entries
+//                         .into_iter()
+//                         .map(|ingredient| CountedProductId {
+//                             product_id: ingredient.definition.guid,
+//                             count: -(i64::try_from(ingredient.amount).unwrap()),
+//                         }),
+//                     recipe
+//                         .result
+//                         .entries
+//                         .into_iter()
+//                         .map(|ingredient| CountedProductId {
+//                             product_id: ingredient.definition.guid,
+//                             count: i64::try_from(ingredient.amount).unwrap(),
+//                         }),
+//                 )
+//                 .collect(),
+//             }
+//         )
+//         .is_none());
+// }
 
-        //     match meta_data.script.guid {
-        //         x if x == RECIPE_SCRIPT.guid => {
-        //             info!("Found recipe at {:?}", entry.path().display());
-        //             let recipe = RecipeMonoBehaviour::deserialize(&document.mono_behavior).unwrap();
-        //         }
-        //         x if x == PRODUCT_GUID => {}
-        //         _ => {
-        //             continue;
-        //         }
-        //     }
-        // }
-    }
+// fn process_product(
+//     game_data: &mut GameData,
+//     meta_document: MetaDocument,
+//     product: ProductDefinitionMonoBehaviour,
+// ) {
+//     assert!(game_data
+//         .products
+//         .insert(meta_document.guid, Product { name: product.name })
+//         .is_none());
+// }
 
-    for (extension, files) in &extension_to_files {
-        let total_bytes = files.iter().map(|&(_, len)| len).sum::<u64>();
-        println!("{} ({total_bytes} bytes):", extension.to_string_lossy());
-        for (file, len) in files {
-            println!("  {:?} ({len} bytes)", file.display());
-        }
-    }
-}
+// fn process_prefab(game_data: &mut GameData, entry: DirEntry) {
+//     let contents = read_yaml(entry.path()).unwrap();
+//     for deserializer in serde_yaml::Deserializer::from_str(&contents) {
+//         let Ok(document) = MonoBehaviourDocument::deserialize(deserializer) else {
+//             continue;
+//         };
+
+//         let Ok(meta_data) = MonoBehaviourMetaData::deserialize(&document.mono_behavior) else {
+//             continue;
+//         };
+
+//         match meta_data.script.guid {
+//             x if x == GATHERER_HUB_SCRIPT.guid => {
+//                 info!("Found module at {:?}", entry.path().display());
+//                 let meta_document = read_meta_yaml(entry.path()).unwrap();
+//                 let module = GathererHubMonoBehaviour::deserialize(&document.mono_behavior).unwrap();
+//                 process_module(game_data, meta_document, module);
+//             }
+//             _ => {
+//                 continue;
+//             }
+//         }
+//     }
+// }
+
+// fn process_module(
+//     game_data: &mut GameData,
+//     meta_document: MetaDocument,
+//     module: GathererHubMonoBehaviour,
+// ) {
+//     assert!(game_data
+//         .modules
+//         .insert(
+//             meta_document.guid,
+//             Module {
+//                 name: module.name,
+//                 available_recipes: module
+//                     .available_recipes
+//                     .into_iter()
+//                     .map(|x| x.guid)
+//                     .collect(),
+//             }
+//         )
+//         .is_none());
+// }
+
+fn main() {}

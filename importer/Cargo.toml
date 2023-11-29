@@ -16,3 +16,5 @@ log = "0.4.20"
 regex = "1.10.2"
 serde = { version = "1.0.193", features = ["derive"] }
 serde_yaml = "0.9.27"
+rise-of-industry-calculator = { path = "../calculator" }
+serde_json = "1.0.108"
