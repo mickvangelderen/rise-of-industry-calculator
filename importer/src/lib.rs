@@ -63,6 +63,8 @@ impl<'de> Deserialize<'de> for Document {
     }
 }
 
+// TODO: Address that this is serialized as { fileID: 0 }, probably when it is unset. Does not
+// affect the files we want to read though so...
 #[derive(Debug, Deserialize)]
 #[cfg_attr(test, derive(Eq, PartialEq))]
 pub struct ScriptReference {
@@ -85,8 +87,43 @@ pub enum KnownMonoBehaviour {
     Recipe(RecipeMonoBehaviour),
     ProductDefinition(ProductDefinitionMonoBehaviour),
     GathererHub(GathererHubMonoBehaviour),
+    Factory(FactoryMonoBehaviour),
+    Harvester(HarvesterMonoBehaviour),
     Building(BuildingMonoBehaviour),
 }
+
+// Field: DisconnectedHarvester
+const FIELD_GUID: &str = "37877dc8090b6c86ab7ebdd152757ce2";
+
+// DisconnectedHarvester: Harvester
+const DISCONNECTED_HARVESTER: &str = "729682943bcacee6c3bfcfa694f8d28f";
+
+// Harvester: Module
+const HARVESTER_GUID: &str = "9e91acce255b80b153adaea3a62e14f1";
+
+// Module: BuildingBehaviour
+const MODULE_GUID: &str = "e2441e19b10b3db8d7730d6b7c90f92c";
+
+// Farm: GathererHub
+const FARM_GUID: &str = "48f60db05a30e6f6a2c4f58e376db169";
+
+// GathererHub: RecipeUser
+const GATHERER_HUB_GUID: &str = "2cafc42823a354fcf7c0170bea0bcb7d";
+
+// Factory: RecipeUser
+const FACTORY_GUID: &str = "38614187f7f363776435354b6ad3dd66";
+
+// RecipeUser: BuildingBehaviour
+const RECIPE_USER_GUID: &str = "046ea3fff0e361ee25fd49004ac10ed9";
+
+// Recipe
+const RECIPE_GUID: &str = "86eee4258519014ad55f04d4a92d2556";
+
+// ProductDefinition
+const PRODUCT_DEFINITION_GUID: &str = "23940808cf3b3e11ddbcefa65cb07256";
+
+// Building
+const BUILDING_GUID: &str = "6219336138908849fca2c4c8fb8c7e83";
 
 impl<'de> Deserialize<'de> for MonoBehaviour {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
@@ -98,24 +135,26 @@ impl<'de> Deserialize<'de> for MonoBehaviour {
         let meta = MonoBehaviourMeta::deserialize(&value).map_err(serde::de::Error::custom)?;
 
         Ok(match meta.script.guid.as_str() {
-            "86eee4258519014ad55f04d4a92d2556" => MonoBehaviour::Known(KnownMonoBehaviour::Recipe(
+            RECIPE_GUID => MonoBehaviour::Known(KnownMonoBehaviour::Recipe(
                 Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
             )),
-            "23940808cf3b3e11ddbcefa65cb07256" => {
-                MonoBehaviour::Known(KnownMonoBehaviour::ProductDefinition(
+            PRODUCT_DEFINITION_GUID => MonoBehaviour::Known(KnownMonoBehaviour::ProductDefinition(
+                Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+            )),
+            FARM_GUID | GATHERER_HUB_GUID => MonoBehaviour::Known(KnownMonoBehaviour::GathererHub(
+                Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+            )),
+            FACTORY_GUID => MonoBehaviour::Known(KnownMonoBehaviour::Factory(
+                Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+            )),
+            FIELD_GUID | DISCONNECTED_HARVESTER | HARVESTER_GUID => {
+                MonoBehaviour::Known(KnownMonoBehaviour::Harvester(
                     Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
                 ))
             }
-            "2cafc42823a354fcf7c0170bea0bcb7d" => {
-                MonoBehaviour::Known(KnownMonoBehaviour::GathererHub(
-                    Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
-                ))
-            }
-            "6219336138908849fca2c4c8fb8c7e83" => {
-                MonoBehaviour::Known(KnownMonoBehaviour::Building(
-                    Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
-                ))
-            }
+            BUILDING_GUID => MonoBehaviour::Known(KnownMonoBehaviour::Building(
+                Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+            )),
             _ => MonoBehaviour::Unknown(value),
         })
     }
@@ -131,6 +170,10 @@ pub struct RecipeMonoBehaviour {
 
     #[serde(rename = "result")]
     pub result: ProductList,
+
+    /// Time for recipe to complete in days.
+    #[serde(rename = "_gameDays")]
+    pub days: i64,
 
     #[serde(rename = "requiredModules")]
     pub required_modules: Vec<ScriptReference>,
@@ -148,7 +191,7 @@ pub struct Ingredient {
     pub definition: ScriptReference,
 
     #[serde(rename = "amount")]
-    pub amount: u64,
+    pub amount: i64,
 }
 
 #[derive(Debug, Deserialize)]
@@ -158,14 +201,18 @@ pub struct ProductDefinitionMonoBehaviour {
 }
 
 #[derive(Debug, Deserialize)]
-#[cfg_attr(test, derive(Eq, PartialEq))]
 pub struct GathererHubMonoBehaviour {
     #[serde(rename = "availableRecipes")]
     pub available_recipes: Vec<ScriptReference>,
 }
 
 #[derive(Debug, Deserialize)]
-#[cfg_attr(test, derive(Eq, PartialEq))]
+pub struct HarvesterMonoBehaviour {
+    #[serde(rename = "consumption")]
+    pub consumption: i64,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct BuildingMonoBehaviour {
     #[serde(rename = "buildingName")]
     pub name: String,
@@ -174,6 +221,14 @@ pub struct BuildingMonoBehaviour {
     pub base_cost: i64,
 }
 
+#[derive(Debug, Deserialize)]
+pub struct FactoryMonoBehaviour {
+    #[serde(rename = "availableRecipes")]
+    pub available_recipes: Vec<ScriptReference>,
+}
+
+/// This operation is necessary to allow `serde_yaml` to parse Unity's asset and prefab files. There
+/// may be better solutions but this worked for me.
 pub fn rewrite_yaml_tags(value: &str) -> Cow<'_, str> {
     let regex = regex::RegexBuilder::new("^---.*$")
         .multi_line(true)

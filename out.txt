@@ -1,0 +1,9 @@
+production:
+| Water                |     0.0 per month |
+| Cocoa                |    20.0 per month |
+
+operational costs:           52k
+revenue:                    253k
+profit:                     201k
+initial costs:             2100k
+return on investment:      9.33%

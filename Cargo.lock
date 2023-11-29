@@ -262,9 +262,8 @@ dependencies = [
  "env_logger",
  "ignore",
  "log",
- "regex",
  "serde",
- "serde_yaml",
+ "serde_json",
 ]
 
 [[package]]

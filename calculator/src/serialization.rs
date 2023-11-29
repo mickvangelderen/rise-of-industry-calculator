@@ -3,7 +3,8 @@ use std::collections::BTreeMap;
 
 type ProductId = String;
 type RecipeId = String;
-type ModuleId = String;
+type BuildingModuleId = String;
+type BuildingId = String;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Product {
@@ -16,19 +17,28 @@ pub struct Recipe {
     // pub id: RecipeId,
     pub name: String,
     pub products: Vec<CountedProductId>,
-    pub required_modules: Vec<ModuleId>,
+    pub days: i64,
+    pub required_modules: Vec<BuildingModuleId>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct CountedProductId {
     pub product_id: ProductId,
-    pub count: i64,
+    pub amount: i64,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct Module {
+pub struct BuildingModule {
     // pub id: ModuleId,
     pub name: String,
+    pub base_cost: i64,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Building {
+    // pub id: ModuleId,
+    pub name: String,
+    pub base_cost: i64,
     pub available_recipes: Vec<RecipeId>,
 }
 
@@ -36,5 +46,6 @@ pub struct Module {
 pub struct GameData {
     pub products: BTreeMap<ProductId, Product>,
     pub recipes: BTreeMap<RecipeId, Recipe>,
-    pub modules: BTreeMap<ModuleId, Module>,
+    pub modules: BTreeMap<BuildingModuleId, BuildingModule>,
+    pub buildings: BTreeMap<BuildingId, Building>,
 }

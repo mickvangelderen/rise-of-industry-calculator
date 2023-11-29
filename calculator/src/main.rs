@@ -2,17 +2,17 @@
 
 use std::{collections::HashMap, rc::Rc};
 
+use rise_of_industry_calculator::{BuildingId, GameData, ModuleId, ProductId, RecipeId};
+
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
 // This variable is called `buildingCostPercentage` and comes from the prefab files.
 // While it varies for some logistic buildings, it's the same for everything else so I'll just hard code it.
 /// The ratio of upkeep to base cost.
 const BASE_COST_TO_UPKEEP: f64 = 0.025;
 
-type Currency = f64;
-
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\BuildingEfficiency.cs
 #[derive(Default)]
-enum BuildingEfficiency {
+pub enum BuildingEfficiency {
     P025,
     P050,
     P075,
@@ -24,7 +24,7 @@ enum BuildingEfficiency {
 }
 
 impl BuildingEfficiency {
-    fn production(&self) -> f64 {
+    pub fn production(&self) -> f64 {
         match self {
             BuildingEfficiency::P025 => 0.25,
             BuildingEfficiency::P050 => 0.50,
@@ -37,117 +37,109 @@ impl BuildingEfficiency {
     }
 
     // See Assets\Scripts\Assembly-CSharp\ProjectAutomata\ContentCreationModels\CCCBuildingEfficiencyModel.cs.
-    fn upkeep(&self) -> f64 {
+    pub fn upkeep(&self) -> f64 {
         self.production()
     }
 }
 
-struct ModuleKind {
-    name: String,
-    base_cost: Currency,
-}
-
-struct BuildingKind {
-    name: String,
-    base_cost: Currency,
-    modules: Vec<Rc<ModuleKind>>,
-}
-
-#[derive(Hash, Eq, PartialEq)]
-struct ProductKind {
-    name: String,
-}
-
-struct Ingredient {
-    kind: Rc<ProductKind>,
-    amount_per_day: f64,
-}
-
-struct BuildingInstance {
-    kind: Rc<BuildingKind>,
-    modules: Option<(u64, Rc<ModuleKind>)>,
-    recipe: Vec<Ingredient>,
-    efficiency: BuildingEfficiency,
+pub struct BuildingInstance {
+    pub id: BuildingId,
+    pub modules: Option<(i64, ModuleId)>,
+    pub recipe_id: RecipeId,
+    pub efficiency: BuildingEfficiency,
 }
 
 impl BuildingInstance {
-    fn upkeep_per_month(&self) -> Currency {
-        self.efficiency.upkeep() * self.purchase_price() * BASE_COST_TO_UPKEEP
+    pub fn upkeep_per_month(&self, data: &GameData) -> f64 {
+        self.efficiency.upkeep() * self.purchase_price(data) as f64 * BASE_COST_TO_UPKEEP
     }
 
-    fn purchase_price(&self) -> Currency {
-        self.kind.base_cost
+    pub fn purchase_price(&self, data: &GameData) -> f64 {
+        data[self.id].base_cost as f64
             + self
                 .modules
                 .as_ref()
-                .map_or(0.0, |&(count, ref kind)| count as f64 * kind.base_cost)
+                .map_or(0, |&(count, module_id)| count * data[module_id].base_cost)
+                as f64
     }
 
-    fn productivity(&self) -> f64 {
+    pub fn productivity(&self) -> f64 {
         self.efficiency.production() * self.modules.as_ref().map_or(1, |&(count, _)| count) as f64
     }
 
-    fn production_per_day_of(&self, product: &Rc<ProductKind>) -> Option<f64> {
-        self.recipe
-            .iter()
-            .find(|&x| &x.kind == product)
-            .map(|ingredient| self.productivity() * ingredient.amount_per_day)
+    pub fn production_per_day_of(&self, data: &GameData, product_id: ProductId) -> Option<f64> {
+        let recipe = &data[self.recipe_id];
+        recipe
+            .products(data)
+            .find(|x| x.product.id == product_id)
+            .map(|x| self.productivity() * x.amount as f64 / recipe.easy_chains_days())
     }
 }
 
-struct TransportKind {
-    name: String,
-    base_price: Currency,
-    tile_price: Currency,
+pub struct TransportKind {
+    pub name: String,
+    pub base_price: i64,
+    pub tile_price: i64,
 }
 
-struct Transport {
-    kind: Rc<TransportKind>,
-    description: String,
-    tiles: i64,
-    amount_per_day: f64,
+pub struct Transport {
+    pub kind: Rc<TransportKind>,
+    pub description: String,
+    pub tiles: i64,
+    pub amount_per_day: f64,
+}
+
+trait ExactlyOne: Iterator + Sized {
+    fn exactly_one(self) -> Option<Self::Item>;
+}
+
+impl<T> ExactlyOne for T
+where
+    T: Iterator,
+{
+    fn exactly_one(mut self) -> Option<Self::Item> {
+        match (self.next(), self.next()) {
+            (Some(first), None) => Some(first),
+            _ => None,
+        }
+    }
 }
 
 fn main() {
-    let plantation_kind = Rc::new(BuildingKind {
-        name: "Plantation".to_string(),
-        base_cost: 175000.0,
-        modules: vec![], // TODO
-    });
+    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn")).init();
 
-    let cocoa_field_kind = Rc::new(ModuleKind {
-        name: "Cocoa Field".to_string(),
-        base_cost: 125000.0,
-    });
+    let data = &GameData::load(std::path::Path::new("data.json")).unwrap();
 
-    let water_harvester_kind = Rc::new(BuildingKind {
-        name: "Water Harvester".to_string(),
-        base_cost: 150000.0,
-        modules: vec![], // TODO
-    });
+    let plantation = data.buildings().find(|&x| x.name == "PLANTATION").unwrap();
+    let cocoa = data.products().find(|&x| x.name == "Cocoa").unwrap();
+    let cocoa_recipe = plantation
+        .available_recipes(data)
+        .find(|&recipe| recipe.name == "Cocoas")
+        .unwrap();
+    let cocoa_field = cocoa_recipe.required_modules(data).exactly_one().unwrap();
 
-    let water_harvester_silo_kind = Rc::new(ModuleKind {
-        name: "Silo".to_string(),
-        base_cost: 100000.0,
-    });
-
-    let water = Rc::new(ProductKind {
-        name: "Water".to_string(),
-    });
-
-    let cocoa = Rc::new(ProductKind {
-        name: "Cocoa".to_string(),
-    });
+    let water_siphon = data
+        .buildings()
+        .find(|&x| x.name == "WATER SIPHON")
+        .unwrap();
+    let water = data.products().find(|&x| x.name == "Water").unwrap();
+    let water_recipe = water_siphon
+        .available_recipes(data)
+        .filter(|&recipe| {
+            recipe
+                .products(data)
+                .any(|x| x.product.id == water.id && x.amount > 0)
+        })
+        .exactly_one()
+        .unwrap();
+    let water_well_harvester = water_recipe.required_modules(data).exactly_one().unwrap();
 
     let water_harvesters = (
         1i64,
         BuildingInstance {
-            kind: Rc::clone(&water_harvester_kind),
-            recipe: vec![Ingredient {
-                kind: Rc::clone(&water),
-                amount_per_day: 1.0 / 15.0,
-            }],
-            modules: Some((5, Rc::clone(&water_harvester_silo_kind))),
+            id: water_siphon.id,
+            recipe_id: water_recipe.id,
+            modules: Some((5, water_well_harvester.id)),
             efficiency: Default::default(),
         },
     );
@@ -155,93 +147,85 @@ fn main() {
     let cocoa_plantations = (
         2i64,
         BuildingInstance {
-            kind: Rc::clone(&plantation_kind),
-            recipe: vec![
-                Ingredient {
-                    kind: Rc::clone(&water),
-                    amount_per_day: -1.0 / 30.0,
-                },
-                Ingredient {
-                    kind: Rc::clone(&cocoa),
-                    amount_per_day: 2.0 / 30.0,
-                },
-            ],
-            modules: Some((5, Rc::clone(&cocoa_field_kind))),
+            id: plantation.id,
+            recipe_id: cocoa_recipe.id,
+            modules: Some((5, cocoa_field.id)),
             efficiency: Default::default(),
         },
     );
 
-    let truck = Rc::new(TransportKind {
-        name: "Truck".to_string(),
-        base_price: 250.0,
-        tile_price: 10.0,
-    });
+    // let truck = Rc::new(TransportKind {
+    //     name: "Truck".to_string(),
+    //     base_price: 250.0,
+    //     tile_price: 10.0,
+    // });
 
-    let transports = vec![
-        Transport {
-            kind: Rc::clone(&truck),
-            description: "Water to Cocoa Plantations".to_string(),
-            tiles: 10,
-            amount_per_day: water_harvesters.0 as f64
-                * water_harvesters.1.production_per_day_of(&water).unwrap(),
-        },
-        Transport {
-            kind: Rc::clone(&truck),
-            description: "Cocoa Plantations to Farmers Market".to_string(),
-            tiles: 100,
-            amount_per_day: cocoa_plantations.0 as f64
-                * cocoa_plantations.1.production_per_day_of(&cocoa).unwrap(),
-        },
-    ];
+    // let transports = vec![
+    //     Transport {
+    //         kind: Rc::clone(&truck),
+    //         description: "Water to Cocoa Plantations".to_string(),
+    //         tiles: 10,
+    //         amount_per_day: water_harvesters.0 as f64
+    //             * water_harvesters.1.production_per_day_of(&water).unwrap(),
+    //     },
+    //     Transport {
+    //         kind: Rc::clone(&truck),
+    //         description: "Cocoa Plantations to Farmers Market".to_string(),
+    //         tiles: 100,
+    //         amount_per_day: cocoa_plantations.0 as f64
+    //             * cocoa_plantations.1.production_per_day_of(&cocoa).unwrap(),
+    //     },
+    // ];
 
     let building_groups = vec![water_harvesters, cocoa_plantations];
 
     let mut monthly_operational_costs = building_groups
         .iter()
-        .map(|&(count, ref instance)| count as f64 * instance.upkeep_per_month())
-        .sum::<Currency>();
+        .map(|&(count, ref instance)| count as f64 * instance.upkeep_per_month(data))
+        .sum::<f64>();
 
     let initial_costs = building_groups
         .iter()
-        .map(|&(count, ref instance)| count as f64 * instance.purchase_price())
-        .sum::<Currency>();
+        .map(|&(count, ref instance)| count as f64 * instance.purchase_price(data))
+        .sum::<f64>();
 
-    let mut production_map: HashMap<Rc<ProductKind>, f64> = HashMap::new();
+    let mut production_map: HashMap<ProductId, f64> = HashMap::new();
     for &(count, ref instance) in &building_groups {
-        for ingredient in &instance.recipe {
-            *production_map.entry(ingredient.kind.clone()).or_default() +=
-                count as f64 * instance.productivity() * ingredient.amount_per_day;
+        let recipe = &data[instance.recipe_id];
+        for ingredient in recipe.products(data) {
+            *production_map.entry(ingredient.product.id).or_default() +=
+                count as f64 * instance.productivity() * ingredient.amount as f64 / recipe.easy_chains_days();
         }
     }
 
-    let monthly_revenue = production_map[&cocoa] * 30.0 * 12661.0;
+    let monthly_revenue = production_map[&cocoa.id] * 30.0 * 12661.0;
 
     println!("production:");
-    for (ingredient_kind, &amount_per_day) in &production_map {
+    for (&product_id, &amount_per_day) in &production_map {
         println!(
             "| {:20} | {:7.1} per month |",
-            ingredient_kind.name,
+            &data[product_id].name,
             amount_per_day * 30.0
         );
     }
     println!();
 
-    println!("transportation:");
-    for transport in &transports {
-        let total_per_month = transport.amount_per_day
-            * 30.0
-            * (transport.kind.base_price + transport.tiles as f64 * transport.kind.tile_price);
-        monthly_operational_costs += total_per_month;
-        println!(
-            "| {kind:7} | {amount:7.1} | {tiles:7} | {total:7}k per month | {description:40} |",
-            kind = &transport.kind.name,
-            amount = transport.amount_per_day * 30.0,
-            tiles = transport.tiles,
-            total = total_per_month / 1000.0,
-            description = transport.description,
-        )
-    }
-    println!();
+    // println!("transportation:");
+    // for transport in &transports {
+    //     let total_per_month = transport.amount_per_day
+    //         * 30.0
+    //         * (transport.kind.base_price + transport.tiles as f64 * transport.kind.tile_price);
+    //     monthly_operational_costs += total_per_month;
+    //     println!(
+    //         "| {kind:7} | {amount:7.1} | {tiles:7} | {total:7}k per month | {description:40} |",
+    //         kind = &transport.kind.name,
+    //         amount = transport.amount_per_day * 30.0,
+    //         tiles = transport.tiles,
+    //         total = total_per_month / 1000.0,
+    //         description = transport.description,
+    //     )
+    // }
+    // println!();
 
     let monthly_profit = monthly_revenue - monthly_operational_costs;
 
