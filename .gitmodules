@@ -1,0 +1,3 @@
+[submodule "rise-of-industry-data"]
+	path = rise-of-industry-data
+	url = https://github.com/mickvangelderen/rise-of-industry-data

@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use std::{collections::HashMap, rc::Rc};
 
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
