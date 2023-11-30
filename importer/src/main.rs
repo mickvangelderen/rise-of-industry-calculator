@@ -2,7 +2,6 @@ use std::{
     collections::BTreeMap,
     ffi::{OsStr, OsString},
     fs::FileType,
-    os::windows::process,
     path::{Path, PathBuf},
 };
 
