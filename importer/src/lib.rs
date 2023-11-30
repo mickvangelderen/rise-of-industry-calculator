@@ -86,6 +86,8 @@ pub enum MonoBehaviour {
 pub enum KnownMonoBehaviour {
     Recipe(RecipeMonoBehaviour),
     ProductDefinition(ProductDefinitionMonoBehaviour),
+    ProductCategory(ProductCategoryMonoBehaviour),
+    ProductCategoryModifierInfo(ProductCategoryModifierInfoMonoBehaviour),
     GathererHub(GathererHubMonoBehaviour),
     Factory(FactoryMonoBehaviour),
     Harvester(HarvesterMonoBehaviour),
@@ -155,6 +157,14 @@ impl<'de> Deserialize<'de> for MonoBehaviour {
             BUILDING_GUID => MonoBehaviour::Known(KnownMonoBehaviour::Building(
                 Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
             )),
+            PRODUCT_CATEGORY_GUID => MonoBehaviour::Known(KnownMonoBehaviour::ProductCategory(
+                Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+            )),
+            PRODUCT_CATEGORY_MODIFIER_INFO_GUID => {
+                MonoBehaviour::Known(KnownMonoBehaviour::ProductCategoryModifierInfo(
+                    Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
+                ))
+            }
             _ => MonoBehaviour::Unknown(value),
         })
     }
@@ -198,6 +208,9 @@ pub struct Ingredient {
 pub struct ProductDefinitionMonoBehaviour {
     #[serde(rename = "productName")]
     pub name: String,
+
+    #[serde(rename = "_category")]
+    pub category: ScriptReference,
 }
 
 #[derive(Debug, Deserialize)]
@@ -225,6 +238,39 @@ pub struct BuildingMonoBehaviour {
 pub struct FactoryMonoBehaviour {
     #[serde(rename = "availableRecipes")]
     pub available_recipes: Vec<ScriptReference>,
+}
+
+const PRODUCT_CATEGORY_GUID: &str = "d6fc0e4aff0acdc78b884c7ca29c6687";
+
+#[derive(Debug, Deserialize)]
+pub struct ProductCategoryMonoBehaviour {
+    #[serde(rename = "categoryName")]
+    pub name: String,
+}
+
+const PRODUCT_CATEGORY_MODIFIER_INFO_GUID: &str = "558262efc8fda9116a369bbbd4ee5aa7";
+
+#[derive(Debug, Deserialize)]
+pub struct ProductCategoryModifierInfoMonoBehaviour {
+    #[serde(rename = "defaultPriceModifier")]
+    pub default_price_modifier: f64,
+
+    #[serde(rename = "defaultGrowthModifier")]
+    pub default_growth_modifier: f64,
+
+    pub modifiers: Vec<ProductCategoryModifierInfoEntry>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct ProductCategoryModifierInfoEntry {
+    #[serde(rename = "priceModifier")]
+    pub price_modifier: f64,
+
+    #[serde(rename = "growthModifier")]
+    pub growth_modifier: f64,
+
+    #[serde(rename = "category")]
+    pub category: ScriptReference,
 }
 
 /// This operation is necessary to allow `serde_yaml` to parse Unity's asset and prefab files. There

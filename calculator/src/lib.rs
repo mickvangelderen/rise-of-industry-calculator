@@ -14,7 +14,7 @@ pub struct Product {
 pub struct Recipe {
     pub id: RecipeId,
     pub name: String,
-    pub products: Vec<CountedProductId>,
+    pub entries: Vec<RecipeEntry>,
     pub days: i64,
     pub required_modules: Vec<ModuleId>,
 }
@@ -22,11 +22,19 @@ pub struct Recipe {
 const EASY_CHAIN_DAYS: f64 = 15.0;
 
 impl Recipe {
-    pub fn products<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = CountedProduct<'a>> {
-        self.products.iter().map(|counted_product| CountedProduct {
+    pub fn entries<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = RecipeEntryRef<'a>> {
+        self.entries.iter().map(|counted_product| RecipeEntryRef {
             product: &data[counted_product.product_id],
             amount: counted_product.amount,
         })
+    }
+
+    pub fn inputs<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = RecipeEntryRef<'a>> {
+        self.entries(data).filter(|entry| entry.amount < 0)
+    }
+
+    pub fn outputs<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = RecipeEntryRef<'a>> {
+        self.entries(data).filter(|entry| entry.amount > 0)
     }
 
     pub fn required_modules<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = &'a Module> {
@@ -42,13 +50,13 @@ impl Recipe {
 }
 
 #[derive(Debug)]
-pub struct CountedProductId {
+pub struct RecipeEntry {
     pub product_id: ProductId,
     pub amount: i64,
 }
 
 #[derive(Debug)]
-pub struct CountedProduct<'a> {
+pub struct RecipeEntryRef<'a> {
     pub product: &'a Product,
     pub amount: i64,
 }
@@ -179,10 +187,10 @@ impl GameData {
                     values.push(Recipe {
                         id,
                         name: recipe.name,
-                        products: recipe
+                        entries: recipe
                             .products
                             .iter()
-                            .map(|x| CountedProductId {
+                            .map(|x| RecipeEntry {
                                 product_id: product_guid_to_id[&x.product_id],
                                 amount: x.amount,
                             })
@@ -240,6 +248,14 @@ impl GameData {
 
     pub fn recipes(&self) -> impl Iterator<Item = &'_ Recipe> {
         self.recipes.iter()
+    }
+
+    pub fn recipes_with_output(&self, product_id: ProductId) -> impl Iterator<Item = &'_ Recipe> {
+        self.recipes.iter().filter(move |&recipe| {
+            recipe
+                .outputs(self)
+                .any(|output| output.product.id == product_id)
+        })
     }
 
     pub fn recipe(&self, name: &str) -> &Recipe {
@@ -307,6 +323,15 @@ impl GameData {
         let Some(first) = iter.next() else {
             panic!("No module for recipe {:?}", &recipe.name);
         };
+        if iter.next().is_some() {
+            panic!("More than one module for recipe {:?}", &recipe.name);
+        }
+        first
+    }
+
+    pub fn recipe_try_module<'a>(&'a self, recipe: &'a Recipe) -> Option<&'a Module> {
+        let mut iter = recipe.required_modules(self);
+        let first = iter.next();
         if iter.next().is_some() {
             panic!("More than one module for recipe {:?}", &recipe.name);
         }

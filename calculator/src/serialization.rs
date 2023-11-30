@@ -5,11 +5,13 @@ type ProductId = String;
 type RecipeId = String;
 type BuildingModuleId = String;
 type BuildingId = String;
+type ProductCategoryId = String;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Product {
     // pub id: ProductId,
     pub name: String,
+    pub category_id: ProductCategoryId,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -42,10 +44,18 @@ pub struct Building {
     pub available_recipes: Vec<RecipeId>,
 }
 
+#[derive(Debug, Serialize, Deserialize)]
+pub struct ProductCategory {
+    pub name: String,
+    pub price_modifier: f64,
+    pub growth_modifier: f64,
+}
+
 #[derive(Debug, Default, Serialize, Deserialize)]
 pub struct GameData {
     pub products: BTreeMap<ProductId, Product>,
     pub recipes: BTreeMap<RecipeId, Recipe>,
     pub modules: BTreeMap<BuildingModuleId, BuildingModule>,
     pub buildings: BTreeMap<BuildingId, Building>,
+    pub product_categories: BTreeMap<ProductCategoryId, ProductCategory>,
 }

@@ -1,694 +1,504 @@
 {
   "products": {
     "00c98c59d6b6c3b4bb8207c65e4eec27": {
-      "name": "Fried Chicken"
+      "name": "Fried Chicken",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "02b801af9db0dcc4f9c4315d189277e3": {
-      "name": "Computer Memory"
-    },
-    "03d26e53d3681ff488501173a9984f42": {
-      "name": "Work Clothes"
-    },
-    "0426f793fca350a418db8478e0152e52": {
-      "name": "Toy Furniture"
+      "name": "Computer Memory",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "045a4d57874d2284cb7c3e5d486af8e7": {
-      "name": "Bone Growth Matieral "
-    },
-    "061aa4acf06f45c4181a668d5c0d6555": {
-      "name": "Grape Juice"
+      "name": "Bone Growth Matieral ",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "06cc1fb39ebcd8846a9aa999d839c082": {
-      "name": "Antibacteriall Solution"
+      "name": "Antibacteriall Solution",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "06fd7fee4743d934184105fe43c53786": {
-      "name": "Cardboard Panels"
+      "name": "Cardboard Panels",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "07d2fef0e41b3f94182da6e02cdaaa63": {
-      "name": "Oil"
+      "name": "Oil",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "0988386bdb4e63a4cbfa5a5041b8bbab": {
-      "name": "Regen Gel"
+      "name": "Regen Gel",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "09d41a579ead15a488ef26a834b086dd": {
-      "name": "Apples"
-    },
-    "0b790e3867d641245bcc3751295d9aec": {
-      "name": "Plastic"
+      "name": "Apples",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "0c08f5c7a2dc3f146a81031c9c4075e2": {
-      "name": "Polymers"
-    },
-    "0f2806882e69bc04ca67d23118afc214": {
-      "name": "Radiator"
-    },
-    "0f54f4946ba95964ca5738b26f12733a": {
-      "name": "Rubber Tubes"
-    },
-    "0f913b634f527434394e6c8b84d4f02e": {
-      "name": "Steel Barrel"
+      "name": "Polymers",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "0fd03fe7a5267e5408eaf83eb9cbcbc7": {
-      "name": "Eggs"
+      "name": "Eggs",
+      "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
     "11cdd6cf332415a42a7dbcae974918c4": {
-      "name": "Nuclear Power Cells"
-    },
-    "153371b7f34b7da42acdbcf365f4fe51": {
-      "name": "Radio Receiver"
-    },
-    "15969d9d44a2f9346b63c6aa66dff0b1": {
-      "name": "Stuffing"
+      "name": "Nuclear Power Cells",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "181aabb76b63e3e4f95c5a9536cd137a": {
-      "name": "Gold"
+      "name": "Gold",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "1940bc51ac071ca4cad0fc8359915b29": {
-      "name": "Tholin Gel"
-    },
-    "1d8e5e283b63b0d4990a9ccf3ad85b72": {
-      "name": "Beef Stew"
+      "name": "Tholin Gel",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "1eefc334973443941beeb6f8ff994208": {
-      "name": "Sugar"
-    },
-    "20cd725492d5c9e4999ba51a43f6d884": {
-      "name": "Glass"
-    },
-    "214cd4d5a53e2194cb90a1fd835ac727": {
-      "name": "Ink"
+      "name": "Sugar",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "2160533b67bc18a4e83a598d9514a8b7": {
-      "name": "Titanium"
-    },
-    "21fa8c1c7a4d46c4d9b2df6e8b488799": {
-      "name": "Winter Clothes"
-    },
-    "22ebb589707e7784f8b8021b39b02d87": {
-      "name": "Soda Water"
-    },
-    "24c7cdfbe06395e43a6e6eaf710ed3e3": {
-      "name": "Rubber"
+      "name": "Titanium",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "254bc79012761b84383e027d27e7165e": {
-      "name": "K1ll-411 Virus Culture"
-    },
-    "2632509310fd66d4aac8e447b7551178": {
-      "name": "Chocolate Bar"
+      "name": "K1ll-411 Virus Culture",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "26c09d7c1ebc51a41a5b8c9279db6cf8": {
-      "name": "Steel Cases"
+      "name": "Steel Cases",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "29322e758a207e94a92cde0f84dfd7d2": {
-      "name": "Binary Switcher"
+      "name": "Binary Switcher",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "2bbdd35184523f64191137f93fd8aaca": {
-      "name": "Blue Quartz Crystal"
+      "name": "Blue Quartz Crystal",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "2c5b2420cd08e5d46812bd3ae5c5d347": {
-      "name": "Heavy Construction Bot"
+      "name": "Heavy Construction Bot",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "2e33e5a49f69bb74b8f80a98f3cdeaac": {
-      "name": "Grav Field Generator"
-    },
-    "2e5565b9a03b9014099b21badd592aac": {
-      "name": "Yeast"
+      "name": "Grav Field Generator",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "2e6b792dc6839d047a938a2bd06357ec": {
-      "name": "Car Prototype"
+      "name": "Car Prototype",
+      "category_id": "58403332c69638e4980ef8ad1250f677"
     },
     "2f1dd302fb20679479da1167d19ad95d": {
-      "name": "Copper"
+      "name": "Copper",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "2f39850f281c5c94b88bde122ef95729": {
-      "name": "Beef"
+      "name": "Beef",
+      "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
     "3062ad89aad3a7b4696ad9cc010d95cb": {
-      "name": "Raw Rubber"
+      "name": "Raw Rubber",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "31427038d4673be45b4667ca1ec4a246": {
-      "name": "Concentrated Vitamins"
+      "name": "Concentrated Vitamins",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "32a037f05ef44b948b0121b27047cff4": {
-      "name": "Sand"
+      "name": "Sand",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "32c29720198ff404d9c7f8c6e72c689d": {
-      "name": "Synthetic Resin"
-    },
-    "32cd831a00ee7f94b89b6d8cd27f99b2": {
-      "name": "Telephone"
+      "name": "Synthetic Resin",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "32d75d394499bce45a16eb3d6e116af7": {
-      "name": "Oranges"
+      "name": "Oranges",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "33c06d7cd2ea294478c991ecca9ad9c3": {
-      "name": "Red Quartz Crystal"
-    },
-    "33d71ada8ceb8b04a898200bec77acb9": {
-      "name": "Plastic Furniture"
-    },
-    "33df88a789fd54d469deb7041ac91750": {
-      "name": "Canned Mutton"
+      "name": "Red Quartz Crystal",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "36689e0e5a2a27a498c3a5868a2863b3": {
-      "name": "Wood"
+      "name": "Wood",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "373790ee8f24ef54a89d64d388166804": {
-      "name": "Premade Dinner"
+      "name": "Premade Dinner",
+      "category_id": "58403332c69638e4980ef8ad1250f677"
     },
     "3af84db29e8a3604a8dd140074d59e5a": {
-      "name": "Exterior Body"
-    },
-    "3c0c4a0ae0b99b543878154e87207941": {
-      "name": "Stovetop"
-    },
-    "3cf3701c13e7ae34a8e30797dbee45eb": {
-      "name": "Thin Cardboard"
-    },
-    "3dc3a0ace45d2304083cab583a95c056": {
-      "name": "Pizza"
-    },
-    "3e164222c8610e5449aec30f25808e42": {
-      "name": "Beer"
+      "name": "Exterior Body",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "3eda7fbf2e0a17f469c754213659ffad": {
-      "name": "Chicken Meat"
-    },
-    "3f03420bb39e97340a849a84888ae70e": {
-      "name": "Chicken Soup"
-    },
-    "3f07074213c06b84b8338ff69d7fe4e1": {
-      "name": "Fish and Chips"
+      "name": "Chicken Meat",
+      "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
     "3f9ba67c1288a344ca7130c5554d160e": {
-      "name": "Tholins"
+      "name": "Tholins",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "3fe8c03758cf7cc45a89830b34f5156b": {
-      "name": "Microfilament Frame"
-    },
-    "40911244f742a10438acae70583ecec7": {
-      "name": "Interior Lining"
+      "name": "Microfilament Frame",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "41654d142939e8f4ea0fc046e6b7c5f5": {
-      "name": "Replicator 5000"
+      "name": "Replicator 5000",
+      "category_id": "58403332c69638e4980ef8ad1250f677"
     },
     "41680dc3f7d651046a24a2f8ca960c02": {
-      "name": "First Computer"
+      "name": "First Computer",
+      "category_id": "58403332c69638e4980ef8ad1250f677"
     },
     "43066ad7aa9af47499fc747bf10aafa3": {
-      "name": "Combustion Engine"
-    },
-    "4500e567430d66e4383bdc92e0910e63": {
-      "name": "Burgers"
+      "name": "Combustion Engine",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "45222bf08e5774949b934c7b1b7ea7e0": {
-      "name": "Workers Meal Bar"
+      "name": "Workers Meal Bar",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "4582758fe9cae214e8dc41911f70a440": {
-      "name": "Lean Protein Tissue"
-    },
-    "463724ece9505ea47b0f211e02829eaa": {
-      "name": "Orange Soda"
-    },
-    "465dee29a74dd944cb54da1f9cc5b5fa": {
-      "name": "Glass Tubes"
+      "name": "Lean Protein Tissue",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "48c000205aba7ac43ae321a5632b465f": {
-      "name": "Steel"
-    },
-    "496ec803228b73346a9d3a976e296f81": {
-      "name": "Books"
+      "name": "Steel",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "499fab9cd398ca147b3c0e5f70cba712": {
-      "name": "Superconductor"
-    },
-    "4a911f469fd22c34e91b41df126c361c": {
-      "name": "Furniture Base (L)"
-    },
-    "4d249e0be1bf6c741a1cca65a0fd3cd1": {
-      "name": "Refrigerator"
-    },
-    "4d27ee8fb6275644e882ad1806b48c8c": {
-      "name": "Quilt"
-    },
-    "4e231e88742e179488a7493aa88835d4": {
-      "name": "Light Bulbs"
+      "name": "Superconductor",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "5123f9d311a173043ba10a6d85c4a3d5": {
-      "name": "Primordial Algae"
+      "name": "Primordial Algae",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "529fba3fb8e5f2b45ac940ad5db4e34d": {
-      "name": "Complete Meal Paste"
+      "name": "Complete Meal Paste",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "52c6b2a8a33dc9f44910d1c192667222": {
-      "name": "Verteron Particle Infuser"
-    },
-    "53463c7395d4ada4386f19a3f62fb7b9": {
-      "name": "Easter Eggs"
-    },
-    "5398a4b6e3342a246aa19753e90c9738": {
-      "name": "Wooden Train"
+      "name": "Verteron Particle Infuser",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "544bc86a662c0ea48a6cb933649e1383": {
-      "name": "Laser Control System"
+      "name": "Laser Control System",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "58c789a1fec764442ad364500bcb8c08": {
-      "name": "Collector Bot"
+      "name": "Collector Bot",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "58ebd147624b740438646d57bc7e9205": {
-      "name": "Light Robot Frame"
+      "name": "Light Robot Frame",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "59bd4cf2a15b3af46a76188336fa8d25": {
-      "name": "Mutton"
+      "name": "Mutton",
+      "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
     "59c3d2e1cc92c454db75f167e13fafaa": {
-      "name": "Silica"
+      "name": "Silica",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "5cb4a7e08a1486f468d70d0b6f6a04ba": {
-      "name": "Medi-Bot"
-    },
-    "5d0b42f9d152e354ea1410958de9ee2e": {
-      "name": "Hard Cider"
-    },
-    "5d164e4e26887a244af3c8b6d601cd54": {
-      "name": "Ceramics"
-    },
-    "5f0c14aa16c481d43bd042c38aa9302d": {
-      "name": "Capacitors"
+      "name": "Medi-Bot",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "658e8f3efa6b1eb4f828c54e114b8381": {
-      "name": "Hodagrium"
+      "name": "Hodagrium",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "664144f6d2af67b438ee95419de0cfb3": {
-      "name": "Regenerative Solution"
+      "name": "Regenerative Solution",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "68a8c58e53f1f1f4fa2a6b47042dd65b": {
-      "name": "Processor"
-    },
-    "6a492aa94cd059d48abb02c8e955ceda": {
-      "name": "Car Seat"
+      "name": "Processor",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "6b294b2f103666d49b7e1864ca27f6a7": {
-      "name": "Coolant"
+      "name": "Coolant",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "6c8f5e736b8df4546b2718508c527d7c": {
-      "name": "Grapes"
+      "name": "Grapes",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "6c9b2f2bfd7fab147a6ec4c62950cb71": {
-      "name": "Iron Ore"
+      "name": "Iron Ore",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "6ce26d81280df824fa7aa1c2e162a004": {
-      "name": "Vegetables"
-    },
-    "6edaba07bd823e14e81ce5beee459b52": {
-      "name": "Flour"
+      "name": "Vegetables",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "6f3976d9c0f601e45899b9c0c5796e07": {
-      "name": "Actuators"
-    },
-    "6f675191c73a6814991e5652b5836026": {
-      "name": "Paint"
-    },
-    "6f96d1bb82eb4d14d8df0ec4f4286aaf": {
-      "name": "Bottles"
+      "name": "Actuators",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "70f3cd6068f8fd946b7d4625aba1d2cd": {
-      "name": "Quartz Solution"
-    },
-    "72469ec02219bcb42af9658a9406a2e9": {
-      "name": "Cheese"
+      "name": "Quartz Solution",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "75c51c5fe8247de4991f05ff1c7f1b19": {
-      "name": "BioLEDs"
+      "name": "BioLEDs",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "762f4a7e140943c408209f078a2c43f2": {
-      "name": "Berries"
-    },
-    "79341d970c47564479c66ee8f17a6fdf": {
-      "name": "Refined Oil"
+      "name": "Berries",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "79a7f7de866859d43a95482ec0f1ef34": {
-      "name": "Antiviral Solution"
+      "name": "Antiviral Solution",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "79ffb5a08cc83524fbb66fc51c0d0b34": {
-      "name": "Binary Quark Gate"
-    },
-    "7a4d9e8a050608e47b7963bf27c8b7c9": {
-      "name": "Adhesive"
-    },
-    "7a720f409190d62499c81034c919190c": {
-      "name": "Copper Wire"
-    },
-    "7ac824da507ae8d479005cd6368fcc66": {
-      "name": "Grain Whiskey"
+      "name": "Binary Quark Gate",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "7b8ece2459bdfdf43a69853321870e90": {
-      "name": "Interior Body"
-    },
-    "7d367252efaae8b40855b1158acc11f9": {
-      "name": "Vodka"
-    },
-    "7def2539866f84546a394410db169045": {
-      "name": "Heavy Fabric"
+      "name": "Interior Body",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "808eba904459d6f489dc466eb8488f44": {
-      "name": "Structural Disassembler"
-    },
-    "80e8e0bd83d08d8428bd2bc3b956a6c2": {
-      "name": "Waffles"
-    },
-    "84e0c180a432dad4fac4e3b1d3f5b67f": {
-      "name": "Deluxe Books"
+      "name": "Structural Disassembler",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "86ae967066db03a47b8e36bf5a82c9a3": {
-      "name": "Potato"
-    },
-    "88f21818ef6781145a02896aeb75186d": {
-      "name": "Paper Roll"
-    },
-    "8cd957da6fe1aa944845e1528e0dfdb8": {
-      "name": "Wooden Barrels"
+      "name": "Potato",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "8d50f0811b7ebf84e909b24716a2ec6a": {
-      "name": "Fish"
+      "name": "Fish",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "8d7e6de2658a624428ae5127889920ed": {
-      "name": "Heavy Lifting Cyberleg"
-    },
-    "8e50e3e6487270d4c90c5d6dcabad072": {
-      "name": "Couch"
-    },
-    "8ea64ae173564864483abfd22fa9452e": {
-      "name": "Steel"
-    },
-    "8ee05120cf8c9e242b55185d186b6d04": {
-      "name": "Dye"
-    },
-    "8fa18bb35cddd934599192c9e2078b18": {
-      "name": "Olive Oil"
+      "name": "Heavy Lifting Cyberleg",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "90736070c48e45b48b72c2ee706f0fcb": {
-      "name": "Wheat"
-    },
-    "90f2e22e0b3a59b4baf7cfcd8ad24dba": {
-      "name": "Office Furniture"
-    },
-    "910aad570e47c164284781dc48aba6ea": {
-      "name": "Napkins"
-    },
-    "9221ac3e6255623478f7122b9e657930": {
-      "name": "Newspapers"
+      "name": "Wheat",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "940e966ea80a65540a91477b3ee5df7f": {
-      "name": "Body Chassis"
+      "name": "Body Chassis",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "95742de4bbced4242bb69359c8c84c4c": {
-      "name": "Bio Memory Cells"
-    },
-    "957939fd851b30a4382ca10e18e3188a": {
-      "name": "Dough"
-    },
-    "973d79964f0784f4db212dba0fbed26b": {
-      "name": "Bag Of Chips"
-    },
-    "9982221121353da44989917a890e668c": {
-      "name": "Hard Cider Donuts"
+      "name": "Bio Memory Cells",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "9b3bae573a70a1d49884616b60a76cb9": {
-      "name": "Microbial Culture"
+      "name": "Microbial Culture",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "9bb6d2fc040929e4bb6b11d147604e08": {
-      "name": "Green Quartz Crystal"
+      "name": "Green Quartz Crystal",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "9cac770d3458e2840bf90ea20964d0f6": {
-      "name": "Car Radiator"
+      "name": "Car Radiator",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "9dde0341cf8d535488e552472028db72": {
-      "name": "Cocoa"
+      "name": "Cocoa",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "9e708eec71a787443909133a602a5764": {
-      "name": "Gas"
-    },
-    "a0276c9bae8e772408aeae63f98f92a0": {
-      "name": "Oven"
+      "name": "Gas",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "a03316b65ad632c4d864f5bdc37df4a9": {
-      "name": "Steel Struts"
+      "name": "Steel Struts",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "a0435171496dc0a4aa13f1a8bbf189bb": {
-      "name": "Cotton"
-    },
-    "a0fa0673335d119409910f8fc927f433": {
-      "name": "Engine Block"
-    },
-    "a2371e77176247c43b7039051b1eaa32": {
-      "name": "Berry Pie"
-    },
-    "a2d0db3b93ca3bc418af9630e5bb8933": {
-      "name": "Concrete"
+      "name": "Cotton",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "a2f46a5a2e8e204499e5c8cf15bdd328": {
-      "name": "Dinner Container"
-    },
-    "a735e13dbe7102d42959e008adbc702b": {
-      "name": "Orange Juice"
+      "name": "Dinner Container",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "a84ceb5e63723f348b6f491f5b68ba0d": {
-      "name": "Blue Gamma Laser"
-    },
-    "aa0dbe57b57c8364db775c440f77fb4e": {
-      "name": "Cardboard"
+      "name": "Blue Gamma Laser",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "aa1923c9e1417404e989e9b4cc0d06ac": {
-      "name": "Heavy Mover Bot"
+      "name": "Heavy Mover Bot",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "ab73ceacfc278134b95be382e9ea9753": {
-      "name": "Light Construction Bot"
-    },
-    "ac4d0a703ff0c9a408847b9a99877ae2": {
-      "name": "Tire"
+      "name": "Light Construction Bot",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "ac73433331950124f97fde3a82005522": {
-      "name": "Nanochips"
+      "name": "Nanochips",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "adf72ab5a4b1a544b902c7f835afd786": {
-      "name": "Red Anti-Matter Laser"
-    },
-    "b016c0f812a7d294d86d084ddf8101d7": {
-      "name": "Bricks"
+      "name": "Red Anti-Matter Laser",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "b556304a81f96184680e78b3f5028999": {
-      "name": "Thorium"
+      "name": "Thorium",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "b5df6ad5ad98a484bada26ee9152ddab": {
-      "name": "Auxiliary-Arm Extension"
-    },
-    "b6ca95f5bc1c4404199eb9122cebe35d": {
-      "name": "Dollhouse"
-    },
-    "b77cdfe7a9dae6440ae154ee7e62e4e6": {
-      "name": "Wine"
-    },
-    "b957fe2a0c9edf54181274eb2a4d6bd7": {
-      "name": "Biofuel"
-    },
-    "b98a0bf901f632d49ad67e817edc5594": {
-      "name": "Copper Tubing"
+      "name": "Auxiliary-Arm Extension",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "badab64e2b680b841a5382a9497f2426": {
-      "name": "Chicken Dinner"
-    },
-    "bc0475e2113dc8a4aa7beb6c56a76c4c": {
-      "name": "Apple Smoothie"
+      "name": "Chicken Dinner",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "bd02bfb08ae3bf4409332646ed191ed7": {
-      "name": "Cyberlimb Mechanism"
+      "name": "Cyberlimb Mechanism",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "bf12bdb185b3c9f4281b71de83ba57c7": {
-      "name": "Neural Interface"
-    },
-    "c02a2239cc3e5aa47a3332aa126fcb4f": {
-      "name": "Diodes"
+      "name": "Neural Interface",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "c043a08c72ad3fb42b10c869839160ef": {
-      "name": "Axles"
+      "name": "Axles",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "c150fdaf92efa94468dbfd27aa4e406c": {
-      "name": "Thorium Rods"
+      "name": "Thorium Rods",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "c16b6afb66f451c4c8a5aafb1b1f0045": {
-      "name": "Carbon Fibers Tow"
+      "name": "Carbon Fibers Tow",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "c1b27a84d2ed14a4bb3cc8b77d72bb49": {
-      "name": "Leather"
-    },
-    "c1be006d9be92044ab02439d903ed5cc": {
-      "name": "Heavy Pulp"
+      "name": "Leather",
+      "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
     "c3748a368630d4549845408b937df0cd": {
-      "name": "Gold Wire"
-    },
-    "c413491c824fd574ea5e45c379ab7fbe": {
-      "name": "Canned Fish"
-    },
-    "c50cc455e58990d40a64ce924f9e9b02": {
-      "name": "Buttons"
+      "name": "Gold Wire",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "c813616bb5aacd641afce87594dec375": {
-      "name": "Neural Connectors"
-    },
-    "c836ac87644e58a4bb300ca26bba9cb5": {
-      "name": "Chemicals"
-    },
-    "c943858650059eb48b8fbc524703ea77": {
-      "name": "Brandy"
+      "name": "Neural Connectors",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "cad3b04f059bc8f4c844bccb71a04f20": {
-      "name": "Heavy Robot Frame"
+      "name": "Heavy Robot Frame",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "ce071c3e91aca314abc2b7e0a81ae27b": {
-      "name": "Titanium Cases"
+      "name": "Titanium Cases",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "cf56d706f08e3bd4ea3545137073b1b2": {
-      "name": "Windows"
-    },
-    "d1c70959f86830b4b857fc9274d52188": {
-      "name": "Steel Frame"
+      "name": "Windows",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "d2c16f026eb9214459065db757870a11": {
-      "name": "Antibacterial Pill"
+      "name": "Antibacterial Pill",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "d2f570a30cee8a44595355075f4d097c": {
-      "name": "Coal"
-    },
-    "d4c5eed300a363949b4942013aea63d8": {
-      "name": "Toy Train Set"
+      "name": "Coal",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "d555a1d9b31d26f45b2e797c267df77e": {
-      "name": "Quantum Matrix"
+      "name": "Quantum Matrix",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "d6fd06b0b9826964d8bbb8caa37ce0b9": {
-      "name": "Milk"
-    },
-    "d76ba16650884a04c93e48be634ef134": {
-      "name": "Wooden Planks"
-    },
-    "d89acb002a291e141857e933fd4bde64": {
-      "name": "Reinforced Wall"
-    },
-    "d965e0cfca596cd489f4ba74fed18dda": {
-      "name": "Furniture Base (S)"
+      "name": "Milk",
+      "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
     "d97f1f80fe62ec44f9be9dfe8e80cb8d": {
-      "name": "Micro Chips"
+      "name": "Micro Chips",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "dd0fdcbb8fc17ef49afdc416707b868b": {
-      "name": "Thermoplastic"
-    },
-    "dd82c17bee25894479f51d6086c77c68": {
-      "name": "Plastic Cutlery"
+      "name": "Thermoplastic",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "ddf0b6a5dea3e7f4bbd87d4b94e28ef0": {
-      "name": "Cooked Vegetables"
+      "name": "Cooked Vegetables",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "de4fa8d8d2f7b1e4b8c46715bbb3ae1f": {
-      "name": "Organ Replacements"
-    },
-    "dec427daf9fa969448411dd19f548804": {
-      "name": "Teddy Bear"
-    },
-    "df0561f999cc84e4eaabfc26d174c11c": {
-      "name": "Doll"
+      "name": "Organ Replacements",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "e05f1259da3dc55448821b8e40e54711": {
-      "name": "Rolling Chassis"
+      "name": "Rolling Chassis",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "e108e0781b370174885de490466b8156": {
-      "name": "Water"
+      "name": "Water",
+      "category_id": "31062826f245a2843933fff8e3d25064"
     },
     "e2acf4c57822c4b429d39befd0931dc9": {
-      "name": "Hyper Bacterial Culture"
+      "name": "Hyper Bacterial Culture",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "e3b6c56a741ef4343a678cb95f95ef8b": {
-      "name": "Carbos Tissue"
+      "name": "Carbos Tissue",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "e51e50142cda6fe4fba7bd2b207f62ae": {
-      "name": "Utility Cyberarm"
-    },
-    "e5564ac2334031946bd56a541252b108": {
-      "name": "Printed Paper"
-    },
-    "e684d85940d47cc4daed68f29cc64ad4": {
-      "name": "Fibers"
+      "name": "Utility Cyberarm",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "e9dee780d56c5b64685e7d83871798ef": {
-      "name": "Titanium Struts"
-    },
-    "ea8a29b28358cd8458f962d27d65b18e": {
-      "name": "Cans"
+      "name": "Titanium Struts",
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "eb35f3307add13c47917d34f24ada448": {
-      "name": "Wool"
-    },
-    "ec90f4584964bf6468f255c5d5c9c368": {
-      "name": "Wall Panels"
-    },
-    "ed31c3ba4fea0294a955b64e471a462e": {
-      "name": "Marbles"
-    },
-    "eedf322dc62ff544d9b16a609c5798cc": {
-      "name": "Soup"
-    },
-    "ef032756eed3a43469b6d76ac6f8093e": {
-      "name": "Leather Furniture"
-    },
-    "f08897636e50e2148a918423e1a8587e": {
-      "name": "Berry Smoothie"
+      "name": "Wool",
+      "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
     "f357cb744b2fa5749b9bd3021272c766": {
-      "name": "Olives"
+      "name": "Olives",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "f387236b5a819a24fb0b584a3e7e04eb": {
-      "name": "Green Subatomic Laser"
-    },
-    "f699269abb3b8334a8fc494ac1f4985c": {
-      "name": "Headlights"
-    },
-    "f6b35a5f7feae184faac7bfaa08f2561": {
-      "name": "Light Fabric"
-    },
-    "f6bcd9c16c6940544b3541a4c0a4f776": {
-      "name": "Punch Cards"
+      "name": "Green Subatomic Laser",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "f7ac91e7bd5aaec47b06a84fb46b9a93": {
-      "name": "Antiviral Pill"
+      "name": "Antiviral Pill",
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "f8d49dfd719d21343917427bf180d157": {
-      "name": "Hops"
+      "name": "Hops",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "f90c1d6ced59b3f4ca29faa46d4613a2": {
-      "name": "Alternator"
+      "name": "Alternator",
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "f927b3039cc017841afa960467d92305": {
-      "name": "Energy Rich Tissue"
+      "name": "Energy Rich Tissue",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "f9ca50c5b09192643b9fcff4ee667e0e": {
-      "name": "Theta Raw Processor"
+      "name": "Theta Raw Processor",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
     "fc53ef27395263444aee269c89351181": {
-      "name": "Cellulose Algae"
-    },
-    "fcf0095626385ab459305670fed95ac0": {
-      "name": "Summer Clothes"
-    },
-    "fdc7833facbb7a94fa66c81bb5cfabd2": {
-      "name": "Chocolate Cake"
+      "name": "Cellulose Algae",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "ff2ec2dddf5f79648b65d9fb4f047c0a": {
-      "name": "High Fiber Tissue"
+      "name": "High Fiber Tissue",
+      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
     "ffde5f99e3a1c724da0f4d73ba414cd5": {
-      "name": "Interface"
+      "name": "Interface",
+      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     }
   },
   "recipes": {
@@ -6045,6 +5855,48 @@
       "name": "Residential Building",
       "base_cost": 0,
       "available_recipes": []
+    }
+  },
+  "product_categories": {
+    "31062826f245a2843933fff8e3d25064": {
+      "name": "Raw Resources",
+      "price_modifier": 1.9,
+      "growth_modifier": 1.0
+    },
+    "4c681b811ba7d1841b8bffc4c8e8b328": {
+      "name": "Farm Produce",
+      "price_modifier": 3.65,
+      "growth_modifier": 1.0
+    },
+    "4e45e9c3558bcf34db499e28310ca7b5": {
+      "name": "Livestock",
+      "price_modifier": 2.6,
+      "growth_modifier": 1.0
+    },
+    "58403332c69638e4980ef8ad1250f677": {
+      "name": "Prototypes",
+      "price_modifier": 1.5,
+      "growth_modifier": 1.0
+    },
+    "8b50d139c4f989748937b574ce9a1706": {
+      "name": "Tier2",
+      "price_modifier": 3.0,
+      "growth_modifier": 3.0
+    },
+    "9b8cbb347b6e7cb4c991231921ad63f6": {
+      "name": "Tier3",
+      "price_modifier": 2.1,
+      "growth_modifier": 4.0
+    },
+    "c23471459466d9a4bacb9eccb592e23e": {
+      "name": "Tier1",
+      "price_modifier": 3.5,
+      "growth_modifier": 2.0
+    },
+    "c50e6d8c3b88fe14db532ebbe1bd1867": {
+      "name": "Components",
+      "price_modifier": 1.8,
+      "growth_modifier": 1.0
     }
   }
 }

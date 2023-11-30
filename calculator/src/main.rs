@@ -12,6 +12,293 @@ use rise_of_industry_calculator::{
 /// The ratio of upkeep to base cost.
 const BASE_COST_TO_UPKEEP: f64 = 0.025;
 
+/*
+ExportedProject\Assets\Resources\gamedata\formulas\product price\Factories.asset:
+  16:   formula: (ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput
+
+ExportedProject\Assets\Resources\gamedata\formulas\product price\FarmProduce.asset:
+  16:   formula: ingredientsValue * 2.8
+
+ExportedProject\Assets\Resources\gamedata\formulas\product price\Farms.asset:
+  16:   formula: ((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)
+
+ExportedProject\Assets\Resources\gamedata\formulas\product price\Gatherers.asset:
+  16:   formula: upkeep / ((3 * recipeOutput) * (30 / recipeDays))
+
+ExportedProject\Assets\Resources\gamedata\formulas\product price\ProductPriceUpkeepComponent.asset:
+  16:   formula: hubUpkeep + (moduleUpkeep * 3)
+
+ExportedProject\Assets\Resources\gamedata\formulas\product price\RawResources.asset:
+  16:   formula: 75 * recipeDays * 3.25
+*/
+
+// private void InizializeRecipePricingInfo(Recipe recipe)
+// {
+//     float upkeepPriceComponent = GetUpkeepPriceComponent(recipe);
+//     float ingredientsValue = ComputeIngredientsValue(recipe);
+//     int num = 0;
+//     foreach (Product entry in recipe.result.entries)
+//     {
+//         num += entry.amount;
+//     }
+//     foreach (Product entry2 in recipe.result.entries)
+//     {
+//         ComputeProductPrice(entry2.definition, upkeepPriceComponent, ingredientsValue, entry2.amount, num, recipe.gameDaysForPriceCalculation);
+//     }
+// }
+
+fn initialize_recipe_pricing_info(
+    data: &GameData,
+    recipe: &Recipe,
+    prices: &mut HashMap<ProductId, f64>,
+) {
+    let upkeep_price_component = get_upkeep_price_component(data, recipe);
+    let ingredients_value = compute_ingredients_value(data, recipe, prices);
+    let recipe_output_amount = recipe.outputs(data).map(|x| x.amount).sum::<i64>();
+    for input in recipe.inputs(data) {
+        compute_product_price(
+            data,
+            upkeep_price_component,
+            ingredients_value,
+            input.amount,
+            recipe_output_amount,
+            recipe.days,
+            prices,
+        );
+    }
+}
+
+// ExportedProject\Assets\Resources\gamedata\formulas\product price\ProductPriceUpkeepComponent.asset:
+//   16:   formula: hubUpkeep + (moduleUpkeep * 3)
+// private float GetUpkeepPriceComponent(Recipe recipe)
+// {
+//     if (!upkeepComponentFormula)
+//     {
+//         return 0f;
+//     }
+//     ReadOnlyList<Building> originsOfRecipe = RecipeDatabase.instance.GetOriginsOfRecipe(recipe);
+//     if (!originsOfRecipe.notNull || originsOfRecipe.count <= 0)
+//     {
+//         Debug.LogError("Cannot find origin of recipe '" + recipe.Title + "'!");
+//         return 0f;
+//     }
+//     Upkeep component = originsOfRecipe[0].GetComponent<Upkeep>();
+//     if (!component)
+//     {
+//         return 0f;
+//     }
+//     float monthlyUpkeep = component.GetMonthlyUpkeep(Upkeep.GetMonthlyUpkeepOptions.PURE);
+//     Building building = recipe.requiredModules.FirstOrDefault();
+//     float? obj;
+//     if ((object)building == null)
+//     {
+//         obj = null;
+//     }
+//     else
+//     {
+//         Module component2 = building.GetComponent<Module>();
+//         obj = (((object)component2 != null) ? new float?(component2.ModuleUpkeep()) : null);
+//     }
+//     float moduleUpkeep = obj ?? 0f;
+//     ProductPriceUpkeepComponentFormulaArguments argumentsProvider = new ProductPriceUpkeepComponentFormulaArguments(monthlyUpkeep, moduleUpkeep);
+//     return (float)upkeepComponentFormula.Evaluate(argumentsProvider);
+// }
+fn get_upkeep_price_component(data: &GameData, recipe: &Recipe) -> f64 {
+    let processor = data
+        .buildings()
+        .filter(|building| building.available_recipes(data).any(|x| x.id == recipe.id))
+        .exactly_one()
+        .unwrap();
+    let upkeep = processor.base_cost as f64 * BASE_COST_TO_UPKEEP;
+    let module = data.recipe_try_module(recipe);
+    let module_upkeep = module
+        .map(|module| module.base_cost as f64 * BASE_COST_TO_UPKEEP)
+        .unwrap_or(0.0);
+    upkeep + module_upkeep * 3.0
+}
+
+// private float ComputeIngredientsValue(Recipe recipe)
+// {
+//     float num = 0f;
+//     foreach (Product entry in recipe.ingredients.entries)
+//     {
+//         if (!entry.definition)
+//         {
+//             Debug.LogErrorFormat("Null ingredient in recipe '{0}'.", recipe.name);
+//             continue;
+//         }
+//         ProductPricingInfo value;
+//         if (!_pricingInfoByProduct.TryGetValue(entry.definition, out value))
+//         {
+//             Recipe productRecipe = GetProductRecipe(entry.definition);
+//             if (!productRecipe)
+//             {
+//                 Debug.LogErrorFormat("No recipe for product {0}.", entry.definition.productName);
+//                 continue;
+//             }
+//             InizializeRecipePricingInfo(productRecipe);
+//             if (!_pricingInfoByProduct.TryGetValue(entry.definition, out value))
+//             {
+//                 Debug.LogErrorFormat("Could not compute price for product {0}.", entry.definition.productName);
+//                 continue;
+//             }
+//         }
+//         num += value.value * (float)entry.amount;
+//     }
+//     return num;
+// }
+fn compute_ingredients_value(
+    data: &GameData,
+    recipe: &Recipe,
+    prices: &mut HashMap<ProductId, f64>,
+) -> f64 {
+    let mut sum = 0.0;
+    for entry in recipe.inputs(data) {
+        let price = match prices.get(&entry.product.id).copied() {
+            Some(price) => price,
+            None => {
+                for recipe in data.recipes_with_output(entry.product.id) {
+                    initialize_recipe_pricing_info(data, recipe, prices);
+                }
+                prices[&entry.product.id]
+            }
+        };
+        sum += entry.amount as f64 * price;
+    }
+    sum
+}
+
+// private Recipe GetProductRecipe(ProductDefinition product)
+// {
+//     ReadOnlyList<Recipe> recipes = RecipeDatabase.instance.GetRecipes(product);
+//     if (!recipes.notNull)
+//     {
+//         return null;
+//     }
+//     return recipes.FirstOrDefault();
+// }
+
+// private ProductPricingInfo ComputeProductPrice(ProductDefinition product, float upkeepComponent, float ingredientsValue, int productOutput, int recipeOutput, float recipeDays)
+// {
+//     ProductPricingInfo value;
+//     if (_pricingInfoByProduct.TryGetValue(product, out value))
+//     {
+//         return value;
+//     }
+//     Formula value2;
+//     if (!_formulasByProduct.TryGetValue(product, out value2) || value2 == null)
+//     {
+//         Debug.LogErrorFormat("No price formula for product '{0}'.", product.productName);
+//         return new ProductPricingInfo();
+//     }
+//     ProductPriceFormulaArguments argumentsProvider = new ProductPriceFormulaArguments(upkeepComponent, ingredientsValue, productOutput, recipeOutput, recipeDays);
+//     float num = (float)value2.Evaluate(argumentsProvider);
+//     value = new ProductPricingInfo
+//     {
+//         value = num,
+//         price = num * (product.productCategory ? product.productCategory.priceMultiplier : 1f)
+//     };
+//     _pricingInfoByProduct[product] = value;
+//     return value;
+// }
+
+fn compute_product_price(
+    data: &GameData,
+    upkeep_component: f64,
+    ingredients_value: f64,
+    entry_amount: i64,
+    recipe_output_amount: i64,
+    days: i64,
+    prices: &mut HashMap<ProductId, f64>,
+) {
+    // ExportedProject\Assets\Resources\gamedata\formulas\product price\Factories.asset:
+    // 16:   formula: (ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput
+
+    // ExportedProject\Assets\Resources\gamedata\formulas\product price\FarmProduce.asset:
+    // 16:   formula: ingredientsValue * 2.8
+
+    // ExportedProject\Assets\Resources\gamedata\formulas\product price\Farms.asset:
+    // 16:   formula: ((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)
+
+    // ExportedProject\Assets\Resources\gamedata\formulas\product price\Gatherers.asset:
+    // 16:   formula: upkeep / ((3 * recipeOutput) * (30 / recipeDays))
+
+    // ExportedProject\Assets\Resources\gamedata\formulas\product price\ProductPriceUpkeepComponent.asset:
+    // 16:   formula: hubUpkeep + (moduleUpkeep * 3)
+
+    // ExportedProject\Assets\Resources\gamedata\formulas\product price\RawResources.asset:
+    // 16:   formula: 75 * recipeDays * 3.25
+}
+
+fn compute_prices(data: &GameData) -> HashMap<ProductId, f64> {
+    let mut prices: HashMap<ProductId, HashMap<RecipeId, Option<f64>>> = data
+        .products()
+        .map(|product| {
+            (
+                product.id,
+                data.recipes_with_output(product.id)
+                    .map(|recipe| (recipe.id, None))
+                    .collect(),
+            )
+        })
+        .collect();
+
+    let mut changed = true;
+    while (changed) {
+        changed = false;
+
+        for product in data.products() {
+            for recipe in data.recipes_with_output(product.id) {
+                if prices[&product.id][&recipe.id].is_some() {
+                    continue;
+                }
+
+                let Some(inputs_price) = recipe.inputs(data).fold(Some(0.0), |sum, input| {
+                    let min_price = prices[&input.product.id]
+                        .values()
+                        .copied()
+                        .reduce(|min, price| match (min, price) {
+                            (Some(min), Some(price)) => Some(f64::min(min, price)),
+                            _ => None,
+                        })
+                        .unwrap_or_default();
+                    match (sum, min_price) {
+                        (Some(sum), Some(min_price)) => {
+                            Some(sum + min_price * -input.amount as f64)
+                        }
+                        _ => None,
+                    }
+                }) else {
+                    continue;
+                };
+
+                for output in recipe.outputs(data) {
+                    *prices
+                        .get_mut(&output.product.id)
+                        .unwrap()
+                        .get_mut(&recipe.id)
+                        .unwrap() = Some(inputs_price / output.amount as f64 * 10.0 + 1.0);
+                    changed = true;
+                }
+            }
+        }
+    }
+
+    prices
+        .into_iter()
+        .map(|(product_id, recipes)| {
+            (
+                product_id,
+                recipes
+                    .values()
+                    .map(|price| price.unwrap())
+                    .min_by(|a, b| a.partial_cmp(b).unwrap())
+                    .unwrap_or_default(),
+            )
+        })
+        .collect()
+}
+
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\BuildingEfficiency.cs
 #[derive(Default)]
 pub enum BuildingEfficiency {
@@ -72,7 +359,7 @@ impl BuildingInstance {
     pub fn production_per_day_of(&self, data: &GameData, product_id: ProductId) -> Option<f64> {
         let recipe = &data[self.recipe_id];
         recipe
-            .products(data)
+            .entries(data)
             .find(|x| x.product.id == product_id)
             .map(|x| self.productivity() * x.amount as f64 / recipe.easy_chains_days())
     }
@@ -404,10 +691,20 @@ fn simulate(
     let mut production_map: HashMap<ProductId, f64> = HashMap::new();
     for &(count, ref instance) in &building_groups {
         let recipe = &data[instance.recipe_id];
-        for ingredient in recipe.products(data) {
+        for ingredient in recipe.entries(data) {
             *production_map.entry(ingredient.product.id).or_default() +=
                 count as f64 * instance.productivity() * ingredient.amount as f64
                     / recipe.easy_chains_days();
+        }
+    }
+
+    {
+        let prices = compute_prices(data);
+        for product in data.products() {
+            println!(
+                "  {} ({:?}): {}",
+                product.name, product.id, prices[&product.id]
+            );
         }
     }
 

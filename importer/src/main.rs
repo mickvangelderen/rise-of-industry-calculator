@@ -9,7 +9,7 @@ use std::{
 use ignore::DirEntry;
 use log::{debug, error, info, warn};
 use rise_of_industry_calculator::serialization::{
-    Building, BuildingModule, CountedProductId, GameData, Product, Recipe,
+    Building, BuildingModule, CountedProductId, GameData, Product, ProductCategory, Recipe,
 };
 use rise_of_industry_importer::*;
 use serde::{Deserialize, Serialize};
@@ -28,6 +28,8 @@ fn main() {
     let walk = ignore::Walk::new(input_path);
 
     let mut game_data = GameData::default();
+    let mut product_categories = Vec::new();
+    let mut product_category_modifier_infos = Vec::new();
 
     for entry in walk {
         let entry = match entry {
@@ -40,13 +42,37 @@ fn main() {
 
         match entry.path().extension() {
             Some(ext) if ext == OsStr::new("asset") || ext == OsStr::new("prefab") => {
-                process_asset(&mut game_data, entry);
+                process_asset(
+                    &mut game_data,
+                    entry,
+                    &mut product_categories,
+                    &mut product_category_modifier_infos,
+                );
             }
             _ => {
                 continue;
             }
         }
     }
+
+    game_data.product_categories = product_categories
+        .into_iter()
+        .map(|(guid, product_category)| {
+            // TODO: Handle vanilla / 2130. Select PCMI based on the asset list or something..
+            let entry = product_category_modifier_infos
+                .iter()
+                .find_map(|info| info.modifiers.iter().find(|&x| x.category.guid == guid))
+                .unwrap();
+            (
+                guid,
+                ProductCategory {
+                    name: product_category.name,
+                    price_modifier: entry.price_modifier,
+                    growth_modifier: entry.growth_modifier,
+                },
+            )
+        })
+        .collect();
 
     std::fs::write(
         output_path,
@@ -70,7 +96,12 @@ fn read_meta_yaml(original_path: &Path) -> std::io::Result<MetaDocument> {
     Ok(serde_yaml::from_str(&meta_contents).unwrap())
 }
 
-fn process_asset(game_data: &mut GameData, entry: DirEntry) {
+fn process_asset(
+    game_data: &mut GameData,
+    entry: DirEntry,
+    product_categories: &mut Vec<(String, ProductCategoryMonoBehaviour)>,
+    product_category_modifier_info: &mut Vec<ProductCategoryModifierInfoMonoBehaviour>,
+) {
     let contents = read_yaml(entry.path()).unwrap();
 
     enum Base {
@@ -109,6 +140,13 @@ fn process_asset(game_data: &mut GameData, entry: DirEntry) {
                     }
                     KnownMonoBehaviour::Harvester(value) => {
                         assert!(detail.replace(Detail::Harvester(value)).is_none())
+                    }
+                    KnownMonoBehaviour::ProductCategory(value) => {
+                        let meta_document = read_meta_yaml(entry.path()).unwrap();
+                        product_categories.push((meta_document.guid, value));
+                    }
+                    KnownMonoBehaviour::ProductCategoryModifierInfo(value) => {
+                        product_category_modifier_info.push(value);
                     }
                 }
             }
@@ -208,7 +246,13 @@ fn process_product(
 ) {
     assert!(game_data
         .products
-        .insert(meta_document.guid, Product { name: product.name })
+        .insert(
+            meta_document.guid,
+            Product {
+                name: product.name,
+                category_id: product.category.guid
+            }
+        )
         .is_none());
 }
 
