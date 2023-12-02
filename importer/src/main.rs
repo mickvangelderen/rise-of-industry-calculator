@@ -1,17 +1,15 @@
 use std::{
-    collections::BTreeMap,
-    ffi::{OsStr, OsString},
-    fs::FileType,
+    ffi::OsStr,
     path::{Path, PathBuf},
 };
 
 use ignore::DirEntry;
-use log::{debug, error, info, warn};
+use log::{error, warn};
 use rise_of_industry_calculator::serialization::{
     Building, BuildingModule, CountedProductId, GameData, Product, ProductCategory, Recipe,
 };
 use rise_of_industry_importer::*;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 
 fn main() {
     env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn")).init();

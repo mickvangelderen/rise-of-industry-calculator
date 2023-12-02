@@ -4,6 +4,26 @@ use log::warn;
 
 pub mod serialization;
 
+#[derive(Copy, Clone)]
+pub struct Query<'data, T> {
+    data: &'data GameData,
+    target: T,
+}
+
+impl<'data, T> Query<'data, T> {
+    pub fn new(data: &'data GameData, target: T) -> Self {
+        Self { data, target }
+    }
+}
+
+impl<'data, T> std::ops::Deref for Query<'data, T> {
+    type Target = T;
+
+    fn deref(&self) -> &Self::Target {
+        &self.target
+    }
+}
+
 #[derive(Debug)]
 pub struct Product {
     pub id: ProductId,
@@ -19,28 +39,40 @@ pub struct Recipe {
     pub required_modules: Vec<ModuleId>,
 }
 
+impl<'d> Query<'d, &'d Recipe> {
+    pub fn entries(&self) -> impl Iterator<Item = Query<'d, &'d RecipeEntry>> {
+        self.entries
+            .iter()
+            .map(|entry| Query::new(self.data, entry))
+    }
+
+    pub fn inputs(&self) -> impl Iterator<Item = Query<'d, &'d RecipeEntry>> {
+        self.entries().filter(|entry| entry.is_input())
+    }
+
+    pub fn outputs(&self) -> impl Iterator<Item = Query<'d, &'d RecipeEntry>> {
+        self.entries().filter(|entry| entry.is_output())
+    }
+
+    pub fn required_modules(&self) -> impl Iterator<Item = Query<'d, &'d Module>> {
+        self.required_modules
+            .iter()
+            .map(|&index| self.data.query(index))
+    }
+
+    pub fn required_module(&self) -> Option<Query<'d, &'d Module>> {
+        let mut iter = self.required_modules();
+        let first = iter.next();
+        if iter.next().is_some() {
+            panic!("More than one module for recipe {:?}", &self.target.name);
+        }
+        first
+    }
+}
+
 const EASY_CHAIN_DAYS: f64 = 15.0;
 
 impl Recipe {
-    pub fn entries<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = RecipeEntryRef<'a>> {
-        self.entries.iter().map(|counted_product| RecipeEntryRef {
-            product: &data[counted_product.product_id],
-            amount: counted_product.amount,
-        })
-    }
-
-    pub fn inputs<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = RecipeEntryRef<'a>> {
-        self.entries(data).filter(|entry| entry.amount < 0)
-    }
-
-    pub fn outputs<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = RecipeEntryRef<'a>> {
-        self.entries(data).filter(|entry| entry.amount > 0)
-    }
-
-    pub fn required_modules<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = &'a Module> {
-        self.required_modules.iter().copied().map(|id| &data[id])
-    }
-
     pub fn easy_chains_days(&self) -> f64 {
         f64::max(
             (self.days as f64 / EASY_CHAIN_DAYS).round() * EASY_CHAIN_DAYS,
@@ -55,10 +87,20 @@ pub struct RecipeEntry {
     pub amount: i64,
 }
 
-#[derive(Debug)]
-pub struct RecipeEntryRef<'a> {
-    pub product: &'a Product,
-    pub amount: i64,
+impl RecipeEntry {
+    pub fn is_input(&self) -> bool {
+        self.amount < 0
+    }
+
+    pub fn is_output(&self) -> bool {
+        self.amount > 0
+    }
+}
+
+impl<'data> Query<'data, RecipeEntry> {
+    pub fn product<'a>(&self) -> Query<'data, &'data Product> {
+        self.data.query(self.target.product_id)
+    }
 }
 
 #[derive(Debug)]
@@ -69,9 +111,31 @@ pub struct Building {
     available_recipes: Vec<RecipeId>,
 }
 
-impl Building {
-    pub fn available_recipes<'a>(&'a self, data: &'a GameData) -> impl Iterator<Item = &'a Recipe> {
-        self.available_recipes.iter().copied().map(|id| &data[id])
+impl<'d> Query<'d, &'d Building> {
+    pub fn available_recipes(&self) -> impl Iterator<Item = Query<'d, &'d Recipe>> {
+        self.target
+            .available_recipes
+            .iter()
+            .map(|&id| self.data.query(id))
+    }
+
+    pub fn building_recipe(&self, name: &str) -> Query<'_, &'_ Recipe> {
+        let mut iter = self
+            .available_recipes()
+            .filter(|&recipe| recipe.name == name);
+        let Some(first) = iter.next() else {
+            panic!(
+                "No recipe with name {name:?} for building {:?}",
+                &self.target.name
+            );
+        };
+        if iter.next().is_some() {
+            panic!(
+                "More than one recipe with name {name:?} for building {:?}",
+                &self.target.name
+            );
+        }
+        first
     }
 }
 
@@ -231,11 +295,20 @@ impl GameData {
         })
     }
 
-    pub fn products(&self) -> impl Iterator<Item = &'_ Product> {
-        self.products.iter()
+    pub fn query<I>(&self, index: I) -> Query<'_, &'_ <Self as std::ops::Index<I>>::Output>
+    where
+        Self: std::ops::Index<I>,
+    {
+        Query::new(self, &self[index])
     }
 
-    pub fn product(&self, name: &str) -> &Product {
+    pub fn products(&self) -> impl Iterator<Item = Query<'_, &'_ Product>> {
+        self.products
+            .iter()
+            .map(|product| Query::new(self, product))
+    }
+
+    pub fn product(&self, name: &str) -> Query<'_, &'_ Product> {
         let mut iter = self.products().filter(|&product| product.name == name);
         let Some(first) = iter.next() else {
             panic!("No product with name {name:?}");
@@ -246,19 +319,22 @@ impl GameData {
         first
     }
 
-    pub fn recipes(&self) -> impl Iterator<Item = &'_ Recipe> {
-        self.recipes.iter()
+    pub fn recipes(&self) -> impl Iterator<Item = Query<'_, &'_ Recipe>> {
+        self.recipes.iter().map(|recipe| Query::new(self, recipe))
     }
 
-    pub fn recipes_with_output(&self, product_id: ProductId) -> impl Iterator<Item = &'_ Recipe> {
-        self.recipes.iter().filter(move |&recipe| {
+    pub fn recipes_with_output(
+        &self,
+        product_id: ProductId,
+    ) -> impl Iterator<Item = Query<'_, &'_ Recipe>> {
+        self.recipes().filter(move |&recipe| {
             recipe
-                .outputs(self)
-                .any(|output| output.product.id == product_id)
+                .outputs()
+                .any(|output| output.product_id == product_id)
         })
     }
 
-    pub fn recipe(&self, name: &str) -> &Recipe {
+    pub fn recipe(&self, name: &str) -> Query<'_, &'_ Recipe> {
         let mut iter = self.recipes().filter(|&recipe| recipe.name == name);
         let Some(first) = iter.next() else {
             panic!("No recipe with name {name:?}");
@@ -269,30 +345,13 @@ impl GameData {
         first
     }
 
-    pub fn building_recipe<'a>(&'a self, building: &'a Building, name: &str) -> &'a Recipe {
-        let mut iter = building
-            .available_recipes(self)
-            .filter(|&recipe| recipe.name == name);
-        let Some(first) = iter.next() else {
-            panic!(
-                "No recipe with name {name:?} for building {:?}",
-                &building.name
-            );
-        };
-        if iter.next().is_some() {
-            panic!(
-                "More than one recipe with name {name:?} for building {:?}",
-                &building.name
-            );
-        }
-        first
+    pub fn buildings(&self) -> impl Iterator<Item = Query<'_, &'_ Building>> {
+        self.buildings
+            .iter()
+            .map(|building| Query::new(self, building))
     }
 
-    pub fn buildings(&self) -> impl Iterator<Item = &'_ Building> {
-        self.buildings.iter()
-    }
-
-    pub fn building(&self, name: &str) -> &Building {
+    pub fn building(&self, name: &str) -> Query<'_, &'_ Building> {
         let mut iter = self.buildings().filter(|&building| building.name == name);
         let Some(first) = iter.next() else {
             panic!("No building with name {name:?}");
@@ -303,11 +362,11 @@ impl GameData {
         first
     }
 
-    pub fn modules(&self) -> impl Iterator<Item = &'_ Module> {
-        self.modules.iter()
+    pub fn modules(&self) -> impl Iterator<Item = Query<'_, &'_ Module>> {
+        self.modules.iter().map(|module| Query::new(self, module))
     }
 
-    pub fn module(&self, name: &str) -> &Module {
+    pub fn module(&self, name: &str) -> Query<'_, &'_ Module> {
         let mut iter = self.modules().filter(|&module| module.name == name);
         let Some(first) = iter.next() else {
             panic!("No module with name {name:?}");
@@ -318,20 +377,11 @@ impl GameData {
         first
     }
 
-    pub fn recipe_module<'a>(&'a self, recipe: &'a Recipe) -> &'a Module {
-        let mut iter = recipe.required_modules(self);
+    pub fn recipe_module<'data>(&'data self, recipe: &'data Recipe) -> Query<'_, &'_ Module> {
+        let mut iter = Query::new(self, recipe).required_modules();
         let Some(first) = iter.next() else {
             panic!("No module for recipe {:?}", &recipe.name);
         };
-        if iter.next().is_some() {
-            panic!("More than one module for recipe {:?}", &recipe.name);
-        }
-        first
-    }
-
-    pub fn recipe_try_module<'a>(&'a self, recipe: &'a Recipe) -> Option<&'a Module> {
-        let mut iter = recipe.required_modules(self);
-        let first = iter.next();
         if iter.next().is_some() {
             panic!("More than one module for recipe {:?}", &recipe.name);
         }
