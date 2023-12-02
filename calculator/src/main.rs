@@ -427,28 +427,28 @@ fn main() {
 
     let data = &GameData::load(std::path::Path::new("data.json")).unwrap();
 
-    let cocoa = data.product("Cocoa");
-    let water = data.product("Water");
-    let cotton = data.product("Cotton");
-    let fibers = data.product("Fibers");
-    let light_fabric = data.product("Light Fabric");
-    let napkins = data.product("Napkins");
-    let berries = data.product("Berries");
-    let dye = data.product("Dye");
+    let cocoa = data.product_by_name("Cocoa");
+    let water = data.product_by_name("Water");
+    let cotton = data.product_by_name("Cotton");
+    let fibers = data.product_by_name("Fibers");
+    let light_fabric = data.product_by_name("Light Fabric");
+    let napkins = data.product_by_name("Napkins");
+    let berries = data.product_by_name("Berries");
+    let dye = data.product_by_name("Dye");
 
-    let plantation = data.building("PLANTATION");
-    let farm = data.building("CROP FARM");
-    let water_siphon = data.building("WATER SIPHON");
-    let water_well = data.building("WATER WELL");
-    let textile_factory = data.building("TEXTILE FACTORY");
+    let plantation = data.building_by_name("PLANTATION");
+    let farm = data.building_by_name("CROP FARM");
+    let water_siphon = data.building_by_name("WATER SIPHON");
+    let water_well = data.building_by_name("WATER WELL");
+    let textile_factory = data.building_by_name("TEXTILE FACTORY");
 
-    let cocoa_recipe = data.recipe("Cocoas");
-    let cotton_recipe = data.recipe("Cotton");
-    let fibers_recipe = data.recipe("Fibers");
-    let light_fabric_recipe = data.recipe("Light Fabric");
-    let napkins_recipe = data.recipe("Napkins");
-    let berry_recipe = data.recipe("Berries");
-    let dye_recipe = data.recipe("Dye");
+    let cocoa_recipe = data.recipe_by_name("Cocoas");
+    let cotton_recipe = data.recipe_by_name("Cotton");
+    let fibers_recipe = data.recipe_by_name("Fibers");
+    let light_fabric_recipe = data.recipe_by_name("Light Fabric");
+    let napkins_recipe = data.recipe_by_name("Napkins");
+    let berry_recipe = data.recipe_by_name("Berries");
+    let dye_recipe = data.recipe_by_name("Dye");
 
     let water_well_water_recipe = water_well.building_recipe("Water");
     let water_siphon_water_recipe = water_siphon.building_recipe("Water");

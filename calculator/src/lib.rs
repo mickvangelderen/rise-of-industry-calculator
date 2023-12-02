@@ -310,7 +310,7 @@ impl GameData {
             .map(|product| Query::new(self, product))
     }
 
-    pub fn product(&self, name: &str) -> Query<'_, &'_ Product> {
+    pub fn product_by_name(&self, name: &str) -> Query<'_, &'_ Product> {
         let mut iter = self.products().filter(|&product| product.name == name);
         let Some(first) = iter.next() else {
             panic!("No product with name {name:?}");
@@ -336,7 +336,7 @@ impl GameData {
         })
     }
 
-    pub fn recipe(&self, name: &str) -> Query<'_, &'_ Recipe> {
+    pub fn recipe_by_name(&self, name: &str) -> Query<'_, &'_ Recipe> {
         let mut iter = self.recipes().filter(|&recipe| recipe.name == name);
         let Some(first) = iter.next() else {
             panic!("No recipe with name {name:?}");
@@ -353,7 +353,7 @@ impl GameData {
             .map(|building| Query::new(self, building))
     }
 
-    pub fn building(&self, name: &str) -> Query<'_, &'_ Building> {
+    pub fn building_by_name(&self, name: &str) -> Query<'_, &'_ Building> {
         let mut iter = self.buildings().filter(|&building| building.name == name);
         let Some(first) = iter.next() else {
             panic!("No building with name {name:?}");
@@ -368,7 +368,7 @@ impl GameData {
         self.modules.iter().map(|module| Query::new(self, module))
     }
 
-    pub fn module(&self, name: &str) -> Query<'_, &'_ Module> {
+    pub fn module_by_name(&self, name: &str) -> Query<'_, &'_ Module> {
         let mut iter = self.modules().filter(|&module| module.name == name);
         let Some(first) = iter.next() else {
             panic!("No module with name {name:?}");
