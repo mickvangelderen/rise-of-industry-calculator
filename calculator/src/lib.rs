@@ -1,6 +1,6 @@
 use std::{collections::BTreeMap, num::NonZeroUsize};
 
-use log::warn;
+use log::error;
 
 pub mod serialization;
 
@@ -186,6 +186,12 @@ macro_rules! impl_id {
                 &self.$field[index.0.get()]
             }
         }
+
+        impl ::std::convert::From<$crate::Index> for $Id {
+            fn from(value: $crate::Index) -> Self {
+                Self(value)
+            }
+        }
     };
 }
 
@@ -199,93 +205,89 @@ impl GameData {
         let contents = std::fs::read_to_string(path)?;
         let data: crate::serialization::GameData = serde_json::from_str(&contents)?;
 
-        let (product_guid_to_id, products) = data.products.into_iter().fold(
-            (BTreeMap::default(), Vec::default()),
-            |(mut guid_to_index, mut values), (guid, product)| {
-                let id = ProductId(Index::new(values.len()));
-                guid_to_index.insert(guid, id);
-                values.push(Product {
-                    id,
-                    name: product.name,
-                });
-                (guid_to_index, values)
-            },
-        );
+        /// Takes an iterator of guids and inputs and converts it into a vec of outputs, and a map
+        /// from guid to output index. This map is useful in resolving links between objects.
+        fn convert<Input, Output, OutputId>(
+            inputs: impl IntoIterator<Item = (String, Input)>,
+            mut f: impl FnMut(&str, Input, OutputId) -> Option<Output>,
+        ) -> (BTreeMap<String, OutputId>, Vec<Output>)
+        where
+            OutputId: From<Index> + Copy,
+        {
+            inputs.into_iter().fold(
+                (BTreeMap::default(), Vec::default()),
+                |(mut guid_to_output_id, mut outputs), (guid, input)| {
+                    let id = OutputId::from(Index::new(outputs.len()));
 
-        let (module_guid_to_id, modules) = data.modules.into_iter().fold(
-            (BTreeMap::default(), Vec::default()),
-            |(mut guid_to_index, mut values), (guid, module)| {
-                let id = ModuleId(Index::new(values.len()));
-                guid_to_index.insert(guid, id);
-                values.push(Module {
-                    id,
-                    name: module.name,
-                    base_cost: module.base_cost,
-                });
-                (guid_to_index, values)
-            },
-        );
+                    if let Some(output) = f(&guid, input, id) {
+                        guid_to_output_id.insert(guid, id);
+                        outputs.push(output);
+                    }
 
-        let (recipe_guid_to_id, recipes) = data.recipes.into_iter().fold(
-            (BTreeMap::default(), Vec::default()),
-            |(mut guid_to_id, mut values), (guid, recipe)| {
-                let id = RecipeId(Index::new(values.len()));
+                    (guid_to_output_id, outputs)
+                },
+            )
+        }
 
-                let required_modules = recipe
-                    .required_modules
+        let (product_guid_to_id, products) = convert(data.products, |_, product, id| {
+            Some(Product {
+                id,
+                name: product.name,
+            })
+        });
+
+        let (module_guid_to_id, modules) = convert(data.modules, |_, module, id| {
+            Some(Module {
+                id,
+                name: module.name,
+                base_cost: module.base_cost,
+            })
+        });
+
+        let (recipe_guid_to_id, recipes) = convert(data.recipes, |guid, recipe, id| {
+            let required_modules = recipe
+                .required_modules
+                .iter()
+                .map(|module_guid| {
+                    let module_id = module_guid_to_id.get(module_guid).copied();
+                    if module_id.is_none() {
+                        error!(
+                            "Recipe {:?} (guid: {}) refers to an unknown Module (guid: {})",
+                            &recipe.name, &guid, &module_guid,
+                        );
+                    }
+                    module_id
+                })
+                .collect::<Option<Vec<ModuleId>>>()?;
+
+            Some(Recipe {
+                id,
+                name: recipe.name,
+                entries: recipe
+                    .products
                     .iter()
-                    .map(|module_guid| {
-                        let module_id = module_guid_to_id.get(module_guid).copied();
-                        if module_id.is_none() {
-                            warn!(
-                                "Recipe {:?} (guid: {}) refers to an unknown Module (guid: {})",
-                                &recipe.name, &guid, &module_guid,
-                            );
-                        }
-                        module_id
+                    .map(|x| RecipeEntry {
+                        product_id: product_guid_to_id[&x.product_id],
+                        amount: x.amount,
                     })
-                    .collect::<Option<Vec<ModuleId>>>();
+                    .collect(),
+                days: recipe.days,
+                required_modules,
+            })
+        });
 
-                if let Some(required_modules) = required_modules {
-                    guid_to_id.insert(guid, id);
-                    values.push(Recipe {
-                        id,
-                        name: recipe.name,
-                        entries: recipe
-                            .products
-                            .iter()
-                            .map(|x| RecipeEntry {
-                                product_id: product_guid_to_id[&x.product_id],
-                                amount: x.amount,
-                            })
-                            .collect(),
-                        days: recipe.days,
-                        required_modules,
-                    });
-                }
-
-                (guid_to_id, values)
-            },
-        );
-
-        let (_building_guid_to_id, buildings) = data.buildings.into_iter().fold(
-            (BTreeMap::default(), Vec::default()),
-            |(mut guid_to_id, mut values), (guid, building)| {
-                let id = BuildingId(Index::new(values.len()));
-                guid_to_id.insert(guid, id);
-                values.push(Building {
-                    id,
-                    name: building.name,
-                    base_cost: building.base_cost,
-                    available_recipes: building
-                        .available_recipes
-                        .iter()
-                        .map(|guid| recipe_guid_to_id[guid])
-                        .collect(),
-                });
-                (guid_to_id, values)
-            },
-        );
+        let (_, buildings) = convert(data.buildings, |_, building, id| {
+            Some(Building {
+                id,
+                name: building.name,
+                base_cost: building.base_cost,
+                available_recipes: building
+                    .available_recipes
+                    .iter()
+                    .map(|guid| recipe_guid_to_id[guid])
+                    .collect(),
+            })
+        });
 
         Ok(Self {
             products,
