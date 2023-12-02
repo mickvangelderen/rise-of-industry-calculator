@@ -213,7 +213,7 @@ fn process_recipe(
                         .into_iter()
                         .map(|ingredient| CountedProductId {
                             product_id: ingredient.definition.guid,
-                            amount: -(i64::try_from(ingredient.amount).unwrap()),
+                            amount: -(ingredient.amount),
                         }),
                     recipe
                         .result
@@ -221,7 +221,7 @@ fn process_recipe(
                         .into_iter()
                         .map(|ingredient| CountedProductId {
                             product_id: ingredient.definition.guid,
-                            amount: i64::try_from(ingredient.amount).unwrap(),
+                            amount: ingredient.amount,
                         }),
                 )
                 .collect(),

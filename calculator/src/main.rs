@@ -55,8 +55,8 @@ fn initialize_recipe_pricing_info(
     prices: &mut HashMap<ProductId, f64>,
 ) {
     let recipe = data.query(recipe.id);
-    let upkeep_price_component = get_upkeep_price_component(data, &*recipe);
-    let ingredients_value = compute_ingredients_value(data, &*recipe, prices);
+    let upkeep_price_component = get_upkeep_price_component(data, *recipe);
+    let ingredients_value = compute_ingredients_value(data, *recipe, prices);
     let recipe_output_amount = recipe.outputs().map(|x| x.amount).sum::<i64>();
     for input in recipe.inputs() {
         compute_product_price(
@@ -152,8 +152,8 @@ fn get_upkeep_price_component(data: &GameData, recipe: &Recipe) -> f64 {
 //     return num;
 // }
 fn compute_ingredients_value<'d>(
-    data: &GameData,
-    recipe: &Recipe,
+    data: &'d GameData,
+    recipe: &'d Recipe,
     prices: &mut HashMap<ProductId, f64>,
 ) -> f64 {
     let mut sum = 0.0;
@@ -162,7 +162,7 @@ fn compute_ingredients_value<'d>(
             Some(price) => price,
             None => {
                 for recipe in data.recipes_with_output(entry.product_id) {
-                    initialize_recipe_pricing_info(data, &*recipe, prices);
+                    initialize_recipe_pricing_info(data, *recipe, prices);
                 }
                 prices[&entry.product_id]
             }
@@ -258,24 +258,17 @@ fn compute_prices(data: &GameData) -> HashMap<ProductId, f64> {
                 }
 
                 let Some(inputs_price) =
-                    data.query(recipe.id)
-                        .inputs()
-                        .fold(Some(0.0), |sum, input| {
-                            let min_price = prices[&input.product_id]
-                                .values()
-                                .copied()
-                                .reduce(|min, price| match (min, price) {
-                                    (Some(min), Some(price)) => Some(f64::min(min, price)),
-                                    _ => None,
-                                })
-                                .unwrap_or_default();
-                            match (sum, min_price) {
-                                (Some(sum), Some(min_price)) => {
-                                    Some(sum + min_price * -input.amount as f64)
-                                }
+                    data.query(recipe.id).inputs().try_fold(0.0, |sum, input| {
+                        let min_price = prices[&input.product_id]
+                            .values()
+                            .copied()
+                            .reduce(|min, price| match (min, price) {
+                                (Some(min), Some(price)) => Some(f64::min(min, price)),
                                 _ => None,
-                            }
-                        })
+                            })
+                            .unwrap_or_default()?;
+                        Some(sum + min_price * -input.amount as f64)
+                    })
                 else {
                     continue;
                 };
@@ -348,7 +341,7 @@ pub struct BuildingInstance {
 
 impl BuildingInstance {
     pub fn upkeep_per_month(&self, data: &GameData) -> f64 {
-        self.efficiency.upkeep() * self.purchase_price(data) as f64 * BASE_COST_TO_UPKEEP
+        self.efficiency.upkeep() * self.purchase_price(data) * BASE_COST_TO_UPKEEP
     }
 
     pub fn purchase_price(&self, data: &GameData) -> f64 {

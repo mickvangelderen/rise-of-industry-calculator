@@ -98,7 +98,7 @@ impl RecipeEntry {
 }
 
 impl<'data> Query<'data, RecipeEntry> {
-    pub fn product<'a>(&self) -> Query<'data, &'data Product> {
+    pub fn product(&self) -> Query<'data, &'data Product> {
         self.data.query(self.target.product_id)
     }
 }
