@@ -22,7 +22,15 @@ fn main() {
     let input_path = PathBuf::from("rise-of-industry-data");
     let output_path = PathBuf::from("data.json");
 
-    let walk = ignore::Walk::new(input_path);
+    let walk = ignore::WalkBuilder::new(input_path)
+        .filter_entry(|entry| {
+            !(entry
+                .file_type()
+                .as_ref()
+                .map_or(false, std::fs::FileType::is_dir)
+                && entry.file_name() == "2130")
+        })
+        .build();
 
     let mut game_data = GameData::default();
     let mut product_categories = Vec::new();
@@ -58,7 +66,11 @@ fn main() {
             // TODO: Handle vanilla / 2130. Select PCMI based on the asset list or something..
             let entry = product_category_modifier_infos
                 .iter()
-                .find_map(|info| info.modifiers.iter().find(|&x| x.category.guid == guid))
+                .find_map(|info| {
+                    info.modifiers
+                        .iter()
+                        .find(|&x| x.category.0.as_ref().map_or(false, |x| x.guid == guid))
+                })
                 .unwrap();
             (
                 guid,
@@ -212,7 +224,7 @@ fn process_recipe(
                         .entries
                         .into_iter()
                         .map(|ingredient| CountedProductId {
-                            product_id: ingredient.definition.guid,
+                            product_id: ingredient.definition.0.unwrap().guid,
                             amount: -(ingredient.amount),
                         }),
                     recipe
@@ -220,7 +232,7 @@ fn process_recipe(
                         .entries
                         .into_iter()
                         .map(|ingredient| CountedProductId {
-                            product_id: ingredient.definition.guid,
+                            product_id: ingredient.definition.0.unwrap().guid,
                             amount: ingredient.amount,
                         }),
                 )
@@ -229,7 +241,7 @@ fn process_recipe(
                 required_modules: recipe
                     .required_modules
                     .into_iter()
-                    .map(|x| x.guid)
+                    .map(|x| x.0.unwrap().guid)
                     .collect::<Vec<_>>()
             }
         )
@@ -247,7 +259,7 @@ fn process_product(
             meta_document.guid,
             Product {
                 name: product.name,
-                category_id: product.category.guid
+                category_id: product.category.0.map(|x| x.guid),
             }
         )
         .is_none());
@@ -269,7 +281,7 @@ fn process_gatherer_hub(
                 available_recipes: gatherer_hub
                     .available_recipes
                     .into_iter()
-                    .map(|x| x.guid)
+                    .map(|x| x.0.unwrap().guid)
                     .collect(),
             }
         )
@@ -313,7 +325,7 @@ fn process_factory(
                 available_recipes: factory
                     .available_recipes
                     .into_iter()
-                    .map(|x| x.guid)
+                    .map(|x| x.0.unwrap().guid)
                     .collect::<Vec<_>>(),
             }
         )

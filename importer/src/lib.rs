@@ -7,11 +7,13 @@ use std::{
     collections::BTreeMap,
     ffi::{OsStr, OsString},
     fs::FileType,
+    num::NonZeroI64,
     path::{Path, PathBuf},
 };
 
 use log::{debug, info, warn};
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize};
+use serde_repr::Deserialize_repr;
 
 #[derive(Debug, Deserialize)]
 pub struct MetaDocument {
@@ -22,7 +24,7 @@ pub struct MetaDocument {
 #[derive(Debug, Deserialize)]
 pub struct MonoBehaviourMeta {
     #[serde(rename = "m_Script")]
-    pub script: ScriptReference,
+    pub script: Reference,
 }
 
 #[derive(Debug)]
@@ -63,17 +65,76 @@ impl<'de> Deserialize<'de> for Document {
     }
 }
 
-// TODO: Address that this is serialized as { fileID: 0 }, probably when it is unset. Does not
-// affect the files we want to read though so...
-#[derive(Debug, Deserialize)]
-#[cfg_attr(test, derive(Eq, PartialEq))]
-pub struct ScriptReference {
-    // #[serde(rename = "")]
-    // file_id: u64,
-    #[serde(rename = "guid")]
+#[derive(Debug, Eq, PartialEq, Deserialize_repr)]
+#[repr(u8)]
+pub enum ReferenceType {
+    Asset = 2,
+    Library = 3,
+}
+
+#[derive(Debug)]
+pub struct FileId(pub Option<NonZeroI64>);
+
+impl<'de> Deserialize<'de> for FileId {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        i64::deserialize(deserializer)
+            .map(NonZeroI64::new)
+            .map(FileId)
+    }
+}
+
+#[derive(Debug)]
+pub struct Reference(pub Option<ReferenceInner>);
+
+impl<'de> Deserialize<'de> for Reference {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        #[derive(Deserialize)]
+        #[serde(deny_unknown_fields)]
+        struct ReferenceRaw {
+            #[serde(rename = "fileID")]
+            file_id: FileId,
+            #[serde(rename = "guid", default)]
+            guid: Option<String>,
+            #[serde(rename = "type", default)]
+            r#type: Option<ReferenceType>,
+        }
+
+        let value = ReferenceRaw::deserialize(deserializer)?;
+
+        match value.file_id.0 {
+            Some(file_id) => Ok(Reference(Some(ReferenceInner {
+                file_id,
+                guid: value
+                    .guid
+                    .ok_or_else(|| serde::de::Error::missing_field("guid"))?,
+                r#type: value
+                    .r#type
+                    .ok_or_else(|| serde::de::Error::missing_field("type"))?,
+            }))),
+            None => {
+                if value.guid.is_some() {
+                    return Err(serde::de::Error::unknown_field("guid", &["file_id"]));
+                }
+                if value.r#type.is_some() {
+                    return Err(serde::de::Error::unknown_field("type", &["file_id"]));
+                }
+                Ok(Reference(None))
+            }
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct ReferenceInner {
+    pub file_id: NonZeroI64,
     pub guid: String,
-    // #[serde(rename = "type")]
-    // ty: u64,
+    pub r#type: ReferenceType,
 }
 
 #[derive(Debug)]
@@ -136,7 +197,11 @@ impl<'de> Deserialize<'de> for MonoBehaviour {
 
         let meta = MonoBehaviourMeta::deserialize(&value).map_err(serde::de::Error::custom)?;
 
-        Ok(match meta.script.guid.as_str() {
+        let Some(script) = meta.script.0 else {
+            return Ok(MonoBehaviour::Unknown(value));
+        };
+
+        Ok(match script.guid.as_str() {
             RECIPE_GUID => MonoBehaviour::Known(KnownMonoBehaviour::Recipe(
                 Deserialize::deserialize(value).map_err(serde::de::Error::custom)?,
             )),
@@ -186,7 +251,7 @@ pub struct RecipeMonoBehaviour {
     pub days: i64,
 
     #[serde(rename = "requiredModules")]
-    pub required_modules: Vec<ScriptReference>,
+    pub required_modules: Vec<Reference>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -198,7 +263,7 @@ pub struct ProductList {
 #[derive(Debug, Deserialize)]
 pub struct Ingredient {
     #[serde(rename = "_definition")]
-    pub definition: ScriptReference,
+    pub definition: Reference,
 
     #[serde(rename = "amount")]
     pub amount: i64,
@@ -210,13 +275,13 @@ pub struct ProductDefinitionMonoBehaviour {
     pub name: String,
 
     #[serde(rename = "_category")]
-    pub category: ScriptReference,
+    pub category: Reference,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct GathererHubMonoBehaviour {
     #[serde(rename = "availableRecipes")]
-    pub available_recipes: Vec<ScriptReference>,
+    pub available_recipes: Vec<Reference>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -237,7 +302,7 @@ pub struct BuildingMonoBehaviour {
 #[derive(Debug, Deserialize)]
 pub struct FactoryMonoBehaviour {
     #[serde(rename = "availableRecipes")]
-    pub available_recipes: Vec<ScriptReference>,
+    pub available_recipes: Vec<Reference>,
 }
 
 const PRODUCT_CATEGORY_GUID: &str = "d6fc0e4aff0acdc78b884c7ca29c6687";
@@ -270,7 +335,7 @@ pub struct ProductCategoryModifierInfoEntry {
     pub growth_modifier: f64,
 
     #[serde(rename = "category")]
-    pub category: ScriptReference,
+    pub category: Reference,
 }
 
 /// This operation is necessary to allow `serde_yaml` to parse Unity's asset and prefab files. There

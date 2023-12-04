@@ -8,13 +8,17 @@
       "name": "Computer Memory",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "045a4d57874d2284cb7c3e5d486af8e7": {
-      "name": "Bone Growth Matieral ",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "03d26e53d3681ff488501173a9984f42": {
+      "name": "Work Clothes",
+      "category_id": null
     },
-    "06cc1fb39ebcd8846a9aa999d839c082": {
-      "name": "Antibacteriall Solution",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "0426f793fca350a418db8478e0152e52": {
+      "name": "Toy Furniture",
+      "category_id": null
+    },
+    "061aa4acf06f45c4181a668d5c0d6555": {
+      "name": "Grape Juice",
+      "category_id": null
     },
     "06fd7fee4743d934184105fe43c53786": {
       "name": "Cardboard Panels",
@@ -24,65 +28,77 @@
       "name": "Oil",
       "category_id": "31062826f245a2843933fff8e3d25064"
     },
-    "0988386bdb4e63a4cbfa5a5041b8bbab": {
-      "name": "Regen Gel",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
-    },
     "09d41a579ead15a488ef26a834b086dd": {
       "name": "Apples",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "0c08f5c7a2dc3f146a81031c9c4075e2": {
-      "name": "Polymers",
-      "category_id": "31062826f245a2843933fff8e3d25064"
+    "0b790e3867d641245bcc3751295d9aec": {
+      "name": "Plastic",
+      "category_id": null
+    },
+    "0f2806882e69bc04ca67d23118afc214": {
+      "name": "Radiator",
+      "category_id": null
+    },
+    "0f54f4946ba95964ca5738b26f12733a": {
+      "name": "Rubber Tubes",
+      "category_id": null
+    },
+    "0f913b634f527434394e6c8b84d4f02e": {
+      "name": "Steel Barrel",
+      "category_id": null
     },
     "0fd03fe7a5267e5408eaf83eb9cbcbc7": {
       "name": "Eggs",
       "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
-    "11cdd6cf332415a42a7dbcae974918c4": {
-      "name": "Nuclear Power Cells",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "153371b7f34b7da42acdbcf365f4fe51": {
+      "name": "Radio Receiver",
+      "category_id": null
     },
-    "181aabb76b63e3e4f95c5a9536cd137a": {
-      "name": "Gold",
-      "category_id": "31062826f245a2843933fff8e3d25064"
+    "15969d9d44a2f9346b63c6aa66dff0b1": {
+      "name": "Stuffing",
+      "category_id": null
     },
-    "1940bc51ac071ca4cad0fc8359915b29": {
-      "name": "Tholin Gel",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "1d8e5e283b63b0d4990a9ccf3ad85b72": {
+      "name": "Beef Stew",
+      "category_id": null
     },
     "1eefc334973443941beeb6f8ff994208": {
       "name": "Sugar",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "2160533b67bc18a4e83a598d9514a8b7": {
-      "name": "Titanium",
-      "category_id": "31062826f245a2843933fff8e3d25064"
+    "20cd725492d5c9e4999ba51a43f6d884": {
+      "name": "Glass",
+      "category_id": null
     },
-    "254bc79012761b84383e027d27e7165e": {
-      "name": "K1ll-411 Virus Culture",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
+    "214cd4d5a53e2194cb90a1fd835ac727": {
+      "name": "Ink",
+      "category_id": null
     },
-    "26c09d7c1ebc51a41a5b8c9279db6cf8": {
-      "name": "Steel Cases",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "21fa8c1c7a4d46c4d9b2df6e8b488799": {
+      "name": "Winter Clothes",
+      "category_id": null
+    },
+    "22ebb589707e7784f8b8021b39b02d87": {
+      "name": "Soda Water",
+      "category_id": null
+    },
+    "24c7cdfbe06395e43a6e6eaf710ed3e3": {
+      "name": "Rubber",
+      "category_id": null
+    },
+    "2632509310fd66d4aac8e447b7551178": {
+      "name": "Chocolate Bar",
+      "category_id": null
     },
     "29322e758a207e94a92cde0f84dfd7d2": {
       "name": "Binary Switcher",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "2bbdd35184523f64191137f93fd8aaca": {
-      "name": "Blue Quartz Crystal",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
-    },
-    "2c5b2420cd08e5d46812bd3ae5c5d347": {
-      "name": "Heavy Construction Bot",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
-    },
-    "2e33e5a49f69bb74b8f80a98f3cdeaac": {
-      "name": "Grav Field Generator",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "2e5565b9a03b9014099b21badd592aac": {
+      "name": "Yeast",
+      "category_id": null
     },
     "2e6b792dc6839d047a938a2bd06357ec": {
       "name": "Car Prototype",
@@ -100,25 +116,25 @@
       "name": "Raw Rubber",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "31427038d4673be45b4667ca1ec4a246": {
-      "name": "Concentrated Vitamins",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
-    },
     "32a037f05ef44b948b0121b27047cff4": {
       "name": "Sand",
       "category_id": "31062826f245a2843933fff8e3d25064"
     },
-    "32c29720198ff404d9c7f8c6e72c689d": {
-      "name": "Synthetic Resin",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "32cd831a00ee7f94b89b6d8cd27f99b2": {
+      "name": "Telephone",
+      "category_id": null
     },
     "32d75d394499bce45a16eb3d6e116af7": {
       "name": "Oranges",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "33c06d7cd2ea294478c991ecca9ad9c3": {
-      "name": "Red Quartz Crystal",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "33d71ada8ceb8b04a898200bec77acb9": {
+      "name": "Plastic Furniture",
+      "category_id": null
+    },
+    "33df88a789fd54d469deb7041ac91750": {
+      "name": "Canned Mutton",
+      "category_id": null
     },
     "36689e0e5a2a27a498c3a5868a2863b3": {
       "name": "Wood",
@@ -132,21 +148,37 @@
       "name": "Exterior Body",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
+    "3c0c4a0ae0b99b543878154e87207941": {
+      "name": "Stovetop",
+      "category_id": null
+    },
+    "3cf3701c13e7ae34a8e30797dbee45eb": {
+      "name": "Thin Cardboard",
+      "category_id": null
+    },
+    "3dc3a0ace45d2304083cab583a95c056": {
+      "name": "Pizza",
+      "category_id": null
+    },
+    "3e164222c8610e5449aec30f25808e42": {
+      "name": "Beer",
+      "category_id": null
+    },
     "3eda7fbf2e0a17f469c754213659ffad": {
       "name": "Chicken Meat",
       "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
-    "3f9ba67c1288a344ca7130c5554d160e": {
-      "name": "Tholins",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "3f03420bb39e97340a849a84888ae70e": {
+      "name": "Chicken Soup",
+      "category_id": null
     },
-    "3fe8c03758cf7cc45a89830b34f5156b": {
-      "name": "Microfilament Frame",
-      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
+    "3f07074213c06b84b8338ff69d7fe4e1": {
+      "name": "Fish and Chips",
+      "category_id": null
     },
-    "41654d142939e8f4ea0fc046e6b7c5f5": {
-      "name": "Replicator 5000",
-      "category_id": "58403332c69638e4980ef8ad1250f677"
+    "40911244f742a10438acae70583ecec7": {
+      "name": "Interior Lining",
+      "category_id": null
     },
     "41680dc3f7d651046a24a2f8ca960c02": {
       "name": "First Computer",
@@ -156,73 +188,69 @@
       "name": "Combustion Engine",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "45222bf08e5774949b934c7b1b7ea7e0": {
-      "name": "Workers Meal Bar",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "4500e567430d66e4383bdc92e0910e63": {
+      "name": "Burgers",
+      "category_id": null
     },
-    "4582758fe9cae214e8dc41911f70a440": {
-      "name": "Lean Protein Tissue",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
+    "463724ece9505ea47b0f211e02829eaa": {
+      "name": "Orange Soda",
+      "category_id": null
     },
-    "48c000205aba7ac43ae321a5632b465f": {
-      "name": "Steel",
-      "category_id": "31062826f245a2843933fff8e3d25064"
+    "465dee29a74dd944cb54da1f9cc5b5fa": {
+      "name": "Glass Tubes",
+      "category_id": null
     },
-    "499fab9cd398ca147b3c0e5f70cba712": {
-      "name": "Superconductor",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "496ec803228b73346a9d3a976e296f81": {
+      "name": "Books",
+      "category_id": null
     },
-    "5123f9d311a173043ba10a6d85c4a3d5": {
-      "name": "Primordial Algae",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
+    "4a911f469fd22c34e91b41df126c361c": {
+      "name": "Furniture Base (L)",
+      "category_id": null
     },
-    "529fba3fb8e5f2b45ac940ad5db4e34d": {
-      "name": "Complete Meal Paste",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "4d249e0be1bf6c741a1cca65a0fd3cd1": {
+      "name": "Refrigerator",
+      "category_id": null
     },
-    "52c6b2a8a33dc9f44910d1c192667222": {
-      "name": "Verteron Particle Infuser",
-      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
+    "4d27ee8fb6275644e882ad1806b48c8c": {
+      "name": "Quilt",
+      "category_id": null
     },
-    "544bc86a662c0ea48a6cb933649e1383": {
-      "name": "Laser Control System",
-      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
+    "4e231e88742e179488a7493aa88835d4": {
+      "name": "Light Bulbs",
+      "category_id": null
     },
-    "58c789a1fec764442ad364500bcb8c08": {
-      "name": "Collector Bot",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "53463c7395d4ada4386f19a3f62fb7b9": {
+      "name": "Easter Eggs",
+      "category_id": null
     },
-    "58ebd147624b740438646d57bc7e9205": {
-      "name": "Light Robot Frame",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "5398a4b6e3342a246aa19753e90c9738": {
+      "name": "Wooden Train",
+      "category_id": null
     },
     "59bd4cf2a15b3af46a76188336fa8d25": {
       "name": "Mutton",
       "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
-    "59c3d2e1cc92c454db75f167e13fafaa": {
-      "name": "Silica",
-      "category_id": "31062826f245a2843933fff8e3d25064"
+    "5d0b42f9d152e354ea1410958de9ee2e": {
+      "name": "Hard Cider",
+      "category_id": null
     },
-    "5cb4a7e08a1486f468d70d0b6f6a04ba": {
-      "name": "Medi-Bot",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "5d164e4e26887a244af3c8b6d601cd54": {
+      "name": "Ceramics",
+      "category_id": null
     },
-    "658e8f3efa6b1eb4f828c54e114b8381": {
-      "name": "Hodagrium",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
-    },
-    "664144f6d2af67b438ee95419de0cfb3": {
-      "name": "Regenerative Solution",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "5f0c14aa16c481d43bd042c38aa9302d": {
+      "name": "Capacitors",
+      "category_id": null
     },
     "68a8c58e53f1f1f4fa2a6b47042dd65b": {
       "name": "Processor",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "6b294b2f103666d49b7e1864ca27f6a7": {
-      "name": "Coolant",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "6a492aa94cd059d48abb02c8e955ceda": {
+      "name": "Car Seat",
+      "category_id": null
     },
     "6c8f5e736b8df4546b2718508c527d7c": {
       "name": "Grapes",
@@ -236,69 +264,125 @@
       "name": "Vegetables",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "6f3976d9c0f601e45899b9c0c5796e07": {
-      "name": "Actuators",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "6edaba07bd823e14e81ce5beee459b52": {
+      "name": "Flour",
+      "category_id": null
     },
-    "70f3cd6068f8fd946b7d4625aba1d2cd": {
-      "name": "Quartz Solution",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "6f675191c73a6814991e5652b5836026": {
+      "name": "Paint",
+      "category_id": null
     },
-    "75c51c5fe8247de4991f05ff1c7f1b19": {
-      "name": "BioLEDs",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "6f96d1bb82eb4d14d8df0ec4f4286aaf": {
+      "name": "Bottles",
+      "category_id": null
+    },
+    "72469ec02219bcb42af9658a9406a2e9": {
+      "name": "Cheese",
+      "category_id": null
     },
     "762f4a7e140943c408209f078a2c43f2": {
       "name": "Berries",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "79a7f7de866859d43a95482ec0f1ef34": {
-      "name": "Antiviral Solution",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "79341d970c47564479c66ee8f17a6fdf": {
+      "name": "Refined Oil",
+      "category_id": null
     },
-    "79ffb5a08cc83524fbb66fc51c0d0b34": {
-      "name": "Binary Quark Gate",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "7a4d9e8a050608e47b7963bf27c8b7c9": {
+      "name": "Adhesive",
+      "category_id": null
+    },
+    "7a720f409190d62499c81034c919190c": {
+      "name": "Copper Wire",
+      "category_id": null
+    },
+    "7ac824da507ae8d479005cd6368fcc66": {
+      "name": "Grain Whiskey",
+      "category_id": null
     },
     "7b8ece2459bdfdf43a69853321870e90": {
       "name": "Interior Body",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "808eba904459d6f489dc466eb8488f44": {
-      "name": "Structural Disassembler",
-      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
+    "7d367252efaae8b40855b1158acc11f9": {
+      "name": "Vodka",
+      "category_id": null
+    },
+    "7def2539866f84546a394410db169045": {
+      "name": "Heavy Fabric",
+      "category_id": null
+    },
+    "80e8e0bd83d08d8428bd2bc3b956a6c2": {
+      "name": "Waffles",
+      "category_id": null
+    },
+    "84e0c180a432dad4fac4e3b1d3f5b67f": {
+      "name": "Deluxe Books",
+      "category_id": null
     },
     "86ae967066db03a47b8e36bf5a82c9a3": {
       "name": "Potato",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
+    "88f21818ef6781145a02896aeb75186d": {
+      "name": "Paper Roll",
+      "category_id": null
+    },
+    "8cd957da6fe1aa944845e1528e0dfdb8": {
+      "name": "Wooden Barrels",
+      "category_id": null
+    },
     "8d50f0811b7ebf84e909b24716a2ec6a": {
       "name": "Fish",
       "category_id": "31062826f245a2843933fff8e3d25064"
     },
-    "8d7e6de2658a624428ae5127889920ed": {
-      "name": "Heavy Lifting Cyberleg",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "8e50e3e6487270d4c90c5d6dcabad072": {
+      "name": "Couch",
+      "category_id": null
+    },
+    "8ea64ae173564864483abfd22fa9452e": {
+      "name": "Steel",
+      "category_id": null
+    },
+    "8ee05120cf8c9e242b55185d186b6d04": {
+      "name": "Dye",
+      "category_id": null
+    },
+    "8fa18bb35cddd934599192c9e2078b18": {
+      "name": "Olive Oil",
+      "category_id": null
     },
     "90736070c48e45b48b72c2ee706f0fcb": {
       "name": "Wheat",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
+    "90f2e22e0b3a59b4baf7cfcd8ad24dba": {
+      "name": "Office Furniture",
+      "category_id": null
+    },
+    "910aad570e47c164284781dc48aba6ea": {
+      "name": "Napkins",
+      "category_id": null
+    },
+    "9221ac3e6255623478f7122b9e657930": {
+      "name": "Newspapers",
+      "category_id": null
+    },
     "940e966ea80a65540a91477b3ee5df7f": {
       "name": "Body Chassis",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "95742de4bbced4242bb69359c8c84c4c": {
-      "name": "Bio Memory Cells",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "957939fd851b30a4382ca10e18e3188a": {
+      "name": "Dough",
+      "category_id": null
     },
-    "9b3bae573a70a1d49884616b60a76cb9": {
-      "name": "Microbial Culture",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "973d79964f0784f4db212dba0fbed26b": {
+      "name": "Bag Of Chips",
+      "category_id": null
     },
-    "9bb6d2fc040929e4bb6b11d147604e08": {
-      "name": "Green Quartz Crystal",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "9982221121353da44989917a890e668c": {
+      "name": "Hard Cider Donuts",
+      "category_id": null
     },
     "9cac770d3458e2840bf90ea20964d0f6": {
       "name": "Car Radiator",
@@ -312,125 +396,149 @@
       "name": "Gas",
       "category_id": "31062826f245a2843933fff8e3d25064"
     },
-    "a03316b65ad632c4d864f5bdc37df4a9": {
-      "name": "Steel Struts",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "a0276c9bae8e772408aeae63f98f92a0": {
+      "name": "Oven",
+      "category_id": null
     },
     "a0435171496dc0a4aa13f1a8bbf189bb": {
       "name": "Cotton",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
+    "a0fa0673335d119409910f8fc927f433": {
+      "name": "Engine Block",
+      "category_id": null
+    },
+    "a2371e77176247c43b7039051b1eaa32": {
+      "name": "Berry Pie",
+      "category_id": null
+    },
+    "a2d0db3b93ca3bc418af9630e5bb8933": {
+      "name": "Concrete",
+      "category_id": null
+    },
     "a2f46a5a2e8e204499e5c8cf15bdd328": {
       "name": "Dinner Container",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "a84ceb5e63723f348b6f491f5b68ba0d": {
-      "name": "Blue Gamma Laser",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "a735e13dbe7102d42959e008adbc702b": {
+      "name": "Orange Juice",
+      "category_id": null
     },
-    "aa1923c9e1417404e989e9b4cc0d06ac": {
-      "name": "Heavy Mover Bot",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "aa0dbe57b57c8364db775c440f77fb4e": {
+      "name": "Cardboard",
+      "category_id": null
     },
-    "ab73ceacfc278134b95be382e9ea9753": {
-      "name": "Light Construction Bot",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "ac4d0a703ff0c9a408847b9a99877ae2": {
+      "name": "Tire",
+      "category_id": null
     },
-    "ac73433331950124f97fde3a82005522": {
-      "name": "Nanochips",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "b016c0f812a7d294d86d084ddf8101d7": {
+      "name": "Bricks",
+      "category_id": null
     },
-    "adf72ab5a4b1a544b902c7f835afd786": {
-      "name": "Red Anti-Matter Laser",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "b6ca95f5bc1c4404199eb9122cebe35d": {
+      "name": "Dollhouse",
+      "category_id": null
     },
-    "b556304a81f96184680e78b3f5028999": {
-      "name": "Thorium",
-      "category_id": "31062826f245a2843933fff8e3d25064"
+    "b77cdfe7a9dae6440ae154ee7e62e4e6": {
+      "name": "Wine",
+      "category_id": null
     },
-    "b5df6ad5ad98a484bada26ee9152ddab": {
-      "name": "Auxiliary-Arm Extension",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "b957fe2a0c9edf54181274eb2a4d6bd7": {
+      "name": "Biofuel",
+      "category_id": null
+    },
+    "b98a0bf901f632d49ad67e817edc5594": {
+      "name": "Copper Tubing",
+      "category_id": null
     },
     "badab64e2b680b841a5382a9497f2426": {
       "name": "Chicken Dinner",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "bd02bfb08ae3bf4409332646ed191ed7": {
-      "name": "Cyberlimb Mechanism",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "bc0475e2113dc8a4aa7beb6c56a76c4c": {
+      "name": "Apple Smoothie",
+      "category_id": null
     },
-    "bf12bdb185b3c9f4281b71de83ba57c7": {
-      "name": "Neural Interface",
-      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
+    "c02a2239cc3e5aa47a3332aa126fcb4f": {
+      "name": "Diodes",
+      "category_id": null
     },
     "c043a08c72ad3fb42b10c869839160ef": {
       "name": "Axles",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "c150fdaf92efa94468dbfd27aa4e406c": {
-      "name": "Thorium Rods",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
-    },
-    "c16b6afb66f451c4c8a5aafb1b1f0045": {
-      "name": "Carbon Fibers Tow",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
-    },
     "c1b27a84d2ed14a4bb3cc8b77d72bb49": {
       "name": "Leather",
       "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
-    "c3748a368630d4549845408b937df0cd": {
-      "name": "Gold Wire",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "c1be006d9be92044ab02439d903ed5cc": {
+      "name": "Heavy Pulp",
+      "category_id": null
     },
-    "c813616bb5aacd641afce87594dec375": {
-      "name": "Neural Connectors",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "c413491c824fd574ea5e45c379ab7fbe": {
+      "name": "Canned Fish",
+      "category_id": null
     },
-    "cad3b04f059bc8f4c844bccb71a04f20": {
-      "name": "Heavy Robot Frame",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "c50cc455e58990d40a64ce924f9e9b02": {
+      "name": "Buttons",
+      "category_id": null
     },
-    "ce071c3e91aca314abc2b7e0a81ae27b": {
-      "name": "Titanium Cases",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "c836ac87644e58a4bb300ca26bba9cb5": {
+      "name": "Chemicals",
+      "category_id": null
+    },
+    "c943858650059eb48b8fbc524703ea77": {
+      "name": "Brandy",
+      "category_id": null
     },
     "cf56d706f08e3bd4ea3545137073b1b2": {
       "name": "Windows",
       "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
-    "d2c16f026eb9214459065db757870a11": {
-      "name": "Antibacterial Pill",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "d1c70959f86830b4b857fc9274d52188": {
+      "name": "Steel Frame",
+      "category_id": null
     },
     "d2f570a30cee8a44595355075f4d097c": {
       "name": "Coal",
       "category_id": "31062826f245a2843933fff8e3d25064"
     },
-    "d555a1d9b31d26f45b2e797c267df77e": {
-      "name": "Quantum Matrix",
-      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
+    "d4c5eed300a363949b4942013aea63d8": {
+      "name": "Toy Train Set",
+      "category_id": null
     },
     "d6fd06b0b9826964d8bbb8caa37ce0b9": {
       "name": "Milk",
       "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
-    "d97f1f80fe62ec44f9be9dfe8e80cb8d": {
-      "name": "Micro Chips",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "d76ba16650884a04c93e48be634ef134": {
+      "name": "Wooden Planks",
+      "category_id": null
     },
-    "dd0fdcbb8fc17ef49afdc416707b868b": {
-      "name": "Thermoplastic",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+    "d89acb002a291e141857e933fd4bde64": {
+      "name": "Reinforced Wall",
+      "category_id": null
+    },
+    "d965e0cfca596cd489f4ba74fed18dda": {
+      "name": "Furniture Base (S)",
+      "category_id": null
+    },
+    "dd82c17bee25894479f51d6086c77c68": {
+      "name": "Plastic Cutlery",
+      "category_id": null
     },
     "ddf0b6a5dea3e7f4bbd87d4b94e28ef0": {
       "name": "Cooked Vegetables",
       "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
     },
-    "de4fa8d8d2f7b1e4b8c46715bbb3ae1f": {
-      "name": "Organ Replacements",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "dec427daf9fa969448411dd19f548804": {
+      "name": "Teddy Bear",
+      "category_id": null
+    },
+    "df0561f999cc84e4eaabfc26d174c11c": {
+      "name": "Doll",
+      "category_id": null
     },
     "e05f1259da3dc55448821b8e40e54711": {
       "name": "Rolling Chassis",
@@ -440,37 +548,57 @@
       "name": "Water",
       "category_id": "31062826f245a2843933fff8e3d25064"
     },
-    "e2acf4c57822c4b429d39befd0931dc9": {
-      "name": "Hyper Bacterial Culture",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
+    "e5564ac2334031946bd56a541252b108": {
+      "name": "Printed Paper",
+      "category_id": null
     },
-    "e3b6c56a741ef4343a678cb95f95ef8b": {
-      "name": "Carbos Tissue",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
+    "e684d85940d47cc4daed68f29cc64ad4": {
+      "name": "Fibers",
+      "category_id": null
     },
-    "e51e50142cda6fe4fba7bd2b207f62ae": {
-      "name": "Utility Cyberarm",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
-    },
-    "e9dee780d56c5b64685e7d83871798ef": {
-      "name": "Titanium Struts",
-      "category_id": "c23471459466d9a4bacb9eccb592e23e"
+    "ea8a29b28358cd8458f962d27d65b18e": {
+      "name": "Cans",
+      "category_id": null
     },
     "eb35f3307add13c47917d34f24ada448": {
       "name": "Wool",
       "category_id": "4e45e9c3558bcf34db499e28310ca7b5"
     },
+    "ec90f4584964bf6468f255c5d5c9c368": {
+      "name": "Wall Panels",
+      "category_id": null
+    },
+    "ed31c3ba4fea0294a955b64e471a462e": {
+      "name": "Marbles",
+      "category_id": null
+    },
+    "eedf322dc62ff544d9b16a609c5798cc": {
+      "name": "Soup",
+      "category_id": null
+    },
+    "ef032756eed3a43469b6d76ac6f8093e": {
+      "name": "Leather Furniture",
+      "category_id": null
+    },
+    "f08897636e50e2148a918423e1a8587e": {
+      "name": "Berry Smoothie",
+      "category_id": null
+    },
     "f357cb744b2fa5749b9bd3021272c766": {
       "name": "Olives",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "f387236b5a819a24fb0b584a3e7e04eb": {
-      "name": "Green Subatomic Laser",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "f699269abb3b8334a8fc494ac1f4985c": {
+      "name": "Headlights",
+      "category_id": null
     },
-    "f7ac91e7bd5aaec47b06a84fb46b9a93": {
-      "name": "Antiviral Pill",
-      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
+    "f6b35a5f7feae184faac7bfaa08f2561": {
+      "name": "Light Fabric",
+      "category_id": null
+    },
+    "f6bcd9c16c6940544b3541a4c0a4f776": {
+      "name": "Punch Cards",
+      "category_id": null
     },
     "f8d49dfd719d21343917427bf180d157": {
       "name": "Hops",
@@ -480,21 +608,13 @@
       "name": "Alternator",
       "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
-    "f927b3039cc017841afa960467d92305": {
-      "name": "Energy Rich Tissue",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
+    "fcf0095626385ab459305670fed95ac0": {
+      "name": "Summer Clothes",
+      "category_id": null
     },
-    "f9ca50c5b09192643b9fcff4ee667e0e": {
-      "name": "Theta Raw Processor",
-      "category_id": "c50e6d8c3b88fe14db532ebbe1bd1867"
-    },
-    "fc53ef27395263444aee269c89351181": {
-      "name": "Cellulose Algae",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
-    },
-    "ff2ec2dddf5f79648b65d9fb4f047c0a": {
-      "name": "High Fiber Tissue",
-      "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
+    "fdc7833facbb7a94fa66c81bb5cfabd2": {
+      "name": "Chocolate Cake",
+      "category_id": null
     },
     "ffde5f99e3a1c724da0f4d73ba414cd5": {
       "name": "Interface",
@@ -546,44 +666,6 @@
         {
           "product_id": "4a911f469fd22c34e91b41df126c361c",
           "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "0290c3225fbf15e499c1658345a46127": {
-      "name": "Quartz Solution",
-      "products": [
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": -1
-        },
-        {
-          "product_id": "70f3cd6068f8fd946b7d4625aba1d2cd",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "0427debff81d0f942a23f6c031558de8": {
-      "name": "Carbon Fibers Tow",
-      "products": [
-        {
-          "product_id": "dd0fdcbb8fc17ef49afdc416707b868b",
-          "amount": -3
-        },
-        {
-          "product_id": "32c29720198ff404d9c7f8c6e72c689d",
-          "amount": -2
-        },
-        {
-          "product_id": "c16b6afb66f451c4c8a5aafb1b1f0045",
-          "amount": 1
         }
       ],
       "days": 25,
@@ -672,25 +754,6 @@
       "days": 20,
       "required_modules": []
     },
-    "0a090b3661d57454b8550690b4f232d9": {
-      "name": "Antiviral Pill",
-      "products": [
-        {
-          "product_id": "79a7f7de866859d43a95482ec0f1ef34",
-          "amount": -2
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "f7ac91e7bd5aaec47b06a84fb46b9a93",
-          "amount": 1
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
     "0a5461d339372bc4393738ad69b4bd3e": {
       "name": "Car Prototype",
       "products": [
@@ -710,29 +773,6 @@
       "days": 360,
       "required_modules": []
     },
-    "0b099dde1394d474f95f91a56eea0b39": {
-      "name": "Complete Meal Paste",
-      "products": [
-        {
-          "product_id": "4582758fe9cae214e8dc41911f70a440",
-          "amount": -1
-        },
-        {
-          "product_id": "ff2ec2dddf5f79648b65d9fb4f047c0a",
-          "amount": -1
-        },
-        {
-          "product_id": "e3b6c56a741ef4343a678cb95f95ef8b",
-          "amount": -1
-        },
-        {
-          "product_id": "529fba3fb8e5f2b45ac940ad5db4e34d",
-          "amount": 1
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
     "0e1559ed9ac2f5043b5b974bfb70a5f9": {
       "name": "Hops",
       "products": [
@@ -748,34 +788,6 @@
       "days": 35,
       "required_modules": [
         "e82d765f4263a8643a51f04b5ee9e29a"
-      ]
-    },
-    "0e3e9abfa8798e641a99716193492964": {
-      "name": "Synthetic Resin",
-      "products": [
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -2
-        },
-        {
-          "product_id": "32c29720198ff404d9c7f8c6e72c689d",
-          "amount": 2
-        }
-      ],
-      "days": 20,
-      "required_modules": []
-    },
-    "0e6350fc59fc7a7458374d110cba3a49": {
-      "name": "Thorium",
-      "products": [
-        {
-          "product_id": "b556304a81f96184680e78b3f5028999",
-          "amount": 1
-        }
-      ],
-      "days": 15,
-      "required_modules": [
-        "fd70bfaaf4dc2f04a8c733df9d8a132b"
       ]
     },
     "11bcccf05226d3c44900c8bb94b1c21e": {
@@ -812,48 +824,6 @@
       "days": 20,
       "required_modules": []
     },
-    "1277d528ebb451a4b808805275a6a2c7": {
-      "name": "Heavy Robot Frame",
-      "products": [
-        {
-          "product_id": "6f3976d9c0f601e45899b9c0c5796e07",
-          "amount": -1
-        },
-        {
-          "product_id": "2160533b67bc18a4e83a598d9514a8b7",
-          "amount": -1
-        },
-        {
-          "product_id": "cad3b04f059bc8f4c844bccb71a04f20",
-          "amount": 1
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "13422c54681f5c04c88295c2420acda8": {
-      "name": "Antiviral Solution",
-      "products": [
-        {
-          "product_id": "9b3bae573a70a1d49884616b60a76cb9",
-          "amount": -1
-        },
-        {
-          "product_id": "3f9ba67c1288a344ca7130c5554d160e",
-          "amount": -1
-        },
-        {
-          "product_id": "254bc79012761b84383e027d27e7165e",
-          "amount": -1
-        },
-        {
-          "product_id": "79a7f7de866859d43a95482ec0f1ef34",
-          "amount": 1
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
     "13afe055ca29c314faff6d849fc682db": {
       "name": "Interior Body",
       "products": [
@@ -871,52 +841,6 @@
         }
       ],
       "days": 60,
-      "required_modules": []
-    },
-    "14078db4a7582f24d98ab1771f473b44": {
-      "name": "Blue Quartz Crystal",
-      "products": [
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": -2
-        },
-        {
-          "product_id": "70f3cd6068f8fd946b7d4625aba1d2cd",
-          "amount": -1
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "2bbdd35184523f64191137f93fd8aaca",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "16c855294846c1d4ca1a678056031adf": {
-      "name": "Worker's Meal Bar",
-      "products": [
-        {
-          "product_id": "4582758fe9cae214e8dc41911f70a440",
-          "amount": -1
-        },
-        {
-          "product_id": "f927b3039cc017841afa960467d92305",
-          "amount": -1
-        },
-        {
-          "product_id": "e3b6c56a741ef4343a678cb95f95ef8b",
-          "amount": -1
-        },
-        {
-          "product_id": "45222bf08e5774949b934c7b1b7ea7e0",
-          "amount": 1
-        }
-      ],
-      "days": 25,
       "required_modules": []
     },
     "16f6b29861ae99147b6bd8cf3b6474ec": {
@@ -950,48 +874,6 @@
       "required_modules": [
         "93b374381e65f01498261724ebd75749"
       ]
-    },
-    "187de5b354bcf8f46ab4f1e2c898377c": {
-      "name": "Heavy Mover Bot",
-      "products": [
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": -1
-        },
-        {
-          "product_id": "2e33e5a49f69bb74b8f80a98f3cdeaac",
-          "amount": -1
-        },
-        {
-          "product_id": "cad3b04f059bc8f4c844bccb71a04f20",
-          "amount": -1
-        },
-        {
-          "product_id": "aa1923c9e1417404e989e9b4cc0d06ac",
-          "amount": 1
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "18cc3a76fed954b45844f4de579565c9": {
-      "name": "Structural Disassembler",
-      "products": [
-        {
-          "product_id": "adf72ab5a4b1a544b902c7f835afd786",
-          "amount": -1
-        },
-        {
-          "product_id": "b5df6ad5ad98a484bada26ee9152ddab",
-          "amount": -1
-        },
-        {
-          "product_id": "808eba904459d6f489dc466eb8488f44",
-          "amount": 1
-        }
-      ],
-      "days": 60,
-      "required_modules": []
     },
     "1972b4a3252587749a7eec85a3bf2158": {
       "name": "Buttons",
@@ -1088,90 +970,6 @@
       "days": 25,
       "required_modules": []
     },
-    "1eea1c89dfea4fb49b62ff3496d96ab3": {
-      "name": "Microfilament Frame",
-      "products": [
-        {
-          "product_id": "c16b6afb66f451c4c8a5aafb1b1f0045",
-          "amount": -2
-        },
-        {
-          "product_id": "2e33e5a49f69bb74b8f80a98f3cdeaac",
-          "amount": -2
-        },
-        {
-          "product_id": "e9dee780d56c5b64685e7d83871798ef",
-          "amount": -1
-        },
-        {
-          "product_id": "3fe8c03758cf7cc45a89830b34f5156b",
-          "amount": 1
-        }
-      ],
-      "days": 120,
-      "required_modules": []
-    },
-    "1f63d5ee1c8da564582ecb35ca7bac20": {
-      "name": "Replicator 5000",
-      "products": [
-        {
-          "product_id": "d555a1d9b31d26f45b2e797c267df77e",
-          "amount": -1
-        },
-        {
-          "product_id": "3fe8c03758cf7cc45a89830b34f5156b",
-          "amount": -1
-        },
-        {
-          "product_id": "544bc86a662c0ea48a6cb933649e1383",
-          "amount": -1
-        },
-        {
-          "product_id": "41654d142939e8f4ea0fc046e6b7c5f5",
-          "amount": 1
-        }
-      ],
-      "days": 360,
-      "required_modules": []
-    },
-    "2029e5097d3be1440baf45f8704d7ba7": {
-      "name": "Neural Connectors",
-      "products": [
-        {
-          "product_id": "dd0fdcbb8fc17ef49afdc416707b868b",
-          "amount": -3
-        },
-        {
-          "product_id": "c3748a368630d4549845408b937df0cd",
-          "amount": -2
-        },
-        {
-          "product_id": "c813616bb5aacd641afce87594dec375",
-          "amount": 1
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "21009503de5bc1f4e89420208f9f6b89": {
-      "name": "Microbial Culture",
-      "products": [
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": -1
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "9b3bae573a70a1d49884616b60a76cb9",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
     "22b3ecf3392960d448c37ba98d780784": {
       "name": "Apple Smoothie",
       "products": [
@@ -1203,29 +1001,6 @@
       "required_modules": [
         "36613bc5d8b6cb443821eb3a664ac27d"
       ]
-    },
-    "232eb43f18559f74e926e23692841dc9": {
-      "name": "Light Robot Frame",
-      "products": [
-        {
-          "product_id": "6f3976d9c0f601e45899b9c0c5796e07",
-          "amount": -1
-        },
-        {
-          "product_id": "d97f1f80fe62ec44f9be9dfe8e80cb8d",
-          "amount": -1
-        },
-        {
-          "product_id": "a03316b65ad632c4d864f5bdc37df4a9",
-          "amount": -1
-        },
-        {
-          "product_id": "58ebd147624b740438646d57bc7e9205",
-          "amount": 1
-        }
-      ],
-      "days": 35,
-      "required_modules": []
     },
     "26025517fb75c344b84773fc7cff7738": {
       "name": "Paper Roll",
@@ -1334,25 +1109,6 @@
       "days": 40,
       "required_modules": []
     },
-    "2c502ec345ed62649a2301299cb434c2": {
-      "name": "Grav Field Generator",
-      "products": [
-        {
-          "product_id": "70f3cd6068f8fd946b7d4625aba1d2cd",
-          "amount": -2
-        },
-        {
-          "product_id": "ce071c3e91aca314abc2b7e0a81ae27b",
-          "amount": -1
-        },
-        {
-          "product_id": "2e33e5a49f69bb74b8f80a98f3cdeaac",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
     "2d03a49a40376fa4a8ae7f04632c4d4c": {
       "name": "Beer",
       "products": [
@@ -1390,29 +1146,6 @@
         {
           "product_id": "7a4d9e8a050608e47b7963bf27c8b7c9",
           "amount": 2
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "2eae88abd38d69e4fb89393ef8a5eaea": {
-      "name": "Heavy Lifring Cyberleg",
-      "products": [
-        {
-          "product_id": "bd02bfb08ae3bf4409332646ed191ed7",
-          "amount": -1
-        },
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": -1
-        },
-        {
-          "product_id": "e9dee780d56c5b64685e7d83871798ef",
-          "amount": -1
-        },
-        {
-          "product_id": "8d7e6de2658a624428ae5127889920ed",
-          "amount": 1
         }
       ],
       "days": 35,
@@ -1458,29 +1191,6 @@
       "days": 30,
       "required_modules": []
     },
-    "31060837f2ceb0347b55d595675d9ad5": {
-      "name": "Antibacterial Solution",
-      "products": [
-        {
-          "product_id": "9b3bae573a70a1d49884616b60a76cb9",
-          "amount": -1
-        },
-        {
-          "product_id": "3f9ba67c1288a344ca7130c5554d160e",
-          "amount": -1
-        },
-        {
-          "product_id": "e2acf4c57822c4b429d39befd0931dc9",
-          "amount": -1
-        },
-        {
-          "product_id": "06cc1fb39ebcd8846a9aa999d839c082",
-          "amount": 1
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
     "32335d529b9f177418f1828fdc41fd89": {
       "name": "Cows",
       "products": [
@@ -1509,25 +1219,6 @@
       "required_modules": [
         "66e5fa8801afcb0468d44766f57aabd9"
       ]
-    },
-    "33068d3895c219b4bb0db2d50553c30c": {
-      "name": "Quantum Matrix",
-      "products": [
-        {
-          "product_id": "bf12bdb185b3c9f4281b71de83ba57c7",
-          "amount": -1
-        },
-        {
-          "product_id": "f9ca50c5b09192643b9fcff4ee667e0e",
-          "amount": -1
-        },
-        {
-          "product_id": "d555a1d9b31d26f45b2e797c267df77e",
-          "amount": 1
-        }
-      ],
-      "days": 120,
-      "required_modules": []
     },
     "34c4c13601c1d974a84dc0936431b53a": {
       "name": "Car Radiator",
@@ -1620,19 +1311,6 @@
       "days": 35,
       "required_modules": []
     },
-    "3a690bd7813609148a394a30b6bd6ca4": {
-      "name": "Gold",
-      "products": [
-        {
-          "product_id": "181aabb76b63e3e4f95c5a9536cd137a",
-          "amount": 1
-        }
-      ],
-      "days": 15,
-      "required_modules": [
-        "a1d259e674b98334baed531706f26f8a"
-      ]
-    },
     "3a6f17fb889e8b045a960dbc7e71e6c4": {
       "name": "Summer Clothes",
       "products": [
@@ -1650,25 +1328,6 @@
         }
       ],
       "days": 40,
-      "required_modules": []
-    },
-    "3aa5088d2893eff429a2de26e6bfba2b": {
-      "name": "Regen Gel",
-      "products": [
-        {
-          "product_id": "664144f6d2af67b438ee95419de0cfb3",
-          "amount": -2
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "0988386bdb4e63a4cbfa5a5041b8bbab",
-          "amount": 1
-        }
-      ],
-      "days": 35,
       "required_modules": []
     },
     "3d109af2162ef0341858fbc2070bda54": {
@@ -1701,38 +1360,6 @@
       "days": 45,
       "required_modules": [
         "371a20ec127f11b4faf2fa99b43e4e36"
-      ]
-    },
-    "3f6589ce8981fc5498073f9d9829ea9f": {
-      "name": "Tholin Gel",
-      "products": [
-        {
-          "product_id": "3f9ba67c1288a344ca7130c5554d160e",
-          "amount": -2
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "1940bc51ac071ca4cad0fc8359915b29",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "3fc3f0870720d914cac969cc3a55efaa": {
-      "name": "K1ll-411 Virus Culture",
-      "products": [
-        {
-          "product_id": "254bc79012761b84383e027d27e7165e",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "448768d48a5c43d4fa818b18bbaa2a68"
       ]
     },
     "405a5971cb4741b488f8b1e3b0fab633": {
@@ -1773,19 +1400,6 @@
       "days": 25,
       "required_modules": []
     },
-    "40bbfb2db5b92974c93951c917895c5f": {
-      "name": "Hyper Bacterial Culture",
-      "products": [
-        {
-          "product_id": "e2acf4c57822c4b429d39befd0931dc9",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "07bead33b500fa4469337185fe093c37"
-      ]
-    },
     "41f151dc004726241827d75f5260fb69": {
       "name": "Vodka",
       "products": [
@@ -1804,29 +1418,6 @@
         {
           "product_id": "7d367252efaae8b40855b1158acc11f9",
           "amount": 2
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "42b7db29727b3a84f9f9a5ca886a7683": {
-      "name": "Heavy Construction Bot",
-      "products": [
-        {
-          "product_id": "9bb6d2fc040929e4bb6b11d147604e08",
-          "amount": -1
-        },
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": -1
-        },
-        {
-          "product_id": "cad3b04f059bc8f4c844bccb71a04f20",
-          "amount": -1
-        },
-        {
-          "product_id": "2c5b2420cd08e5d46812bd3ae5c5d347",
-          "amount": 1
         }
       ],
       "days": 35,
@@ -1929,21 +1520,6 @@
         "31395fc4cc0460749bb9213df0d687a6"
       ]
     },
-    "4685cda2c51c1f94793016cc8e7eb975": {
-      "name": "Titanium Cases",
-      "products": [
-        {
-          "product_id": "2160533b67bc18a4e83a598d9514a8b7",
-          "amount": -1
-        },
-        {
-          "product_id": "ce071c3e91aca314abc2b7e0a81ae27b",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
     "471d116b616046143840a0f615f00ad4": {
       "name": "Stuffing",
       "products": [
@@ -1957,21 +1533,6 @@
         }
       ],
       "days": 15,
-      "required_modules": []
-    },
-    "493bbb04586221940ba54301478257d7": {
-      "name": "Coolant",
-      "products": [
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": -2
-        },
-        {
-          "product_id": "6b294b2f103666d49b7e1864ca27f6a7",
-          "amount": 2
-        }
-      ],
-      "days": 20,
       "required_modules": []
     },
     "4bb2215e7aa5c394c821693d72875cdf": {
@@ -2002,25 +1563,6 @@
         }
       ],
       "days": 25,
-      "required_modules": []
-    },
-    "4e29fcd446ed66c4480477825e9c37a2": {
-      "name": "Thermoplastic",
-      "products": [
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -2
-        },
-        {
-          "product_id": "fc53ef27395263444aee269c89351181",
-          "amount": -3
-        },
-        {
-          "product_id": "dd0fdcbb8fc17ef49afdc416707b868b",
-          "amount": 2
-        }
-      ],
-      "days": 20,
       "required_modules": []
     },
     "4e5eb870a6afd984aa33ef4c6aece7e9": {
@@ -2160,19 +1702,6 @@
       "days": 20,
       "required_modules": []
     },
-    "5485e5eea30b43444b00203f66f04e23": {
-      "name": "Steel",
-      "products": [
-        {
-          "product_id": "48c000205aba7ac43ae321a5632b465f",
-          "amount": 1
-        }
-      ],
-      "days": 15,
-      "required_modules": [
-        "500846219e1de2247b872a5ca8eeea5f"
-      ]
-    },
     "54f8cbdee100740468527f9c5527cf90": {
       "name": "Grape Juice",
       "products": [
@@ -2213,38 +1742,6 @@
         }
       ],
       "days": 40,
-      "required_modules": []
-    },
-    "557a03ba760a52641bca014ff0092d70": {
-      "name": "Titanium",
-      "products": [
-        {
-          "product_id": "2160533b67bc18a4e83a598d9514a8b7",
-          "amount": 1
-        }
-      ],
-      "days": 15,
-      "required_modules": [
-        "c822b3f53a1aae444b02c9a00c7ec56b"
-      ]
-    },
-    "56da53e30430f1647bb6ac4d24749323": {
-      "name": "Binary Quark Gate",
-      "products": [
-        {
-          "product_id": "70f3cd6068f8fd946b7d4625aba1d2cd",
-          "amount": -2
-        },
-        {
-          "product_id": "32c29720198ff404d9c7f8c6e72c689d",
-          "amount": -1
-        },
-        {
-          "product_id": "79ffb5a08cc83524fbb66fc51c0d0b34",
-          "amount": 2
-        }
-      ],
-      "days": 30,
       "required_modules": []
     },
     "5789adf3f466e614491fb6ebb6149e36": {
@@ -2289,38 +1786,6 @@
       "days": 30,
       "required_modules": []
     },
-    "5af0a5557bdea22429b3f8bd4ff51866": {
-      "name": "Polymer",
-      "products": [
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": 1
-        }
-      ],
-      "days": 10,
-      "required_modules": [
-        "cc1ae000a4729e44e919025a9ebffebf"
-      ]
-    },
-    "5bdbc4636b5fba7488e78ae07b4a6063": {
-      "name": "Antibacterial Pill",
-      "products": [
-        {
-          "product_id": "06cc1fb39ebcd8846a9aa999d839c082",
-          "amount": -2
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "d2c16f026eb9214459065db757870a11",
-          "amount": 1
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
     "5d3e84ef3dc4ebf48827e498868bd983": {
       "name": "Bottles",
       "products": [
@@ -2334,29 +1799,6 @@
         }
       ],
       "days": 30,
-      "required_modules": []
-    },
-    "5eb8500c0375135418de18585635ed4e": {
-      "name": "Green Quartz Crystal",
-      "products": [
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": -2
-        },
-        {
-          "product_id": "70f3cd6068f8fd946b7d4625aba1d2cd",
-          "amount": -1
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "9bb6d2fc040929e4bb6b11d147604e08",
-          "amount": 2
-        }
-      ],
-      "days": 25,
       "required_modules": []
     },
     "5f4b9408151166f4fb2966624c950174": {
@@ -2374,29 +1816,6 @@
       "days": 20,
       "required_modules": []
     },
-    "603bab706dc6ba747b73651518a3cd80": {
-      "name": "Collector Bot",
-      "products": [
-        {
-          "product_id": "33c06d7cd2ea294478c991ecca9ad9c3",
-          "amount": -1
-        },
-        {
-          "product_id": "58ebd147624b740438646d57bc7e9205",
-          "amount": -1
-        },
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": -1
-        },
-        {
-          "product_id": "58c789a1fec764442ad364500bcb8c08",
-          "amount": 1
-        }
-      ],
-      "days": 40,
-      "required_modules": []
-    },
     "60d5ca160f654a04aa44431adab235eb": {
       "name": "Doll",
       "products": [
@@ -2411,44 +1830,6 @@
         {
           "product_id": "df0561f999cc84e4eaabfc26d174c11c",
           "amount": 2
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "618dbd0d73c64444f89b28bea51f1db0": {
-      "name": "Superconductor",
-      "products": [
-        {
-          "product_id": "658e8f3efa6b1eb4f828c54e114b8381",
-          "amount": -1
-        },
-        {
-          "product_id": "6b294b2f103666d49b7e1864ca27f6a7",
-          "amount": -1
-        },
-        {
-          "product_id": "499fab9cd398ca147b3c0e5f70cba712",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
-    "63bb16c63ea88cc4eb892a342635059a": {
-      "name": "Organ Replacement",
-      "products": [
-        {
-          "product_id": "664144f6d2af67b438ee95419de0cfb3",
-          "amount": -2
-        },
-        {
-          "product_id": "4582758fe9cae214e8dc41911f70a440",
-          "amount": -1
-        },
-        {
-          "product_id": "de4fa8d8d2f7b1e4b8c46715bbb3ae1f",
-          "amount": 1
         }
       ],
       "days": 35,
@@ -2602,21 +1983,6 @@
       "days": 25,
       "required_modules": []
     },
-    "702cae18c22598147b6a4ae269aff993": {
-      "name": "Titanium Struts",
-      "products": [
-        {
-          "product_id": "2160533b67bc18a4e83a598d9514a8b7",
-          "amount": -1
-        },
-        {
-          "product_id": "e9dee780d56c5b64685e7d83871798ef",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
     "703764fa6e25caf4ebfac4119256dc22": {
       "name": "Steel",
       "products": [
@@ -2714,25 +2080,6 @@
         "d50dc154049bbdc4e9f67f4a5fdc3023"
       ]
     },
-    "7499528c80de84849a9dd58621c2272b": {
-      "name": "Bone Growth Material",
-      "products": [
-        {
-          "product_id": "664144f6d2af67b438ee95419de0cfb3",
-          "amount": -2
-        },
-        {
-          "product_id": "ff2ec2dddf5f79648b65d9fb4f047c0a",
-          "amount": -1
-        },
-        {
-          "product_id": "045a4d57874d2284cb7c3e5d486af8e7",
-          "amount": 1
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
     "74b11c8805272294c92e4cd6d04076d6": {
       "name": "Teddy Bear",
       "products": [
@@ -2750,59 +2097,6 @@
         }
       ],
       "days": 25,
-      "required_modules": []
-    },
-    "7602203c13e0f7843a56977a4d9a6060": {
-      "name": "Bio Memory Cells",
-      "products": [
-        {
-          "product_id": "dd0fdcbb8fc17ef49afdc416707b868b",
-          "amount": -2
-        },
-        {
-          "product_id": "1940bc51ac071ca4cad0fc8359915b29",
-          "amount": -3
-        },
-        {
-          "product_id": "95742de4bbced4242bb69359c8c84c4c",
-          "amount": 1
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
-    "7884a295bbbd79644b670a7586e41957": {
-      "name": "Cyberlimb Mechanism",
-      "products": [
-        {
-          "product_id": "6f3976d9c0f601e45899b9c0c5796e07",
-          "amount": -1
-        },
-        {
-          "product_id": "a03316b65ad632c4d864f5bdc37df4a9",
-          "amount": -1
-        },
-        {
-          "product_id": "bd02bfb08ae3bf4409332646ed191ed7",
-          "amount": 1
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "7922af4e01129f34388b4aab5b2d7f4f": {
-      "name": "Thorium Rods",
-      "products": [
-        {
-          "product_id": "b556304a81f96184680e78b3f5028999",
-          "amount": -2
-        },
-        {
-          "product_id": "c150fdaf92efa94468dbfd27aa4e406c",
-          "amount": 2
-        }
-      ],
-      "days": 30,
       "required_modules": []
     },
     "795ff933d703e2c4baeabdd7fda872a0": {
@@ -2869,48 +2163,6 @@
       "days": 25,
       "required_modules": []
     },
-    "7b037c93b05de1d449696be8b6d971bc": {
-      "name": "Nanochips",
-      "products": [
-        {
-          "product_id": "d97f1f80fe62ec44f9be9dfe8e80cb8d",
-          "amount": -2
-        },
-        {
-          "product_id": "79ffb5a08cc83524fbb66fc51c0d0b34",
-          "amount": -2
-        },
-        {
-          "product_id": "dd0fdcbb8fc17ef49afdc416707b868b",
-          "amount": -1
-        },
-        {
-          "product_id": "ac73433331950124f97fde3a82005522",
-          "amount": 1
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
-    "7d193959ad01b9e4784335a01ba25734": {
-      "name": "Microchips",
-      "products": [
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "181aabb76b63e3e4f95c5a9536cd137a",
-          "amount": -1
-        },
-        {
-          "product_id": "d97f1f80fe62ec44f9be9dfe8e80cb8d",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
     "818a4c47d5d0e5d47af9b74fe2136b22": {
       "name": "Chemicals",
       "products": [
@@ -2925,19 +2177,6 @@
       ],
       "days": 20,
       "required_modules": []
-    },
-    "83e8199e0ee1c8344aca03fedc46e4f9": {
-      "name": "Silica",
-      "products": [
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": 1
-        }
-      ],
-      "days": 10,
-      "required_modules": [
-        "ffeabe1df634ad64fbfacba52d8de9d0"
-      ]
     },
     "87ea5cfc9025c3b49bcd26236808c5ab": {
       "name": "Soup",
@@ -2971,21 +2210,6 @@
         }
       ],
       "days": 25,
-      "required_modules": []
-    },
-    "88bce1e88cc80a342b6102010d2bac9e": {
-      "name": "Gold Wire",
-      "products": [
-        {
-          "product_id": "181aabb76b63e3e4f95c5a9536cd137a",
-          "amount": -2
-        },
-        {
-          "product_id": "c3748a368630d4549845408b937df0cd",
-          "amount": 2
-        }
-      ],
-      "days": 20,
       "required_modules": []
     },
     "89d0a26548db42e40a44986e9e9abd7e": {
@@ -3058,21 +2282,6 @@
         "4241c2e02f3bc504890272f7ec619756"
       ]
     },
-    "8bc81a84fbf316745977acbbbd612502": {
-      "name": "Steel Struts",
-      "products": [
-        {
-          "product_id": "48c000205aba7ac43ae321a5632b465f",
-          "amount": -3
-        },
-        {
-          "product_id": "a03316b65ad632c4d864f5bdc37df4a9",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
     "8c76203d23e573a41b7e381974773ca5": {
       "name": "Waffles",
       "products": [
@@ -3114,23 +2323,6 @@
       ],
       "days": 40,
       "required_modules": []
-    },
-    "90248115a7465384684157c56c9e2b8c": {
-      "name": "Energy Rich Tissue",
-      "products": [
-        {
-          "product_id": "5123f9d311a173043ba10a6d85c4a3d5",
-          "amount": -2
-        },
-        {
-          "product_id": "f927b3039cc017841afa960467d92305",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "98d0d9a6ff9f0ec4cbbef4f5ecb124e4"
-      ]
     },
     "9154d0b1b6c380b4896fd70709661589": {
       "name": "Computer Memory",
@@ -3184,88 +2376,6 @@
         {
           "product_id": "8fa18bb35cddd934599192c9e2078b18",
           "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "9581909062787f049bad1f250bc43767": {
-      "name": "Neural Interface",
-      "products": [
-        {
-          "product_id": "a84ceb5e63723f348b6f491f5b68ba0d",
-          "amount": -1
-        },
-        {
-          "product_id": "c813616bb5aacd641afce87594dec375",
-          "amount": -1
-        },
-        {
-          "product_id": "95742de4bbced4242bb69359c8c84c4c",
-          "amount": -1
-        },
-        {
-          "product_id": "bf12bdb185b3c9f4281b71de83ba57c7",
-          "amount": 1
-        }
-      ],
-      "days": 60,
-      "required_modules": []
-    },
-    "960cf4cda8c33e846aa4272ee12de38a": {
-      "name": "Lean Protein Tissue",
-      "products": [
-        {
-          "product_id": "5123f9d311a173043ba10a6d85c4a3d5",
-          "amount": -2
-        },
-        {
-          "product_id": "4582758fe9cae214e8dc41911f70a440",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "8b469429d2366834995c5e0ceee814ae"
-      ]
-    },
-    "96e34ed64a21be643a76e972472cee47": {
-      "name": "Utility Cyberarm",
-      "products": [
-        {
-          "product_id": "bd02bfb08ae3bf4409332646ed191ed7",
-          "amount": -1
-        },
-        {
-          "product_id": "2bbdd35184523f64191137f93fd8aaca",
-          "amount": -1
-        },
-        {
-          "product_id": "e51e50142cda6fe4fba7bd2b207f62ae",
-          "amount": 1
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "973d7c4b1694582488b1a6033573eef4": {
-      "name": "Green Subatomic Laser",
-      "products": [
-        {
-          "product_id": "9bb6d2fc040929e4bb6b11d147604e08",
-          "amount": -2
-        },
-        {
-          "product_id": "75c51c5fe8247de4991f05ff1c7f1b19",
-          "amount": -1
-        },
-        {
-          "product_id": "26c09d7c1ebc51a41a5b8c9279db6cf8",
-          "amount": -1
-        },
-        {
-          "product_id": "f387236b5a819a24fb0b584a3e7e04eb",
-          "amount": 1
         }
       ],
       "days": 25,
@@ -3417,65 +2527,6 @@
       "days": 35,
       "required_modules": []
     },
-    "a9c59c03ce4cef14eae33df0ee6daf5d": {
-      "name": "Hodagrium",
-      "products": [
-        {
-          "product_id": "2160533b67bc18a4e83a598d9514a8b7",
-          "amount": -1
-        },
-        {
-          "product_id": "48c000205aba7ac43ae321a5632b465f",
-          "amount": -1
-        },
-        {
-          "product_id": "181aabb76b63e3e4f95c5a9536cd137a",
-          "amount": -1
-        },
-        {
-          "product_id": "658e8f3efa6b1eb4f828c54e114b8381",
-          "amount": 2
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "ab96cf79676d38c48867508df5c11dec": {
-      "name": "Red Quartz Crystal",
-      "products": [
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": -2
-        },
-        {
-          "product_id": "70f3cd6068f8fd946b7d4625aba1d2cd",
-          "amount": -1
-        },
-        {
-          "product_id": "59c3d2e1cc92c454db75f167e13fafaa",
-          "amount": -1
-        },
-        {
-          "product_id": "33c06d7cd2ea294478c991ecca9ad9c3",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
-    "ad37c1cf6cebce04c8103d30dede2ab6": {
-      "name": "Primordial Algae",
-      "products": [
-        {
-          "product_id": "5123f9d311a173043ba10a6d85c4a3d5",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "af5c240841983d045a667501c8094dbb"
-      ]
-    },
     "afdd5345a220a9e4284f348462310639": {
       "name": "Copper",
       "products": [
@@ -3508,25 +2559,6 @@
       "days": 25,
       "required_modules": []
     },
-    "b09acf42999e5e044bfca42d91fc70ab": {
-      "name": "Tholins",
-      "products": [
-        {
-          "product_id": "0c08f5c7a2dc3f146a81031c9c4075e2",
-          "amount": -1
-        },
-        {
-          "product_id": "5123f9d311a173043ba10a6d85c4a3d5",
-          "amount": -1
-        },
-        {
-          "product_id": "3f9ba67c1288a344ca7130c5554d160e",
-          "amount": 2
-        }
-      ],
-      "days": 20,
-      "required_modules": []
-    },
     "b221be43172548045b7a54a164b8f45c": {
       "name": "First Computer",
       "products": [
@@ -3548,44 +2580,6 @@
         }
       ],
       "days": 360,
-      "required_modules": []
-    },
-    "b439b5e547df7764592b0cd065a1276a": {
-      "name": "Actuators",
-      "products": [
-        {
-          "product_id": "2160533b67bc18a4e83a598d9514a8b7",
-          "amount": -1
-        },
-        {
-          "product_id": "181aabb76b63e3e4f95c5a9536cd137a",
-          "amount": -1
-        },
-        {
-          "product_id": "6f3976d9c0f601e45899b9c0c5796e07",
-          "amount": 2
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "b5c15bc143aa7634fbdcb2b968a4e1c9": {
-      "name": "Nuclear Power Cells",
-      "products": [
-        {
-          "product_id": "c150fdaf92efa94468dbfd27aa4e406c",
-          "amount": -1
-        },
-        {
-          "product_id": "658e8f3efa6b1eb4f828c54e114b8381",
-          "amount": -1
-        },
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": 1
-        }
-      ],
-      "days": 35,
       "required_modules": []
     },
     "b636149e54bcefd448fe07f635028d0a": {
@@ -3624,29 +2618,6 @@
         }
       ],
       "days": 40,
-      "required_modules": []
-    },
-    "bd456d3ef15af7342aec3a43a942dcb2": {
-      "name": "Blue Gamma Laser",
-      "products": [
-        {
-          "product_id": "2bbdd35184523f64191137f93fd8aaca",
-          "amount": -2
-        },
-        {
-          "product_id": "75c51c5fe8247de4991f05ff1c7f1b19",
-          "amount": -2
-        },
-        {
-          "product_id": "26c09d7c1ebc51a41a5b8c9279db6cf8",
-          "amount": -1
-        },
-        {
-          "product_id": "a84ceb5e63723f348b6f491f5b68ba0d",
-          "amount": 1
-        }
-      ],
-      "days": 30,
       "required_modules": []
     },
     "bd4cfb65c05a0d8459a52b396b05cf49": {
@@ -3727,23 +2698,6 @@
       ],
       "days": 40,
       "required_modules": []
-    },
-    "c5bd244cf4d86484c8c70f01847d5a65": {
-      "name": "Concentrated Vitamns",
-      "products": [
-        {
-          "product_id": "fc53ef27395263444aee269c89351181",
-          "amount": -2
-        },
-        {
-          "product_id": "31427038d4673be45b4667ca1ec4a246",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "27697206858fe19478ac649e0697a61d"
-      ]
     },
     "c5c014afd3bd83c499de3cad27e9eb37": {
       "name": "Marbles",
@@ -3883,50 +2837,6 @@
       "days": 45,
       "required_modules": []
     },
-    "ce54c202f67df564e8b173a5d6df8918": {
-      "name": "Medi-Bot",
-      "products": [
-        {
-          "product_id": "2bbdd35184523f64191137f93fd8aaca",
-          "amount": -1
-        },
-        {
-          "product_id": "58ebd147624b740438646d57bc7e9205",
-          "amount": -1
-        },
-        {
-          "product_id": "664144f6d2af67b438ee95419de0cfb3",
-          "amount": -1
-        },
-        {
-          "product_id": "5cb4a7e08a1486f468d70d0b6f6a04ba",
-          "amount": 1
-        }
-      ],
-      "days": 35,
-      "required_modules": []
-    },
-    "d205ed5cad95fee49a689bd71f85b0fc": {
-      "name": "High Fiber Tissue",
-      "products": [
-        {
-          "product_id": "fc53ef27395263444aee269c89351181",
-          "amount": -1
-        },
-        {
-          "product_id": "5123f9d311a173043ba10a6d85c4a3d5",
-          "amount": -1
-        },
-        {
-          "product_id": "ff2ec2dddf5f79648b65d9fb4f047c0a",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "1e36ae9984f18fb4fa39830f15110452"
-      ]
-    },
     "d2570264a33374a40bc405f4ba20f92a": {
       "name": "Plastic Furniture",
       "products": [
@@ -3946,21 +2856,6 @@
       "days": 45,
       "required_modules": []
     },
-    "d2760a0173a93334cb9f83dfa891ad9b": {
-      "name": "Steel Cases",
-      "products": [
-        {
-          "product_id": "48c000205aba7ac43ae321a5632b465f",
-          "amount": -2
-        },
-        {
-          "product_id": "26c09d7c1ebc51a41a5b8c9279db6cf8",
-          "amount": 2
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
     "d4bd49bfd8f6b664fa90a076bada5ff1": {
       "name": "Fibers",
       "products": [
@@ -3975,23 +2870,6 @@
       ],
       "days": 20,
       "required_modules": []
-    },
-    "d7262252d53624e4f8ae790a3c9200ee": {
-      "name": "Carbos Tissue",
-      "products": [
-        {
-          "product_id": "fc53ef27395263444aee269c89351181",
-          "amount": -2
-        },
-        {
-          "product_id": "e3b6c56a741ef4343a678cb95f95ef8b",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "d0b739c868464874c9311b8b474d00ae"
-      ]
     },
     "d73148883acb6114e85c4940a2980521": {
       "name": "Cotton",
@@ -4034,29 +2912,6 @@
       "required_modules": [
         "f78463b1bf911474896bb2b4701311f2"
       ]
-    },
-    "d76e90d4ed58bc14eae74c262ec06c3d": {
-      "name": "Laser Control System",
-      "products": [
-        {
-          "product_id": "52c6b2a8a33dc9f44910d1c192667222",
-          "amount": -1
-        },
-        {
-          "product_id": "808eba904459d6f489dc466eb8488f44",
-          "amount": -1
-        },
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": -1
-        },
-        {
-          "product_id": "544bc86a662c0ea48a6cb933649e1383",
-          "amount": 1
-        }
-      ],
-      "days": 120,
-      "required_modules": []
     },
     "d8abfcae85e15fb439d34ae3c4a21a67": {
       "name": "Rolling Chassis",
@@ -4153,25 +3008,6 @@
         "7e8b8b281d25d0d46a1ca0f1a09b1e14"
       ]
     },
-    "db07b48772332fd448d9cb16062b0468": {
-      "name": "BioLEDs",
-      "products": [
-        {
-          "product_id": "b556304a81f96184680e78b3f5028999",
-          "amount": -2
-        },
-        {
-          "product_id": "fc53ef27395263444aee269c89351181",
-          "amount": -2
-        },
-        {
-          "product_id": "75c51c5fe8247de4991f05ff1c7f1b19",
-          "amount": 1
-        }
-      ],
-      "days": 25,
-      "required_modules": []
-    },
     "db249325fc44dd049aa3e2241a3cb63a": {
       "name": "Yeast",
       "products": [
@@ -4225,29 +3061,6 @@
       "days": 45,
       "required_modules": []
     },
-    "dbcc4ebe72015ed4b93ae0c95a2df941": {
-      "name": "Light Construction Bot",
-      "products": [
-        {
-          "product_id": "9bb6d2fc040929e4bb6b11d147604e08",
-          "amount": -1
-        },
-        {
-          "product_id": "58ebd147624b740438646d57bc7e9205",
-          "amount": -1
-        },
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": -1
-        },
-        {
-          "product_id": "ab73ceacfc278134b95be382e9ea9753",
-          "amount": 1
-        }
-      ],
-      "days": 40,
-      "required_modules": []
-    },
     "dfd8ed92bcb683b4fb6d8b9323ceb5e7": {
       "name": "Glass",
       "products": [
@@ -4265,25 +3078,6 @@
         }
       ],
       "days": 15,
-      "required_modules": []
-    },
-    "e03af268d8531e44596e043e87fbf4ad": {
-      "name": "Theta Raw Processor",
-      "products": [
-        {
-          "product_id": "499fab9cd398ca147b3c0e5f70cba712",
-          "amount": -1
-        },
-        {
-          "product_id": "ac73433331950124f97fde3a82005522",
-          "amount": -1
-        },
-        {
-          "product_id": "f9ca50c5b09192643b9fcff4ee667e0e",
-          "amount": 1
-        }
-      ],
-      "days": 60,
       "required_modules": []
     },
     "e0b9032b3adc06e4cb86ddb7b6e24b62": {
@@ -4413,25 +3207,6 @@
       "days": 45,
       "required_modules": []
     },
-    "eb26431eddf76de4ab1702ceca13f62a": {
-      "name": "Auxiliary-Arm Attachment",
-      "products": [
-        {
-          "product_id": "bd02bfb08ae3bf4409332646ed191ed7",
-          "amount": -1
-        },
-        {
-          "product_id": "11cdd6cf332415a42a7dbcae974918c4",
-          "amount": -1
-        },
-        {
-          "product_id": "b5df6ad5ad98a484bada26ee9152ddab",
-          "amount": 1
-        }
-      ],
-      "days": 30,
-      "required_modules": []
-    },
     "ebf3805be533e614dabf60546c4c54a2": {
       "name": "Concrete",
       "products": [
@@ -4472,48 +3247,6 @@
         }
       ],
       "days": 25,
-      "required_modules": []
-    },
-    "f1790f9260e9109498452e5641ec48ca": {
-      "name": "Verteron Particle Infuser",
-      "products": [
-        {
-          "product_id": "f387236b5a819a24fb0b584a3e7e04eb",
-          "amount": -1
-        },
-        {
-          "product_id": "b5df6ad5ad98a484bada26ee9152ddab",
-          "amount": -1
-        },
-        {
-          "product_id": "52c6b2a8a33dc9f44910d1c192667222",
-          "amount": 1
-        }
-      ],
-      "days": 60,
-      "required_modules": []
-    },
-    "f262177c90ed6fd43bc99cd229a67226": {
-      "name": "Regenerative Solution",
-      "products": [
-        {
-          "product_id": "9b3bae573a70a1d49884616b60a76cb9",
-          "amount": -1
-        },
-        {
-          "product_id": "3f9ba67c1288a344ca7130c5554d160e",
-          "amount": -1
-        },
-        {
-          "product_id": "5123f9d311a173043ba10a6d85c4a3d5",
-          "amount": -1
-        },
-        {
-          "product_id": "664144f6d2af67b438ee95419de0cfb3",
-          "amount": 1
-        }
-      ],
-      "days": 30,
       "required_modules": []
     },
     "f5b8d98f85c56084983a45863a06de6d": {
@@ -4557,19 +3290,6 @@
       ],
       "days": 180,
       "required_modules": []
-    },
-    "f8e806a7520867644a27485852a830d7": {
-      "name": "Cellulose Algae",
-      "products": [
-        {
-          "product_id": "fc53ef27395263444aee269c89351181",
-          "amount": 2
-        }
-      ],
-      "days": 30,
-      "required_modules": [
-        "fd42ac23592d4014fa55b29ff1afe548"
-      ]
     },
     "f9b2742d276b277459815a1f190e8177": {
       "name": "Alternator",
@@ -4747,51 +3467,16 @@
       "required_modules": [
         "45233a61c3748844e9f60b68cf67fa5d"
       ]
-    },
-    "ffceef2c6b3a94545845e69b1dbd2b30": {
-      "name": "Red- Anti-Matter Laser",
-      "products": [
-        {
-          "product_id": "33c06d7cd2ea294478c991ecca9ad9c3",
-          "amount": -2
-        },
-        {
-          "product_id": "75c51c5fe8247de4991f05ff1c7f1b19",
-          "amount": -2
-        },
-        {
-          "product_id": "26c09d7c1ebc51a41a5b8c9279db6cf8",
-          "amount": -1
-        },
-        {
-          "product_id": "adf72ab5a4b1a544b902c7f835afd786",
-          "amount": 1
-        }
-      ],
-      "days": 30,
-      "required_modules": []
     }
   },
   "modules": {
-    "07bead33b500fa4469337185fe093c37": {
-      "name": "Hyper Bacterial Culture Field",
-      "base_cost": 200000
-    },
     "115476425a1351848b705ac75c547583": {
       "name": "POTATO FIELD",
       "base_cost": 75000
     },
-    "1e36ae9984f18fb4fa39830f15110452": {
-      "name": "High Fiber Tissue Field",
-      "base_cost": 300000
-    },
     "2601e8cd807d3c84893673844a71c8fc": {
       "name": "OLIVE FIELD",
       "base_cost": 100000
-    },
-    "27697206858fe19478ac649e0697a61d": {
-      "name": "Concentrated Vitamins Field",
-      "base_cost": 300000
     },
     "28e930819ac90f44482f2b9206066019": {
       "name": "WHEAT FIELD",
@@ -4821,10 +3506,6 @@
       "name": "VINEYARD",
       "base_cost": 100000
     },
-    "448768d48a5c43d4fa818b18bbaa2a68": {
-      "name": "Kill-411 Virus Culture Field",
-      "base_cost": 200000
-    },
     "45233a61c3748844e9f60b68cf67fa5d": {
       "name": "SAND HARVESTER",
       "base_cost": 75000
@@ -4832,10 +3513,6 @@
     "469e2af9baf4bea428eb1ba785328b0c": {
       "name": "COTTON FIELD",
       "base_cost": 125000
-    },
-    "500846219e1de2247b872a5ca8eeea5f": {
-      "name": "RUIN HARVESTER",
-      "base_cost": 175000
     },
     "66e5fa8801afcb0468d44766f57aabd9": {
       "name": "COW FIELD",
@@ -4853,10 +3530,6 @@
       "name": "VEGETABLE FIELD",
       "base_cost": 75000
     },
-    "74e22b99a0ef73944a82a157f0d2ea8c": {
-      "name": "Bioluminescent Algae Field",
-      "base_cost": 300000
-    },
     "7e8b8b281d25d0d46a1ca0f1a09b1e14": {
       "name": "CHOCOLATE FIELD",
       "base_cost": 125000
@@ -4869,29 +3542,13 @@
       "name": "RUBBER TREE FIELD",
       "base_cost": 100000
     },
-    "8b469429d2366834995c5e0ceee814ae": {
-      "name": "Lean Protein Tissue Field",
-      "base_cost": 300000
-    },
     "93b374381e65f01498261724ebd75749": {
       "name": "OIL DRILL HARVESTER",
       "base_cost": 225000
     },
-    "98d0d9a6ff9f0ec4cbbef4f5ecb124e4": {
-      "name": "Energy Rich Tissue Field",
-      "base_cost": 300000
-    },
-    "a1d259e674b98334baed531706f26f8a": {
-      "name": "GOLD MINE HARVESTER",
-      "base_cost": 175000
-    },
     "a7346db5f9536fd439e9af5389f95cfa": {
       "name": "ORANGES FIELD",
       "base_cost": 100000
-    },
-    "af5c240841983d045a667501c8094dbb": {
-      "name": "Primordial Algae Field",
-      "base_cost": 200000
     },
     "b51b415353fcfc84ebc628107c6749b6": {
       "name": "LUMBERYARD HARVESTER",
@@ -4901,21 +3558,9 @@
       "name": "COAL MINE HARVESTER",
       "base_cost": 175000
     },
-    "c822b3f53a1aae444b02c9a00c7ec56b": {
-      "name": "TITANIUM MINE HARVESTER",
-      "base_cost": 175000
-    },
     "c89200fe495d58e49ad31e410b8a5a85": {
       "name": "IRON MINE HARVESTER",
       "base_cost": 175000
-    },
-    "cc1ae000a4729e44e919025a9ebffebf": {
-      "name": "POLYMER HARVESTER",
-      "base_cost": 75000
-    },
-    "d0b739c868464874c9311b8b474d00ae": {
-      "name": "Carbos Tissue Field",
-      "base_cost": 300000
     },
     "d50dc154049bbdc4e9f67f4a5fdc3023": {
       "name": "SHEEP FIELD",
@@ -4932,26 +3577,9 @@
     "f78463b1bf911474896bb2b4701311f2": {
       "name": "CHICKEN FIELD",
       "base_cost": 150000
-    },
-    "fd42ac23592d4014fa55b29ff1afe548": {
-      "name": "Cellulose Algae Field",
-      "base_cost": 200000
-    },
-    "fd70bfaaf4dc2f04a8c733df9d8a132b": {
-      "name": "THORIUM MINE HARVESTER",
-      "base_cost": 175000
-    },
-    "ffeabe1df634ad64fbfacba52d8de9d0": {
-      "name": "SILICA HARVESTER",
-      "base_cost": 125000
     }
   },
   "buildings": {
-    "000b8ba6503852f46aabc8ea61e45e97": {
-      "name": "Fabrication Shop",
-      "base_cost": 0,
-      "available_recipes": []
-    },
     "00c053bccc485304e8658e7712543a36": {
       "name": "DRINKS FACTORY",
       "base_cost": 650000,
@@ -4971,56 +3599,9 @@
         "17decf17612fa914994621615f2602d2"
       ]
     },
-    "06a2c39113b40bc488a1cd5a987eb429": {
-      "name": "ADVANCED COMPONENTS FACTORY",
-      "base_cost": 2500000,
-      "available_recipes": [
-        "1eea1c89dfea4fb49b62ff3496d96ab3",
-        "9581909062787f049bad1f250bc43767",
-        "e03af268d8531e44596e043e87fbf4ad",
-        "33068d3895c219b4bb0db2d50553c30c",
-        "f1790f9260e9109498452e5641ec48ca",
-        "18cc3a76fed954b45844f4de579565c9",
-        "d76e90d4ed58bc14eae74c262ec06c3d",
-        "973d7c4b1694582488b1a6033573eef4"
-      ]
-    },
-    "09ec71a458f85ac4fb04f592f4cedefe": {
-      "name": "POLYMER GATHERER",
-      "base_cost": 125000,
-      "available_recipes": [
-        "5af0a5557bdea22429b3f8bd4ff51866"
-      ]
-    },
-    "09f43c351b79780479b83ec165df4d7a": {
-      "name": "ROBOTICS FACTORY",
-      "base_cost": 450000,
-      "available_recipes": [
-        "8bc81a84fbf316745977acbbbd612502",
-        "88bce1e88cc80a342b6102010d2bac9e",
-        "b439b5e547df7764592b0cd065a1276a",
-        "702cae18c22598147b6a4ae269aff993",
-        "232eb43f18559f74e926e23692841dc9",
-        "7884a295bbbd79644b670a7586e41957",
-        "1277d528ebb451a4b808805275a6a2c7",
-        "dbcc4ebe72015ed4b93ae0c95a2df941",
-        "ce54c202f67df564e8b173a5d6df8918",
-        "603bab706dc6ba747b73651518a3cd80",
-        "eb26431eddf76de4ab1702ceca13f62a",
-        "96e34ed64a21be643a76e972472cee47",
-        "2eae88abd38d69e4fb89393ef8a5eaea",
-        "42b7db29727b3a84f9f9a5ca886a7683",
-        "187de5b354bcf8f46ab4f1e2c898377c"
-      ]
-    },
     "13ba5f5ba4a98c343b5c4c794b48edcc": {
       "name": "Boat Depot",
       "base_cost": 450000,
-      "available_recipes": []
-    },
-    "158f0a1dc93bfa34ea8c34f7eb5679de": {
-      "name": "Showroom",
-      "base_cost": 0,
       "available_recipes": []
     },
     "161ad2f453c3c004d938a5f637a2a18d": {
@@ -5057,11 +3638,6 @@
         "0e1559ed9ac2f5043b5b974bfb70a5f9"
       ]
     },
-    "1d036fdc9b678c243bebe253bf7c8e2c": {
-      "name": "Air Scrubber",
-      "base_cost": 125000,
-      "available_recipes": []
-    },
     "1e4d43c734904d64a82cd4b07cc3b3c5": {
       "name": "Residential Building",
       "base_cost": 0,
@@ -5070,11 +3646,6 @@
     "1ea6c9754cc4ccb47a9d8d7b76ed429b": {
       "name": "Town Center",
       "base_cost": 0,
-      "available_recipes": []
-    },
-    "1eb16fa8f00580b4d9b51a75dae319f8": {
-      "name": "Drop Ship Pad",
-      "base_cost": 450000,
       "available_recipes": []
     },
     "21fdc193007edf544970ad3aa4b62df5": {
@@ -5121,13 +3692,6 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "2c96be9a48c20b740ac25430a55294d5": {
-      "name": "SILICA COLLECTOR",
-      "base_cost": 175000,
-      "available_recipes": [
-        "83e8199e0ee1c8344aca03fedc46e4f9"
-      ]
-    },
     "2edfd0e9d7ecce24c850e7d16433268b": {
       "name": "Residential Building",
       "base_cost": 0,
@@ -5135,11 +3699,6 @@
     },
     "2f5561d96fc08f34d909b7a261b1bd7a": {
       "name": "Gas Station",
-      "base_cost": 0,
-      "available_recipes": []
-    },
-    "3107d8f63ae28f341bb4bde3e798aad7": {
-      "name": "Robotics Shop",
       "base_cost": 0,
       "available_recipes": []
     },
@@ -5187,16 +3746,6 @@
     "3a617aaacb82df146ad14f07bbdc3770": {
       "name": "Residential Building",
       "base_cost": 0,
-      "available_recipes": []
-    },
-    "3c3fff61de267024d9bfbb516b9d205d": {
-      "name": "Residential Complex",
-      "base_cost": 0,
-      "available_recipes": []
-    },
-    "3d2c9eac1bf82e04aaa7ff85e4266682": {
-      "name": "MagLev Terminal",
-      "base_cost": 450000,
       "available_recipes": []
     },
     "408c8f5fa51ae944f9d94dea418e7c34": {
@@ -5256,50 +3805,15 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "4c07996d4eb5ebe4a8845465c985e93f": {
-      "name": "MEDICAL FACILITY",
-      "base_cost": 600000,
-      "available_recipes": [
-        "21009503de5bc1f4e89420208f9f6b89",
-        "db07b48772332fd448d9cb16062b0468",
-        "13422c54681f5c04c88295c2420acda8",
-        "31060837f2ceb0347b55d595675d9ad5",
-        "f262177c90ed6fd43bc99cd229a67226",
-        "0a090b3661d57454b8550690b4f232d9",
-        "5bdbc4636b5fba7488e78ae07b4a6063",
-        "3aa5088d2893eff429a2de26e6bfba2b",
-        "0b099dde1394d474f95f91a56eea0b39",
-        "7499528c80de84849a9dd58621c2272b",
-        "63bb16c63ea88cc4eb892a342635059a",
-        "16c855294846c1d4ca1a678056031adf"
-      ]
-    },
     "4cefa71736996b74cb0926c7a8ec58ad": {
       "name": "Police Station",
       "base_cost": 0,
       "available_recipes": []
     },
-    "4d88e83a6650805449689d98cf19e9c0": {
-      "name": "THORIUM MINE",
-      "base_cost": 225000,
-      "available_recipes": [
-        "0e6350fc59fc7a7458374d110cba3a49"
-      ]
-    },
     "5154e0795afe4e34db444ce0880ab54b": {
       "name": "Grocery Store",
       "base_cost": 0,
       "available_recipes": []
-    },
-    "5493811f5a0b668459cab7cf1226da27": {
-      "name": "CULTIVATION FARM",
-      "base_cost": 300000,
-      "available_recipes": [
-        "f8e806a7520867644a27485852a830d7",
-        "ad37c1cf6cebce04c8103d30dede2ab6",
-        "3fc3f0870720d914cac969cc3a55efaa",
-        "40bbfb2db5b92974c93951c917895c5f"
-      ]
     },
     "5789ddfb5fcc07648835e222b752c4fd": {
       "name": "SAND COLLECTOR",
@@ -5307,16 +3821,6 @@
       "available_recipes": [
         "ff741c7c9400d44428b286ece16d8405"
       ]
-    },
-    "5dfc5b2775058134181c501e5194530c": {
-      "name": "Town Center",
-      "base_cost": 0,
-      "available_recipes": []
-    },
-    "5f08e2c8ac832de4d8117bcbb9607163": {
-      "name": "Parts Shop",
-      "base_cost": 0,
-      "available_recipes": []
     },
     "620ed422e556ac2469b500c66826c0be": {
       "name": "OFFSHORE OIL DRILL",
@@ -5371,11 +3875,6 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "7d61414636def234eaf7aba570be5804": {
-      "name": "Advanced Components Shop",
-      "base_cost": 0,
-      "available_recipes": []
-    },
     "81fc346c16049d249a9a1efadbe935d0": {
       "name": "Region Center",
       "base_cost": 0,
@@ -5391,34 +3890,10 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "8671cd34799a0394091a21886331535d": {
-      "name": "Assorted Goods",
-      "base_cost": 0,
-      "available_recipes": []
-    },
     "88dfa0adec892394cb81dc3f98020221": {
       "name": "Residential Building",
       "base_cost": 0,
       "available_recipes": []
-    },
-    "8d4ba546a73a9804d9feded6ba88ee99": {
-      "name": "MATERIALS FACTORY",
-      "base_cost": 500000,
-      "available_recipes": [
-        "b09acf42999e5e044bfca42d91fc70ab",
-        "493bbb04586221940ba54301478257d7",
-        "0290c3225fbf15e499c1658345a46127",
-        "0e3e9abfa8798e641a99716193492964",
-        "4e29fcd446ed66c4480477825e9c37a2",
-        "3f6589ce8981fc5498073f9d9829ea9f",
-        "56da53e30430f1647bb6ac4d24749323",
-        "ab96cf79676d38c48867508df5c11dec",
-        "5eb8500c0375135418de18585635ed4e",
-        "14078db4a7582f24d98ab1771f473b44",
-        "7602203c13e0f7843a56977a4d9a6060",
-        "0427debff81d0f942a23f6c031558de8",
-        "2029e5097d3be1440baf45f8704d7ba7"
-      ]
     },
     "8eb2028ef2d6ff943994012e306079b0": {
       "name": "PETROCHEMICAL PLANT",
@@ -5436,11 +3911,6 @@
         "1972b4a3252587749a7eec85a3bf2158",
         "9feec2b5cd69c2b42a03277bb6308343"
       ]
-    },
-    "91f68541f2767f044afa1c1b24c6b3bf": {
-      "name": "Town Center",
-      "base_cost": 0,
-      "available_recipes": []
     },
     "9993db9f812b94243af21fda2575942b": {
       "name": "Air Purifier",
@@ -5487,16 +3957,6 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "a9494eaea3489154b983c9d53efe6e13": {
-      "name": "Bulker Dock",
-      "base_cost": 450000,
-      "available_recipes": []
-    },
-    "aa062ebae5d7b784e9e9809b3f4a2164": {
-      "name": "Residential Complex",
-      "base_cost": 0,
-      "available_recipes": []
-    },
     "ab2559b01afdef14284da06ba38bcd9c": {
       "name": "PLANTATION",
       "base_cost": 175000,
@@ -5531,13 +3991,6 @@
       "name": "WAREHOUSE",
       "base_cost": 150000,
       "available_recipes": []
-    },
-    "b7e7334f4577c3a4da6fd6b1830a1ead": {
-      "name": "TITANIUM MINE",
-      "base_cost": 225000,
-      "available_recipes": [
-        "557a03ba760a52641bca014ff0092d70"
-      ]
     },
     "b88f737cb31b2894ba670e3021f5cdbc": {
       "name": "Ironmongery",
@@ -5582,11 +4035,6 @@
         "3a6f17fb889e8b045a960dbc7e71e6c4"
       ]
     },
-    "beaecb0b6e6d2e5469ba2160265b9f64": {
-      "name": "Residential Complex",
-      "base_cost": 0,
-      "available_recipes": []
-    },
     "c3f8c90b09b54a844ac420e9ec07a365": {
       "name": "Residential Building",
       "base_cost": 0,
@@ -5604,33 +4052,10 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "c674dcc15d710ae45bd4a8c70fbdbd90": {
-      "name": "Pharmacy",
-      "base_cost": 0,
-      "available_recipes": []
-    },
     "c71b20851c90a534dbe573a2357ab8b2": {
       "name": "WATER TREATMENT PLANT",
       "base_cost": 175000,
       "available_recipes": []
-    },
-    "c790ed0359b88b0478ad5515e9545068": {
-      "name": "RUIN SCAVENGER",
-      "base_cost": 225000,
-      "available_recipes": [
-        "5485e5eea30b43444b00203f66f04e23"
-      ]
-    },
-    "c94e283ad1d822a4f8c7241a52e167c9": {
-      "name": "VAT FARM",
-      "base_cost": 400000,
-      "available_recipes": [
-        "d205ed5cad95fee49a689bd71f85b0fc",
-        "960cf4cda8c33e846aa4272ee12de38a",
-        "d7262252d53624e4f8ae790a3c9200ee",
-        "90248115a7465384684157c56c9e2b8c",
-        "c5bd244cf4d86484c8c70f01847d5a65"
-      ]
     },
     "ca52747c3def7c44caa07e04634b47f6": {
       "name": "Chemical Scrubber",
@@ -5669,11 +4094,6 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "d2bb2e0d7d558314db04b5993e4a3c0a": {
-      "name": "Air Scrubber",
-      "base_cost": 125000,
-      "available_recipes": []
-    },
     "d5d903e5f7da08246b4616f8288edb44": {
       "name": "Home Goods",
       "base_cost": 0,
@@ -5681,23 +4101,6 @@
     },
     "d6480f7bc1642c54ebdb0a68c903c217": {
       "name": "Park",
-      "base_cost": 0,
-      "available_recipes": []
-    },
-    "d6c223aad9eae734ab3c3024a299b030": {
-      "name": "Nutrient Center",
-      "base_cost": 0,
-      "available_recipes": []
-    },
-    "da750348c5f6f6f40904e87d4dab79f9": {
-      "name": "GOLD MINE",
-      "base_cost": 225000,
-      "available_recipes": [
-        "3a690bd7813609148a394a30b6bd6ca4"
-      ]
-    },
-    "db670839c69198f4f87752db78bee274": {
-      "name": "Residential Complex",
       "base_cost": 0,
       "available_recipes": []
     },
@@ -5763,13 +4166,6 @@
         "d8abfcae85e15fb439d34ae3c4a21a67"
       ]
     },
-    "f03e373d78019164ab2fdc731fab8e9c": {
-      "name": "REPLICATOR MEGAFACTORY",
-      "base_cost": 50000000,
-      "available_recipes": [
-        "1f63d5ee1c8da564582ecb35ca7bac20"
-      ]
-    },
     "f2bb4629cdd181344916083bc9bd7716": {
       "name": "Home Goods Factory",
       "base_cost": 500000,
@@ -5833,24 +4229,6 @@
       "base_cost": 150000,
       "available_recipes": []
     },
-    "fe14cccd813bd914a8784d660357b272": {
-      "name": "BASIC COMPONENTS FACTORY",
-      "base_cost": 525000,
-      "available_recipes": [
-        "7d193959ad01b9e4784335a01ba25734",
-        "4685cda2c51c1f94793016cc8e7eb975",
-        "a9c59c03ce4cef14eae33df0ee6daf5d",
-        "7922af4e01129f34388b4aab5b2d7f4f",
-        "d2760a0173a93334cb9f83dfa891ad9b",
-        "618dbd0d73c64444f89b28bea51f1db0",
-        "2c502ec345ed62649a2301299cb434c2",
-        "b5c15bc143aa7634fbdcb2b968a4e1c9",
-        "7b037c93b05de1d449696be8b6d971bc",
-        "bd456d3ef15af7342aec3a43a942dcb2",
-        "ffceef2c6b3a94545845e69b1dbd2b30",
-        "973d7c4b1694582488b1a6033573eef4"
-      ]
-    },
     "ff2b7c0c1efaae2458be72570a018ae4": {
       "name": "Residential Building",
       "base_cost": 0,
@@ -5865,7 +4243,7 @@
     },
     "4c681b811ba7d1841b8bffc4c8e8b328": {
       "name": "Farm Produce",
-      "price_modifier": 3.65,
+      "price_modifier": 2.8,
       "growth_modifier": 1.0
     },
     "4e45e9c3558bcf34db499e28310ca7b5": {
@@ -5880,17 +4258,17 @@
     },
     "8b50d139c4f989748937b574ce9a1706": {
       "name": "Tier2",
-      "price_modifier": 3.0,
+      "price_modifier": 2.4,
       "growth_modifier": 3.0
     },
     "9b8cbb347b6e7cb4c991231921ad63f6": {
       "name": "Tier3",
-      "price_modifier": 2.1,
+      "price_modifier": 2.2,
       "growth_modifier": 4.0
     },
     "c23471459466d9a4bacb9eccb592e23e": {
       "name": "Tier1",
-      "price_modifier": 3.5,
+      "price_modifier": 2.6,
       "growth_modifier": 2.0
     },
     "c50e6d8c3b88fe14db532ebbe1bd1867": {

@@ -41,7 +41,10 @@ fn test() {
     assert_eq!(gatherer_hubs.len(), 1);
     assert_eq!(gatherer_hubs[0].available_recipes.len(), 1);
     assert_eq!(
-        gatherer_hubs[0].available_recipes[0].guid,
-        "a32e46a2e1865bc4c906a19d47e6b100"
+        gatherer_hubs[0].available_recipes[0]
+            .0
+            .as_ref()
+            .map(|x| x.guid.as_str()),
+        Some("a32e46a2e1865bc4c906a19d47e6b100")
     );
 }

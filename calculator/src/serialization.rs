@@ -11,7 +11,7 @@ type ProductCategoryId = String;
 pub struct Product {
     // pub id: ProductId,
     pub name: String,
-    pub category_id: ProductCategoryId,
+    pub category_id: Option<ProductCategoryId>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
