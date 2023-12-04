@@ -264,7 +264,7 @@ impl GameData {
                 id,
                 name: recipe.name,
                 entries: recipe
-                    .products
+                    .entries
                     .iter()
                     .map(|x| RecipeEntry {
                         product_id: product_guid_to_id[&x.product_id],
@@ -368,7 +368,7 @@ impl GameData {
         self.modules.iter().map(|module| Query::new(self, module))
     }
 
-    pub fn module_by_name(&self, name: &str) -> Query<'_, &'_ Module> {
+    pub fn modumale_by_name(&self, name: &str) -> Query<'_, &'_ Module> {
         let mut iter = self.modules().filter(|&module| module.name == name);
         let Some(first) = iter.next() else {
             panic!("No module with name {name:?}");

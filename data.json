@@ -10,19 +10,15 @@
     },
     "03d26e53d3681ff488501173a9984f42": {
       "name": "Work Clothes",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "0426f793fca350a418db8478e0152e52": {
       "name": "Toy Furniture",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "061aa4acf06f45c4181a668d5c0d6555": {
       "name": "Grape Juice",
-      "category_id": null
-    },
-    "06fd7fee4743d934184105fe43c53786": {
-      "name": "Cardboard Panels",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "07d2fef0e41b3f94182da6e02cdaaa63": {
       "name": "Oil",
@@ -34,19 +30,19 @@
     },
     "0b790e3867d641245bcc3751295d9aec": {
       "name": "Plastic",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "0f2806882e69bc04ca67d23118afc214": {
       "name": "Radiator",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "0f54f4946ba95964ca5738b26f12733a": {
       "name": "Rubber Tubes",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "0f913b634f527434394e6c8b84d4f02e": {
       "name": "Steel Barrel",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "0fd03fe7a5267e5408eaf83eb9cbcbc7": {
       "name": "Eggs",
@@ -54,15 +50,15 @@
     },
     "153371b7f34b7da42acdbcf365f4fe51": {
       "name": "Radio Receiver",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "15969d9d44a2f9346b63c6aa66dff0b1": {
       "name": "Stuffing",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "1d8e5e283b63b0d4990a9ccf3ad85b72": {
       "name": "Beef Stew",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "1eefc334973443941beeb6f8ff994208": {
       "name": "Sugar",
@@ -70,27 +66,27 @@
     },
     "20cd725492d5c9e4999ba51a43f6d884": {
       "name": "Glass",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "214cd4d5a53e2194cb90a1fd835ac727": {
       "name": "Ink",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "21fa8c1c7a4d46c4d9b2df6e8b488799": {
       "name": "Winter Clothes",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "22ebb589707e7784f8b8021b39b02d87": {
       "name": "Soda Water",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "24c7cdfbe06395e43a6e6eaf710ed3e3": {
       "name": "Rubber",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "2632509310fd66d4aac8e447b7551178": {
       "name": "Chocolate Bar",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "29322e758a207e94a92cde0f84dfd7d2": {
       "name": "Binary Switcher",
@@ -98,7 +94,7 @@
     },
     "2e5565b9a03b9014099b21badd592aac": {
       "name": "Yeast",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "2e6b792dc6839d047a938a2bd06357ec": {
       "name": "Car Prototype",
@@ -122,7 +118,7 @@
     },
     "32cd831a00ee7f94b89b6d8cd27f99b2": {
       "name": "Telephone",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "32d75d394499bce45a16eb3d6e116af7": {
       "name": "Oranges",
@@ -130,11 +126,11 @@
     },
     "33d71ada8ceb8b04a898200bec77acb9": {
       "name": "Plastic Furniture",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "33df88a789fd54d469deb7041ac91750": {
       "name": "Canned Mutton",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "36689e0e5a2a27a498c3a5868a2863b3": {
       "name": "Wood",
@@ -150,19 +146,19 @@
     },
     "3c0c4a0ae0b99b543878154e87207941": {
       "name": "Stovetop",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "3cf3701c13e7ae34a8e30797dbee45eb": {
       "name": "Thin Cardboard",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "3dc3a0ace45d2304083cab583a95c056": {
       "name": "Pizza",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "3e164222c8610e5449aec30f25808e42": {
       "name": "Beer",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "3eda7fbf2e0a17f469c754213659ffad": {
       "name": "Chicken Meat",
@@ -170,15 +166,15 @@
     },
     "3f03420bb39e97340a849a84888ae70e": {
       "name": "Chicken Soup",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "3f07074213c06b84b8338ff69d7fe4e1": {
       "name": "Fish and Chips",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "40911244f742a10438acae70583ecec7": {
       "name": "Interior Lining",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "41680dc3f7d651046a24a2f8ca960c02": {
       "name": "First Computer",
@@ -190,43 +186,43 @@
     },
     "4500e567430d66e4383bdc92e0910e63": {
       "name": "Burgers",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "463724ece9505ea47b0f211e02829eaa": {
       "name": "Orange Soda",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "465dee29a74dd944cb54da1f9cc5b5fa": {
       "name": "Glass Tubes",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "496ec803228b73346a9d3a976e296f81": {
       "name": "Books",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "4a911f469fd22c34e91b41df126c361c": {
       "name": "Furniture Base (L)",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "4d249e0be1bf6c741a1cca65a0fd3cd1": {
       "name": "Refrigerator",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "4d27ee8fb6275644e882ad1806b48c8c": {
       "name": "Quilt",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "4e231e88742e179488a7493aa88835d4": {
       "name": "Light Bulbs",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "53463c7395d4ada4386f19a3f62fb7b9": {
       "name": "Easter Eggs",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "5398a4b6e3342a246aa19753e90c9738": {
       "name": "Wooden Train",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "59bd4cf2a15b3af46a76188336fa8d25": {
       "name": "Mutton",
@@ -234,15 +230,15 @@
     },
     "5d0b42f9d152e354ea1410958de9ee2e": {
       "name": "Hard Cider",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "5d164e4e26887a244af3c8b6d601cd54": {
       "name": "Ceramics",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "5f0c14aa16c481d43bd042c38aa9302d": {
       "name": "Capacitors",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "68a8c58e53f1f1f4fa2a6b47042dd65b": {
       "name": "Processor",
@@ -250,7 +246,7 @@
     },
     "6a492aa94cd059d48abb02c8e955ceda": {
       "name": "Car Seat",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "6c8f5e736b8df4546b2718508c527d7c": {
       "name": "Grapes",
@@ -266,19 +262,19 @@
     },
     "6edaba07bd823e14e81ce5beee459b52": {
       "name": "Flour",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "6f675191c73a6814991e5652b5836026": {
       "name": "Paint",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "6f96d1bb82eb4d14d8df0ec4f4286aaf": {
       "name": "Bottles",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "72469ec02219bcb42af9658a9406a2e9": {
       "name": "Cheese",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "762f4a7e140943c408209f078a2c43f2": {
       "name": "Berries",
@@ -286,19 +282,19 @@
     },
     "79341d970c47564479c66ee8f17a6fdf": {
       "name": "Refined Oil",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "7a4d9e8a050608e47b7963bf27c8b7c9": {
       "name": "Adhesive",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "7a720f409190d62499c81034c919190c": {
       "name": "Copper Wire",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "7ac824da507ae8d479005cd6368fcc66": {
       "name": "Grain Whiskey",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "7b8ece2459bdfdf43a69853321870e90": {
       "name": "Interior Body",
@@ -306,19 +302,19 @@
     },
     "7d367252efaae8b40855b1158acc11f9": {
       "name": "Vodka",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "7def2539866f84546a394410db169045": {
       "name": "Heavy Fabric",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "80e8e0bd83d08d8428bd2bc3b956a6c2": {
       "name": "Waffles",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "84e0c180a432dad4fac4e3b1d3f5b67f": {
       "name": "Deluxe Books",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "86ae967066db03a47b8e36bf5a82c9a3": {
       "name": "Potato",
@@ -326,11 +322,11 @@
     },
     "88f21818ef6781145a02896aeb75186d": {
       "name": "Paper Roll",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "8cd957da6fe1aa944845e1528e0dfdb8": {
       "name": "Wooden Barrels",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "8d50f0811b7ebf84e909b24716a2ec6a": {
       "name": "Fish",
@@ -338,19 +334,19 @@
     },
     "8e50e3e6487270d4c90c5d6dcabad072": {
       "name": "Couch",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "8ea64ae173564864483abfd22fa9452e": {
       "name": "Steel",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "8ee05120cf8c9e242b55185d186b6d04": {
       "name": "Dye",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "8fa18bb35cddd934599192c9e2078b18": {
       "name": "Olive Oil",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "90736070c48e45b48b72c2ee706f0fcb": {
       "name": "Wheat",
@@ -358,15 +354,15 @@
     },
     "90f2e22e0b3a59b4baf7cfcd8ad24dba": {
       "name": "Office Furniture",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "910aad570e47c164284781dc48aba6ea": {
       "name": "Napkins",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "9221ac3e6255623478f7122b9e657930": {
       "name": "Newspapers",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "940e966ea80a65540a91477b3ee5df7f": {
       "name": "Body Chassis",
@@ -374,18 +370,14 @@
     },
     "957939fd851b30a4382ca10e18e3188a": {
       "name": "Dough",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "973d79964f0784f4db212dba0fbed26b": {
       "name": "Bag Of Chips",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "9982221121353da44989917a890e668c": {
       "name": "Hard Cider Donuts",
-      "category_id": null
-    },
-    "9cac770d3458e2840bf90ea20964d0f6": {
-      "name": "Car Radiator",
       "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "9dde0341cf8d535488e552472028db72": {
@@ -398,7 +390,7 @@
     },
     "a0276c9bae8e772408aeae63f98f92a0": {
       "name": "Oven",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "a0435171496dc0a4aa13f1a8bbf189bb": {
       "name": "Cotton",
@@ -406,15 +398,15 @@
     },
     "a0fa0673335d119409910f8fc927f433": {
       "name": "Engine Block",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "a2371e77176247c43b7039051b1eaa32": {
       "name": "Berry Pie",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "a2d0db3b93ca3bc418af9630e5bb8933": {
       "name": "Concrete",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "a2f46a5a2e8e204499e5c8cf15bdd328": {
       "name": "Dinner Container",
@@ -422,35 +414,35 @@
     },
     "a735e13dbe7102d42959e008adbc702b": {
       "name": "Orange Juice",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "aa0dbe57b57c8364db775c440f77fb4e": {
       "name": "Cardboard",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "ac4d0a703ff0c9a408847b9a99877ae2": {
       "name": "Tire",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "b016c0f812a7d294d86d084ddf8101d7": {
       "name": "Bricks",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "b6ca95f5bc1c4404199eb9122cebe35d": {
       "name": "Dollhouse",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "b77cdfe7a9dae6440ae154ee7e62e4e6": {
       "name": "Wine",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "b957fe2a0c9edf54181274eb2a4d6bd7": {
       "name": "Biofuel",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "b98a0bf901f632d49ad67e817edc5594": {
       "name": "Copper Tubing",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "badab64e2b680b841a5382a9497f2426": {
       "name": "Chicken Dinner",
@@ -458,11 +450,11 @@
     },
     "bc0475e2113dc8a4aa7beb6c56a76c4c": {
       "name": "Apple Smoothie",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "c02a2239cc3e5aa47a3332aa126fcb4f": {
       "name": "Diodes",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "c043a08c72ad3fb42b10c869839160ef": {
       "name": "Axles",
@@ -474,31 +466,27 @@
     },
     "c1be006d9be92044ab02439d903ed5cc": {
       "name": "Heavy Pulp",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "c413491c824fd574ea5e45c379ab7fbe": {
       "name": "Canned Fish",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "c50cc455e58990d40a64ce924f9e9b02": {
       "name": "Buttons",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "c836ac87644e58a4bb300ca26bba9cb5": {
       "name": "Chemicals",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "c943858650059eb48b8fbc524703ea77": {
       "name": "Brandy",
-      "category_id": null
-    },
-    "cf56d706f08e3bd4ea3545137073b1b2": {
-      "name": "Windows",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "d1c70959f86830b4b857fc9274d52188": {
       "name": "Steel Frame",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "d2f570a30cee8a44595355075f4d097c": {
       "name": "Coal",
@@ -506,7 +494,7 @@
     },
     "d4c5eed300a363949b4942013aea63d8": {
       "name": "Toy Train Set",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "d6fd06b0b9826964d8bbb8caa37ce0b9": {
       "name": "Milk",
@@ -514,19 +502,19 @@
     },
     "d76ba16650884a04c93e48be634ef134": {
       "name": "Wooden Planks",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "d89acb002a291e141857e933fd4bde64": {
       "name": "Reinforced Wall",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "d965e0cfca596cd489f4ba74fed18dda": {
       "name": "Furniture Base (S)",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "dd82c17bee25894479f51d6086c77c68": {
       "name": "Plastic Cutlery",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "ddf0b6a5dea3e7f4bbd87d4b94e28ef0": {
       "name": "Cooked Vegetables",
@@ -534,11 +522,11 @@
     },
     "dec427daf9fa969448411dd19f548804": {
       "name": "Teddy Bear",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "df0561f999cc84e4eaabfc26d174c11c": {
       "name": "Doll",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "e05f1259da3dc55448821b8e40e54711": {
       "name": "Rolling Chassis",
@@ -550,15 +538,15 @@
     },
     "e5564ac2334031946bd56a541252b108": {
       "name": "Printed Paper",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "e684d85940d47cc4daed68f29cc64ad4": {
       "name": "Fibers",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "ea8a29b28358cd8458f962d27d65b18e": {
       "name": "Cans",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "eb35f3307add13c47917d34f24ada448": {
       "name": "Wool",
@@ -566,23 +554,23 @@
     },
     "ec90f4584964bf6468f255c5d5c9c368": {
       "name": "Wall Panels",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "ed31c3ba4fea0294a955b64e471a462e": {
       "name": "Marbles",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "eedf322dc62ff544d9b16a609c5798cc": {
       "name": "Soup",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "ef032756eed3a43469b6d76ac6f8093e": {
       "name": "Leather Furniture",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "f08897636e50e2148a918423e1a8587e": {
       "name": "Berry Smoothie",
-      "category_id": null
+      "category_id": "c23471459466d9a4bacb9eccb592e23e"
     },
     "f357cb744b2fa5749b9bd3021272c766": {
       "name": "Olives",
@@ -590,31 +578,27 @@
     },
     "f699269abb3b8334a8fc494ac1f4985c": {
       "name": "Headlights",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "f6b35a5f7feae184faac7bfaa08f2561": {
       "name": "Light Fabric",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "f6bcd9c16c6940544b3541a4c0a4f776": {
       "name": "Punch Cards",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "f8d49dfd719d21343917427bf180d157": {
       "name": "Hops",
       "category_id": "4c681b811ba7d1841b8bffc4c8e8b328"
     },
-    "f90c1d6ced59b3f4ca29faa46d4613a2": {
-      "name": "Alternator",
-      "category_id": "8b50d139c4f989748937b574ce9a1706"
-    },
     "fcf0095626385ab459305670fed95ac0": {
       "name": "Summer Clothes",
-      "category_id": null
+      "category_id": "9b8cbb347b6e7cb4c991231921ad63f6"
     },
     "fdc7833facbb7a94fa66c81bb5cfabd2": {
       "name": "Chocolate Cake",
-      "category_id": null
+      "category_id": "8b50d139c4f989748937b574ce9a1706"
     },
     "ffde5f99e3a1c724da0f4d73ba414cd5": {
       "name": "Interface",
@@ -624,7 +608,7 @@
   "recipes": {
     "0016fb98ff6db734b9af5f807c278013": {
       "name": "Ceramics",
-      "products": [
+      "entries": [
         {
           "product_id": "20cd725492d5c9e4999ba51a43f6d884",
           "amount": -2
@@ -639,11 +623,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "00185eb6967fe58498defeaed97ac6a4": {
       "name": "Wooden Planks",
-      "products": [
+      "entries": [
         {
           "product_id": "36689e0e5a2a27a498c3a5868a2863b3",
           "amount": -3
@@ -654,11 +639,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "0222b5c0bbfe6b24ebd37ebb384536d8": {
       "name": "Furniture Base (L)",
-      "products": [
+      "entries": [
         {
           "product_id": "d76ba16650884a04c93e48be634ef134",
           "amount": -2
@@ -669,11 +655,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "05660643155037b43bbf862b4079dd0b": {
       "name": "Vegetables",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -686,11 +673,12 @@
       "days": 35,
       "required_modules": [
         "702b8dec306c12646b8f8f1185a6bd9a"
-      ]
+      ],
+      "tier": 0
     },
     "06e45ed2d3aa8004bbbeb879ca967561": {
       "name": "Oil",
-      "products": [
+      "entries": [
         {
           "product_id": "07d2fef0e41b3f94182da6e02cdaaa63",
           "amount": 1
@@ -699,11 +687,12 @@
       "days": 15,
       "required_modules": [
         "e7ca510d7afc09d43a7d95b344943024"
-      ]
+      ],
+      "tier": 0
     },
     "08da388c42d572d40ba72f519bb3db41": {
       "name": "Wall Panels",
-      "products": [
+      "entries": [
         {
           "product_id": "d76ba16650884a04c93e48be634ef134",
           "amount": -1
@@ -718,11 +707,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "0904f087aa00f9a4c9a7a505bf678ef7": {
       "name": "Copper Wire",
-      "products": [
+      "entries": [
         {
           "product_id": "2f1dd302fb20679479da1167d19ad95d",
           "amount": -2
@@ -733,11 +723,12 @@
         }
       ],
       "days": 15,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "09cb67c0892bd514ba37332582aacd32": {
       "name": "Heavy Pulp",
-      "products": [
+      "entries": [
         {
           "product_id": "36689e0e5a2a27a498c3a5868a2863b3",
           "amount": -2
@@ -752,11 +743,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "0a5461d339372bc4393738ad69b4bd3e": {
       "name": "Car Prototype",
-      "products": [
+      "entries": [
         {
           "product_id": "940e966ea80a65540a91477b3ee5df7f",
           "amount": -1
@@ -771,11 +763,12 @@
         }
       ],
       "days": 360,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 0
     },
     "0e1559ed9ac2f5043b5b974bfb70a5f9": {
       "name": "Hops",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -788,11 +781,12 @@
       "days": 35,
       "required_modules": [
         "e82d765f4263a8643a51f04b5ee9e29a"
-      ]
+      ],
+      "tier": 0
     },
     "11bcccf05226d3c44900c8bb94b1c21e": {
       "name": "Headlights",
-      "products": [
+      "entries": [
         {
           "product_id": "4e231e88742e179488a7493aa88835d4",
           "amount": -2
@@ -807,11 +801,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "123ec39c55168bc47bf2dab361db60d9": {
       "name": "Wooden Train",
-      "products": [
+      "entries": [
         {
           "product_id": "36689e0e5a2a27a498c3a5868a2863b3",
           "amount": -2
@@ -822,11 +817,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "13afe055ca29c314faff6d849fc682db": {
       "name": "Interior Body",
-      "products": [
+      "entries": [
         {
           "product_id": "6a492aa94cd059d48abb02c8e955ceda",
           "amount": -2
@@ -841,11 +837,12 @@
         }
       ],
       "days": 60,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "16f6b29861ae99147b6bd8cf3b6474ec": {
       "name": "Paints",
-      "products": [
+      "entries": [
         {
           "product_id": "c836ac87644e58a4bb300ca26bba9cb5",
           "amount": -1
@@ -860,11 +857,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "17decf17612fa914994621615f2602d2": {
       "name": "Oil",
-      "products": [
+      "entries": [
         {
           "product_id": "07d2fef0e41b3f94182da6e02cdaaa63",
           "amount": 1
@@ -873,11 +871,12 @@
       "days": 15,
       "required_modules": [
         "93b374381e65f01498261724ebd75749"
-      ]
+      ],
+      "tier": 0
     },
     "1972b4a3252587749a7eec85a3bf2158": {
       "name": "Buttons",
-      "products": [
+      "entries": [
         {
           "product_id": "0b790e3867d641245bcc3751295d9aec",
           "amount": -2
@@ -892,11 +891,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "1bbc4d324cbad64499de66eb60e61fc6": {
       "name": "Deluxe Books",
-      "products": [
+      "entries": [
         {
           "product_id": "e5564ac2334031946bd56a541252b108",
           "amount": -2
@@ -911,11 +911,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "1c5a4cdf38a586f448476b4f1e276f15": {
       "name": "Winter Clothes",
-      "products": [
+      "entries": [
         {
           "product_id": "7def2539866f84546a394410db169045",
           "amount": -2
@@ -930,11 +931,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "1d96bec9f75b8c1488e02260e121672f": {
       "name": "Fried Chicken",
-      "products": [
+      "entries": [
         {
           "product_id": "3eda7fbf2e0a17f469c754213659ffad",
           "amount": -3
@@ -953,11 +955,12 @@
         }
       ],
       "days": 90,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "1e8467ae22528574296af36a30eaa41f": {
       "name": "Furniture Base (S)",
-      "products": [
+      "entries": [
         {
           "product_id": "d76ba16650884a04c93e48be634ef134",
           "amount": -2
@@ -968,11 +971,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "22b3ecf3392960d448c37ba98d780784": {
       "name": "Apple Smoothie",
-      "products": [
+      "entries": [
         {
           "product_id": "09d41a579ead15a488ef26a834b086dd",
           "amount": -1
@@ -987,11 +991,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "232b85fa214e05b4f943bd68ae6947c9": {
       "name": "Water",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": 1
@@ -1000,11 +1005,12 @@
       "days": 15,
       "required_modules": [
         "36613bc5d8b6cb443821eb3a664ac27d"
-      ]
+      ],
+      "tier": 0
     },
     "26025517fb75c344b84773fc7cff7738": {
       "name": "Paper Roll",
-      "products": [
+      "entries": [
         {
           "product_id": "36689e0e5a2a27a498c3a5868a2863b3",
           "amount": -2
@@ -1019,11 +1025,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "272a67b4a4f9765489e2aa1372827f28": {
       "name": "Chocolate Bar",
-      "products": [
+      "entries": [
         {
           "product_id": "9dde0341cf8d535488e552472028db72",
           "amount": -2
@@ -1042,11 +1049,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "27ae50198f259b84ca597a99f89e7d2f": {
       "name": "Couch",
-      "products": [
+      "entries": [
         {
           "product_id": "4a911f469fd22c34e91b41df126c361c",
           "amount": -1
@@ -1065,11 +1073,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "28ef8fedca02a384a8de3db2fb5d53c8": {
       "name": "Berry Smoothie",
-      "products": [
+      "entries": [
         {
           "product_id": "762f4a7e140943c408209f078a2c43f2",
           "amount": -1
@@ -1084,11 +1093,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "2a90439d70b1a6249b0d79152c2c8b8c": {
       "name": "Burgers",
-      "products": [
+      "entries": [
         {
           "product_id": "957939fd851b30a4382ca10e18e3188a",
           "amount": -2
@@ -1107,11 +1117,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "2d03a49a40376fa4a8ae7f04632c4d4c": {
       "name": "Beer",
-      "products": [
+      "entries": [
         {
           "product_id": "8cd957da6fe1aa944845e1528e0dfdb8",
           "amount": -1
@@ -1130,11 +1141,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "2e7e1266f9df20a48a1e173d86ee809e": {
       "name": "Adhesive",
-      "products": [
+      "entries": [
         {
           "product_id": "c836ac87644e58a4bb300ca26bba9cb5",
           "amount": -1
@@ -1149,11 +1161,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "2f8fe59ecc973cc498957be588951c61": {
       "name": "Olives",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -1166,11 +1179,12 @@
       "days": 30,
       "required_modules": [
         "2601e8cd807d3c84893673844a71c8fc"
-      ]
+      ],
+      "tier": 0
     },
     "30aab4c0c47c7c84eb5a011a0986bbaf": {
       "name": "Refrigerator",
-      "products": [
+      "entries": [
         {
           "product_id": "b98a0bf901f632d49ad67e817edc5594",
           "amount": -2
@@ -1189,11 +1203,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "32335d529b9f177418f1828fdc41fd89": {
       "name": "Cows",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -1218,32 +1233,12 @@
       "days": 35,
       "required_modules": [
         "66e5fa8801afcb0468d44766f57aabd9"
-      ]
-    },
-    "34c4c13601c1d974a84dc0936431b53a": {
-      "name": "Car Radiator",
-      "products": [
-        {
-          "product_id": "0f2806882e69bc04ca67d23118afc214",
-          "amount": -2
-        },
-        {
-          "product_id": "8ea64ae173564864483abfd22fa9452e",
-          "amount": -2
-        },
-        {
-          "product_id": "9cac770d3458e2840bf90ea20964d0f6",
-          "amount": 1
-        }
       ],
-      "days": 30,
-      "required_modules": [
-        "f2bb4629cdd181344916083bc9bd7716"
-      ]
+      "tier": 1
     },
     "3616b8f0aff11bb48a33c27584f568cc": {
       "name": "Light Fabric",
-      "products": [
+      "entries": [
         {
           "product_id": "e684d85940d47cc4daed68f29cc64ad4",
           "amount": -2
@@ -1258,11 +1253,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "382e4218d779fae4d834fed6205cdeb4": {
       "name": "Easter Eggs",
-      "products": [
+      "entries": [
         {
           "product_id": "6f675191c73a6814991e5652b5836026",
           "amount": -1
@@ -1277,11 +1273,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "3994eec96a4e24241ae9d28c8ac50c23": {
       "name": "Gas",
-      "products": [
+      "entries": [
         {
           "product_id": "9e708eec71a787443909133a602a5764",
           "amount": 1
@@ -1290,11 +1287,12 @@
       "days": 15,
       "required_modules": [
         "821c523800785984e815abff3eff158e"
-      ]
+      ],
+      "tier": 0
     },
     "39d764b290e182140ad45d704d26a1c6": {
       "name": "Hard Cider Donuts",
-      "products": [
+      "entries": [
         {
           "product_id": "5d0b42f9d152e354ea1410958de9ee2e",
           "amount": -1
@@ -1309,11 +1307,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "3a6f17fb889e8b045a960dbc7e71e6c4": {
       "name": "Summer Clothes",
-      "products": [
+      "entries": [
         {
           "product_id": "f6b35a5f7feae184faac7bfaa08f2561",
           "amount": -2
@@ -1328,11 +1327,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "3d109af2162ef0341858fbc2070bda54": {
       "name": "Glass Tubes",
-      "products": [
+      "entries": [
         {
           "product_id": "20cd725492d5c9e4999ba51a43f6d884",
           "amount": -3
@@ -1343,28 +1343,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
-    },
-    "3f08aeb2bb7d4ed478317e579c00bb36": {
-      "name": "Windows",
-      "products": [
-        {
-          "product_id": "20cd725492d5c9e4999ba51a43f6d884",
-          "amount": -7
-        },
-        {
-          "product_id": "cf56d706f08e3bd4ea3545137073b1b2",
-          "amount": 2
-        }
-      ],
-      "days": 45,
-      "required_modules": [
-        "371a20ec127f11b4faf2fa99b43e4e36"
-      ]
+      "required_modules": [],
+      "tier": 2
     },
     "405a5971cb4741b488f8b1e3b0fab633": {
       "name": "Combustion Engine",
-      "products": [
+      "entries": [
         {
           "product_id": "b957fe2a0c9edf54181274eb2a4d6bd7",
           "amount": -3
@@ -1379,11 +1363,12 @@
         }
       ],
       "days": 60,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "408377236507483439fa5db1df24afcf": {
       "name": "Hard Cider",
-      "products": [
+      "entries": [
         {
           "product_id": "09d41a579ead15a488ef26a834b086dd",
           "amount": -1
@@ -1398,11 +1383,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "41f151dc004726241827d75f5260fb69": {
       "name": "Vodka",
-      "products": [
+      "entries": [
         {
           "product_id": "86ae967066db03a47b8e36bf5a82c9a3",
           "amount": -3
@@ -1421,11 +1407,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "43a4509e5a92ad147a4c4f7731b5382d": {
       "name": "Processor",
-      "products": [
+      "entries": [
         {
           "product_id": "29322e758a207e94a92cde0f84dfd7d2",
           "amount": -2
@@ -1440,11 +1427,12 @@
         }
       ],
       "days": 180,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "4473c34e7a1b1e247b0d0f94eb6a97da": {
       "name": "Doll House",
-      "products": [
+      "entries": [
         {
           "product_id": "df0561f999cc84e4eaabfc26d174c11c",
           "amount": -1
@@ -1463,11 +1451,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "44d8ef6b2c2563649b622c3eee2fb952": {
       "name": "Stovetop",
-      "products": [
+      "entries": [
         {
           "product_id": "8ea64ae173564864483abfd22fa9452e",
           "amount": -2
@@ -1482,11 +1471,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "4593afeb4a0d5ba4ca1ed1861747f6ed": {
       "name": "Work Clothes",
-      "products": [
+      "entries": [
         {
           "product_id": "7def2539866f84546a394410db169045",
           "amount": -2
@@ -1501,11 +1491,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "45c2ae1f408a511469b99cad46dede11": {
       "name": "Apples",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -1518,11 +1509,12 @@
       "days": 30,
       "required_modules": [
         "31395fc4cc0460749bb9213df0d687a6"
-      ]
+      ],
+      "tier": 0
     },
     "471d116b616046143840a0f615f00ad4": {
       "name": "Stuffing",
-      "products": [
+      "entries": [
         {
           "product_id": "a0435171496dc0a4aa13f1a8bbf189bb",
           "amount": -1
@@ -1533,11 +1525,12 @@
         }
       ],
       "days": 15,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "4bb2215e7aa5c394c821693d72875cdf": {
       "name": "Thin Cardboard",
-      "products": [
+      "entries": [
         {
           "product_id": "aa0dbe57b57c8364db775c440f77fb4e",
           "amount": -3
@@ -1548,11 +1541,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "4c6a1d908a0af6c44a8c16c498b2172b": {
       "name": "Flour",
-      "products": [
+      "entries": [
         {
           "product_id": "90736070c48e45b48b72c2ee706f0fcb",
           "amount": -2
@@ -1563,11 +1557,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "4e5eb870a6afd984aa33ef4c6aece7e9": {
       "name": "Books",
-      "products": [
+      "entries": [
         {
           "product_id": "e5564ac2334031946bd56a541252b108",
           "amount": -2
@@ -1578,11 +1573,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "4f404e50579f640409dc19ff369c82db": {
       "name": "Body Chassis",
-      "products": [
+      "entries": [
         {
           "product_id": "3af84db29e8a3604a8dd140074d59e5a",
           "amount": -1
@@ -1597,11 +1593,12 @@
         }
       ],
       "days": 120,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "50367944242c30249b2e554816478e13": {
       "name": "Dough",
-      "products": [
+      "entries": [
         {
           "product_id": "6edaba07bd823e14e81ce5beee459b52",
           "amount": -2
@@ -1616,11 +1613,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "508b54b1b409c78418105cf278d81197": {
       "name": "Cheese",
-      "products": [
+      "entries": [
         {
           "product_id": "d6fd06b0b9826964d8bbb8caa37ce0b9",
           "amount": -3
@@ -1635,11 +1633,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "510908e4f19aaae45967893a0bbc5cec": {
       "name": "Bag of Chips",
-      "products": [
+      "entries": [
         {
           "product_id": "86ae967066db03a47b8e36bf5a82c9a3",
           "amount": -3
@@ -1658,11 +1657,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "5185c0de8349dd14c82c0ec8e0758417": {
       "name": "Cooked Vegetables",
-      "products": [
+      "entries": [
         {
           "product_id": "6ce26d81280df824fa7aa1c2e162a004",
           "amount": -2
@@ -1681,11 +1681,12 @@
         }
       ],
       "days": 90,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "529f872b2c7356b4896fe1e4348d9dac": {
       "name": "Dye",
-      "products": [
+      "entries": [
         {
           "product_id": "762f4a7e140943c408209f078a2c43f2",
           "amount": -2
@@ -1700,11 +1701,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "54f8cbdee100740468527f9c5527cf90": {
       "name": "Grape Juice",
-      "products": [
+      "entries": [
         {
           "product_id": "6c8f5e736b8df4546b2718508c527d7c",
           "amount": -1
@@ -1719,11 +1721,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "5522a40c6021e09498494c668cd6a120": {
       "name": "Capacitors",
-      "products": [
+      "entries": [
         {
           "product_id": "7a720f409190d62499c81034c919190c",
           "amount": -1
@@ -1742,11 +1745,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "5789adf3f466e614491fb6ebb6149e36": {
       "name": "Chicken Dinner",
-      "products": [
+      "entries": [
         {
           "product_id": "00c98c59d6b6c3b4bb8207c65e4eec27",
           "amount": -1
@@ -1765,11 +1769,12 @@
         }
       ],
       "days": 180,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "597090b60d20dc942abdc4d20ce5832e": {
       "name": "Toy Train Set",
-      "products": [
+      "entries": [
         {
           "product_id": "5398a4b6e3342a246aa19753e90c9738",
           "amount": -2
@@ -1784,11 +1789,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "5d3e84ef3dc4ebf48827e498868bd983": {
       "name": "Bottles",
-      "products": [
+      "entries": [
         {
           "product_id": "20cd725492d5c9e4999ba51a43f6d884",
           "amount": -3
@@ -1799,11 +1805,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "5f4b9408151166f4fb2966624c950174": {
       "name": "Toy Furniture",
-      "products": [
+      "entries": [
         {
           "product_id": "36689e0e5a2a27a498c3a5868a2863b3",
           "amount": -1
@@ -1814,11 +1821,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "60d5ca160f654a04aa44431adab235eb": {
       "name": "Doll",
-      "products": [
+      "entries": [
         {
           "product_id": "15969d9d44a2f9346b63c6aa66dff0b1",
           "amount": -1
@@ -1833,11 +1841,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "644578a4e24f64744b84b1e016add1eb": {
       "name": "Wooden Barrels",
-      "products": [
+      "entries": [
         {
           "product_id": "d76ba16650884a04c93e48be634ef134",
           "amount": -2
@@ -1848,11 +1857,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "667546af52ad8204a980d4bde4079ef4": {
       "name": "Orange Soda",
-      "products": [
+      "entries": [
         {
           "product_id": "22ebb589707e7784f8b8021b39b02d87",
           "amount": -1
@@ -1871,11 +1881,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "675c8462040c00f48b13cc85bca4c618": {
       "name": "Wood",
-      "products": [
+      "entries": [
         {
           "product_id": "36689e0e5a2a27a498c3a5868a2863b3",
           "amount": 1
@@ -1884,11 +1895,12 @@
       "days": 10,
       "required_modules": [
         "b51b415353fcfc84ebc628107c6749b6"
-      ]
+      ],
+      "tier": 0
     },
     "67c2050e27afc6a418b95e1772b50384": {
       "name": "Heavy Fabric",
-      "products": [
+      "entries": [
         {
           "product_id": "e684d85940d47cc4daed68f29cc64ad4",
           "amount": -2
@@ -1903,11 +1915,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "68137e01f692f2c48a0e8a09bd07436a": {
       "name": "Radio Receiver",
-      "products": [
+      "entries": [
         {
           "product_id": "c02a2239cc3e5aa47a3332aa126fcb4f",
           "amount": -2
@@ -1922,11 +1935,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "6af7f43e3578932438cde44be9356bf1": {
       "name": "Wheat",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -1939,11 +1953,12 @@
       "days": 35,
       "required_modules": [
         "28e930819ac90f44482f2b9206066019"
-      ]
+      ],
+      "tier": 0
     },
     "6be4770124a4a044fa0e178a293e3b8c": {
       "name": "Axles",
-      "products": [
+      "entries": [
         {
           "product_id": "8ea64ae173564864483abfd22fa9452e",
           "amount": -3
@@ -1958,11 +1973,12 @@
         }
       ],
       "days": 60,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "6f1a1510bd7ff594483fc1b2b284c777": {
       "name": "Chicken Soup",
-      "products": [
+      "entries": [
         {
           "product_id": "3eda7fbf2e0a17f469c754213659ffad",
           "amount": -3
@@ -1981,11 +1997,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "703764fa6e25caf4ebfac4119256dc22": {
       "name": "Steel",
-      "products": [
+      "entries": [
         {
           "product_id": "6c9b2f2bfd7fab147a6ec4c62950cb71",
           "amount": -2
@@ -2000,11 +2017,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "713ce91b59bf78947a299e568e89c3aa": {
       "name": "Copper Tubing",
-      "products": [
+      "entries": [
         {
           "product_id": "2f1dd302fb20679479da1167d19ad95d",
           "amount": -2
@@ -2015,11 +2033,12 @@
         }
       ],
       "days": 15,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "71f34531d014a074dadf00b580da2e83": {
       "name": "Refined Oil",
-      "products": [
+      "entries": [
         {
           "product_id": "07d2fef0e41b3f94182da6e02cdaaa63",
           "amount": -3
@@ -2030,11 +2049,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "72f50a26d9a30784f903139ed9004499": {
       "name": "Binary Switcher",
-      "products": [
+      "entries": [
         {
           "product_id": "8ea64ae173564864483abfd22fa9452e",
           "amount": -1
@@ -2053,11 +2073,12 @@
         }
       ],
       "days": 120,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "74085282099c0b745be50e885ec78c3a": {
       "name": "Sheep",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2078,11 +2099,12 @@
       "days": 30,
       "required_modules": [
         "d50dc154049bbdc4e9f67f4a5fdc3023"
-      ]
+      ],
+      "tier": 1
     },
     "74b11c8805272294c92e4cd6d04076d6": {
       "name": "Teddy Bear",
-      "products": [
+      "entries": [
         {
           "product_id": "15969d9d44a2f9346b63c6aa66dff0b1",
           "amount": -2
@@ -2097,11 +2119,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "795ff933d703e2c4baeabdd7fda872a0": {
       "name": "Cans",
-      "products": [
+      "entries": [
         {
           "product_id": "8ea64ae173564864483abfd22fa9452e",
           "amount": -3
@@ -2112,11 +2135,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "79ab903a54815cd40be07567bd6a682b": {
       "name": "Tire",
-      "products": [
+      "entries": [
         {
           "product_id": "24c7cdfbe06395e43a6e6eaf710ed3e3",
           "amount": -3
@@ -2127,11 +2151,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "79e7d09f1a19feb4888d05b56bea2da9": {
       "name": "Steel Barrels",
-      "products": [
+      "entries": [
         {
           "product_id": "8ea64ae173564864483abfd22fa9452e",
           "amount": -2
@@ -2142,11 +2167,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "7a28e6ce2db589d4eae76603219fd0a0": {
       "name": "Ink",
-      "products": [
+      "entries": [
         {
           "product_id": "d2f570a30cee8a44595355075f4d097c",
           "amount": -1
@@ -2161,11 +2187,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "818a4c47d5d0e5d47af9b74fe2136b22": {
       "name": "Chemicals",
-      "products": [
+      "entries": [
         {
           "product_id": "9e708eec71a787443909133a602a5764",
           "amount": -3
@@ -2176,11 +2203,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "87ea5cfc9025c3b49bcd26236808c5ab": {
       "name": "Soup",
-      "products": [
+      "entries": [
         {
           "product_id": "6ce26d81280df824fa7aa1c2e162a004",
           "amount": -1
@@ -2195,11 +2223,12 @@
         }
       ],
       "days": 15,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "88676f1be36a95d4c8c8aff44c7d3f7b": {
       "name": "Wine",
-      "products": [
+      "entries": [
         {
           "product_id": "6c8f5e736b8df4546b2718508c527d7c",
           "amount": -2
@@ -2210,11 +2239,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "89d0a26548db42e40a44986e9e9abd7e": {
       "name": "Soda Water",
-      "products": [
+      "entries": [
         {
           "product_id": "1eefc334973443941beeb6f8ff994208",
           "amount": -1
@@ -2229,11 +2259,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "8a79de65071b62f46b404f1fe4339484": {
       "name": "Orange Juice",
-      "products": [
+      "entries": [
         {
           "product_id": "32d75d394499bce45a16eb3d6e116af7",
           "amount": -1
@@ -2248,11 +2279,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "8b475b7ce009ef34f966524fefffde90": {
       "name": "Steel Frame",
-      "products": [
+      "entries": [
         {
           "product_id": "8ea64ae173564864483abfd22fa9452e",
           "amount": -3
@@ -2263,11 +2295,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "8b8c6cb705fad844aa1511f41e5566b3": {
       "name": "Grapes",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2280,11 +2313,12 @@
       "days": 30,
       "required_modules": [
         "4241c2e02f3bc504890272f7ec619756"
-      ]
+      ],
+      "tier": 0
     },
     "8c76203d23e573a41b7e381974773ca5": {
       "name": "Waffles",
-      "products": [
+      "entries": [
         {
           "product_id": "1eefc334973443941beeb6f8ff994208",
           "amount": -1
@@ -2299,11 +2333,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "8ce406a7ee09f324998728942a8eb295": {
       "name": "Berry Pie",
-      "products": [
+      "entries": [
         {
           "product_id": "762f4a7e140943c408209f078a2c43f2",
           "amount": -2
@@ -2322,11 +2357,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "9154d0b1b6c380b4896fd70709661589": {
       "name": "Computer Memory",
-      "products": [
+      "entries": [
         {
           "product_id": "465dee29a74dd944cb54da1f9cc5b5fa",
           "amount": -2
@@ -2345,11 +2381,12 @@
         }
       ],
       "days": 180,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "93e31226fb8059a459e0fc806d288927": {
       "name": "Printed Paper",
-      "products": [
+      "entries": [
         {
           "product_id": "88f21818ef6781145a02896aeb75186d",
           "amount": -2
@@ -2364,11 +2401,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "951a5d5e9c679f446af3055ff521772d": {
       "name": "Olive Oil",
-      "products": [
+      "entries": [
         {
           "product_id": "f357cb744b2fa5749b9bd3021272c766",
           "amount": -2
@@ -2379,11 +2417,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "9b849e57d461b2c48adbf1c516f300f1": {
       "name": "Reinforced Wall",
-      "products": [
+      "entries": [
         {
           "product_id": "a2d0db3b93ca3bc418af9630e5bb8933",
           "amount": -3
@@ -2398,11 +2437,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "9ca516f7108947548ba4eb7d688e48c3": {
       "name": "Raw Rubber",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2415,11 +2455,12 @@
       "days": 30,
       "required_modules": [
         "8b0ead1ad6c5a4846b1bf6314a185221"
-      ]
+      ],
+      "tier": 0
     },
     "9feec2b5cd69c2b42a03277bb6308343": {
       "name": "Interface",
-      "products": [
+      "entries": [
         {
           "product_id": "c50cc455e58990d40a64ce924f9e9b02",
           "amount": -1
@@ -2438,11 +2479,12 @@
         }
       ],
       "days": 180,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "a32e46a2e1865bc4c906a19d47e6b100": {
       "name": "Coal",
-      "products": [
+      "entries": [
         {
           "product_id": "d2f570a30cee8a44595355075f4d097c",
           "amount": 1
@@ -2451,11 +2493,12 @@
       "days": 15,
       "required_modules": [
         "bb70c26985fe3614388b7ea3422a6094"
-      ]
+      ],
+      "tier": 0
     },
     "a5f4d8bac94b5874d8b0009033e2a1e9": {
       "name": "Canned Fish",
-      "products": [
+      "entries": [
         {
           "product_id": "ea8a29b28358cd8458f962d27d65b18e",
           "amount": -1
@@ -2474,11 +2517,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "a617e135600089b4d84a4f4aac6b13c5": {
       "name": "Berries",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2491,26 +2535,12 @@
       "days": 30,
       "required_modules": [
         "6d28141de9045c74ca9fe1ab80a41524"
-      ]
-    },
-    "a637464858139a4459a9a87425d21697": {
-      "name": "Cardboard Panels",
-      "products": [
-        {
-          "product_id": "c1be006d9be92044ab02439d903ed5cc",
-          "amount": -3
-        },
-        {
-          "product_id": "06fd7fee4743d934184105fe43c53786",
-          "amount": 2
-        }
       ],
-      "days": 50,
-      "required_modules": []
+      "tier": 0
     },
     "a99f2feabc398ee4fbd333b4c2ff86e4": {
       "name": "Canned Mutton",
-      "products": [
+      "entries": [
         {
           "product_id": "59bd4cf2a15b3af46a76188336fa8d25",
           "amount": -3
@@ -2525,11 +2555,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "afdd5345a220a9e4284f348462310639": {
       "name": "Copper",
-      "products": [
+      "entries": [
         {
           "product_id": "2f1dd302fb20679479da1167d19ad95d",
           "amount": 1
@@ -2538,11 +2569,12 @@
       "days": 15,
       "required_modules": [
         "31d2b9d38bd8d5f4188c3fe968a73f8a"
-      ]
+      ],
+      "tier": 0
     },
     "b073d5c667b2d2746a0cb4552f2d7b6c": {
       "name": "Biofuel",
-      "products": [
+      "entries": [
         {
           "product_id": "86ae967066db03a47b8e36bf5a82c9a3",
           "amount": -3
@@ -2557,11 +2589,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "b221be43172548045b7a54a164b8f45c": {
       "name": "First Computer",
-      "products": [
+      "entries": [
         {
           "product_id": "ffde5f99e3a1c724da0f4d73ba414cd5",
           "amount": -1
@@ -2580,11 +2613,12 @@
         }
       ],
       "days": 360,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 0
     },
     "b636149e54bcefd448fe07f635028d0a": {
       "name": "Engine Block",
-      "products": [
+      "entries": [
         {
           "product_id": "0f2806882e69bc04ca67d23118afc214",
           "amount": -2
@@ -2599,11 +2633,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "b9538d9ac7f154c45b2e466ab8fbb986": {
       "name": "Interior Lining",
-      "products": [
+      "entries": [
         {
           "product_id": "7def2539866f84546a394410db169045",
           "amount": -2
@@ -2618,11 +2653,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "bd4cfb65c05a0d8459a52b396b05cf49": {
       "name": "Rubber Tubes",
-      "products": [
+      "entries": [
         {
           "product_id": "24c7cdfbe06395e43a6e6eaf710ed3e3",
           "amount": -3
@@ -2633,11 +2669,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "bd6624345e6dcea4aacd9081b1d3217c": {
       "name": "Oranges",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2650,11 +2687,12 @@
       "days": 30,
       "required_modules": [
         "a7346db5f9536fd439e9af5389f95cfa"
-      ]
+      ],
+      "tier": 0
     },
     "bda5cca3081853d4dbeac36c7c1c7ec2": {
       "name": "Iron",
-      "products": [
+      "entries": [
         {
           "product_id": "6c9b2f2bfd7fab147a6ec4c62950cb71",
           "amount": 1
@@ -2663,11 +2701,12 @@
       "days": 15,
       "required_modules": [
         "c89200fe495d58e49ad31e410b8a5a85"
-      ]
+      ],
+      "tier": 0
     },
     "bdaae94d783586c40a3931aa1528903c": {
       "name": "Rubber",
-      "products": [
+      "entries": [
         {
           "product_id": "3062ad89aad3a7b4696ad9cc010d95cb",
           "amount": -2
@@ -2678,11 +2717,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "c4d6766d41bd3ed4281a9863d7d40292": {
       "name": "Telephone",
-      "products": [
+      "entries": [
         {
           "product_id": "c02a2239cc3e5aa47a3332aa126fcb4f",
           "amount": -2
@@ -2697,11 +2737,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "c5c014afd3bd83c499de3cad27e9eb37": {
       "name": "Marbles",
-      "products": [
+      "entries": [
         {
           "product_id": "20cd725492d5c9e4999ba51a43f6d884",
           "amount": -2
@@ -2716,11 +2757,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "c651d3e7c7f40fd48aec2270ac73633f": {
       "name": "Brandy",
-      "products": [
+      "entries": [
         {
           "product_id": "b77cdfe7a9dae6440ae154ee7e62e4e6",
           "amount": -3
@@ -2735,11 +2777,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "c65b1f36e52361f48a4c29e66b1673ea": {
       "name": "Plastic Cutlery",
-      "products": [
+      "entries": [
         {
           "product_id": "0b790e3867d641245bcc3751295d9aec",
           "amount": -3
@@ -2750,11 +2793,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "c7794c8f15568d34fb54052007607cf0": {
       "name": "Office Furniture",
-      "products": [
+      "entries": [
         {
           "product_id": "4a911f469fd22c34e91b41df126c361c",
           "amount": -2
@@ -2769,11 +2813,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "c8435371be3b56a44a9c702d1c9c6ba4": {
       "name": "Diodes",
-      "products": [
+      "entries": [
         {
           "product_id": "7a720f409190d62499c81034c919190c",
           "amount": -2
@@ -2788,11 +2833,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "c94ee67f3aa0700499da1ac57d61a385": {
       "name": "Fish",
-      "products": [
+      "entries": [
         {
           "product_id": "8d50f0811b7ebf84e909b24716a2ec6a",
           "amount": 1
@@ -2801,11 +2847,12 @@
       "days": 10,
       "required_modules": [
         "2af8ddeb150f3be4dbcc08927da14264"
-      ]
+      ],
+      "tier": 0
     },
     "cc846b22a676ffc4b96366aa0f385960": {
       "name": "Bricks",
-      "products": [
+      "entries": [
         {
           "product_id": "32a037f05ef44b948b0121b27047cff4",
           "amount": -2
@@ -2820,11 +2867,12 @@
         }
       ],
       "days": 15,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "cd52466a4f77725488745531f3e008fb": {
       "name": "Napkins",
-      "products": [
+      "entries": [
         {
           "product_id": "f6b35a5f7feae184faac7bfaa08f2561",
           "amount": -3
@@ -2835,11 +2883,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "d2570264a33374a40bc405f4ba20f92a": {
       "name": "Plastic Furniture",
-      "products": [
+      "entries": [
         {
           "product_id": "d965e0cfca596cd489f4ba74fed18dda",
           "amount": -2
@@ -2854,11 +2903,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "d4bd49bfd8f6b664fa90a076bada5ff1": {
       "name": "Fibers",
-      "products": [
+      "entries": [
         {
           "product_id": "a0435171496dc0a4aa13f1a8bbf189bb",
           "amount": -2
@@ -2869,11 +2919,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "d73148883acb6114e85c4940a2980521": {
       "name": "Cotton",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2886,11 +2937,12 @@
       "days": 30,
       "required_modules": [
         "469e2af9baf4bea428eb1ba785328b0c"
-      ]
+      ],
+      "tier": 0
     },
     "d7672039c0ac475439378e4376708bdf": {
       "name": "Chickens",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2911,11 +2963,12 @@
       "days": 25,
       "required_modules": [
         "f78463b1bf911474896bb2b4701311f2"
-      ]
+      ],
+      "tier": 1
     },
     "d8abfcae85e15fb439d34ae3c4a21a67": {
       "name": "Rolling Chassis",
-      "products": [
+      "entries": [
         {
           "product_id": "c043a08c72ad3fb42b10c869839160ef",
           "amount": -1
@@ -2930,11 +2983,12 @@
         }
       ],
       "days": 120,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "d8bc0cb606f700b4c98cd731606259ef": {
       "name": "Oven",
-      "products": [
+      "entries": [
         {
           "product_id": "3c0c4a0ae0b99b543878154e87207941",
           "amount": -1
@@ -2949,11 +3003,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "d8fb8b4bb444dab4489080d21b4fbb73": {
       "name": "Premade Dinner",
-      "products": [
+      "entries": [
         {
           "product_id": "badab64e2b680b841a5382a9497f2426",
           "amount": -2
@@ -2972,11 +3027,12 @@
         }
       ],
       "days": 360,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 0
     },
     "d93a37ed6b357394c97d7e3b961cbbed": {
       "name": "Sugarcane",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -2989,11 +3045,12 @@
       "days": 30,
       "required_modules": [
         "38d2fb075c733524e9c46a6fa2d03c87"
-      ]
+      ],
+      "tier": 0
     },
     "d9d42e6f47304184780a90e67b6de2ca": {
       "name": "Cocoas",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -3006,11 +3063,12 @@
       "days": 30,
       "required_modules": [
         "7e8b8b281d25d0d46a1ca0f1a09b1e14"
-      ]
+      ],
+      "tier": 0
     },
     "db249325fc44dd049aa3e2241a3cb63a": {
       "name": "Yeast",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -3025,11 +3083,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "db9e4b1271b5ae84ebcfab5c1e0d0572": {
       "name": "Fish and Chips",
-      "products": [
+      "entries": [
         {
           "product_id": "8d50f0811b7ebf84e909b24716a2ec6a",
           "amount": -3
@@ -3044,11 +3103,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "dba49067dca68194a93ca8ec3daa72bb": {
       "name": "Punch Cards",
-      "products": [
+      "entries": [
         {
           "product_id": "aa0dbe57b57c8364db775c440f77fb4e",
           "amount": -3
@@ -3059,11 +3119,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "dfd8ed92bcb683b4fb6d8b9323ceb5e7": {
       "name": "Glass",
-      "products": [
+      "entries": [
         {
           "product_id": "32a037f05ef44b948b0121b27047cff4",
           "amount": -2
@@ -3078,11 +3139,12 @@
         }
       ],
       "days": 15,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "e0b9032b3adc06e4cb86ddb7b6e24b62": {
       "name": "Cardboard",
-      "products": [
+      "entries": [
         {
           "product_id": "c1be006d9be92044ab02439d903ed5cc",
           "amount": -3
@@ -3093,11 +3155,12 @@
         }
       ],
       "days": 30,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "e0d1f17806bc90f49bb3507a21561c27": {
       "name": "Grain Whiskey",
-      "products": [
+      "entries": [
         {
           "product_id": "90736070c48e45b48b72c2ee706f0fcb",
           "amount": -3
@@ -3116,11 +3179,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "e27af448be816de4e9f3e71b683eec19": {
       "name": "Leather Furniture",
-      "products": [
+      "entries": [
         {
           "product_id": "d965e0cfca596cd489f4ba74fed18dda",
           "amount": -2
@@ -3135,11 +3199,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "e28508158a43b124a81194dff4677381": {
       "name": "Newspapers",
-      "products": [
+      "entries": [
         {
           "product_id": "e5564ac2334031946bd56a541252b108",
           "amount": -2
@@ -3154,11 +3219,12 @@
         }
       ],
       "days": 40,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "e28baaca01cd848439281935f06e4a15": {
       "name": "Water",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": 1
@@ -3167,11 +3233,12 @@
       "days": 10,
       "required_modules": [
         "6ae655706eaadc44ebb3f174e31e2bd1"
-      ]
+      ],
+      "tier": 0
     },
     "e64250252e0160d4e8e689f0c9eee986": {
       "name": "Car Seat",
-      "products": [
+      "entries": [
         {
           "product_id": "d965e0cfca596cd489f4ba74fed18dda",
           "amount": -2
@@ -3186,11 +3253,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "e6d938a8a05f9854eae1967ec3b1d093": {
       "name": "Summer Clothes",
-      "products": [
+      "entries": [
         {
           "product_id": "f6b35a5f7feae184faac7bfaa08f2561",
           "amount": -2
@@ -3205,11 +3273,12 @@
         }
       ],
       "days": 45,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "ebf3805be533e614dabf60546c4c54a2": {
       "name": "Concrete",
-      "products": [
+      "entries": [
         {
           "product_id": "32a037f05ef44b948b0121b27047cff4",
           "amount": -2
@@ -3224,11 +3293,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "edef26f945cd3c74ea604dad5ae04d9f": {
       "name": "Chocolate Cake",
-      "products": [
+      "entries": [
         {
           "product_id": "6edaba07bd823e14e81ce5beee459b52",
           "amount": -2
@@ -3247,11 +3317,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "f5b8d98f85c56084983a45863a06de6d": {
       "name": "Light Bulbs",
-      "products": [
+      "entries": [
         {
           "product_id": "7a720f409190d62499c81034c919190c",
           "amount": -2
@@ -3266,55 +3337,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
-    },
-    "f8346a10b0aa9ba4fbbd116f253153e6": {
-      "name": "Dinner Container",
-      "products": [
-        {
-          "product_id": "3cf3701c13e7ae34a8e30797dbee45eb",
-          "amount": -2
-        },
-        {
-          "product_id": "dd82c17bee25894479f51d6086c77c68",
-          "amount": -2
-        },
-        {
-          "product_id": "910aad570e47c164284781dc48aba6ea",
-          "amount": -1
-        },
-        {
-          "product_id": "a2f46a5a2e8e204499e5c8cf15bdd328",
-          "amount": 1
-        }
-      ],
-      "days": 180,
-      "required_modules": []
-    },
-    "f9b2742d276b277459815a1f190e8177": {
-      "name": "Alternator",
-      "products": [
-        {
-          "product_id": "7a720f409190d62499c81034c919190c",
-          "amount": -3
-        },
-        {
-          "product_id": "8ea64ae173564864483abfd22fa9452e",
-          "amount": -3
-        },
-        {
-          "product_id": "f90c1d6ced59b3f4ca29faa46d4613a2",
-          "amount": 2
-        }
-      ],
-      "days": 45,
-      "required_modules": [
-        "f2bb4629cdd181344916083bc9bd7716"
-      ]
+      "required_modules": [],
+      "tier": 2
     },
     "f9ff8c55c190b844da6358a19fdb0af4": {
       "name": "Pizza",
-      "products": [
+      "entries": [
         {
           "product_id": "957939fd851b30a4382ca10e18e3188a",
           "amount": -1
@@ -3333,11 +3361,12 @@
         }
       ],
       "days": 35,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "faf0b8bbbd2e36b40822f1439dec0ead": {
       "name": "Exterior Body",
-      "products": [
+      "entries": [
         {
           "product_id": "d1c70959f86830b4b857fc9274d52188",
           "amount": -1
@@ -3352,11 +3381,12 @@
         }
       ],
       "days": 60,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "fb987fd0761cfb643a67f51d9a1602f2": {
       "name": "Dinner Container",
-      "products": [
+      "entries": [
         {
           "product_id": "3cf3701c13e7ae34a8e30797dbee45eb",
           "amount": -2
@@ -3375,11 +3405,12 @@
         }
       ],
       "days": 180,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 3
     },
     "fde8b4526e56ea9459f07c7738315c6b": {
       "name": "Beef Stew",
-      "products": [
+      "entries": [
         {
           "product_id": "2f39850f281c5c94b88bde122ef95729",
           "amount": -3
@@ -3398,11 +3429,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "fe760f070248634499b4713a3f08ebe9": {
       "name": "Radiator",
-      "products": [
+      "entries": [
         {
           "product_id": "8ea64ae173564864483abfd22fa9452e",
           "amount": -1
@@ -3417,11 +3449,12 @@
         }
       ],
       "days": 25,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 2
     },
     "fe99fd6cc137f8641b46790cdb550d65": {
       "name": "Plastic",
-      "products": [
+      "entries": [
         {
           "product_id": "07d2fef0e41b3f94182da6e02cdaaa63",
           "amount": -2
@@ -3436,11 +3469,12 @@
         }
       ],
       "days": 20,
-      "required_modules": []
+      "required_modules": [],
+      "tier": 1
     },
     "ff1b90bc35bb4cc4d9e8f976bf4ee0c8": {
       "name": "Potatoes",
-      "products": [
+      "entries": [
         {
           "product_id": "e108e0781b370174885de490466b8156",
           "amount": -1
@@ -3453,11 +3487,12 @@
       "days": 35,
       "required_modules": [
         "115476425a1351848b705ac75c547583"
-      ]
+      ],
+      "tier": 0
     },
     "ff741c7c9400d44428b286ece16d8405": {
       "name": "Sand",
-      "products": [
+      "entries": [
         {
           "product_id": "32a037f05ef44b948b0121b27047cff4",
           "amount": 1
@@ -3466,7 +3501,8 @@
       "days": 10,
       "required_modules": [
         "45233a61c3748844e9f60b68cf67fa5d"
-      ]
+      ],
+      "tier": 0
     }
   },
   "modules": {
@@ -3738,11 +3774,6 @@
         "bda5cca3081853d4dbeac36c7c1c7ec2"
       ]
     },
-    "38be58d7ee7b73e41bda3fa4cbc10048": {
-      "name": "Wholesaler",
-      "base_cost": 0,
-      "available_recipes": []
-    },
     "3a617aaacb82df146ad14f07bbdc3770": {
       "name": "Residential Building",
       "base_cost": 0,
@@ -3937,11 +3968,6 @@
       "base_cost": 0,
       "available_recipes": []
     },
-    "a3d1acbb816dad54abb90e780c838dd9": {
-      "name": "AUTOMOTIVE FACTORY",
-      "base_cost": 2500000,
-      "available_recipes": []
-    },
     "a3df0e66079b6534fa2f53689ab72439": {
       "name": "Residential Building",
       "base_cost": 0,
@@ -4065,11 +4091,6 @@
     "ca7ce5ed6f9aa2b47a4a1e91f3b5fd44": {
       "name": "Zeppelin Field",
       "base_cost": 450000,
-      "available_recipes": []
-    },
-    "cbf31713fe962594495fdd4c0a611685": {
-      "name": "Truck Depot",
-      "base_cost": 225000,
       "available_recipes": []
     },
     "cc0577ab53770694d8efaee3115c654e": {

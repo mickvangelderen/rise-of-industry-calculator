@@ -18,13 +18,14 @@ pub struct Product {
 pub struct Recipe {
     // pub id: RecipeId,
     pub name: String,
-    pub products: Vec<CountedProductId>,
+    pub entries: Vec<RecipeEntry>,
     pub days: i64,
     pub required_modules: Vec<BuildingModuleId>,
+    pub tier: i64,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct CountedProductId {
+pub struct RecipeEntry {
     pub product_id: ProductId,
     pub amount: i64,
 }
