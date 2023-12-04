@@ -7,7 +7,7 @@ use std::{
 use ignore::DirEntry;
 use log::{error, warn};
 use rise_of_industry_calculator::serialization::{
-    Building, BuildingModule, RecipeEntry, GameData, Product, ProductCategory, Recipe,
+    Building, BuildingModule, GameData, Product, ProductCategory, Recipe, RecipeEntry,
 };
 use rise_of_industry_importer::*;
 use serde::Deserialize;
@@ -434,7 +434,7 @@ impl From<Assets> for GameData {
                         guid,
                         Product {
                             name: product.name,
-                            category_id: Some(category_reference.guid.clone()),
+                            category: category_reference.guid.clone(),
                         },
                     )
                 })
@@ -456,12 +456,14 @@ impl From<Assets> for GameData {
                                         amount: -(ingredient.amount),
                                     }
                                 }),
-                                recipe.result.entries.into_iter().map(|ingredient| {
-                                    RecipeEntry {
+                                recipe
+                                    .result
+                                    .entries
+                                    .into_iter()
+                                    .map(|ingredient| RecipeEntry {
                                         product_id: ingredient.definition.0.unwrap().guid,
                                         amount: ingredient.amount,
-                                    }
-                                }),
+                                    }),
                             )
                             .collect(),
                             days: recipe.days,

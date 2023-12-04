@@ -235,68 +235,50 @@ fn compute_product_price(
 }
 
 fn compute_prices(data: &GameData) -> HashMap<ProductId, f64> {
-    let mut prices: HashMap<ProductId, HashMap<RecipeId, Option<f64>>> = data
+    let mut product_recipe_counts: Vec<usize> = data
         .products()
-        .map(|product| {
-            (
-                product.id,
-                data.recipes_with_output(product.id)
-                    .map(|recipe| (recipe.id, None))
-                    .collect(),
-            )
-        })
+        .map(|product| product.producing_recipes().count())
         .collect();
+    let mut product_prices: Vec<Option<f64>> = data.products().map(|_| None).collect();
 
-    let mut changed = true;
-    while (changed) {
-        changed = false;
+    let mut todo_recipe_ids: Vec<RecipeId> = data.recipes().map(|recipe| recipe.id).collect();
+    let mut temp_recipe_ids = vec![];
+    while !todo_recipe_ids.is_empty() {
+        std::mem::swap(&mut todo_recipe_ids, &mut temp_recipe_ids);
+        for recipe_id in temp_recipe_ids.drain(..) {
+            let recipe = data.query(recipe_id);
 
-        for product in data.products() {
-            for recipe in data.recipes_with_output(product.id) {
-                if prices[&product.id][&recipe.id].is_some() {
-                    continue;
+            let Some(ingredients_price_component) = recipe.inputs().try_fold(0.0, |sum, input| {
+                if product_recipe_counts[usize::from(input.product_id)] > 0 {
+                    return None;
                 }
+                let price = product_prices[usize::from(input.product_id)].unwrap();
+                Some(sum + price * -input.amount as f64)
+            }) else {
+                todo_recipe_ids.push(recipe_id);
+                continue;
+            };
 
-                let Some(inputs_price) =
-                    data.query(recipe.id).inputs().try_fold(0.0, |sum, input| {
-                        let min_price = prices[&input.product_id]
-                            .values()
-                            .copied()
-                            .reduce(|min, price| match (min, price) {
-                                (Some(min), Some(price)) => Some(f64::min(min, price)),
-                                _ => None,
-                            })
-                            .unwrap_or_default()?;
-                        Some(sum + min_price * -input.amount as f64)
-                    })
-                else {
-                    continue;
-                };
+            let upkeep_price_component = get_upkeep_price_component(data, *recipe);
 
-                for output in data.query(recipe.id).outputs() {
-                    *prices
-                        .get_mut(&output.product_id)
-                        .unwrap()
-                        .get_mut(&recipe.id)
-                        .unwrap() = Some(inputs_price / output.amount as f64 * 10.0 + 1.0);
-                    changed = true;
-                }
+            for entry in recipe.outputs() {
+                // upkeep / ((3 * recipeOutput) * (30 / recipeDays))
+                let amount_per_building_per_month = entry.amount as f64 * 3.0 * 30.0 / recipe.days as f64;
+                let price = upkeep_price_component / amount_per_building_per_month;
+                let price = price * entry.product().category().price_modifier;
+
+                product_recipe_counts[usize::from(entry.product_id)] -= 1;
+                product_prices[usize::from(entry.product_id)] = 
+                    Some(match product_prices[usize::from(entry.product_id)] {
+                        Some(existing) => f64::min(existing, price),
+                        None => price,
+                    });
             }
         }
     }
 
-    prices
-        .into_iter()
-        .map(|(product_id, recipes)| {
-            (
-                product_id,
-                recipes
-                    .values()
-                    .map(|price| price.unwrap())
-                    .min_by(|a, b| a.partial_cmp(b).unwrap())
-                    .unwrap_or_default(),
-            )
-        })
+    data.products()
+        .map(|product| (product.id, product_prices[usize::from(product.id)].unwrap()))
         .collect()
 }
 

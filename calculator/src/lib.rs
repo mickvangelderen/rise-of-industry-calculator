@@ -28,6 +28,17 @@ impl<'data, T> std::ops::Deref for Query<'data, T> {
 pub struct Product {
     pub id: ProductId,
     pub name: String,
+    pub category: ProductCategoryId,
+}
+
+impl<'d> Query<'d, &'d Product> {
+    pub fn category(&self) -> Query<'d, &'d ProductCategory> {
+        self.data.query(self.category)
+    }
+
+    pub fn producing_recipes(&self) -> impl Iterator<Item = Query<'d, &'d Recipe>> {
+        self.data.recipes_with_output(self.id)
+    }
 }
 
 #[derive(Debug)]
@@ -97,7 +108,7 @@ impl RecipeEntry {
     }
 }
 
-impl<'data> Query<'data, RecipeEntry> {
+impl<'data> Query<'data, &'data RecipeEntry> {
     pub fn product(&self) -> Query<'data, &'data Product> {
         self.data.query(self.target.product_id)
     }
@@ -147,11 +158,20 @@ pub struct Module {
 }
 
 #[derive(Debug)]
+pub struct ProductCategory {
+    pub id: ProductCategoryId,
+    pub name: String,
+    pub price_modifier: f64,
+    pub growth_modifier: f64,
+}
+
+#[derive(Debug)]
 pub struct GameData {
     products: Vec<Product>,
     recipes: Vec<Recipe>,
     modules: Vec<Module>,
     buildings: Vec<Building>,
+    product_categories: Vec<ProductCategory>,
 }
 
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash)]
@@ -192,6 +212,12 @@ macro_rules! impl_id {
                 Self(value)
             }
         }
+
+        impl ::std::convert::From<$Id> for usize {
+            fn from(value: $Id) -> Self {
+                value.0.get()
+            }
+        }
     };
 }
 
@@ -199,6 +225,7 @@ impl_id!(ProductId for GameData.products: Product);
 impl_id!(RecipeId for GameData.recipes: Recipe);
 impl_id!(BuildingId for GameData.buildings: Building);
 impl_id!(ModuleId for GameData.modules: Module);
+impl_id!(ProductCategoryId for GameData.product_categories: ProductCategory);
 
 impl GameData {
     pub fn load(path: &std::path::Path) -> std::io::Result<Self> {
@@ -229,10 +256,20 @@ impl GameData {
             )
         }
 
+        let (product_category_guid_to_id, product_categories) = convert(data.product_categories, |_, product_category, id| {
+            Some(ProductCategory {
+                id,
+                name: product_category.name,
+                price_modifier: product_category.price_modifier,
+                growth_modifier: product_category.growth_modifier,
+            })
+        });
+
         let (product_guid_to_id, products) = convert(data.products, |_, product, id| {
             Some(Product {
                 id,
                 name: product.name,
+                category: product_category_guid_to_id[&product.category],
             })
         });
 
@@ -294,6 +331,7 @@ impl GameData {
             modules,
             recipes,
             buildings,
+            product_categories,
         })
     }
 
