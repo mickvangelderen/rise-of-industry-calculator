@@ -3,7 +3,8 @@
 use std::{collections::HashMap, rc::Rc};
 
 use rise_of_industry_calculator::{
-    Building, BuildingId, GameData, Module, ModuleId, Product, ProductId, Query, Recipe, RecipeId,
+    serialization::ProductPriceFormula, Building, BuildingId, GameData, Module, ModuleId, Product,
+    ProductId, Query, Recipe, RecipeId,
 };
 
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
@@ -234,12 +235,13 @@ fn compute_product_price(
     // 16:   formula: 75 * recipeDays * 3.25
 }
 
-fn compute_prices(data: &GameData) -> HashMap<ProductId, f64> {
+fn compute_product_prices(data: &GameData) -> HashMap<ProductId, f64> {
+    // Counts how many recipes still need to be evaluated for a product.
     let mut product_recipe_counts: Vec<usize> = data
         .products()
         .map(|product| product.producing_recipes().count())
         .collect();
-    let mut product_prices: Vec<Option<f64>> = data.products().map(|_| None).collect();
+    let mut product_values: Vec<Option<f64>> = data.products().map(|_| None).collect();
 
     let mut todo_recipe_ids: Vec<RecipeId> = data.recipes().map(|recipe| recipe.id).collect();
     let mut temp_recipe_ids = vec![];
@@ -248,37 +250,62 @@ fn compute_prices(data: &GameData) -> HashMap<ProductId, f64> {
         for recipe_id in temp_recipe_ids.drain(..) {
             let recipe = data.query(recipe_id);
 
-            let Some(ingredients_price_component) = recipe.inputs().try_fold(0.0, |sum, input| {
+            let Some(ingredients_value) = recipe.inputs().try_fold(0.0, |sum, input| {
                 if product_recipe_counts[usize::from(input.product_id)] > 0 {
                     return None;
                 }
-                let price = product_prices[usize::from(input.product_id)].unwrap();
+                let price = product_values[usize::from(input.product_id)].unwrap();
                 Some(sum + price * -input.amount as f64)
             }) else {
                 todo_recipe_ids.push(recipe_id);
                 continue;
             };
 
-            let upkeep_price_component = get_upkeep_price_component(data, *recipe);
+            let upkeep = get_upkeep_price_component(data, *recipe);
+
+            let recipe_output = recipe.outputs().map(|entry| entry.amount).sum::<i64>() as f64;
+            let recipe_days = recipe.days as f64;
 
             for entry in recipe.outputs() {
-                // upkeep / ((3 * recipeOutput) * (30 / recipeDays))
-                let amount_per_building_per_month = entry.amount as f64 * 3.0 * 30.0 / recipe.days as f64;
-                let price = upkeep_price_component / amount_per_building_per_month;
-                let price = price * entry.product().category().price_modifier;
+                let value = match entry.product().price_formula {
+                    ProductPriceFormula::Factories => {
+                        (ingredients_value + ((upkeep / 30.0) * recipe_days)) / recipe_output
+                    }
+                    ProductPriceFormula::FarmProduce => ingredients_value * 2.8,
+                    ProductPriceFormula::Farms => {
+                        ((ingredients_value * 3.0) + ((upkeep / 30.0) * recipe_days))
+                            / (recipe_output * 3.0)
+                    }
+                    ProductPriceFormula::Gatherers => {
+                        upkeep / ((3.0 * recipe_output) * (30.0 / recipe_days))
+                    }
+                    ProductPriceFormula::Livestock => {
+                        ((((ingredients_value * 3.0) + ((upkeep / 30.0) * recipe_days))
+                            / (recipe_output * 3.0))
+                            * (recipe_output - entry.amount as f64))
+                            / recipe_output
+                    }
+                    ProductPriceFormula::RawResources => 75.0 * recipe_days * 3.25,
+                };
 
                 product_recipe_counts[usize::from(entry.product_id)] -= 1;
-                product_prices[usize::from(entry.product_id)] = 
-                    Some(match product_prices[usize::from(entry.product_id)] {
-                        Some(existing) => f64::min(existing, price),
-                        None => price,
+                product_values[usize::from(entry.product_id)] =
+                    Some(match product_values[usize::from(entry.product_id)] {
+                        Some(existing) => f64::min(existing, value),
+                        None => value,
                     });
             }
         }
     }
 
     data.products()
-        .map(|product| (product.id, product_prices[usize::from(product.id)].unwrap()))
+        .map(|product| {
+            (
+                product.id,
+                product_values[usize::from(product.id)].unwrap()
+                    * product.category().price_modifier,
+            )
+        })
         .collect()
 }
 
@@ -682,7 +709,7 @@ fn simulate(
     }
 
     {
-        let prices = compute_prices(data);
+        let prices = compute_product_prices(data);
         for product in data.products() {
             println!(
                 "  {} ({:?}): {}",

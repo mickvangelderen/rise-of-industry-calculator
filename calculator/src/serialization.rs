@@ -8,15 +8,30 @@ type BuildingId = String;
 type ProductCategoryId = String;
 
 #[derive(Debug, Serialize, Deserialize)]
+pub enum ProductPriceFormula {
+    /// (ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput
+    Factories,
+    /// ingredientsValue * 2.8
+    FarmProduce,
+    /// ((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)
+    Farms,
+    /// upkeep / ((3 * recipeOutput) * (30 / recipeDays))
+    Gatherers,
+    /// ((((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)) * (recipeOutput - productOutput)) / recipeOutput
+    Livestock,
+    /// 75 * recipeDays * 3.25
+    RawResources,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Product {
-    // pub id: ProductId,
     pub name: String,
     pub category: ProductCategoryId,
+    pub price_formula: ProductPriceFormula,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Recipe {
-    // pub id: RecipeId,
     pub name: String,
     pub entries: Vec<RecipeEntry>,
     pub days: i64,
@@ -32,14 +47,12 @@ pub struct RecipeEntry {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct BuildingModule {
-    // pub id: ModuleId,
     pub name: String,
     pub base_cost: i64,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Building {
-    // pub id: ModuleId,
     pub name: String,
     pub base_cost: i64,
     pub available_recipes: Vec<RecipeId>,

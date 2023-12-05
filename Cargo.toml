@@ -2,6 +2,7 @@
 members =[
     "calculator",
     "importer",
+    "typed-index",
 ]
 
 resolver = "2"

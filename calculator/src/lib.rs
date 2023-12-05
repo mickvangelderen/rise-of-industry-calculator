@@ -29,6 +29,7 @@ pub struct Product {
     pub id: ProductId,
     pub name: String,
     pub category: ProductCategoryId,
+    pub price_formula: serialization::ProductPriceFormula,
 }
 
 impl<'d> Query<'d, &'d Product> {
@@ -256,20 +257,22 @@ impl GameData {
             )
         }
 
-        let (product_category_guid_to_id, product_categories) = convert(data.product_categories, |_, product_category, id| {
-            Some(ProductCategory {
-                id,
-                name: product_category.name,
-                price_modifier: product_category.price_modifier,
-                growth_modifier: product_category.growth_modifier,
-            })
-        });
+        let (product_category_guid_to_id, product_categories) =
+            convert(data.product_categories, |_, product_category, id| {
+                Some(ProductCategory {
+                    id,
+                    name: product_category.name,
+                    price_modifier: product_category.price_modifier,
+                    growth_modifier: product_category.growth_modifier,
+                })
+            });
 
         let (product_guid_to_id, products) = convert(data.products, |_, product, id| {
             Some(Product {
                 id,
                 name: product.name,
                 category: product_category_guid_to_id[&product.category],
+                price_formula: product.price_formula,
             })
         });
 

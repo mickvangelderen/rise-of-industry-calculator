@@ -7,7 +7,8 @@ use std::{
 use ignore::DirEntry;
 use log::{error, warn};
 use rise_of_industry_calculator::serialization::{
-    Building, BuildingModule, GameData, Product, ProductCategory, Recipe, RecipeEntry,
+    Building, BuildingModule, GameData, Product, ProductCategory, ProductPriceFormula, Recipe,
+    RecipeEntry,
 };
 use rise_of_industry_importer::*;
 use serde::Deserialize;
@@ -435,6 +436,25 @@ impl From<Assets> for GameData {
                         Product {
                             name: product.name,
                             category: category_reference.guid.clone(),
+                            price_formula: match product.price_formula.0.unwrap().guid.as_str() {
+                                "6708198aad4c88f49b774ab04c3281bd" => {
+                                    ProductPriceFormula::Factories
+                                }
+                                "0bc41672d60be9f4a8f329d456c18e6a" => {
+                                    ProductPriceFormula::FarmProduce
+                                }
+                                "5bdae3c63cbbb124fbda6d84566ab378" => ProductPriceFormula::Farms,
+                                "734f8a634d3b59d4c8e35e5f1c1a929a" => {
+                                    ProductPriceFormula::Gatherers
+                                }
+                                "43b81efbaeba33c4d94aa6e0fc1f9204" => {
+                                    ProductPriceFormula::Livestock
+                                }
+                                "d74e4d46638b94d45ab285b748352d70" => {
+                                    ProductPriceFormula::RawResources
+                                }
+                                unknown => panic!("unknown product price formula (guid {unknown})"),
+                            },
                         },
                     )
                 })

@@ -99,6 +99,9 @@ pub struct ProductDefinitionMonoBehaviour {
 
     #[serde(rename = "categoryProvider")]
     pub category_provider: Reference,
+
+    #[serde(rename = "price")]
+    pub price_formula: Reference,
 }
 
 // Farm: GathererHub

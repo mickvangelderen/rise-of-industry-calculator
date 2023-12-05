@@ -1,0 +1,176 @@
+  Fried Chicken (ProductId(0)): 112270.83333333333
+  Computer Memory (ProductId(1)): 365593.75
+  Work Clothes (ProductId(2)): 46062.50000000001
+  Toy Furniture (ProductId(3)): 14263.88888888889
+  Grape Juice (ProductId(4)): 21937.5
+  Oil (ProductId(5)): 7520.833333333333
+  Apples (ProductId(6)): 6611.11111111111
+  Plastic (ProductId(7)): 27354.166666666664
+  Radiator (ProductId(8)): 40625.00000000001
+  Rubber Tubes (ProductId(9)): 44249.99999999999
+  Steel Barrel (ProductId(10)): 38250
+  Eggs (ProductId(11)): 2216.820987654321
+  Radio Receiver (ProductId(12)): 66840.27777777778
+  Stuffing (ProductId(13)): 13361.111111111111
+  Beef Stew (ProductId(14)): 25125
+  Sugar (ProductId(15)): 7777.777777777777
+  Glass (ProductId(16)): 16340.27777777778
+  Ink (ProductId(17)): 24194.44444444444
+  Winter Clothes (ProductId(18)): 43524.69135802469
+  Soda Water (ProductId(19)): 22479.166666666664
+  Rubber (ProductId(20)): 18055.555555555555
+  Chocolate Bar (ProductId(21)): 28805.55555555555
+  Binary Switcher (ProductId(22)): 159406.25
+  Yeast (ProductId(23)): 17875
+  Car Prototype (ProductId(24)): 24511788.194444448
+  Copper (ProductId(25)): 5937.5
+  Beef (ProductId(26)): 5476.851851851851
+  Raw Rubber (ProductId(27)): 6611.11111111111
+  Sand (ProductId(28)): 1847.222222222222
+  Telephone (ProductId(29)): 74975.69444444445
+  Oranges (ProductId(30)): 6611.11111111111
+  Plastic Furniture (ProductId(31)): 79979.16666666667
+  Canned Mutton (ProductId(32)): 49544.56018518518
+  Wood (ProductId(33)): 1847.222222222222
+  Premade Dinner (ProductId(34)): 23663315.972222224
+  Exterior Body (ProductId(35)): 374343.75
+  Stovetop (ProductId(36)): 44000.00000000001
+  Thin Cardboard (ProductId(37)): 87656.24999999999
+  Pizza (ProductId(38)): 47704.86111111112
+  Beer (ProductId(39)): 49041.666666666664
+  Chicken Meat (ProductId(40)): 4433.641975308642
+  Chicken Soup (ProductId(41)): 23680.555555555555
+  Fish and Chips (ProductId(42)): 68138.88888888889
+  Interior Lining (ProductId(43)): 63771.990740740745
+  First Computer (ProductId(44)): 24095130.208333332
+  Combustion Engine (ProductId(45)): 430687.50000000006
+  Burgers (ProductId(46)): 58501.15740740741
+  Orange Soda (ProductId(47)): 61244.79166666667
+  Glass Tubes (ProductId(48)): 40625.00000000001
+  Books (ProductId(49)): 64090.27777777779
+  Furniture Base (L) (ProductId(50)): 32749.999999999996
+  Refrigerator (ProductId(51)): 47874.99999999999
+  Quilt (ProductId(52)): 57062.50000000001
+  Light Bulbs (ProductId(53)): 36541.666666666664
+  Easter Eggs (ProductId(54)): 67470.48611111111
+  Wooden Train (ProductId(55)): 15527.77777777778
+  Mutton (ProductId(56)): 4955.246913580247
+  Hard Cider (ProductId(57)): 22930.55555555556
+  Ceramics (ProductId(58)): 33583.33333333333
+  Capacitors (ProductId(59)): 72979.16666666666
+  Processor (ProductId(60)): 495718.75
+  Car Seat (ProductId(61)): 53930.555555555555
+  Grapes (ProductId(62)): 6611.11111111111
+  Iron Ore (ProductId(63)): 5937.5
+  Vegetables (ProductId(64)): 6125
+  Flour (ProductId(65)): 20583.333333333332
+  Paint (ProductId(66)): 48708.33333333333
+  Bottles (ProductId(67)): 40625.00000000001
+  Cheese (ProductId(68)): 23666.66666666666
+  Berries (ProductId(69)): 7777.777777777777
+  Refined Oil (ProductId(70)): 27354.166666666664
+  Adhesive (ProductId(71)): 57124.99999999999
+  Copper Wire (ProductId(72)): 17875
+  Grain Whiskey (ProductId(73)): 49041.666666666664
+  Interior Body (ProductId(74)): 365427.0833333333
+  Vodka (ProductId(75)): 49041.666666666664
+  Heavy Fabric (ProductId(76)): 29444.44444444444
+  Waffles (ProductId(77)): 56833.33333333334
+  Deluxe Books (ProductId(78)): 66407.4074074074
+  Potato (ProductId(79)): 6125
+  Paper Roll (ProductId(80)): 17875
+  Wooden Barrels (ProductId(81)): 32749.999999999996
+  Fish (ProductId(82)): 2375
+  Couch (ProductId(83)): 74924.76851851853
+  Steel (ProductId(84)): 25187.5
+  Dye (ProductId(85)): 18236.11111111111
+  Olive Oil (ProductId(86)): 21034.722222222223
+  Wheat (ProductId(87)): 6125
+  Office Furniture (ProductId(88)): 78145.83333333333
+  Napkins (ProductId(89)): 70239.58333333334
+  Newspapers (ProductId(90)): 77305.55555555556
+  Body Chassis (ProductId(91)): 1189770.8333333333
+  Dough (ProductId(92)): 36666.666666666664
+  Bag Of Chips (ProductId(93)): 45083.333333333336
+  Hard Cider Donuts (ProductId(94)): 60958.333333333336
+  Cocoa (ProductId(95)): 7777.777777777777
+  Gas (ProductId(96)): 7520.833333333333
+  Oven (ProductId(97)): 69284.72222222222
+  Cotton (ProductId(98)): 7777.777777777777
+  Engine Block (ProductId(99)): 76885.41666666669
+  Berry Pie (ProductId(100)): 62944.444444444445
+  Concrete (ProductId(101)): 18055.555555555555
+  Dinner Container (ProductId(102)): 462093.75
+  Orange Juice (ProductId(103)): 21937.5
+  Cardboard (ProductId(104)): 44249.99999999999
+  Tire (ProductId(105)): 44249.99999999999
+  Bricks (ProductId(106)): 13541.666666666666
+  Dollhouse (ProductId(107)): 72894.09722222223
+  Wine (ProductId(108)): 22388.88888888889
+  Biofuel (ProductId(109)): 35500
+  Copper Tubing (ProductId(110)): 17875
+  Chicken Dinner (ProductId(111)): 415442.7083333334
+  Apple Smoothie (ProductId(112)): 21937.5
+  Diodes (ProductId(113)): 36541.666666666664
+  Axles (ProductId(114)): 343687.5
+  Leather (ProductId(115)): 5476.851851851851
+  Heavy Pulp (ProductId(116)): 17875
+  Canned Fish (ProductId(117)): 66324.65277777778
+  Buttons (ProductId(118)): 49999.99999999999
+  Chemicals (ProductId(119)): 27354.166666666664
+  Brandy (ProductId(120)): 71786.45833333334
+  Steel Frame (ProductId(121)): 55875
+  Coal (ProductId(122)): 5937.5
+  Toy Train Set (ProductId(123)): 43958.333333333336
+  Milk (ProductId(124)): 5476.851851851851
+  Wooden Planks (ProductId(125)): 17875
+  Reinforced Wall (ProductId(126)): 75338.54166666667
+  Furniture Base (S) (ProductId(127)): 32749.999999999996
+  Plastic Cutlery (ProductId(128)): 57124.99999999999
+  Cooked Vegetables (ProductId(129)): 104562.50000000001
+  Teddy Bear (ProductId(130)): 29620.37037037037
+  Doll (ProductId(131)): 45958.33333333333
+  Rolling Chassis (ProductId(132)): 1224375
+  Water (ProductId(133)): 1847.222222222222
+  Printed Paper (ProductId(134)): 47166.666666666664
+  Fibers (ProductId(135)): 16972.222222222223
+  Cans (ProductId(136)): 55875
+  Wool (ProductId(137)): 2477.6234567901233
+  Wall Panels (ProductId(138)): 65499.99999999999
+  Marbles (ProductId(139)): 44500
+  Soup (ProductId(140)): 13045.13888888889
+  Leather Furniture (ProductId(141)): 55509.25925925926
+  Berry Smoothie (ProductId(142)): 22479.166666666664
+  Olives (ProductId(143)): 6611.11111111111
+  Headlights (ProductId(144)): 65656.25
+  Light Fabric (ProductId(145)): 37583.333333333336
+  Punch Cards (ProductId(146)): 95624.99999999999
+  Hops (ProductId(147)): 6125
+  Summer Clothes (ProductId(148)): 68444.44444444445
+  Chocolate Cake (ProductId(149)): 37106.481481481474
+  Interface (ProductId(150)): 321656.25
+sales per month:
+  | Berries              |     6.0 units |    12.7k $/unit |    76.0k $ |
+  | Light Fabric         |     0.0 units |    55.6k $/unit |     0.0k $ |
+  | Cotton               |     2.0 units |    13.6k $/unit |    27.1k $ |
+  | Fibers               |     2.0 units |    27.2k $/unit |    54.4k $ |
+  | Napkins              |     4.0 units |   109.8k $/unit |   439.3k $ |
+
+production per month:
+  | Berries              |     6.0 units |
+  | Fibers               |     2.0 units |
+  | Dye                  |     1.0 units |
+  | Napkins              |     4.0 units |
+  | Light Fabric         |     0.0 units |
+  | Cotton               |     2.0 units |
+  | Water                |     0.0 units |
+
+transportation costs per month:
+  | Truck   |    36.0 deliveries |      15 tiles |    14.4k | Local Transport                          |
+  | Truck   |    18.0 deliveries |     200 tiles |    40.5k | Sale Transport                           |
+
+operational costs:          211k
+revenue:                    597k
+profit:                     386k
+initial costs:             6250k
+return on investment:      5.94%
