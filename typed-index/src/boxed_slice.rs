@@ -1,7 +1,7 @@
 use crate::{
     macros::delegate,
     typed_index::{TypedIndex, TypedIndexCollection},
-    TypedIndexVec,
+    Indexable, TypedIndexVec,
 };
 
 pub type TypedIndexBoxedSlice<X, T> = TypedIndexCollection<X, Box<[T]>>;
@@ -25,11 +25,11 @@ where
 {
     type Item = T;
 
-    type IntoIter = crate::vec::IntoIter<X, T>;
+    type IntoIter = Indexable<X, std::vec::IntoIter<Self::Item>>;
 
     #[inline]
     fn into_iter(self) -> Self::IntoIter {
-        crate::vec::IntoIter::new(self.into_vec())
+        self.into_vec().into_iter()
     }
 }
 

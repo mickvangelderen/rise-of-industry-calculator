@@ -1,6 +1,5 @@
-use typed_index::{
-    impl_typed_index, IndexU16, IndexableIterator, TypedIndexBoxedSlice, TypedIndexVec,
-};
+use index_types::IndexU16;
+use typed_index::{impl_typed_index, TypedIndexBoxedSlice, TypedIndexVec};
 
 impl_typed_index!(pub struct ProductIndex(IndexU16));
 

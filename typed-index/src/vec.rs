@@ -1,10 +1,7 @@
-mod into_iter;
-pub use into_iter::IntoIter;
-
 use crate::{
     macros::delegate,
     typed_index::{TypedIndex, TypedIndexCollection},
-    TypedIndexBoxedSlice,
+    Indexable, TypedIndexBoxedSlice,
 };
 
 pub type TypedIndexVec<X, T> = TypedIndexCollection<X, Vec<T>>;
@@ -51,11 +48,11 @@ where
 {
     type Item = T;
 
-    type IntoIter = IntoIter<X, T>;
+    type IntoIter = Indexable<X, std::vec::IntoIter<T>>;
 
     #[inline]
     fn into_iter(self) -> Self::IntoIter {
-        IntoIter::new(self)
+        Indexable::new_from_zero(self.inner.into_iter())
     }
 }
 

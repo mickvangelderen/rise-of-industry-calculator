@@ -149,6 +149,11 @@ dependencies = [
 ]
 
 [[package]]
+name = "index-types"
+version = "0.1.0"
+source = "git+https://github.com/mickvangelderen/index-types#663e50fc4223611530e49ce6e8a39dea46126864"
+
+[[package]]
 name = "indexmap"
 version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -393,6 +398,9 @@ dependencies = [
 [[package]]
 name = "typed-index"
 version = "0.1.0"
+dependencies = [
+ "index-types",
+]
 
 [[package]]
 name = "unicode-ident"

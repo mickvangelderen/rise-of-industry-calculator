@@ -1,93 +1,123 @@
+use std::iter::FusedIterator;
+
 use crate::TypedIndex;
 
-pub trait IndexableIterator: Iterator {
-    type Index;
+mod private {
+    /// Marker trait to restrict instantiations of Indexable/Indexed.
+    pub trait IndexableIterator: Iterator {}
 
-    fn indexed_next(&mut self) -> Option<(Self::Index, Self::Item)>;
-
-    fn index(self) -> Indexed<Self>
-    where
-        Self: Sized,
-    {
-        Indexed { inner: self }
-    }
+    impl<T> IndexableIterator for std::vec::IntoIter<T> {}
+    impl<'a, T> IndexableIterator for std::slice::Iter<'a, T> {}
+    impl<'a, T> IndexableIterator for std::slice::IterMut<'a, T> {}
 }
 
-pub trait IndexableDoubleEndedIterator: IndexableIterator {
-    fn indexed_next_back(&mut self) -> Option<(Self::Index, Self::Item)>;
-}
+use private::IndexableIterator;
 
-pub struct Indexed<I> {
+pub struct Indexable<X, I> {
     inner: I,
-}
-
-impl<I> Indexed<I> {
-    pub fn new(inner: I) -> Self {
-        Self { inner }
-    }
-}
-
-impl<I> Iterator for Indexed<I>
-where
-    I: IndexableIterator,
-{
-    type Item = (I::Index, I::Item);
-
-    fn next(&mut self) -> Option<Self::Item> {
-        self.inner.indexed_next()
-    }
-}
-
-impl<I> DoubleEndedIterator for Indexed<I>
-where
-    I: IndexableDoubleEndedIterator,
-{
-    fn next_back(&mut self) -> Option<Self::Item> {
-        self.inner.indexed_next_back()
-    }
-}
-
-pub struct Indexed2<X, T> {
-    inner: T,
     index: X,
 }
 
-impl<X, T> Indexed2<X, T>
+impl<X, I> Indexable<X, I>
 where
     X: TypedIndex,
+    I: IndexableIterator,
 {
-    pub fn new(inner: T, index: X) -> Self {
+    pub(crate) fn new(inner: I, index: X) -> Self {
         Self { inner, index }
     }
 
-    pub fn new_from_zero(inner: T) -> Self {
+    pub(crate) fn new_from_zero(inner: I) -> Self {
         Self::new(inner, X::from_usize(0))
+    }
+
+    pub fn index(self) -> Indexed<X, I> {
+        let Self { inner, index } = self;
+        Indexed { inner, index }
     }
 }
 
-impl<X, T> Iterator for Indexed2<X, T>
+impl<X, I> Iterator for Indexable<X, I>
 where
-    T: IndexableIterator<Index = X>,
-    X: TypedIndex + Copy,
+    X: TypedIndex,
+    I: IndexableIterator,
 {
-    type Item = (X, T::Item);
+    type Item = I::Item;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let item = self.inner.next()?;
+        self.index.add_assign_usize(1);
+        Some(item)
+    }
+}
+
+impl<X, I> DoubleEndedIterator for Indexable<X, I>
+where
+    X: TypedIndex,
+    I: IndexableIterator + DoubleEndedIterator + ExactSizeIterator,
+{
+    fn next_back(&mut self) -> Option<Self::Item> {
+        let item = self.inner.next_back()?;
+        Some(item)
+    }
+}
+
+impl<X, I> ExactSizeIterator for Indexable<X, I>
+where
+    X: TypedIndex,
+    I: IndexableIterator + ExactSizeIterator,
+{
+}
+
+impl<X, I> FusedIterator for Indexable<X, I>
+where
+    X: TypedIndex,
+    I: IndexableIterator + FusedIterator,
+{
+}
+
+pub struct Indexed<X, I> {
+    inner: I,
+    index: X,
+}
+
+impl<X, I> Iterator for Indexed<X, I>
+where
+    X: TypedIndex,
+    I: IndexableIterator,
+{
+    type Item = (X, I::Item);
 
     fn next(&mut self) -> Option<Self::Item> {
         let item = self.inner.next()?;
         let index = self.index;
-        self.index = X::from_usize(self.index.into_usize() + 1);
+        self.index.add_assign_usize(1);
         Some((index, item))
     }
 }
 
-impl<X, T> DoubleEndedIterator for Indexed2<X, T>
+impl<X, I> DoubleEndedIterator for Indexed<X, I>
 where
-    T: IndexableDoubleEndedIterator<Index = X>,
     X: TypedIndex,
+    I: IndexableIterator + DoubleEndedIterator + ExactSizeIterator,
 {
     fn next_back(&mut self) -> Option<Self::Item> {
-        self.inner.indexed_next_back()
+        let item = self.inner.next_back()?;
+        let index = self.index.add_usize(self.inner.len());
+        Some((index, item))
     }
 }
 
-type x = std::iter::Enumerate<()>;
+impl<X, I> ExactSizeIterator for Indexed<X, I>
+where
+    X: TypedIndex,
+    I: IndexableIterator + ExactSizeIterator,
+{
+}
+
+impl<X, I> FusedIterator for Indexed<X, I>
+where
+    X: TypedIndex,
+    I: IndexableIterator + FusedIterator,
+{
+}
