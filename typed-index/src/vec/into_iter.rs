@@ -4,18 +4,18 @@ use crate::{IndexableDoubleEndedIterator, IndexableIterator};
 
 use super::*;
 
-pub struct IntoIter<I, T> {
+pub struct IntoIter<X, T> {
     // See https://users.rust-lang.org/t/determine-the-current-index-for-a-possibly-advanced-iterator/103501/7.
     inner: std::iter::Enumerate<std::vec::IntoIter<T>>,
-    _index_marker: PhantomData<I>,
+    _index_marker: PhantomData<X>,
 }
 
-impl<I, T> IntoIter<I, T>
+impl<X, T> IntoIter<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     #[inline]
-    pub fn new(vec: TypedIndexVec<I, T>) -> Self {
+    pub fn new(vec: TypedIndexVec<X, T>) -> Self {
         Self {
             inner: vec.inner.into_iter().enumerate(),
             _index_marker: PhantomData,
@@ -27,14 +27,14 @@ fn drop_index<T>((_, t): (usize, T)) -> T {
     t
 }
 
-fn map_index<I, T>((i, t): (usize, T)) -> (I, T)
+fn map_index<X, T>((X, t): (usize, T)) -> (X, T)
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
-    (I::from_usize(i), t)
+    (X::from_usize(X), t)
 }
 
-impl<I, T> Iterator for IntoIter<I, T> {
+impl<X, T> Iterator for IntoIter<X, T> {
     type Item = T;
 
     #[inline]
@@ -46,7 +46,7 @@ impl<I, T> Iterator for IntoIter<I, T> {
     delegate! { fn count(self) -> usize }
 }
 
-impl<I, T> DoubleEndedIterator for IntoIter<I, T> {
+impl<X, T> DoubleEndedIterator for IntoIter<X, T> {
     #[inline]
     fn next_back(&mut self) -> Option<Self::Item> {
         self.inner.next_back().map(drop_index)
@@ -58,20 +58,20 @@ impl<I, T> DoubleEndedIterator for IntoIter<I, T> {
     }
 }
 
-impl<I, T> ExactSizeIterator for IntoIter<I, T> {
+impl<X, T> ExactSizeIterator for IntoIter<X, T> {
     #[inline]
     fn len(&self) -> usize {
         self.inner.len()
     }
 }
 
-impl<I, T> FusedIterator for IntoIter<I, T> {}
+impl<X, T> FusedIterator for IntoIter<X, T> {}
 
-impl<I, T> IndexableIterator for IntoIter<I, T>
+impl<X, T> IndexableIterator for IntoIter<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
-    type Index = I;
+    type Index = X;
 
     #[inline]
     fn indexed_next(&mut self) -> Option<(Self::Index, Self::Item)> {
@@ -79,9 +79,9 @@ where
     }
 }
 
-impl<I, T> IndexableDoubleEndedIterator for IntoIter<I, T>
+impl<X, T> IndexableDoubleEndedIterator for IntoIter<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     #[inline]
     fn indexed_next_back(&mut self) -> Option<(Self::Index, Self::Item)> {

@@ -7,11 +7,11 @@ use crate::{
     TypedIndexBoxedSlice,
 };
 
-pub type TypedIndexVec<I, T> = TypedIndexCollection<I, Vec<T>>;
+pub type TypedIndexVec<X, T> = TypedIndexCollection<X, Vec<T>>;
 
-impl<I, T> TypedIndexVec<I, T>
+impl<X, T> TypedIndexVec<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     #[inline]
     pub fn with_capacity(capacity: usize) -> Self {
@@ -19,19 +19,19 @@ where
     }
 
     #[inline]
-    pub fn next_index(&self) -> I {
-        I::from_usize(self.len())
+    pub fn next_index(&self) -> X {
+        X::from_usize(self.len())
     }
 
     #[inline]
-    pub fn push(&mut self, value: T) -> I {
+    pub fn push(&mut self, value: T) -> X {
         let index = self.next_index();
         self.inner.push(value);
         index
     }
 
     #[inline]
-    pub fn into_boxed_slice(self) -> TypedIndexBoxedSlice<I, T> {
+    pub fn into_boxed_slice(self) -> TypedIndexBoxedSlice<X, T> {
         TypedIndexBoxedSlice::new(self.inner.into_boxed_slice())
     }
 
@@ -45,13 +45,13 @@ where
     delegate! { pub fn is_empty(&self) -> bool }
 }
 
-impl<I, T> IntoIterator for TypedIndexVec<I, T>
+impl<X, T> IntoIterator for TypedIndexVec<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     type Item = T;
 
-    type IntoIter = IntoIter<I, T>;
+    type IntoIter = IntoIter<X, T>;
 
     #[inline]
     fn into_iter(self) -> Self::IntoIter {
@@ -59,24 +59,24 @@ where
     }
 }
 
-impl<I, T> std::ops::Index<I> for TypedIndexVec<I, T>
+impl<X, T> std::ops::Index<X> for TypedIndexVec<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     type Output = T;
 
     #[inline]
-    fn index(&self, index: I) -> &Self::Output {
+    fn index(&self, index: X) -> &Self::Output {
         &self.inner[index.into_usize()]
     }
 }
 
-impl<I, T> std::ops::IndexMut<I> for TypedIndexVec<I, T>
+impl<X, T> std::ops::IndexMut<X> for TypedIndexVec<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     #[inline]
-    fn index_mut(&mut self, index: I) -> &mut Self::Output {
+    fn index_mut(&mut self, index: X) -> &mut Self::Output {
         &mut self.inner[index.into_usize()]
     }
 }

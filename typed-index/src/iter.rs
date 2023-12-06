@@ -1,3 +1,5 @@
+use crate::TypedIndex;
+
 pub trait IndexableIterator: Iterator {
     type Index;
 
@@ -15,32 +17,77 @@ pub trait IndexableDoubleEndedIterator: IndexableIterator {
     fn indexed_next_back(&mut self) -> Option<(Self::Index, Self::Item)>;
 }
 
-pub struct Indexed<T> {
-    inner: T,
+pub struct Indexed<I> {
+    inner: I,
 }
 
-impl<T> Indexed<T> {
-    pub fn new(inner: T) -> Self {
+impl<I> Indexed<I> {
+    pub fn new(inner: I) -> Self {
         Self { inner }
     }
 }
 
-impl<T> Iterator for Indexed<T>
+impl<I> Iterator for Indexed<I>
 where
-    T: IndexableIterator,
+    I: IndexableIterator,
 {
-    type Item = (T::Index, T::Item);
+    type Item = (I::Index, I::Item);
 
     fn next(&mut self) -> Option<Self::Item> {
         self.inner.indexed_next()
     }
 }
 
-impl<T> DoubleEndedIterator for Indexed<T>
+impl<I> DoubleEndedIterator for Indexed<I>
 where
-    T: IndexableDoubleEndedIterator,
+    I: IndexableDoubleEndedIterator,
 {
     fn next_back(&mut self) -> Option<Self::Item> {
         self.inner.indexed_next_back()
     }
 }
+
+pub struct Indexed2<X, T> {
+    inner: T,
+    index: X,
+}
+
+impl<X, T> Indexed2<X, T>
+where
+    X: TypedIndex,
+{
+    pub fn new(inner: T, index: X) -> Self {
+        Self { inner, index }
+    }
+
+    pub fn new_from_zero(inner: T) -> Self {
+        Self::new(inner, X::from_usize(0))
+    }
+}
+
+impl<X, T> Iterator for Indexed2<X, T>
+where
+    T: IndexableIterator<Index = X>,
+    X: TypedIndex + Copy,
+{
+    type Item = (X, T::Item);
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let item = self.inner.next()?;
+        let index = self.index;
+        self.index = X::from_usize(self.index.into_usize() + 1);
+        Some((index, item))
+    }
+}
+
+impl<X, T> DoubleEndedIterator for Indexed2<X, T>
+where
+    T: IndexableDoubleEndedIterator<Index = X>,
+    X: TypedIndex,
+{
+    fn next_back(&mut self) -> Option<Self::Item> {
+        self.inner.indexed_next_back()
+    }
+}
+
+type x = std::iter::Enumerate<()>;

@@ -46,6 +46,34 @@ macro_rules! impl_index_types {
                     value.get().try_into().expect("index too large")
                 }
             }
+
+            impl std::ops::Add for $I {
+                type Output = Self;
+
+                fn add(self, rhs: Self) -> Self::Output {
+                    Self::new(self.0.get() + rhs.0.get())
+                }
+            }
+
+            impl std::ops::AddAssign for $I {
+                fn add_assign(&mut self, rhs: Self) {
+                    *self = *self + rhs;
+                }
+            }
+
+            impl std::ops::Sub for $I {
+                type Output = Self;
+
+                fn sub(self, rhs: Self) -> Self::Output {
+                    Self::new(self.0.get() - rhs.0.get())
+                }
+            }
+
+            impl std::ops::SubAssign for $I {
+                fn sub_assign(&mut self, rhs: Self) {
+                    *self = *self - rhs;
+                }
+            }
         )*
     };
 }

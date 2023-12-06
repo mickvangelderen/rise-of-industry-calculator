@@ -1,23 +1,8 @@
 use std::marker::PhantomData;
 
-pub trait TypedIndex {
+pub trait TypedIndex: Copy {
     fn from_usize(value: usize) -> Self;
     fn into_usize(self) -> usize;
-}
-
-impl<I> TypedIndex for I
-where
-    I: From<usize> + Into<usize>,
-{
-    #[inline]
-    fn from_usize(value: usize) -> Self {
-        value.into()
-    }
-
-    #[inline]
-    fn into_usize(self) -> usize {
-        self.into()
-    }
 }
 
 #[macro_export]
@@ -40,12 +25,12 @@ macro_rules! impl_typed_index {
 }
 
 // TODO: Determine if we want this abstraction or just implement the distinct types directly.
-pub struct TypedIndexCollection<I, T> {
-    _marker: PhantomData<I>,
+pub struct TypedIndexCollection<X, T> {
+    _marker: PhantomData<X>,
     pub(crate) inner: T,
 }
 
-impl<I, T> TypedIndexCollection<I, T> {
+impl<X, T> TypedIndexCollection<X, T> {
     #[inline]
     pub fn new(inner: T) -> Self {
         Self {
@@ -55,7 +40,7 @@ impl<I, T> TypedIndexCollection<I, T> {
     }
 }
 
-impl<I, T> std::default::Default for TypedIndexCollection<I, T>
+impl<X, T> std::default::Default for TypedIndexCollection<X, T>
 where
     T: Default,
 {

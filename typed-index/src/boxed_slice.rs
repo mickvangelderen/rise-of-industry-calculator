@@ -4,14 +4,14 @@ use crate::{
     TypedIndexVec,
 };
 
-pub type TypedIndexBoxedSlice<I, T> = TypedIndexCollection<I, Box<[T]>>;
+pub type TypedIndexBoxedSlice<X, T> = TypedIndexCollection<X, Box<[T]>>;
 
-impl<I, T> TypedIndexBoxedSlice<I, T>
+impl<X, T> TypedIndexBoxedSlice<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     #[inline]
-    pub fn into_vec(self) -> TypedIndexVec<I, T> {
+    pub fn into_vec(self) -> TypedIndexVec<X, T> {
         TypedIndexVec::new(self.inner.into_vec())
     }
 
@@ -19,13 +19,13 @@ where
     delegate! { pub fn is_empty(&self) -> bool }
 }
 
-impl<I, T> IntoIterator for TypedIndexBoxedSlice<I, T>
+impl<X, T> IntoIterator for TypedIndexBoxedSlice<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     type Item = T;
 
-    type IntoIter = crate::vec::IntoIter<I, T>;
+    type IntoIter = crate::vec::IntoIter<X, T>;
 
     #[inline]
     fn into_iter(self) -> Self::IntoIter {
@@ -33,24 +33,24 @@ where
     }
 }
 
-impl<I, T> std::ops::Index<I> for TypedIndexBoxedSlice<I, T>
+impl<X, T> std::ops::Index<X> for TypedIndexBoxedSlice<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     type Output = T;
 
     #[inline]
-    fn index(&self, index: I) -> &Self::Output {
+    fn index(&self, index: X) -> &Self::Output {
         &self.inner[index.into_usize()]
     }
 }
 
-impl<I, T> std::ops::IndexMut<I> for TypedIndexBoxedSlice<I, T>
+impl<X, T> std::ops::IndexMut<X> for TypedIndexBoxedSlice<X, T>
 where
-    I: TypedIndex,
+    X: TypedIndex,
 {
     #[inline]
-    fn index_mut(&mut self, index: I) -> &mut Self::Output {
+    fn index_mut(&mut self, index: X) -> &mut Self::Output {
         &mut self.inner[index.into_usize()]
     }
 }

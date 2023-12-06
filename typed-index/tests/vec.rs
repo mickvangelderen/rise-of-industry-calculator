@@ -19,10 +19,10 @@ fn into_iter_late_index() {
 
 #[test]
 fn into_iter_next_back() {
-    let mut iter = TypedIndexVec::new(vec!["a", "b", "c"]).into_iter().index();
-    assert_eq!(iter.next(), Some((0, "a")));
-    assert_eq!(iter.next_back(), Some((2, "c")));
-    assert_eq!(iter.next(), Some((1, "b")));
+    let mut iter = ProductVec::new(vec!["a", "b", "c"]).into_iter().index();
+    assert_eq!(iter.next(), Some((ProductIndex(0.into()), "a")));
+    assert_eq!(iter.next_back(), Some((ProductIndex(2.into()), "c")));
+    assert_eq!(iter.next(), Some((ProductIndex(1.into()), "b")));
 }
 
 #[test]
