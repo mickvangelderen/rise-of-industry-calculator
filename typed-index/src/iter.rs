@@ -1,6 +1,6 @@
 use std::iter::FusedIterator;
 
-use crate::TypedIndex;
+use crate::{TypedIndex, UntypedOffset};
 
 mod private {
     /// Marker trait to restrict instantiations of Indexable/Indexed.
@@ -28,7 +28,7 @@ where
     }
 
     pub(crate) fn new_from_zero(inner: I) -> Self {
-        Self::new(inner, X::from_usize(0))
+        Self::new(inner, 0.into())
     }
 
     pub fn index(self) -> Indexed<X, I> {
@@ -46,7 +46,7 @@ where
 
     fn next(&mut self) -> Option<Self::Item> {
         let item = self.inner.next()?;
-        self.index.add_assign_usize(1);
+        self.index += UntypedOffset(1);
         Some(item)
     }
 }
@@ -91,7 +91,7 @@ where
     fn next(&mut self) -> Option<Self::Item> {
         let item = self.inner.next()?;
         let index = self.index;
-        self.index.add_assign_usize(1);
+        self.index += UntypedOffset(1);
         Some((index, item))
     }
 }
@@ -103,7 +103,7 @@ where
 {
     fn next_back(&mut self) -> Option<Self::Item> {
         let item = self.inner.next_back()?;
-        let index = self.index.add_usize(self.inner.len());
+        let index = self.index + UntypedOffset(self.inner.len());
         Some((index, item))
     }
 }

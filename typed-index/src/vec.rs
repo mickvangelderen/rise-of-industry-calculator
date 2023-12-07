@@ -1,7 +1,6 @@
 use crate::{
-    macros::delegate,
-    typed_index::{TypedIndex, TypedIndexCollection},
-    Indexable, TypedIndexBoxedSlice,
+    macros::delegate, typed_index::TypedIndex, Indexable, TypedIndexBoxedSlice,
+    TypedIndexCollection,
 };
 
 pub type TypedIndexVec<X, T> = TypedIndexCollection<X, Vec<T>>;
@@ -17,7 +16,7 @@ where
 
     #[inline]
     pub fn next_index(&self) -> X {
-        X::from_usize(self.len())
+        X::from(self.len())
     }
 
     #[inline]
@@ -30,6 +29,14 @@ where
     #[inline]
     pub fn into_boxed_slice(self) -> TypedIndexBoxedSlice<X, T> {
         TypedIndexBoxedSlice::new(self.inner.into_boxed_slice())
+    }
+
+    pub fn iter(&self) -> Indexable<X, std::slice::Iter<'_, T>> {
+        Indexable::new_from_zero(self.inner.as_slice().iter())
+    }
+
+    pub fn iter_mut(&mut self) -> Indexable<X, std::slice::IterMut<'_, T>> {
+        Indexable::new_from_zero(self.inner.as_mut_slice().iter_mut())
     }
 
     delegate! { pub fn len(&self) -> usize }
@@ -56,6 +63,34 @@ where
     }
 }
 
+impl<'a, X, T> IntoIterator for &'a TypedIndexVec<X, T>
+where
+    X: TypedIndex,
+{
+    type Item = &'a T;
+
+    type IntoIter = Indexable<X, std::slice::Iter<'a, T>>;
+
+    #[inline]
+    fn into_iter(self) -> Self::IntoIter {
+        self.iter()
+    }
+}
+
+impl<'a, X, T> IntoIterator for &'a mut TypedIndexVec<X, T>
+where
+    X: TypedIndex,
+{
+    type Item = &'a mut T;
+
+    type IntoIter = Indexable<X, std::slice::IterMut<'a, T>>;
+
+    #[inline]
+    fn into_iter(self) -> Self::IntoIter {
+        self.iter_mut()
+    }
+}
+
 impl<X, T> std::ops::Index<X> for TypedIndexVec<X, T>
 where
     X: TypedIndex,
@@ -64,7 +99,7 @@ where
 
     #[inline]
     fn index(&self, index: X) -> &Self::Output {
-        &self.inner[index.into_usize()]
+        &self.inner[index.into()]
     }
 }
 
@@ -74,6 +109,6 @@ where
 {
     #[inline]
     fn index_mut(&mut self, index: X) -> &mut Self::Output {
-        &mut self.inner[index.into_usize()]
+        &mut self.inner[index.into()]
     }
 }

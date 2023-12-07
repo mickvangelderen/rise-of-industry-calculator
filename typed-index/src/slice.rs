@@ -1,3 +1,5 @@
+use std::ops::{Index, IndexMut};
+
 use crate::{Indexable, TypedIndex};
 
 pub struct TypedIndexSlice<'a, X, T> {
@@ -22,7 +24,13 @@ impl<'a, X, T> TypedIndexSlice<'a, X, T>
 where
     X: TypedIndex,
 {
-    #[inline]
+    pub(crate) fn new_from_zero(inner: &'a [T]) -> Self {
+        Self {
+            inner,
+            index: 0.into(),
+        }
+    }
+
     pub fn iter(self) -> Indexable<X, std::slice::Iter<'a, T>> {
         Indexable::new(self.inner.iter(), self.index)
     }
@@ -46,11 +54,41 @@ where
     }
 }
 
+impl<'a, X, T> Index<X> for TypedIndexSliceMut<'a, X, T>
+where
+    X: TypedIndex,
+{
+    type Output = T;
+
+    fn index(&self, index: X) -> &Self::Output {
+        &self.inner[index.into()]
+    }
+}
+
+impl<'a, X, T> IndexMut<X> for TypedIndexSliceMut<'a, X, T>
+where
+    X: TypedIndex,
+{
+    fn index_mut(&mut self, index: X) -> &mut Self::Output {
+        &mut self.inner[index.into()]
+    }
+}
+
 impl<'a, X, T> TypedIndexSliceMut<'a, X, T>
 where
     X: TypedIndex,
 {
-    #[inline]
+    pub(crate) fn new_from_zero(inner: &'a mut [T]) -> Self {
+        Self {
+            inner,
+            index: 0.into(),
+        }
+    }
+
+    pub fn iter(self) -> Indexable<X, std::slice::Iter<'a, T>> {
+        Indexable::new(self.inner.iter(), self.index)
+    }
+
     pub fn iter_mut(self) -> Indexable<X, std::slice::IterMut<'a, T>> {
         Indexable::new(self.inner.iter_mut(), self.index)
     }
