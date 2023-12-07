@@ -29,17 +29,47 @@ fn into_iter_next_back() {
     assert_eq!(iter.next(), Some((ProductIndex(1.into()), "b")));
 }
 
+macro_rules! soa {
+    (struct $T:ident { $($f:ident: $t:ty),* $(,)? } with index $I:ident and soa $D:ident) => {
+        struct $T {
+            $($f: $t),*
+        }
+
+        struct $D {
+            $($f: TypedIndexVec<$I, $t>),*
+        }
+    };
+}
+
+/*
+let (a, b, c) = (d.a[i], &d.b[i], &mut d.c[i])
+*/
+
+// f: i           => i, d.f[i]
+// f: ref i       => f, &d.f[i]
+// f: ref mut i   => f, &mut d.f[i]
+// f              =>
+// ref f          =>
+// ref mut f      =>
+
+// macro_rules! soa_let {
+//     ({ $($body:tt)* } = $d:ident.*[$i:expr]) => {
+//         let ($($f),*) = {
+//             let i = $i;
+//             ($($d.$f[i]),*)
+//         };
+//     }
+// }
+
 #[test]
 fn iter_map_and_everything() {
-    struct Product {
-        name: String,
-        price: f64,
-    }
-
-    #[derive(Default)]
-    struct ProductData {
-        names: ProductBoxedSlice<String>,
-        prices: ProductBoxedSlice<f64>,
+    soa! {
+        struct Product {
+            name: String,
+            price: f64,
+        }
+        with index ProductIndex
+        and soa ProductData
     }
 
     struct ProductIndexIter(std::ops::Range<usize>);
@@ -59,45 +89,7 @@ fn iter_map_and_everything() {
         type IntoIter = ProductIndexIter;
 
         fn into_iter(self) -> Self::IntoIter {
-            ProductIndexIter(0..self.names.len())
-        }
-    }
-
-    impl ProductData {
-        fn proxy_mut(&mut self, index: ProductIndex) -> ProductProxyMut<'_, '_> {
-            ProductProxyMut {
-                names: self.names.as_mut_slice(),
-                prices: self.prices.as_mut_slice(),
-                index,
-            }
-        }
-    }
-
-    struct ProductProxyMut<'name, 'price> {
-        names: ProductSliceMut<'name, String>,
-        prices: ProductSliceMut<'price, f64>,
-        index: ProductIndex,
-    }
-
-    impl<'name, 'price> ProductProxyMut<'name, 'price> {
-        fn index(&self) -> ProductIndex {
-            self.index
-        }
-
-        fn name<'a: 'name>(&'a self) -> &'name String {
-            &self.names[self.index]
-        }
-
-        fn name_mut<'a: 'name>(&'a mut self) -> &'name String {
-            &mut self.names[self.index]
-        }
-
-        fn price<'a: 'price>(&'a self) -> &'price f64 {
-            &self.prices[self.index]
-        }
-
-        fn price_mut<'a: 'price>(&'a mut self) -> &'price mut f64 {
-            &mut self.prices[self.index]
+            ProductIndexIter(0..self.name.len())
         }
     }
 
@@ -122,21 +114,28 @@ fn iter_map_and_everything() {
             },
         );
         ProductData {
-            names: names.into_boxed_slice(),
-            prices: prices.into_boxed_slice(),
+            name: names,
+            price: prices,
         }
     };
 
     for index in &products {
-        let ProductData {
-            ref mut prices,
-            ref names,
-        } = products;
-        prices[index] = prices[index] * 2.0 + names[index].len() as f64;
-    }
+        // let ProductData {
+        //     price: ref original_price,
+        //     ..
+        // } = products;
 
-    for index in &products {
-        let mut product = products.proxy_mut(index);
-        *product.price_mut() = *product.price() * 2.0 + product.name().len() as f64;
+        // soa_let!({
+        //     price,
+        //     name
+        // } = products.*[index]);
+
+        let (original_price, price, name) = (
+            products.price[index],
+            &mut products.price[index],
+            &products.name[index],
+        );
+
+        *price = original_price * 2.0 + name.len() as f64;
     }
 }

@@ -6,6 +6,9 @@ mod typed_index;
 mod typed_index_collection;
 mod vec;
 
+mod multi_index_macro;
+use multi_index_macro::multi_index;
+
 pub use boxed_slice::*;
 pub use iter::*;
 pub use slice::*;
