@@ -91,24 +91,30 @@ where
     }
 }
 
-impl<X, T> std::ops::Index<X> for TypedIndexVec<X, T>
-where
-    X: TypedIndex,
-{
-    type Output = T;
-
-    #[inline]
-    fn index(&self, index: X) -> &Self::Output {
-        &self.inner[index.into()]
+impl<X, T> FromIterator<T> for TypedIndexVec<X, T> {
+    fn from_iter<I: IntoIterator<Item = T>>(iter: I) -> Self {
+        Self::new(iter.into_iter().collect())
     }
 }
 
-impl<X, T> std::ops::IndexMut<X> for TypedIndexVec<X, T>
-where
-    X: TypedIndex,
-{
-    #[inline]
-    fn index_mut(&mut self, index: X) -> &mut Self::Output {
-        &mut self.inner[index.into()]
-    }
-}
+// impl<X, T> std::ops::Index<X> for TypedIndexVec<X, T>
+// where
+//     X: TypedIndex,
+// {
+//     type Output = T;
+
+//     #[inline]
+//     fn index(&self, index: X) -> &Self::Output {
+//         &self.inner[index.into()]
+//     }
+// }
+
+// impl<X, T> std::ops::IndexMut<X> for TypedIndexVec<X, T>
+// where
+//     X: TypedIndex,
+// {
+//     #[inline]
+//     fn index_mut(&mut self, index: X) -> &mut Self::Output {
+//         &mut self.inner[index.into()]
+//     }
+// }

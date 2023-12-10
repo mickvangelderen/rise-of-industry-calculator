@@ -7,7 +7,7 @@ type BuildingModuleId = String;
 type BuildingId = String;
 type ProductCategoryId = String;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum ProductPriceFormula {
     /// (ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput
     Factories,

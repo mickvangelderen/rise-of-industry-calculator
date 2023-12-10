@@ -1,21 +1,38 @@
-use std::{collections::BTreeMap, num::NonZeroUsize};
-
-use log::error;
+use serialization::ProductPriceFormula;
 
 pub mod serialization;
 
 #[derive(Copy, Clone)]
 pub struct Query<'data, T> {
     data: &'data GameData,
-    index: T,
+    target: T,
 }
 
 impl<'data, T> Query<'data, T> {
     pub fn new(data: &'data GameData, target: T) -> Self {
-        Self {
-            data,
-            index: target,
-        }
+        Self { data, target }
+    }
+
+    pub fn data(&self) -> &'data GameData {
+        self.data
+    }
+
+    pub fn index(&self) -> T
+    where
+        T: Copy,
+    {
+        self.target
+    }
+}
+
+impl<'data, T> std::cmp::Eq for Query<'data, T> where T: Eq {}
+
+impl<'data, T> std::cmp::PartialEq for Query<'data, T>
+where
+    T: PartialEq,
+{
+    fn eq(&self, other: &Self) -> bool {
+        std::ptr::eq(self.data, other.data) && self.target == other.target
     }
 }
 
@@ -23,24 +40,24 @@ impl<'data, T> std::ops::Deref for Query<'data, T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
-        &self.index
+        &self.target
     }
 }
 
-struct Product {
-    name: String,
-    category: ProductCategoryIndex,
-    price_formula: serialization::ProductPriceFormula,
+pub struct Product {
+    pub name: String,
+    pub product_category_index: ProductCategoryIndex,
+    pub price_formula: serialization::ProductPriceFormula,
 }
 
 typed_index::impl_typed_index!(pub struct ProductIndex(index_types::IndexU32));
 
-type ProductVec<T> = typed_index::TypedIndexVec<ProductIndex, T>;
+pub type ProductVec<T> = typed_index::TypedIndexVec<ProductIndex, T>;
 
 #[derive(Default)]
 pub struct ProductData {
     pub name: ProductVec<String>,
-    pub category: ProductVec<ProductCategoryIndex>,
+    pub product_category_index: ProductVec<ProductCategoryIndex>,
     pub price_formula: ProductVec<serialization::ProductPriceFormula>,
 }
 
@@ -48,7 +65,7 @@ impl ProductData {
     pub fn with_capacity(capacity: usize) -> Self {
         Self {
             name: ProductVec::with_capacity(capacity),
-            category: ProductVec::with_capacity(capacity),
+            product_category_index: ProductVec::with_capacity(capacity),
             price_formula: ProductVec::with_capacity(capacity),
         }
     }
@@ -59,7 +76,8 @@ impl ProductData {
 
     pub fn push(&mut self, product: Product) {
         self.name.push(product.name);
-        self.category.push(product.category);
+        self.product_category_index
+            .push(product.product_category_index);
         self.price_formula.push(product.price_formula);
     }
 }
@@ -77,11 +95,18 @@ impl FromIterator<Product> for ProductData {
 
 impl<'data> Query<'data, ProductIndex> {
     pub fn name(&self) -> &str {
-        &self.data.product.name[self.index]
+        &self.data.product.name[self.target]
     }
 
     pub fn category(&self) -> Query<'data, ProductCategoryIndex> {
-        Query::new(self.data, self.data.product.category[self.index])
+        Query::new(
+            self.data,
+            self.data.product.product_category_index[self.target],
+        )
+    }
+
+    pub fn price_formula(&self) -> ProductPriceFormula {
+        self.data.product.price_formula[self.target]
     }
 
     pub fn producing_recipes<'a: 'data>(
@@ -95,7 +120,7 @@ impl<'data> Query<'data, ProductIndex> {
             .filter(move |&(_, entries)| {
                 entries
                     .iter()
-                    .any(move |entry| entry.product_id == self.index && entry.amount > 0)
+                    .any(move |entry| entry.product_index == self.target && entry.amount > 0)
             })
             .map(move |(index, _)| Query::new(self.data, index))
     }
@@ -103,29 +128,29 @@ impl<'data> Query<'data, ProductIndex> {
 
 typed_index::impl_typed_index!(pub struct RecipeIndex(index_types::IndexU32));
 
-type RecipeVec<T> = typed_index::TypedIndexVec<RecipeIndex, T>;
+pub type RecipeVec<T> = typed_index::TypedIndexVec<RecipeIndex, T>;
 
 #[derive(Default)]
 pub struct RecipeData {
     pub name: RecipeVec<String>,
     pub entries: RecipeVec<Vec<RecipeEntry>>,
     pub days: RecipeVec<i64>,
-    pub required_modules: RecipeVec<Vec<ModuleIndex>>,
+    pub required_module_indices: RecipeVec<Vec<ModuleIndex>>,
 }
 
 impl RecipeData {
-    fn indices(&self) -> impl Iterator<Item = RecipeIndex> + '_ {
+    pub fn indices(&self) -> impl Iterator<Item = RecipeIndex> + '_ {
         self.name.iter().index().map(|(index, _)| index)
     }
 }
 
 impl<'data> Query<'data, RecipeIndex> {
     pub fn name(&self) -> &str {
-        &self.data.recipe.name[self.index]
+        &self.data.recipe.name[self.target]
     }
 
     pub fn entries(&self) -> impl Iterator<Item = Query<'data, RecipeEntry>> {
-        self.data.recipe.entries[self.index]
+        self.data.recipe.entries[self.target]
             .iter()
             .map(|&entry| Query::new(self.data, entry))
     }
@@ -139,11 +164,11 @@ impl<'data> Query<'data, RecipeIndex> {
     }
 
     pub fn days(&self) -> i64 {
-        self.data.recipe.days[self.index]
+        self.data.recipe.days[self.target]
     }
 
     pub fn required_modules(&self) -> impl Iterator<Item = Query<'data, ModuleIndex>> {
-        self.data.recipe.required_modules[self.index]
+        self.data.recipe.required_module_indices[self.target]
             .iter()
             .map(|&index| Query::new(self.data, index))
     }
@@ -154,7 +179,7 @@ impl<'data> Query<'data, RecipeIndex> {
         if iter.next().is_some() {
             panic!(
                 "More than one module for recipe {:?}",
-                &self.data.recipe.name[self.index]
+                &self.data.recipe.name[self.target]
             );
         }
         first
@@ -171,7 +196,7 @@ impl<'data> Query<'data, RecipeIndex> {
 
 #[derive(Debug, Clone, Copy)]
 pub struct RecipeEntry {
-    pub product_id: ProductIndex,
+    pub product_index: ProductIndex,
     pub amount: i64,
 }
 
@@ -187,46 +212,59 @@ impl RecipeEntry {
 
 impl<'data> Query<'data, RecipeEntry> {
     pub fn product(&self) -> Query<'data, ProductIndex> {
-        Query::new(self.data, self.product_id)
+        Query::new(self.data, self.product_index)
     }
 }
 
 typed_index::impl_typed_index!(pub struct BuildingIndex(index_types::IndexU32));
 
-type BuildingVec<T> = typed_index::TypedIndexVec<BuildingIndex, T>;
+pub type BuildingVec<T> = typed_index::TypedIndexVec<BuildingIndex, T>;
 
 #[derive(Default)]
 pub struct BuildingData {
     name: BuildingVec<String>,
     base_cost: BuildingVec<i64>,
-    available_recipes: BuildingVec<Vec<RecipeIndex>>,
+    available_recipe_indices: BuildingVec<Vec<RecipeIndex>>,
 }
 
 impl BuildingData {
-    fn indices(&self) -> impl Iterator<Item = BuildingIndex> + '_ {
+    pub fn indices(&self) -> impl Iterator<Item = BuildingIndex> + '_ {
         self.name.iter().index().map(|(index, _)| index)
     }
 }
 
 impl<'data> Query<'data, BuildingIndex> {
     pub fn name(&self) -> &str {
-        &self.data.building.name[self.index]
+        &self.data.building.name[self.target]
     }
 
     pub fn base_cost(&self) -> i64 {
-        self.data.building.base_cost[self.index]
+        self.data.building.base_cost[self.target]
     }
 
     pub fn available_recipes(&self) -> impl Iterator<Item = Query<'data, RecipeIndex>> {
-        self.data.building.available_recipes[self.index]
+        self.data.building.available_recipe_indices[self.target]
             .iter()
             .map(|&index| Query::new(self.data, index))
+    }
+
+    pub fn recipe_by_name(&self, name: &str) -> Query<'data, RecipeIndex> {
+        let mut iter = self
+            .available_recipes()
+            .filter(|&recipe| recipe.name() == name);
+        let Some(first) = iter.next() else {
+            panic!("No recipes found");
+        };
+        if iter.next().is_some() {
+            panic!("Multiple recipes found");
+        }
+        first
     }
 }
 
 typed_index::impl_typed_index!(pub struct ModuleIndex(index_types::IndexU32));
 
-type ModuleVec<T> = typed_index::TypedIndexVec<ModuleIndex, T>;
+pub type ModuleVec<T> = typed_index::TypedIndexVec<ModuleIndex, T>;
 
 #[derive(Default)]
 pub struct ModuleData {
@@ -235,40 +273,151 @@ pub struct ModuleData {
 }
 
 impl ModuleData {
-    fn indices(&self) -> impl Iterator<Item = ModuleIndex> + '_ {
+    pub fn indices(&self) -> impl Iterator<Item = ModuleIndex> + '_ {
         self.name.iter().index().map(|(index, _)| index)
     }
 }
 
-typed_index::impl_typed_index!(pub struct ProductCategoryIndex(index_types::IndexU32));
-
-type ProductCategoryVec<T> = typed_index::TypedIndexVec<ProductCategoryIndex, T>;
-
 impl<'data> Query<'data, ModuleIndex> {
     pub fn name(&self) -> &str {
-        &self.data.module.name[self.index]
+        &self.data.module.name[self.target]
+    }
+
+    pub fn base_cost(&self) -> i64 {
+        self.data.module.base_cost[self.target]
     }
 }
 
-#[derive(Default)]
-pub struct ProductCategoryData {
-    pub name: ProductCategoryVec<String>,
-    pub price_modifier: ProductCategoryVec<f64>,
-    pub growth_modifier: ProductCategoryVec<f64>,
+macro_rules! impl_soa {
+    (@all_fields
+        $T:ident {
+            $($f:ident: $t:ty as $r:ty = $m:expr,)*
+        }
+        index = $X:ident;
+        vec = $V:ident;
+        data = $D:ident;
+    ) => {
+        pub struct $T {
+            $($f: $t,)*
+        }
+
+        #[derive(Default)]
+        pub struct $D {
+            $($f: $V<$t>,)*
+        }
+
+        impl $D {
+            pub fn with_capacity(capacity: usize) -> Self {
+                Self {
+                    $($f: $V::with_capacity(capacity),)*
+                }
+            }
+
+            pub fn push(&mut self, value: $T) {
+                $(self.$f.push(value.$f);)*
+            }
+        }
+
+        impl <'data> Query<'data, $X> {
+            $(
+                pub fn $f(&self) -> $r {
+                    #![allow(clippy::redundant_closure_call)]
+                    ($m)(&self.data.product_category.$f[self.target])
+                }
+            )*
+        }
+    };
+    (
+        $T:ident {
+            $f0:ident: $t0:ty as $r0:ty = $m0:expr
+            $(, $f:ident: $t:ty as $r:ty = $m:expr)* $(,)?
+        }
+        index = $X:ident;
+        vec = $V:ident;
+        data = $D:ident;
+    ) => {
+        typed_index::impl_typed_index!(pub struct $X(index_types::IndexU32));
+
+        pub type $V<T> = typed_index::TypedIndexVec<$X, T>;
+
+        impl $D {
+            pub fn indices(&self) -> impl Iterator<Item = $X> + '_ {
+                (0..self.$f0.len()).map(|index| $X(index.into()))
+            }
+        }
+
+        impl FromIterator<$T> for $D {
+            fn from_iter<I: IntoIterator<Item = $T>>(iter: I) -> Self {
+                iter.into_iter().fold(Self::default(), |mut data, value| {
+                    data.push(value);
+                    data
+                })
+            }
+        }
+
+        impl_soa!(@all_fields
+            $T {
+                $f0: $t0 as $r0 = $m0, $($f: $t as $r = $m,)*
+            }
+            index = $X;
+            vec = $V;
+            data = $D;
+        );
+    }
+}
+
+impl_soa! {
+    ProductCategory {
+        name: String as &str = |x| x,
+        price_modifier: f64 as f64 = |&x| x,
+        growth_modifier: f64 as f64 = |&x| x,
+    }
+    index = ProductCategoryIndex;
+    vec = ProductCategoryVec;
+    data = ProductCategoryData;
 }
 
 pub struct GameData {
-    product: ProductData,
-    recipe: RecipeData,
-    module: ModuleData,
-    building: BuildingData,
-    product_category: ProductCategoryData,
+    pub product: ProductData,
+    pub recipe: RecipeData,
+    pub module: ModuleData,
+    pub building: BuildingData,
+    pub product_category: ProductCategoryData,
 }
 
 impl GameData {
     pub fn load(path: &std::path::Path) -> std::io::Result<Self> {
         let contents = std::fs::read_to_string(path)?;
         let data: crate::serialization::GameData = serde_json::from_str(&contents)?;
+
+        // let product_category = {
+        //     let mut values = data.product_categories.into_iter().map(|(guid, value)| {
+        //         (guid,
+        //             ProductCategory {
+
+        //             }
+        //         )
+        //     });
+        //     values.sort_unstable_by_key(|(_, value)| &value.name);
+        //     values.into_iter().fold(Default::default(), |(mut map, mut arr), (guid, value)| {
+
+        //     })
+        // };
+
+        // let product = {
+        //     let mut values = data.products.into_iter().map(|(guid, value)| {
+        //         (
+        //             guid,
+        //             Product {
+        //                 name: value.name,
+        //                 product_category_index: value.
+        //                 price_formula: todo!(),
+        //             },
+        //         )
+        //     }).collect::<Vec<_>>();
+        //     values.sort_unstable_by_key(|value| &value.1.name);
+
+        // }.collect();
 
         Ok(Self {
             product: Default::default(),
@@ -279,11 +428,8 @@ impl GameData {
         })
     }
 
-    pub fn query<I>(&self, index: I) -> Query<'_, &'_ <Self as std::ops::Index<I>>::Output>
-    where
-        Self: std::ops::Index<I>,
-    {
-        Query::new(self, &self[index])
+    pub fn query<T>(&self, target: T) -> Query<'_, T> {
+        Query::new(self, target)
     }
 
     pub fn products(&self) -> impl Iterator<Item = Query<'_, ProductIndex>> {
@@ -291,7 +437,7 @@ impl GameData {
             .name
             .iter()
             .index()
-            .map(|(index, _)| Query::new(self, index))
+            .map(|(index, _)| self.query(index))
     }
 
     pub fn product_by_name(&self, name: &str) -> Query<'_, ProductIndex> {
@@ -316,7 +462,7 @@ impl GameData {
         self.recipes().filter(move |&recipe| {
             recipe
                 .outputs()
-                .any(|output| output.product_id == product_id)
+                .any(|output| output.product_index == product_id)
         })
     }
 
@@ -349,7 +495,7 @@ impl GameData {
     }
 
     pub fn modules(&self) -> impl Iterator<Item = Query<'_, ModuleIndex>> {
-        self.module.indices().map(|module| Query::new(self, module))
+        self.module.indices().map(|index| self.query(index))
     }
 
     pub fn module_by_name(&self, name: &str) -> Query<'_, ModuleIndex> {
@@ -363,8 +509,8 @@ impl GameData {
         first
     }
 
-    pub fn recipe_module<'data>(&'data self, recipe: RecipeIndex) -> Query<'_, ModuleIndex> {
-        let mut iter = Query::new(self, recipe).required_modules();
+    pub fn recipe_module(&self, recipe: RecipeIndex) -> Query<'_, ModuleIndex> {
+        let mut iter = self.query(recipe).required_modules();
         let Some(first) = iter.next() else {
             panic!("No module for recipe {:?}", &self.recipe.name[recipe]);
         };

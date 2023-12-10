@@ -3,8 +3,8 @@
 use std::{collections::HashMap, rc::Rc};
 
 use rise_of_industry_calculator::{
-    serialization::ProductPriceFormula, BuildingData, BuildingIndex, GameData, ModuleData,
-    ModuleIndex, ProductData, ProductIndex, Query, RecipeData, RecipeIndex,
+    serialization::ProductPriceFormula, BuildingIndex, GameData, ModuleIndex, ProductIndex,
+    ProductVec, Query, RecipeIndex, RecipeVec,
 };
 
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
@@ -13,261 +13,59 @@ use rise_of_industry_calculator::{
 /// The ratio of upkeep to base cost.
 const BASE_COST_TO_UPKEEP: f64 = 0.025;
 
-/*
-ExportedProject\Assets\Resources\gamedata\formulas\product price\Factories.asset:
-  16:   formula: (ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput
-
-ExportedProject\Assets\Resources\gamedata\formulas\product price\FarmProduce.asset:
-  16:   formula: ingredientsValue * 2.8
-
-ExportedProject\Assets\Resources\gamedata\formulas\product price\Farms.asset:
-  16:   formula: ((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)
-
-ExportedProject\Assets\Resources\gamedata\formulas\product price\Gatherers.asset:
-  16:   formula: upkeep / ((3 * recipeOutput) * (30 / recipeDays))
-
-ExportedProject\Assets\Resources\gamedata\formulas\product price\ProductPriceUpkeepComponent.asset:
-  16:   formula: hubUpkeep + (moduleUpkeep * 3)
-
-ExportedProject\Assets\Resources\gamedata\formulas\product price\RawResources.asset:
-  16:   formula: 75 * recipeDays * 3.25
-*/
-
-// private void InizializeRecipePricingInfo(Recipe recipe)
-// {
-//     float upkeepPriceComponent = GetUpkeepPriceComponent(recipe);
-//     float ingredientsValue = ComputeIngredientsValue(recipe);
-//     int num = 0;
-//     foreach (Product entry in recipe.result.entries)
-//     {
-//         num += entry.amount;
-//     }
-//     foreach (Product entry2 in recipe.result.entries)
-//     {
-//         ComputeProductPrice(entry2.definition, upkeepPriceComponent, ingredientsValue, entry2.amount, num, recipe.gameDaysForPriceCalculation);
-//     }
-// }
-
-type RecipeQuery<'a> = Query<'a, &'a RecipeData>;
-
-fn initialize_recipe_pricing_info(
-    data: &GameData,
-    recipe: &RecipeData,
-    prices: &mut HashMap<ProductIndex, f64>,
-) {
-    let recipe = data.query(recipe.id);
-    let upkeep_price_component = get_upkeep_price_component(data, *recipe);
-    let ingredients_value = compute_ingredients_value(data, *recipe, prices);
-    let recipe_output_amount = recipe.outputs().map(|x| x.amount).sum::<i64>();
-    for input in recipe.inputs() {
-        compute_product_price(
-            data,
-            upkeep_price_component,
-            ingredients_value,
-            input.amount,
-            recipe_output_amount,
-            recipe.days,
-            prices,
-        );
-    }
-}
-
-// ExportedProject\Assets\Resources\gamedata\formulas\product price\ProductPriceUpkeepComponent.asset:
-//   16:   formula: hubUpkeep + (moduleUpkeep * 3)
-// private float GetUpkeepPriceComponent(Recipe recipe)
-// {
-//     if (!upkeepComponentFormula)
-//     {
-//         return 0f;
-//     }
-//     ReadOnlyList<Building> originsOfRecipe = RecipeDatabase.instance.GetOriginsOfRecipe(recipe);
-//     if (!originsOfRecipe.notNull || originsOfRecipe.count <= 0)
-//     {
-//         Debug.LogError("Cannot find origin of recipe '" + recipe.Title + "'!");
-//         return 0f;
-//     }
-//     Upkeep component = originsOfRecipe[0].GetComponent<Upkeep>();
-//     if (!component)
-//     {
-//         return 0f;
-//     }
-//     float monthlyUpkeep = component.GetMonthlyUpkeep(Upkeep.GetMonthlyUpkeepOptions.PURE);
-//     Building building = recipe.requiredModules.FirstOrDefault();
-//     float? obj;
-//     if ((object)building == null)
-//     {
-//         obj = null;
-//     }
-//     else
-//     {
-//         Module component2 = building.GetComponent<Module>();
-//         obj = (((object)component2 != null) ? new float?(component2.ModuleUpkeep()) : null);
-//     }
-//     float moduleUpkeep = obj ?? 0f;
-//     ProductPriceUpkeepComponentFormulaArguments argumentsProvider = new ProductPriceUpkeepComponentFormulaArguments(monthlyUpkeep, moduleUpkeep);
-//     return (float)upkeepComponentFormula.Evaluate(argumentsProvider);
-// }
-
-fn get_upkeep_price_component(data: &GameData, recipe: &RecipeData) -> f64 {
-    let processor = data
+fn get_upkeep_price_component(recipe: Query<'_, RecipeIndex>) -> f64 {
+    let processor = recipe
+        .data()
         .buildings()
-        .filter(|building| building.available_recipes().any(|x| x.id == recipe.id))
+        .filter(|building| building.available_recipes().any(|x| x == recipe))
         .exactly_one()
         .unwrap();
-    let upkeep = processor.base_cost as f64 * BASE_COST_TO_UPKEEP;
-    let module = data.query(recipe.id).required_module();
+    let upkeep = processor.base_cost() as f64 * BASE_COST_TO_UPKEEP;
+    let module = recipe.required_module();
     let module_upkeep = module
-        .map(|module| module.base_cost as f64 * BASE_COST_TO_UPKEEP)
+        .map(|module| module.base_cost() as f64 * BASE_COST_TO_UPKEEP)
         .unwrap_or(0.0);
     upkeep + module_upkeep * 3.0
 }
 
-// private float ComputeIngredientsValue(Recipe recipe)
-// {
-//     float num = 0f;
-//     foreach (Product entry in recipe.ingredients.entries)
-//     {
-//         if (!entry.definition)
-//         {
-//             Debug.LogErrorFormat("Null ingredient in recipe '{0}'.", recipe.name);
-//             continue;
-//         }
-//         ProductPricingInfo value;
-//         if (!_pricingInfoByProduct.TryGetValue(entry.definition, out value))
-//         {
-//             Recipe productRecipe = GetProductRecipe(entry.definition);
-//             if (!productRecipe)
-//             {
-//                 Debug.LogErrorFormat("No recipe for product {0}.", entry.definition.productName);
-//                 continue;
-//             }
-//             InizializeRecipePricingInfo(productRecipe);
-//             if (!_pricingInfoByProduct.TryGetValue(entry.definition, out value))
-//             {
-//                 Debug.LogErrorFormat("Could not compute price for product {0}.", entry.definition.productName);
-//                 continue;
-//             }
-//         }
-//         num += value.value * (float)entry.amount;
-//     }
-//     return num;
-// }
-fn compute_ingredients_value<'d>(
-    data: &'d GameData,
-    recipe: &'d RecipeData,
-    prices: &mut HashMap<ProductIndex, f64>,
-) -> f64 {
-    let mut sum = 0.0;
-    for entry in data.query(recipe.id).inputs() {
-        let price = match prices.get(&entry.product_id).copied() {
-            Some(price) => price,
-            None => {
-                for recipe in data.recipes_with_output(entry.product_id) {
-                    initialize_recipe_pricing_info(data, *recipe, prices);
-                }
-                prices[&entry.product_id]
-            }
-        };
-        sum += entry.amount as f64 * price;
-    }
-    sum
-}
-
-// private Recipe GetProductRecipe(ProductDefinition product)
-// {
-//     ReadOnlyList<Recipe> recipes = RecipeDatabase.instance.GetRecipes(product);
-//     if (!recipes.notNull)
-//     {
-//         return null;
-//     }
-//     return recipes.FirstOrDefault();
-// }
-
-// private ProductPricingInfo ComputeProductPrice(ProductDefinition product, float upkeepComponent, float ingredientsValue, int productOutput, int recipeOutput, float recipeDays)
-// {
-//     ProductPricingInfo value;
-//     if (_pricingInfoByProduct.TryGetValue(product, out value))
-//     {
-//         return value;
-//     }
-//     Formula value2;
-//     if (!_formulasByProduct.TryGetValue(product, out value2) || value2 == null)
-//     {
-//         Debug.LogErrorFormat("No price formula for product '{0}'.", product.productName);
-//         return new ProductPricingInfo();
-//     }
-//     ProductPriceFormulaArguments argumentsProvider = new ProductPriceFormulaArguments(upkeepComponent, ingredientsValue, productOutput, recipeOutput, recipeDays);
-//     float num = (float)value2.Evaluate(argumentsProvider);
-//     value = new ProductPricingInfo
-//     {
-//         value = num,
-//         price = num * (product.productCategory ? product.productCategory.priceMultiplier : 1f)
-//     };
-//     _pricingInfoByProduct[product] = value;
-//     return value;
-// }
-
-fn compute_product_price(
-    data: &GameData,
-    upkeep_component: f64,
-    ingredients_value: f64,
-    entry_amount: i64,
-    recipe_output_amount: i64,
-    days: i64,
-    prices: &mut HashMap<ProductIndex, f64>,
-) {
-    // ExportedProject\Assets\Resources\gamedata\formulas\product price\Factories.asset:
-    // 16:   formula: (ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput
-
-    // ExportedProject\Assets\Resources\gamedata\formulas\product price\FarmProduce.asset:
-    // 16:   formula: ingredientsValue * 2.8
-
-    // ExportedProject\Assets\Resources\gamedata\formulas\product price\Farms.asset:
-    // 16:   formula: ((ingredientsValue * 3) + ((upkeep / 30) * recipeDays)) / (recipeOutput * 3)
-
-    // ExportedProject\Assets\Resources\gamedata\formulas\product price\Gatherers.asset:
-    // 16:   formula: upkeep / ((3 * recipeOutput) * (30 / recipeDays))
-
-    // ExportedProject\Assets\Resources\gamedata\formulas\product price\ProductPriceUpkeepComponent.asset:
-    // 16:   formula: hubUpkeep + (moduleUpkeep * 3)
-
-    // ExportedProject\Assets\Resources\gamedata\formulas\product price\RawResources.asset:
-    // 16:   formula: 75 * recipeDays * 3.25
-}
-
-fn compute_product_prices(data: &GameData) -> HashMap<ProductIndex, f64> {
+fn compute_product_prices(data: &GameData) -> ProductVec<f64> {
     // Counts how many recipes still need to be evaluated for a product.
-    let mut product_recipe_counts: Vec<usize> = data
+    let mut product_recipe_counts: ProductVec<usize> = data
         .products()
         .map(|product| product.producing_recipes().count())
         .collect();
-    let mut product_values: Vec<Option<f64>> = data.products().map(|_| None).collect();
+    let mut product_values: ProductVec<Option<f64>> = data.products().map(|_| None).collect();
 
-    let mut todo_recipe_ids: Vec<RecipeIndex> = data.recipes().map(|recipe| recipe.id).collect();
-    let mut temp_recipe_ids = vec![];
-    while !todo_recipe_ids.is_empty() {
-        std::mem::swap(&mut todo_recipe_ids, &mut temp_recipe_ids);
-        for recipe_id in temp_recipe_ids.drain(..) {
-            let recipe = data.query(recipe_id);
+    let mut recipe_upkeep: RecipeVec<f64> = data
+        .recipes()
+        .map(|recipe| get_upkeep_price_component(recipe))
+        .collect();
+
+    let mut todo_recipes: Vec<RecipeIndex> = data.recipe.indices().collect();
+    let mut temp_recipes = vec![];
+    while !todo_recipes.is_empty() {
+        std::mem::swap(&mut todo_recipes, &mut temp_recipes);
+        for recipe in temp_recipes.drain(..) {
+            let recipe = data.query(recipe);
 
             let Some(ingredients_value) = recipe.inputs().try_fold(0.0, |sum, input| {
-                if product_recipe_counts[usize::from(input.product_id)] > 0 {
+                if product_recipe_counts[input.product_index] > 0 {
                     return None;
                 }
-                let price = product_values[usize::from(input.product_id)].unwrap();
+                let price = product_values[input.product_index].unwrap();
                 Some(sum + price * -input.amount as f64)
             }) else {
-                todo_recipe_ids.push(recipe_id);
+                todo_recipes.push(recipe.index());
                 continue;
             };
 
-            let upkeep = get_upkeep_price_component(data, *recipe);
+            let upkeep = recipe_upkeep[recipe.index()];
 
             let recipe_output = recipe.outputs().map(|entry| entry.amount).sum::<i64>() as f64;
-            let recipe_days = recipe.days as f64;
+            let recipe_days = recipe.days() as f64;
 
             for entry in recipe.outputs() {
-                let value = match entry.product().price_formula {
+                let value = match entry.product().price_formula() {
                     ProductPriceFormula::Factories => {
                         (ingredients_value + ((upkeep / 30.0) * recipe_days)) / recipe_output
                     }
@@ -288,9 +86,9 @@ fn compute_product_prices(data: &GameData) -> HashMap<ProductIndex, f64> {
                     ProductPriceFormula::RawResources => 75.0 * recipe_days * 3.25,
                 };
 
-                product_recipe_counts[usize::from(entry.product_id)] -= 1;
-                product_values[usize::from(entry.product_id)] =
-                    Some(match product_values[usize::from(entry.product_id)] {
+                product_recipe_counts[entry.product_index] -= 1;
+                product_values[entry.product_index] =
+                    Some(match product_values[entry.product_index] {
                         Some(existing) => f64::min(existing, value),
                         None => value,
                     });
@@ -300,11 +98,7 @@ fn compute_product_prices(data: &GameData) -> HashMap<ProductIndex, f64> {
 
     data.products()
         .map(|product| {
-            (
-                product.id,
-                product_values[usize::from(product.id)].unwrap()
-                    * product.category().price_modifier,
-            )
+            product_values[product.index()].unwrap() * product.category().price_modifier()
         })
         .collect()
 }
@@ -344,7 +138,7 @@ impl BuildingEfficiency {
 pub struct BuildingInstance {
     pub id: BuildingIndex,
     pub modules: Option<(i64, ModuleIndex)>,
-    pub recipe_id: RecipeIndex,
+    pub recipe_index: RecipeIndex,
     pub efficiency: BuildingEfficiency,
 }
 
@@ -354,23 +148,25 @@ impl BuildingInstance {
     }
 
     pub fn purchase_price(&self, data: &GameData) -> f64 {
-        data[self.id].base_cost as f64
-            + self
-                .modules
-                .as_ref()
-                .map_or(0, |&(count, module_id)| count * data[module_id].base_cost)
-                as f64
+        data.query(self.id).base_cost() as f64
+            + self.modules.as_ref().map_or(0, |&(count, module_index)| {
+                count * data.query(module_index).base_cost()
+            }) as f64
     }
 
     pub fn productivity(&self) -> f64 {
         self.efficiency.production() * self.modules.as_ref().map_or(1, |&(count, _)| count) as f64
     }
 
-    pub fn production_per_day_of(&self, data: &GameData, product_id: ProductIndex) -> Option<f64> {
-        let recipe = data.query(self.recipe_id);
+    pub fn production_per_day_of(
+        &self,
+        data: &GameData,
+        product_index: ProductIndex,
+    ) -> Option<f64> {
+        let recipe = data.query(self.recipe_index);
         recipe
             .entries()
-            .find(|x| x.product_id == product_id)
+            .find(|x| x.product_index == product_index)
             .map(|x| self.productivity() * x.amount as f64 / recipe.easy_chains_days())
     }
 }
@@ -404,31 +200,33 @@ where
     }
 }
 
-struct Context<'a> {
-    cocoa: &'a ProductData,
-    water: &'a ProductData,
-    cotton: &'a ProductData,
-    fibers: &'a ProductData,
-    napkins: &'a ProductData,
-    berries: &'a ProductData,
-    light_fabric: &'a ProductData,
+struct Context<'data> {
+    data: &'data GameData,
 
-    farm: &'a BuildingData,
-    plantation: &'a BuildingData,
-    water_siphon: &'a BuildingData,
-    water_well: &'a BuildingData,
+    cocoa: ProductIndex,
+    water: ProductIndex,
+    cotton: ProductIndex,
+    fibers: ProductIndex,
+    napkins: ProductIndex,
+    berries: ProductIndex,
+    light_fabric: ProductIndex,
 
-    cocoa_recipe: &'a RecipeData,
-    cotton_recipe: &'a RecipeData,
-    fibers_recipe: &'a RecipeData,
-    napkins_recipe: &'a RecipeData,
-    berry_recipe: &'a RecipeData,
-    water_well_water_recipe: &'a RecipeData,
-    water_siphon_water_recipe: &'a RecipeData,
+    farm: BuildingIndex,
+    plantation: BuildingIndex,
+    water_siphon: BuildingIndex,
+    water_well: BuildingIndex,
 
-    cocoa_field: &'a ModuleData,
-    cotton_field: &'a ModuleData,
-    berry_field: &'a ModuleData,
+    cocoa_recipe: RecipeIndex,
+    cotton_recipe: RecipeIndex,
+    fibers_recipe: RecipeIndex,
+    napkins_recipe: RecipeIndex,
+    berry_recipe: RecipeIndex,
+    water_well_water_recipe: RecipeIndex,
+    water_siphon_water_recipe: RecipeIndex,
+
+    cocoa_field: ModuleIndex,
+    cotton_field: ModuleIndex,
+    berry_field: ModuleIndex,
 }
 
 fn main() {
@@ -459,14 +257,16 @@ fn main() {
     let berry_recipe = data.recipe_by_name("Berries");
     let dye_recipe = data.recipe_by_name("Dye");
 
-    let water_well_water_recipe = water_well.building_recipe("Water");
-    let water_siphon_water_recipe = water_siphon.building_recipe("Water");
+    let water_well_water_recipe = water_well.recipe_by_name("Water");
+    let water_siphon_water_recipe = water_siphon.recipe_by_name("Water");
 
     let cocoa_field = cocoa_recipe.required_module().unwrap();
     let cotton_field = cotton_recipe.required_module().unwrap();
     let berry_field = berry_recipe.required_module().unwrap();
 
     let context = Context {
+        data,
+
         cocoa: *cocoa,
         water: *water,
         cotton: *cotton,
@@ -496,8 +296,8 @@ fn main() {
     let napkin_factories = (
         3i64,
         BuildingInstance {
-            id: textile_factory.id,
-            recipe_id: napkins_recipe.id,
+            id: *textile_factory,
+            recipe_index: *napkins_recipe,
             modules: None,
             efficiency: Default::default(),
         },
@@ -506,8 +306,8 @@ fn main() {
     let light_fabric_factories = (
         3i64,
         BuildingInstance {
-            id: textile_factory.id,
-            recipe_id: light_fabric_recipe.id,
+            id: *textile_factory,
+            recipe_index: *light_fabric_recipe,
             modules: None,
             efficiency: Default::default(),
         },
@@ -517,8 +317,8 @@ fn main() {
     let fibers_factories = (
         2i64,
         BuildingInstance {
-            id: textile_factory.id,
-            recipe_id: fibers_recipe.id,
+            id: *textile_factory,
+            recipe_index: *fibers_recipe,
             modules: None,
             efficiency: Default::default(),
         },
@@ -528,9 +328,9 @@ fn main() {
     let cotton_farms = (
         1,
         BuildingInstance {
-            id: farm.id,
-            recipe_id: cotton_recipe.id,
-            modules: Some((5, cotton_field.id)),
+            id: *farm,
+            recipe_index: *cotton_recipe,
+            modules: Some((5, *cotton_field)),
             efficiency: Default::default(),
         },
     );
@@ -539,8 +339,8 @@ fn main() {
     let dye_factories = (
         1i64,
         BuildingInstance {
-            id: textile_factory.id,
-            recipe_id: dye_recipe.id,
+            id: *textile_factory,
+            recipe_index: *dye_recipe,
             modules: None,
             efficiency: Default::default(),
         },
@@ -550,9 +350,9 @@ fn main() {
     let berry_farms = (
         1,
         BuildingInstance {
-            id: farm.id,
-            recipe_id: berry_recipe.id,
-            modules: Some((5, berry_field.id)),
+            id: *farm,
+            recipe_index: *berry_recipe,
+            modules: Some((5, *berry_field)),
             efficiency: Default::default(),
         },
     );
@@ -560,9 +360,9 @@ fn main() {
     let water_siphons = (
         2,
         BuildingInstance {
-            id: water_siphon.id,
-            recipe_id: water_siphon_water_recipe.id,
-            modules: Some((3, water_siphon_water_recipe.required_module().unwrap().id)),
+            id: *water_siphon,
+            recipe_index: *water_siphon_water_recipe,
+            modules: Some((3, *water_siphon_water_recipe.required_module().unwrap())),
             efficiency: Default::default(),
         },
     );
@@ -579,22 +379,13 @@ fn main() {
             description: "Local Transport".to_string(),
             tiles: 15,
             amount_per_day: water_siphons.0 as f64
-                * water_siphons
-                    .1
-                    .production_per_day_of(data, water.id)
-                    .unwrap()
+                * water_siphons.1.production_per_day_of(data, *water).unwrap()
                 + berry_farms.0 as f64
-                    * berry_farms
-                        .1
-                        .production_per_day_of(data, berries.id)
-                        .unwrap()
+                    * berry_farms.1.production_per_day_of(data, *berries).unwrap()
                 + dye_factories.0 as f64
-                    * dye_factories.1.production_per_day_of(data, dye.id).unwrap()
+                    * dye_factories.1.production_per_day_of(data, *dye).unwrap()
                 + cotton_farms.0 as f64
-                    * cotton_farms
-                        .1
-                        .production_per_day_of(data, cotton.id)
-                        .unwrap(),
+                    * cotton_farms.1.production_per_day_of(data, *cotton).unwrap(),
         },
         Transport {
             kind: Rc::clone(&truck),
@@ -603,17 +394,17 @@ fn main() {
             amount_per_day: light_fabric_factories.0 as f64
                 * light_fabric_factories
                     .1
-                    .production_per_day_of(data, light_fabric.id)
+                    .production_per_day_of(data, *light_fabric)
                     .unwrap()
                 + napkin_factories.0 as f64
                     * napkin_factories
                         .1
-                        .production_per_day_of(data, napkins.id)
+                        .production_per_day_of(data, *napkins)
                         .unwrap()
                 + fibers_factories.0 as f64
                     * fibers_factories
                         .1
-                        .production_per_day_of(data, fibers.id)
+                        .production_per_day_of(data, *fibers)
                         .unwrap(),
         },
     ];
@@ -632,7 +423,7 @@ fn main() {
     //     1i64,
     //     BuildingInstance {
     //         id: water_siphon.id,
-    //         recipe_id: water_siphon_water_recipe.id,
+    //         recipe_index: water_siphon_water_recipe.id,
     //         modules: Some((5, data.recipe_module(water_siphon_water_recipe).id)),
     //         efficiency: Default::default(),
     //     },
@@ -642,7 +433,7 @@ fn main() {
     //     2i64,
     //     BuildingInstance {
     //         id: plantation.id,
-    //         recipe_id: cocoa_recipe.id,
+    //         recipe_index: cocoa_recipe.id,
     //         modules: Some((5, cocoa_field.id)),
     //         efficiency: Default::default(),
     //     },
@@ -700,9 +491,9 @@ fn simulate(
 
     let mut production_map: HashMap<ProductIndex, f64> = HashMap::new();
     for &(count, ref instance) in &building_groups {
-        let recipe = data.query(instance.recipe_id);
+        let recipe = data.query(instance.recipe_index);
         for ingredient in recipe.entries() {
-            *production_map.entry(ingredient.product_id).or_default() +=
+            *production_map.entry(ingredient.product_index).or_default() +=
                 count as f64 * instance.productivity() * ingredient.amount as f64
                     / recipe.easy_chains_days();
         }
@@ -713,27 +504,33 @@ fn simulate(
         for product in data.products() {
             println!(
                 "  {} ({:?}): {}",
-                product.name, product.id, prices[&product.id]
+                product.name(),
+                *product,
+                prices[*product]
             );
         }
     }
 
     let prices = [
-        (context.berries.id, 12660.0),
-        (context.light_fabric.id, 55650.0),
-        (context.cotton.id, 13560.0),
-        (context.fibers.id, 27220.0),
-        (context.napkins.id, 109830.0),
+        (context.berries, 12660.0),
+        (context.light_fabric, 55650.0),
+        (context.cotton, 13560.0),
+        (context.fibers, 27220.0),
+        (context.napkins, 109830.0),
     ];
 
     println!("sales per month:");
     let mut monthly_revenue = 0.0;
-    for (product_id, price) in prices {
-        let units_per_month = production_map.get(&product_id).copied().unwrap_or_default() * 30.0;
+    for (product_index, price) in prices {
+        let units_per_month = production_map
+            .get(&product_index)
+            .copied()
+            .unwrap_or_default()
+            * 30.0;
         let total = units_per_month * price;
         println!(
             "  | {name:20} | {units:7.1} units | {price:7.1}k $/unit | {total:7.1}k $ |",
-            name = &data[product_id].name,
+            name = data.query(product_index).name(),
             units = units_per_month,
             price = price / 1000.0,
             total = total / 1000.0
@@ -743,10 +540,10 @@ fn simulate(
     println!();
 
     println!("production per month:");
-    for (&product_id, &amount_per_day) in &production_map {
+    for (&product_index, &amount_per_day) in &production_map {
         println!(
             "  | {:20} | {:7.1} units |",
-            &data[product_id].name,
+            data.query(product_index).name(),
             amount_per_day * 30.0
         );
     }

@@ -67,24 +67,24 @@ where
     }
 }
 
-impl<X, T> std::ops::Index<X> for TypedIndexBoxedSlice<X, T>
-where
-    X: TypedIndex,
-{
-    type Output = T;
+// impl<X, T> std::ops::Index<X> for TypedIndexBoxedSlice<X, T>
+// where
+//     X: TypedIndex,
+// {
+//     type Output = T;
 
-    #[inline]
-    fn index(&self, index: X) -> &Self::Output {
-        &self.inner[index.into()]
-    }
-}
+//     #[inline]
+//     fn index(&self, index: X) -> &Self::Output {
+//         &self.inner[index.into()]
+//     }
+// }
 
-impl<X, T> std::ops::IndexMut<X> for TypedIndexBoxedSlice<X, T>
-where
-    X: TypedIndex,
-{
-    #[inline]
-    fn index_mut(&mut self, index: X) -> &mut Self::Output {
-        &mut self.inner[index.into()]
-    }
-}
+// impl<X, T> std::ops::IndexMut<X> for TypedIndexBoxedSlice<X, T>
+// where
+//     X: TypedIndex,
+// {
+//     #[inline]
+//     fn index_mut(&mut self, index: X) -> &mut Self::Output {
+//         &mut self.inner[index.into()]
+//     }
+// }
