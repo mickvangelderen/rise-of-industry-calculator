@@ -1,5 +1,3 @@
-use std::marker::PhantomData;
-
 use crate::TypedIndexCollection;
 use crate::{macros::delegate, typed_index::TypedIndex, Indexable, TypedIndexVec};
 

@@ -98,7 +98,7 @@ fn compute_product_prices(data: &GameData) -> ProductVec<f64> {
 
     data.products()
         .map(|product| {
-            product_values[product.index()].unwrap() * product.category().price_modifier()
+            product_values[product.index()].unwrap() * product.product_category().price_modifier()
         })
         .collect()
 }
