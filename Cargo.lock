@@ -266,9 +266,11 @@ version = "0.1.0"
 dependencies = [
  "env_logger",
  "ignore",
+ "index-types",
  "log",
  "serde",
  "serde_json",
+ "typed-index",
 ]
 
 [[package]]

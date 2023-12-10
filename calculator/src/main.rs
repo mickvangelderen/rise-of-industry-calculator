@@ -3,8 +3,8 @@
 use std::{collections::HashMap, rc::Rc};
 
 use rise_of_industry_calculator::{
-    serialization::ProductPriceFormula, Building, BuildingId, GameData, Module, ModuleId, Product,
-    ProductId, Query, Recipe, RecipeId,
+    serialization::ProductPriceFormula, BuildingData, BuildingIndex, GameData, ModuleData,
+    ModuleIndex, ProductData, ProductIndex, Query, RecipeData, RecipeIndex,
 };
 
 // Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
@@ -48,12 +48,12 @@ ExportedProject\Assets\Resources\gamedata\formulas\product price\RawResources.as
 //     }
 // }
 
-type RecipeQuery<'a> = Query<'a, &'a Recipe>;
+type RecipeQuery<'a> = Query<'a, &'a RecipeData>;
 
 fn initialize_recipe_pricing_info(
     data: &GameData,
-    recipe: &Recipe,
-    prices: &mut HashMap<ProductId, f64>,
+    recipe: &RecipeData,
+    prices: &mut HashMap<ProductIndex, f64>,
 ) {
     let recipe = data.query(recipe.id);
     let upkeep_price_component = get_upkeep_price_component(data, *recipe);
@@ -108,7 +108,7 @@ fn initialize_recipe_pricing_info(
 //     return (float)upkeepComponentFormula.Evaluate(argumentsProvider);
 // }
 
-fn get_upkeep_price_component(data: &GameData, recipe: &Recipe) -> f64 {
+fn get_upkeep_price_component(data: &GameData, recipe: &RecipeData) -> f64 {
     let processor = data
         .buildings()
         .filter(|building| building.available_recipes().any(|x| x.id == recipe.id))
@@ -154,8 +154,8 @@ fn get_upkeep_price_component(data: &GameData, recipe: &Recipe) -> f64 {
 // }
 fn compute_ingredients_value<'d>(
     data: &'d GameData,
-    recipe: &'d Recipe,
-    prices: &mut HashMap<ProductId, f64>,
+    recipe: &'d RecipeData,
+    prices: &mut HashMap<ProductIndex, f64>,
 ) -> f64 {
     let mut sum = 0.0;
     for entry in data.query(recipe.id).inputs() {
@@ -214,7 +214,7 @@ fn compute_product_price(
     entry_amount: i64,
     recipe_output_amount: i64,
     days: i64,
-    prices: &mut HashMap<ProductId, f64>,
+    prices: &mut HashMap<ProductIndex, f64>,
 ) {
     // ExportedProject\Assets\Resources\gamedata\formulas\product price\Factories.asset:
     // 16:   formula: (ingredientsValue + ((upkeep / 30) * recipeDays)) / recipeOutput
@@ -235,7 +235,7 @@ fn compute_product_price(
     // 16:   formula: 75 * recipeDays * 3.25
 }
 
-fn compute_product_prices(data: &GameData) -> HashMap<ProductId, f64> {
+fn compute_product_prices(data: &GameData) -> HashMap<ProductIndex, f64> {
     // Counts how many recipes still need to be evaluated for a product.
     let mut product_recipe_counts: Vec<usize> = data
         .products()
@@ -243,7 +243,7 @@ fn compute_product_prices(data: &GameData) -> HashMap<ProductId, f64> {
         .collect();
     let mut product_values: Vec<Option<f64>> = data.products().map(|_| None).collect();
 
-    let mut todo_recipe_ids: Vec<RecipeId> = data.recipes().map(|recipe| recipe.id).collect();
+    let mut todo_recipe_ids: Vec<RecipeIndex> = data.recipes().map(|recipe| recipe.id).collect();
     let mut temp_recipe_ids = vec![];
     while !todo_recipe_ids.is_empty() {
         std::mem::swap(&mut todo_recipe_ids, &mut temp_recipe_ids);
@@ -342,9 +342,9 @@ impl BuildingEfficiency {
 }
 
 pub struct BuildingInstance {
-    pub id: BuildingId,
-    pub modules: Option<(i64, ModuleId)>,
-    pub recipe_id: RecipeId,
+    pub id: BuildingIndex,
+    pub modules: Option<(i64, ModuleIndex)>,
+    pub recipe_id: RecipeIndex,
     pub efficiency: BuildingEfficiency,
 }
 
@@ -366,7 +366,7 @@ impl BuildingInstance {
         self.efficiency.production() * self.modules.as_ref().map_or(1, |&(count, _)| count) as f64
     }
 
-    pub fn production_per_day_of(&self, data: &GameData, product_id: ProductId) -> Option<f64> {
+    pub fn production_per_day_of(&self, data: &GameData, product_id: ProductIndex) -> Option<f64> {
         let recipe = data.query(self.recipe_id);
         recipe
             .entries()
@@ -405,30 +405,30 @@ where
 }
 
 struct Context<'a> {
-    cocoa: &'a Product,
-    water: &'a Product,
-    cotton: &'a Product,
-    fibers: &'a Product,
-    napkins: &'a Product,
-    berries: &'a Product,
-    light_fabric: &'a Product,
+    cocoa: &'a ProductData,
+    water: &'a ProductData,
+    cotton: &'a ProductData,
+    fibers: &'a ProductData,
+    napkins: &'a ProductData,
+    berries: &'a ProductData,
+    light_fabric: &'a ProductData,
 
-    farm: &'a Building,
-    plantation: &'a Building,
-    water_siphon: &'a Building,
-    water_well: &'a Building,
+    farm: &'a BuildingData,
+    plantation: &'a BuildingData,
+    water_siphon: &'a BuildingData,
+    water_well: &'a BuildingData,
 
-    cocoa_recipe: &'a Recipe,
-    cotton_recipe: &'a Recipe,
-    fibers_recipe: &'a Recipe,
-    napkins_recipe: &'a Recipe,
-    berry_recipe: &'a Recipe,
-    water_well_water_recipe: &'a Recipe,
-    water_siphon_water_recipe: &'a Recipe,
+    cocoa_recipe: &'a RecipeData,
+    cotton_recipe: &'a RecipeData,
+    fibers_recipe: &'a RecipeData,
+    napkins_recipe: &'a RecipeData,
+    berry_recipe: &'a RecipeData,
+    water_well_water_recipe: &'a RecipeData,
+    water_siphon_water_recipe: &'a RecipeData,
 
-    cocoa_field: &'a Module,
-    cotton_field: &'a Module,
-    berry_field: &'a Module,
+    cocoa_field: &'a ModuleData,
+    cotton_field: &'a ModuleData,
+    berry_field: &'a ModuleData,
 }
 
 fn main() {
@@ -698,7 +698,7 @@ fn simulate(
         .map(|&(count, ref instance)| count as f64 * instance.purchase_price(data))
         .sum::<f64>();
 
-    let mut production_map: HashMap<ProductId, f64> = HashMap::new();
+    let mut production_map: HashMap<ProductIndex, f64> = HashMap::new();
     for &(count, ref instance) in &building_groups {
         let recipe = data.query(instance.recipe_id);
         for ingredient in recipe.entries() {

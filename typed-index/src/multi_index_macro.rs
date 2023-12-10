@@ -115,7 +115,10 @@ fn test() {
     _ = b;
 
     multi_index!(let { &mut a, mut &mut b } = data[1]);
-    assert_eq!((a as *mut _, b as *mut _), (&mut data.a[1] as *mut _, &mut data.b[1] as *mut _));
+    assert_eq!(
+        (a as *mut _, b as *mut _),
+        (&mut data.a[1] as *mut _, &mut data.b[1] as *mut _)
+    );
     b = &mut data.b[1];
     _ = b;
 }
