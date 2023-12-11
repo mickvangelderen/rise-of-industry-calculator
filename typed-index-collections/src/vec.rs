@@ -1,7 +1,4 @@
-use crate::{
-    macros::delegate, typed_index::TypedIndex, Indexable, TypedIndexBoxedSlice,
-    TypedIndexCollection,
-};
+use crate::{macros::delegate, Indexable, TypedIndex, TypedIndexBoxedSlice, TypedIndexCollection};
 
 pub type TypedIndexVec<X, T> = TypedIndexCollection<X, Vec<T>>;
 

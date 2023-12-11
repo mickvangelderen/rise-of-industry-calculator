@@ -1,7 +1,7 @@
 use std::ops::Index;
 
 use index_types::IndexU16;
-use typed_index::{
+use typed_index_collections::{
     impl_typed_index, TypedIndexBoxedSlice, TypedIndexSlice, TypedIndexSliceMut, TypedIndexVec,
 };
 

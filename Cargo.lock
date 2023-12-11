@@ -270,7 +270,7 @@ dependencies = [
  "log",
  "serde",
  "serde_json",
- "typed-index",
+ "typed-index-collections",
 ]
 
 [[package]]
@@ -398,7 +398,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "typed-index"
+name = "typed-index-collections"
 version = "0.1.0"
 dependencies = [
  "index-types",

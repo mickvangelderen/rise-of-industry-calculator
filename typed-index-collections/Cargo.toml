@@ -1,5 +1,5 @@
 [package]
-name = "typed-index"
+name = "typed-index-collections"
 version = "0.1.0"
 edition = "2021"
 

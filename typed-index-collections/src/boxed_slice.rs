@@ -1,5 +1,5 @@
 use crate::TypedIndexCollection;
-use crate::{macros::delegate, typed_index::TypedIndex, Indexable, TypedIndexVec};
+use crate::{macros::delegate, Indexable, TypedIndex, TypedIndexVec};
 
 pub type TypedIndexBoxedSlice<X, T> = TypedIndexCollection<X, Box<[T]>>;
 

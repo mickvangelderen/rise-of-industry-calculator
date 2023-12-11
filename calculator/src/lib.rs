@@ -13,7 +13,7 @@ macro_rules! impl_field_ {
     (@item query copy $T:ty; $($tail:tt)*) => {
         impl<'data> Field<&'data $T> for &'data GameData {
             type Borrow = Query<'data, $T>;
-        
+
             fn borrow(self, value: &'data $T) -> Self::Borrow {
                 self.query(*value)
             }
@@ -23,7 +23,7 @@ macro_rules! impl_field_ {
     (@item copy $T:ty; $($tail:tt)*) => {
         impl<'data> Field<&'data $T> for &'data GameData {
             type Borrow = $T;
-        
+
             fn borrow(self, value: &'data $T) -> Self::Borrow {
                 *value
             }
@@ -33,7 +33,7 @@ macro_rules! impl_field_ {
     (@item deref $T:ty; $($tail:tt)*) => {
         impl<'data> Field<&'data $T> for &'data GameData {
             type Borrow = &'data <$T as std::ops::Deref>::Target;
-        
+
             fn borrow(self, value: &'data $T) -> Self::Borrow {
                 value
             }
@@ -48,8 +48,7 @@ macro_rules! impl_field {
     };
 }
 
-impl<'data, T> Field<&'data Vec<T>> for &'data GameData
-{
+impl<'data, T> Field<&'data Vec<T>> for &'data GameData {
     type Borrow = Query<'data, std::slice::Iter<'data, T>>;
 
     fn borrow(self, value: &'data Vec<T>) -> Self::Borrow {
