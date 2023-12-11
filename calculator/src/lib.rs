@@ -2,6 +2,70 @@ use serialization::ProductPriceFormula;
 
 pub mod serialization;
 
+pub trait Field {
+    type Borrow;
+
+    fn borrow(&self) -> Self::Borrow;
+}
+
+impl<'data, T> Field for Query<'data, &'data Vec<T>>
+where
+    T: 'data,
+{
+    type Borrow = Query<'data, std::slice::Iter<'data, T>>;
+
+    fn borrow(&self) -> Self::Borrow {
+        self.data.query(self.target.iter())
+    }
+}
+
+macro_rules! impl_field_ {
+    (@item) => {};
+    (@item query copy $T:ty; $($tail:tt)*) => {
+        impl<'data> Field for Query<'data, &'data $T> {
+            type Borrow = Query<'data, $T>;
+
+            fn borrow(&self) -> Self::Borrow {
+                self.data.query(*self.target)
+            }
+        }
+        impl_field_!(@item $($tail)*);
+    };
+    (@item copy $T:ty; $($tail:tt)*) => {
+        impl<'data> Field for Query<'data, &'data $T> {
+            type Borrow = $T;
+
+            fn borrow(&self) -> Self::Borrow {
+                *self.target
+            }
+        }
+        impl_field_!(@item $($tail)*);
+    };
+    (@item deref $T:ty; $($tail:tt)*) => {
+        impl<'data> Field for Query<'data, &'data $T> {
+            type Borrow = &'data <$T as std::ops::Deref>::Target;
+
+            fn borrow(&self) -> Self::Borrow {
+                self.target
+            }
+        }
+        impl_field_!(@item $($tail)*);
+    };
+}
+
+macro_rules! impl_field {
+    ($($body:tt)+) => {
+        impl_field_!(@item $($body)*);
+    };
+}
+
+impl_field! {
+    copy i64;
+    copy f64;
+    copy ProductPriceFormula;
+    deref String;
+}
+
 #[derive(Copy, Clone)]
 pub struct Query<'data, T> {
     data: &'data GameData,
@@ -15,13 +79,6 @@ impl<'data, T> Query<'data, T> {
 
     pub fn data(&self) -> &'data GameData {
         self.data
-    }
-
-    pub fn index(&self) -> T
-    where
-        T: Copy,
-    {
-        self.target
     }
 }
 
@@ -44,10 +101,22 @@ impl<'data, T> std::ops::Deref for Query<'data, T> {
     }
 }
 
+impl<'data, T, I> Iterator for Query<'data, I>
+where
+    T: 'data + Copy,
+    I: Iterator<Item = &'data T>,
+{
+    type Item = Query<'data, T>;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        self.target.next().map(|&item| self.data.query(item))
+    }
+}
+
 macro_rules! impl_soa {
     (@all_fields
         $T:ident {
-            $($f:ident: $t:ty as $r:ty = $m:expr,)*
+            $($f:ident: $t:ty,)*
         }
         index = $X:ident;
         vec = $V:ident;
@@ -76,24 +145,27 @@ macro_rules! impl_soa {
 
         impl<'data> Query<'data, $X> {
             $(
-                pub fn $f(&self) -> $r {
+                pub fn $f(&self) -> <Query<'data, &'data $t> as Field>::Borrow {
                     let data: &$D = self.data.as_ref();
-                    #[allow(clippy::redundant_closure_call)]
-                    ($m)(self.data, &data.$f[self.target])
+                    self.data.query(&data.$f[self.target]).borrow()
                 }
             )*
         }
     };
     (
         $T:ident {
-            $f0:ident: $t0:ty as $r0:ty = $m0:expr
-            $(, $f:ident: $t:ty as $r:ty = $m:expr)* $(,)?
+            $f0:ident: $t0:ty
+            $(, $f:ident: $t:ty)* $(,)?
         }
         index = $X:ident;
         vec = $V:ident;
         data = $D:ident;
     ) => {
         typed_index::impl_typed_index!(pub struct $X(index_types::IndexU32));
+
+        impl_field! {
+            query copy $X;
+        }
 
         pub type $V<T> = typed_index::TypedIndexVec<$X, T>;
 
@@ -114,7 +186,7 @@ macro_rules! impl_soa {
 
         impl_soa!(@all_fields
             $T {
-                $f0: $t0 as $r0 = $m0, $($f: $t as $r = $m,)*
+                $f0: $t0, $($f: $t,)*
             }
             index = $X;
             vec = $V;
@@ -125,9 +197,9 @@ macro_rules! impl_soa {
 
 impl_soa! {
     Product {
-        name: String as &str = |_, x| x,
-        product_category: ProductCategoryIndex as Query<'data, ProductCategoryIndex> = |d: &'data GameData, &i| d.query(i),
-        price_formula: ProductPriceFormula as ProductPriceFormula = |_, &x| x,
+        name: String,
+        product_category: ProductCategoryIndex,
+        price_formula: ProductPriceFormula,
     }
     index = ProductIndex;
     vec = ProductVec;
@@ -147,10 +219,10 @@ impl<'data> Query<'data, ProductIndex> {
 
 impl_soa! {
     Recipe {
-        name: String as &str = |_, v| v,
-        entries: Vec<RecipeEntry> as impl Iterator<Item = Query<'data, RecipeEntry>> = |d: &'data GameData, v: &'data Vec<RecipeEntry>| v.iter().map(|&v| d.query(v)),
-        days: i64 as i64 = |_, &v| v,
-        required_modules: Vec<ModuleIndex> as impl Iterator<Item = Query<'data, ModuleIndex>> = |d: &'data GameData, v: &'data Vec<ModuleIndex>| v.iter().map(|&v| d.query(v)),
+        name: String,
+        entries: Vec<RecipeEntry>,
+        days: i64,
+        required_modules: Vec<ModuleIndex>,
     }
     index = RecipeIndex;
     vec = RecipeVec;
@@ -211,9 +283,9 @@ impl<'data> Query<'data, RecipeEntry> {
 
 impl_soa! {
     Building {
-        name: String as &str = |_, v| v,
-        base_cost: i64 as i64 = |_, &v| v,
-        available_recipes: Vec<RecipeIndex> as impl Iterator<Item = Query<'data, RecipeIndex>> = |d: &'data GameData, v: &'data Vec<RecipeIndex>| v.iter().map(|&v| d.query(v)),
+        name: String,
+        base_cost: i64,
+        available_recipes: Vec<RecipeIndex>,
     }
     index = BuildingIndex;
     vec = BuildingVec;
@@ -237,8 +309,8 @@ impl<'data> Query<'data, BuildingIndex> {
 
 impl_soa!(
     Module {
-        name: String as &str = |_, x| x,
-        base_cost: i64 as i64 = |_, &x| x,
+        name: String,
+        base_cost: i64,
     }
     index = ModuleIndex;
     vec = ModuleVec;
@@ -247,9 +319,9 @@ impl_soa!(
 
 impl_soa! {
     ProductCategory {
-        name: String as &str = |_, x| x,
-        price_modifier: f64 as f64 = |_, &x| x,
-        growth_modifier: f64 as f64 = |_, &x| x,
+        name: String,
+        price_modifier: f64,
+        growth_modifier: f64,
     }
     index = ProductCategoryIndex;
     vec = ProductCategoryVec;

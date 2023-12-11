@@ -55,11 +55,11 @@ fn compute_product_prices(data: &GameData) -> ProductVec<f64> {
                 let price = product_values[input.product_index].unwrap();
                 Some(sum + price * -input.amount as f64)
             }) else {
-                todo_recipes.push(recipe.index());
+                todo_recipes.push(*recipe);
                 continue;
             };
 
-            let upkeep = recipe_upkeep[recipe.index()];
+            let upkeep = recipe_upkeep[*recipe];
 
             let recipe_output = recipe.outputs().map(|entry| entry.amount).sum::<i64>() as f64;
             let recipe_days = recipe.days() as f64;
@@ -98,7 +98,7 @@ fn compute_product_prices(data: &GameData) -> ProductVec<f64> {
 
     data.products()
         .map(|product| {
-            product_values[product.index()].unwrap() * product.product_category().price_modifier()
+            product_values[*product].unwrap() * product.product_category().price_modifier()
         })
         .collect()
 }
