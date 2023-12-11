@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serialization::ProductPriceFormula;
 
 pub mod serialization;
@@ -134,10 +136,6 @@ macro_rules! impl_soa {
                     $($f: $V::with_capacity(capacity),)*
                 }
             }
-
-            pub fn push(&mut self, value: $T) {
-                $(self.$f.push(value.$f);)*
-            }
         }
 
         impl<'data> Query<'data, $X> {
@@ -170,6 +168,13 @@ macro_rules! impl_soa {
             pub fn indices(&self) -> impl Iterator<Item = $X> + '_ {
                 (0..self.$f0.len()).map(|index| $X(index.into()))
             }
+
+            pub fn push(&mut self, value: $T) -> $X {
+                let index = self.$f0.len();
+                self.$f0.push(value.$f0);
+                $(self.$f.push(value.$f);)*
+                $X(index.into())
+            }
         }
 
         impl FromIterator<$T> for $D {
@@ -201,6 +206,19 @@ impl_soa! {
     index = ProductIndex;
     vec = ProductVec;
     data = ProductData;
+}
+
+impl Product {
+    fn from(
+        value: serialization::Product,
+        guid_to_product_category: &HashMap<String, ProductCategoryIndex>,
+    ) -> Self {
+        Self {
+            name: value.name,
+            product_category: guid_to_product_category[&value.category],
+            price_formula: value.price_formula,
+        }
+    }
 }
 
 impl<'data> Query<'data, ProductIndex> {
@@ -325,6 +343,16 @@ impl_soa! {
     data = ProductCategoryData;
 }
 
+impl From<serialization::ProductCategory> for ProductCategory {
+    fn from(value: serialization::ProductCategory) -> Self {
+        Self {
+            name: value.name,
+            price_modifier: value.price_modifier,
+            growth_modifier: value.growth_modifier,
+        }
+    }
+}
+
 macro_rules! impl_soa_group {
     ($T:ident { $($f:ident ($fp:ident): $t:ty[$X:ty]),* $(,)? }) => {
         pub struct $T {
@@ -364,41 +392,105 @@ impl GameData {
         let contents = std::fs::read_to_string(path)?;
         let data: crate::serialization::GameData = serde_json::from_str(&contents)?;
 
-        // let product_category = {
-        //     let mut values = data.product_categories.into_iter().map(|(guid, value)| {
-        //         (guid,
-        //             ProductCategory {
+        fn sort_split_guids<T, X>(
+            data: impl IntoIterator<Item = (String, T)>,
+            sort: impl Fn(&T, &T) -> std::cmp::Ordering,
+            x: impl Fn(usize) -> X,
+        ) -> (HashMap<String, X>, impl Iterator<Item = T>) {
+            let mut pairs = data
+                .into_iter()
+                .map(|(guid, value)| (Some(guid), value))
+                .collect::<Vec<_>>();
+            pairs.sort_unstable_by(|(_, a), (_, b)| sort(a, b));
+            let guid_to_index = pairs
+                .iter_mut()
+                .enumerate()
+                .map(|(index, (guid, _))| (guid.take().unwrap(), x(index)))
+                .collect::<HashMap<_, _>>();
+            (guid_to_index, pairs.into_iter().map(|(_, value)| value))
+        }
 
-        //             }
-        //         )
-        //     });
-        //     values.sort_unstable_by_key(|(_, value)| &value.name);
-        //     values.into_iter().fold(Default::default(), |(mut map, mut arr), (guid, value)| {
+        let (guid_to_product_category, product_categories) = sort_split_guids(
+            data.product_categories,
+            |a, b| a.name.cmp(&b.name),
+            |index| ProductCategoryIndex(index.into()),
+        );
 
-        //     })
-        // };
+        let (guid_to_product, products) = sort_split_guids(
+            data.products,
+            |a, b| a.name.cmp(&b.name),
+            |index| ProductIndex(index.into()),
+        );
 
-        // let product = {
-        //     let mut values = data.products.into_iter().map(|(guid, value)| {
-        //         (
-        //             guid,
-        //             Product {
-        //                 name: value.name,
-        //                 product_category: value.
-        //                 price_formula: todo!(),
-        //             },
-        //         )
-        //     }).collect::<Vec<_>>();
-        //     values.sort_unstable_by_key(|value| &value.1.name);
+        let (guid_to_module, modules) = sort_split_guids(
+            data.modules,
+            |a, b| a.name.cmp(&b.name),
+            |index| ModuleIndex(index.into()),
+        );
 
-        // }.collect();
+        let (guid_to_recipe, recipes) = sort_split_guids(
+            data.recipes,
+            |a, b| a.name.cmp(&b.name),
+            |index| RecipeIndex(index.into()),
+        );
+
+        let (_guid_to_building, buildings) = sort_split_guids(
+            data.buildings,
+            |a, b| a.name.cmp(&b.name),
+            |index| BuildingIndex(index.into()),
+        );
 
         Ok(Self {
-            product: Default::default(),
-            module: Default::default(),
-            recipe: Default::default(),
-            building: Default::default(),
-            product_category: Default::default(),
+            product: products
+                .map(|value| Product {
+                    name: value.name,
+                    product_category: guid_to_product_category[&value.category],
+                    price_formula: value.price_formula,
+                })
+                .collect(),
+            module: modules
+                .map(|value| Module {
+                    name: value.name,
+                    base_cost: value.base_cost,
+                })
+                .collect(),
+            recipe: recipes
+                .map(|value| Recipe {
+                    name: value.name,
+                    entries: value
+                        .entries
+                        .into_iter()
+                        .map(|value| RecipeEntry {
+                            product_index: guid_to_product[&value.product_id],
+                            amount: value.amount,
+                        })
+                        .collect(),
+                    days: value.days,
+                    required_modules: value
+                        .required_modules
+                        .into_iter()
+                        .map(|value| guid_to_module[&value])
+                        .collect(),
+                })
+                .collect(),
+            building: buildings
+                .map(|value| Building {
+                    name: value.name,
+                    base_cost: value.base_cost,
+                    available_recipes: value
+                        .available_recipes
+                        .into_iter()
+                        .map(|value| guid_to_recipe[&value])
+                        .collect(),
+                })
+                .collect(),
+            product_category: product_categories
+                .map(|value| ProductCategory {
+                    name: value.name,
+                    price_modifier: value.price_modifier,
+                    growth_modifier: value.growth_modifier,
+                })
+                .collect(),
         })
     }
 
