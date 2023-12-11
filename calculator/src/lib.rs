@@ -2,6 +2,216 @@ use std::collections::HashMap;
 
 use serialization::ProductPriceFormula;
 
+mod fields {
+/*
+
+entity Product
+    attribute ProductName: String
+    attribute ProductPrice: f64
+
+entity Recipe index RecipeIndex
+    Recipe attribute RecipeName: String
+    Recipe attribute RecipeEntries: Vec<RecipeEntry>
+
+trait Entity {
+    type Index
+}
+
+trait Attribute {
+    type Entity: Entity;
+    type Value;
+}
+
+arguments(Owned, Ref, Mut)
+
+group Data
+    Product
+    Recipe
+    ProductName
+    RecipeEntries
+
+
+*/
+    use std::ops::Index;
+
+    use typed_index_collections::TypedIndexVec;
+
+    pub trait Field {
+        type Index;
+        type Type;
+    }
+
+    pub trait FieldIndex<F>: Index<F, Output = FieldVec<F>>
+    where
+        F: Field,
+    {
+    }
+
+    impl<G, F> FieldIndex<F> for G
+    where
+        G: Index<F, Output = FieldVec<F>>,
+        F: Field,
+    {
+    }
+
+    pub type FieldVec<F> = TypedIndexVec<<F as Field>::Index, <F as Field>::Type>;
+
+    macro_rules! index {
+        ($X:ident) => {
+            typed_index_collections::impl_typed_index!(pub struct $X(index_types::IndexU32));
+        }
+    }
+
+    macro_rules! field {
+        ($F:ident[$X:ty]: $T:ty) => {
+            struct $F;
+
+            impl Field for $F {
+                type Index = $X;
+                type Type = $T;
+            }
+
+            impl Index<$F> for FieldVec<$F> {
+                type Output = Self;
+
+                fn index(&self, _: $F) -> &Self::Output {
+                    self
+                }
+            }
+        };
+    }
+
+    // macro_rules! group {
+    //     ($D:ident { $($f:ident: $F:ty),* $(,)? }) => {
+    //         struct $D {
+    //             $(
+    //                 $f: FieldVec<$F>,
+    //             )*
+    //         }
+
+    //         $(
+    //             impl Index<$F> for $D {
+    //                 type Output = FieldVec<$F>;
+
+    //                 fn index(&self, _: $F) -> &Self::Output {
+    //                     &self.$f
+    //                 }
+    //             }
+    //         )*
+    //     };
+    // }
+
+    macro_rules! group {
+        (@stop $D:ident
+            ($($f:tt: $F:ty,)*)
+        ) => {
+            struct $D (
+                $(
+                    FieldVec<$F>,
+                )*
+            );
+
+            $(
+                impl Index<$F> for $D {
+                    type Output = FieldVec<$F>;
+
+                    fn index(&self, _: $F) -> &Self::Output {
+                        &self.$f
+                    }
+                }
+            )*
+        };
+        (@zip $D:ident
+            ($($fields:tt)*)
+            ($($is:tt)*)
+            ()
+        ) => {
+            group!(@stop $D ($($fields)*));
+        };
+        (@zip $D:ident
+            ($($fields:tt)*)
+            ($i:tt, $($is:tt)*)
+            ($F:ty, $($Fs:tt)*)
+        ) => {
+            group!(@zip $D
+                ($($fields)* $i: $F,)
+                ($($is)*)
+                ($($Fs)*)
+            );
+        };
+        ($D:ident($($Fs:ty),* $(,)?)) => {
+            group!(@zip $D
+                ()
+                (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,)
+                ($($Fs,)*)
+            );
+        };
+    }
+
+    index!(ProductIndex);
+    field!(ProductName[ProductIndex]: String);
+
+    pub struct RecipeEntry {
+        pub product: ProductIndex,
+        pub amount: i64,
+    }
+
+    index!(RecipeIndex);
+    field!(RecipeName[RecipeIndex]: String);
+    field!(RecipeEntries[RecipeIndex]: Vec<RecipeEntry>);
+    field!(RecipePrice[RecipeIndex]: f64);
+
+    group!(Data (
+        ProductName,
+        RecipeName,
+        RecipeEntries,
+    ));
+
+    #[test]
+    fn test() {
+        fn recipe_prices(data: &(impl FieldIndex<RecipeEntries> + FieldIndex<ProductName>)) -> FieldVec<RecipePrice>
+        {
+            data[RecipeEntries]
+                .iter()
+                .map(|entries| {
+                    entries.len() as f64
+                        + entries
+                            .iter()
+                            .map(|entry| data[ProductName][entry.product].len())
+                            .sum::<usize>() as f64
+                })
+                .collect()
+        }
+
+        let data = Data(
+            vec!["Product 1".to_string(), "Product 2".to_string()]
+                .into_iter()
+                .collect(),
+            vec!["Recipe 1".to_string(), "Recipe 2".to_string()]
+                .into_iter()
+                .collect(),
+            vec![
+                vec![RecipeEntry {
+                    product: ProductIndex(0.into()),
+                    amount: 1,
+                }],
+                vec![],
+            ]
+            .into_iter()
+            .collect(),
+        );
+
+        assert_eq!(&data[ProductName][ProductIndex(0.into())], "Product 1");
+
+        group!(PriceInputData(ProductName, RecipeEntries));
+
+        recipe_prices(&data);
+
+        let data = PriceInputData(data.0, data.2);
+        recipe_prices(&data);
+    }
+}
+
 pub mod serialization;
 
 pub trait Field<T> {
@@ -206,19 +416,6 @@ impl_soa! {
     index = ProductIndex;
     vec = ProductVec;
     data = ProductData;
-}
-
-impl Product {
-    fn from(
-        value: serialization::Product,
-        guid_to_product_category: &HashMap<String, ProductCategoryIndex>,
-    ) -> Self {
-        Self {
-            name: value.name,
-            product_category: guid_to_product_category[&value.category],
-            price_formula: value.price_formula,
-        }
-    }
 }
 
 impl<'data> Query<'data, ProductIndex> {
