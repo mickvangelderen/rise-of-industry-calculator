@@ -2,51 +2,40 @@ use serialization::ProductPriceFormula;
 
 pub mod serialization;
 
-pub trait Field {
+pub trait Field<T> {
     type Borrow;
 
-    fn borrow(&self) -> Self::Borrow;
-}
-
-impl<'data, T> Field for Query<'data, &'data Vec<T>>
-where
-    T: 'data,
-{
-    type Borrow = Query<'data, std::slice::Iter<'data, T>>;
-
-    fn borrow(&self) -> Self::Borrow {
-        self.data.query(self.target.iter())
-    }
+    fn borrow(self, value: T) -> Self::Borrow;
 }
 
 macro_rules! impl_field_ {
     (@item) => {};
     (@item query copy $T:ty; $($tail:tt)*) => {
-        impl<'data> Field for Query<'data, &'data $T> {
+        impl<'data> Field<&'data $T> for &'data GameData {
             type Borrow = Query<'data, $T>;
-
-            fn borrow(&self) -> Self::Borrow {
-                self.data.query(*self.target)
+        
+            fn borrow(self, value: &'data $T) -> Self::Borrow {
+                self.query(*value)
             }
         }
         impl_field_!(@item $($tail)*);
     };
     (@item copy $T:ty; $($tail:tt)*) => {
-        impl<'data> Field for Query<'data, &'data $T> {
+        impl<'data> Field<&'data $T> for &'data GameData {
             type Borrow = $T;
-
-            fn borrow(&self) -> Self::Borrow {
-                *self.target
+        
+            fn borrow(self, value: &'data $T) -> Self::Borrow {
+                *value
             }
         }
         impl_field_!(@item $($tail)*);
     };
     (@item deref $T:ty; $($tail:tt)*) => {
-        impl<'data> Field for Query<'data, &'data $T> {
+        impl<'data> Field<&'data $T> for &'data GameData {
             type Borrow = &'data <$T as std::ops::Deref>::Target;
-
-            fn borrow(&self) -> Self::Borrow {
-                self.target
+        
+            fn borrow(self, value: &'data $T) -> Self::Borrow {
+                value
             }
         }
         impl_field_!(@item $($tail)*);
@@ -57,6 +46,15 @@ macro_rules! impl_field {
     ($($body:tt)+) => {
         impl_field_!(@item $($body)*);
     };
+}
+
+impl<'data, T> Field<&'data Vec<T>> for &'data GameData
+{
+    type Borrow = Query<'data, std::slice::Iter<'data, T>>;
+
+    fn borrow(self, value: &'data Vec<T>) -> Self::Borrow {
+        self.query(value.iter())
+    }
 }
 
 impl_field! {
@@ -145,9 +143,9 @@ macro_rules! impl_soa {
 
         impl<'data> Query<'data, $X> {
             $(
-                pub fn $f(&self) -> <Query<'data, &'data $t> as Field>::Borrow {
+                pub fn $f(&self) -> <&'data GameData as Field<&'data $t>>::Borrow {
                     let data: &$D = self.data.as_ref();
-                    self.data.query(&data.$f[self.target]).borrow()
+                    self.data.borrow(&data.$f[self.target])
                 }
             )*
         }
@@ -161,13 +159,13 @@ macro_rules! impl_soa {
         vec = $V:ident;
         data = $D:ident;
     ) => {
-        typed_index::impl_typed_index!(pub struct $X(index_types::IndexU32));
+        typed_index_collections::impl_typed_index!(pub struct $X(index_types::IndexU32));
 
         impl_field! {
             query copy $X;
         }
 
-        pub type $V<T> = typed_index::TypedIndexVec<$X, T>;
+        pub type $V<T> = typed_index_collections::TypedIndexVec<$X, T>;
 
         impl $D {
             pub fn indices(&self) -> impl Iterator<Item = $X> + '_ {
