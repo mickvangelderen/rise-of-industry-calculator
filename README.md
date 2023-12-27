@@ -48,159 +48,171 @@ initial costs:             2100k
 return on investment:      7.97%
 ```
 
-
 ## Return on Investment Overview
+
+Some assumptions have to be made, for example:
+
+- which recipe to use for what product, particularly water and coal,
+- how to transport products from one place to another,
+- how many modules to use.
+
+In this simulation we distinguish between local transport and sales transport. Local transport is
+for intermediary goods between production buildings and is set to 20 tiles on average. Sales
+transport for goods that are sold and the distance is set to 150 tiles. This explains why raw
+resources have a low return on investment in the overview below.
 
 For builds and other details see [output.md](./output.md).
 
-|    0 |  -2.03% | Raw Resources        | Water                | 
-|    0 |  -1.84% | Raw Resources        | Sand                 | 
-|    0 |  -1.84% | Raw Resources        | Wood                 | 
-|    0 |  -0.98% | Raw Resources        | Fish                 | 
-|    0 |   2.60% | Raw Resources        | Coal                 | 
-|    0 |   2.60% | Raw Resources        | Copper               | 
-|    0 |   2.60% | Raw Resources        | Iron Ore             | 
-|    0 |   2.87% | Prototypes           | Premade Dinner       | 
-|    0 |   2.90% | Prototypes           | First Computer       | 
-|    0 |   2.90% | Prototypes           | Car Prototype        | 
-|    0 |   2.92% | Farm Produce         | Apples               | 
-|    0 |   2.92% | Farm Produce         | Grapes               | 
-|    0 |   2.92% | Farm Produce         | Olives               | 
-|    0 |   2.92% | Farm Produce         | Oranges              | 
-|    0 |   2.92% | Farm Produce         | Raw Rubber           | 
-|    0 |   2.97% | Raw Resources        | Gas                  | 
-|    0 |   2.97% | Raw Resources        | Oil                  | 
-|    0 |   3.10% | Farm Produce         | Hops                 | 
-|    0 |   3.10% | Farm Produce         | Potato               | 
-|    0 |   3.10% | Farm Produce         | Vegetables           | 
-|    0 |   3.10% | Farm Produce         | Wheat                | 
-|    0 |   3.46% | Farm Produce         | Berries              | 
-|    0 |   3.46% | Farm Produce         | Cocoa                | 
-|    0 |   3.46% | Farm Produce         | Cotton               | 
-|    0 |   3.46% | Farm Produce         | Sugar                | 
-|    1 |  -1.21% | Livestock            | Chicken Meat         | 
-|    1 |  -1.19% | Livestock            | Eggs                 | 
-|    1 |  -0.88% | Livestock            | Wool                 | 
-|    1 |  -0.84% | Livestock            | Mutton               | 
-|    1 |   1.46% | Livestock            | Beef                 | 
-|    1 |   1.46% | Livestock            | Leather              | 
-|    1 |   1.46% | Livestock            | Milk                 | 
-|    1 |   4.13% | Tier1                | Apple Smoothie       | 
-|    1 |   4.13% | Tier1                | Grape Juice          | 
-|    1 |   4.13% | Tier1                | Orange Juice         | 
-|    1 |   4.18% | Tier1                | Berry Smoothie       | 
-|    1 |   4.18% | Tier1                | Soda Water           | 
-|    1 |   4.22% | Tier1                | Ink                  | 
-|    1 |   4.30% | Tier1                | Hard Cider           | 
-|    1 |   4.30% | Tier1                | Olive Oil            | 
-|    1 |   4.31% | Tier1                | Bricks               | 
-|    1 |   4.37% | Tier1                | Wine                 | 
-|    1 |   4.43% | Tier1                | Flour                | 
-|    1 |   4.62% | Tier1                | Soup                 | 
-|    1 |   4.72% | Tier1                | Stuffing             | 
-|    1 |   5.12% | Tier1                | Glass                | 
-|    1 |   6.00% | Tier1                | Wooden Planks        | 
-|    1 |   6.07% | Tier1                | Concrete             | 
-|    1 |   6.35% | Tier1                | Copper Tubing        | 
-|    1 |   6.35% | Tier1                | Copper Wire          | 
-|    1 |   6.38% | Tier1                | Dye                  | 
-|    1 |   6.48% | Tier1                | Heavy Pulp           | 
-|    1 |   6.48% | Tier1                | Paper Roll           | 
-|    1 |   6.50% | Tier1                | Chemicals            | 
-|    1 |   6.50% | Tier1                | Refined Oil          | 
-|    1 |   6.52% | Tier1                | Yeast                | 
-|    1 |   6.64% | Tier1                | Fibers               | 
-|    1 |   6.93% | Tier1                | Rubber               | 
-|    1 |   7.41% | Tier1                | Wooden Train         | 
-|    1 |   7.43% | Tier1                | Plastic              | 
-|    1 |   7.53% | Tier1                | Toy Furniture        | 
-|    1 |   7.60% | Tier1                | Steel                | 
-|    2 |   1.00% | Tier2                | Chicken Soup         | 
-|    2 |   2.05% | Components           | Fried Chicken        | 
-|    2 |   2.75% | Tier2                | Beef Stew            | 
-|    2 |   2.82% | Tier2                | Cheese               | 
-|    2 |   2.89% | Tier2                | Chocolate Bar        | 
-|    2 |   3.04% | Tier2                | Teddy Bear           | 
-|    2 |   3.39% | Tier2                | Chocolate Cake       | 
-|    2 |   3.48% | Components           | Cooked Vegetables    | 
-|    2 |   3.83% | Components           | Exterior Body        | 
-|    2 |   3.91% | Components           | Interior Body        | 
-|    2 |   3.93% | Components           | Binary Switcher      | 
-|    2 |   3.94% | Components           | Combustion Engine    | 
-|    2 |   4.33% | Tier2                | Heavy Fabric         | 
-|    2 |   4.38% | Tier2                | Dough                | 
-|    2 |   4.39% | Components           | Axles                | 
-|    2 |   4.42% | Tier2                | Ceramics             | 
-|    2 |   4.95% | Tier2                | Light Bulbs          | 
-|    2 |   4.95% | Tier2                | Diodes               | 
-|    2 |   5.04% | Tier2                | Bottles              | 
-|    2 |   5.04% | Tier2                | Glass Tubes          | 
-|    2 |   5.06% | Tier2                | Furniture Base (L)   | 
-|    2 |   5.06% | Tier2                | Furniture Base (S)   | 
-|    2 |   5.06% | Tier2                | Wooden Barrels       | 
-|    2 |   5.31% | Tier2                | Wall Panels          | 
-|    2 |   5.32% | Tier2                | Biofuel              | 
-|    2 |   5.41% | Tier2                | Printed Paper        | 
-|    2 |   5.47% | Tier2                | Radiator             | 
-|    2 |   5.56% | Tier2                | Capacitors           | 
-|    2 |   5.70% | Tier2                | Refrigerator         | 
-|    2 |   5.76% | Tier2                | Bag Of Chips         | 
-|    2 |   5.76% | Tier2                | Marbles              | 
-|    2 |   5.79% | Tier2                | Cardboard            | 
-|    2 |   5.91% | Tier2                | Doll                 | 
-|    2 |   5.96% | Tier2                | Stovetop             | 
-|    2 |   6.02% | Tier2                | Steel Barrel         | 
-|    2 |   6.08% | Tier2                | Light Fabric         | 
-|    2 |   6.26% | Tier2                | Toy Train Set        | 
-|    2 |   6.26% | Tier2                | Punch Cards          | 
-|    2 |   6.32% | Tier2                | Buttons              | 
-|    2 |   6.52% | Tier2                | Rubber Tubes         | 
-|    2 |   6.52% | Tier2                | Tire                 | 
-|    2 |   6.64% | Tier2                | Plastic Cutlery      | 
-|    2 |   6.75% | Tier2                | Paint                | 
-|    2 |   6.82% | Tier2                | Cans                 | 
-|    2 |   6.82% | Tier2                | Steel Frame          | 
-|    2 |   7.11% | Tier2                | Adhesive             | 
-|    3 |   3.16% | Components           | Chicken Dinner       | 
-|    3 |   3.50% | Tier3                | Winter Clothes       | 
-|    3 |   3.66% | Tier3                | Pizza                | 
-|    3 |   3.84% | Tier3                | Burgers              | 
-|    3 |   3.88% | Tier3                | Work Clothes         | 
-|    3 |   3.93% | Components           | Body Chassis         | 
-|    3 |   3.95% | Components           | Computer Memory      | 
-|    3 |   3.96% | Components           | Processor            | 
-|    3 |   4.01% | Tier3                | Leather Furniture    | 
-|    3 |   4.03% | Tier3                | Canned Mutton        | 
-|    3 |   4.06% | Components           | Rolling Chassis      | 
-|    3 |   4.15% | Tier3                | Orange Soda          | 
-|    3 |   4.16% | Components           | Interface            | 
-|    3 |   4.23% | Tier3                | Oven                 | 
-|    3 |   4.25% | Tier3                | Waffles              | 
-|    3 |   4.25% | Tier3                | Headlights           | 
-|    3 |   4.26% | Components           | Dinner Container     | 
-|    3 |   4.30% | Tier3                | Newspapers           | 
-|    3 |   4.33% | Tier3                | Berry Pie            | 
-|    3 |   4.34% | Tier3                | Couch                | 
-|    3 |   4.38% | Tier3                | Interior Lining      | 
-|    3 |   4.40% | Tier3                | Hard Cider Donuts    | 
-|    3 |   4.47% | Tier3                | Radio Receiver       | 
-|    3 |   4.57% | Tier3                | Brandy               | 
-|    3 |   4.62% | Tier3                | Deluxe Books         | 
-|    3 |   4.71% | Tier3                | Quilt                | 
-|    3 |   4.87% | Tier3                | Fish and Chips       | 
-|    3 |   4.92% | Tier3                | Telephone            | 
-|    3 |   4.92% | Tier3                | Car Seat             | 
-|    3 |   4.97% | Tier3                | Canned Fish          | 
-|    3 |   5.12% | Tier3                | Engine Block         | 
-|    3 |   5.18% | Tier3                | Beer                 | 
-|    3 |   5.18% | Tier3                | Grain Whiskey        | 
-|    3 |   5.18% | Tier3                | Vodka                | 
-|    3 |   5.23% | Tier3                | Plastic Furniture    | 
-|    3 |   5.24% | Tier3                | Office Furniture     | 
-|    3 |   5.29% | Tier3                | Books                | 
-|    3 |   5.35% | Tier3                | Napkins              | 
-|    3 |   5.37% | Tier3                | Reinforced Wall      | 
-|    3 |   5.42% | Tier3                | Summer Clothes       | 
-|    3 |   5.44% | Tier3                | Dollhouse            | 
-|    3 |   5.50% | Tier3                | Thin Cardboard       | 
-|    3 |   5.59% | Tier3                | Easter Eggs          | 
+| tier | category             |     RoI | product              |
+|-----:|--------:|----------------------|----------------------|
+|    0 | Farm Produce         |   3.35% | Apples               | 
+|    0 | Farm Produce         |   3.35% | Grapes               | 
+|    0 | Farm Produce         |   3.35% | Olives               | 
+|    0 | Farm Produce         |   3.35% | Oranges              | 
+|    0 | Farm Produce         |   3.35% | Raw Rubber           | 
+|    0 | Farm Produce         |   3.60% | Hops                 | 
+|    0 | Farm Produce         |   3.60% | Potato               | 
+|    0 | Farm Produce         |   3.60% | Vegetables           | 
+|    0 | Farm Produce         |   3.60% | Wheat                | 
+|    0 | Farm Produce         |   3.85% | Berries              | 
+|    0 | Farm Produce         |   3.85% | Cocoa                | 
+|    0 | Farm Produce         |   3.85% | Cotton               | 
+|    0 | Farm Produce         |   3.85% | Sugar                | 
+|    0 | Prototypes           |   2.88% | Premade Dinner       | 
+|    0 | Prototypes           |   2.90% | First Computer       | 
+|    0 | Prototypes           |   2.90% | Car Prototype        | 
+|    0 | Raw Resources        |  -1.37% | Water                | 
+|    0 | Raw Resources        |  -0.98% | Sand                 | 
+|    0 | Raw Resources        |  -0.98% | Wood                 | 
+|    0 | Raw Resources        |  -0.31% | Fish                 | 
+|    0 | Raw Resources        |   3.00% | Coal                 | 
+|    0 | Raw Resources        |   3.00% | Copper               | 
+|    0 | Raw Resources        |   3.00% | Iron Ore             | 
+|    0 | Raw Resources        |   3.29% | Gas                  | 
+|    0 | Raw Resources        |   3.29% | Oil                  | 
+|    1 | Livestock            |  -0.83% | Eggs                 | 
+|    1 | Livestock            |  -0.82% | Chicken Meat         | 
+|    1 | Livestock            |  -0.52% | Wool                 | 
+|    1 | Livestock            |  -0.45% | Mutton               | 
+|    1 | Livestock            |   1.85% | Beef                 | 
+|    1 | Livestock            |   1.85% | Leather              | 
+|    1 | Livestock            |   1.85% | Milk                 | 
+|    1 | Tier1                |   4.27% | Apple Smoothie       | 
+|    1 | Tier1                |   4.27% | Grape Juice          | 
+|    1 | Tier1                |   4.27% | Orange Juice         | 
+|    1 | Tier1                |   4.32% | Berry Smoothie       | 
+|    1 | Tier1                |   4.32% | Soda Water           | 
+|    1 | Tier1                |   4.34% | Ink                  | 
+|    1 | Tier1                |   4.43% | Hard Cider           | 
+|    1 | Tier1                |   4.45% | Olive Oil            | 
+|    1 | Tier1                |   4.50% | Wine                 | 
+|    1 | Tier1                |   4.52% | Bricks               | 
+|    1 | Tier1                |   4.58% | Flour                | 
+|    1 | Tier1                |   4.83% | Soup                 | 
+|    1 | Tier1                |   4.93% | Stuffing             | 
+|    1 | Tier1                |   5.30% | Glass                | 
+|    1 | Tier1                |   6.23% | Wooden Planks        | 
+|    1 | Tier1                |   6.26% | Concrete             | 
+|    1 | Tier1                |   6.54% | Copper Tubing        | 
+|    1 | Tier1                |   6.54% | Copper Wire          | 
+|    1 | Tier1                |   6.57% | Dye                  | 
+|    1 | Tier1                |   6.64% | Chemicals            | 
+|    1 | Tier1                |   6.64% | Refined Oil          | 
+|    1 | Tier1                |   6.67% | Heavy Pulp           | 
+|    1 | Tier1                |   6.67% | Paper Roll           | 
+|    1 | Tier1                |   6.72% | Yeast                | 
+|    1 | Tier1                |   6.84% | Fibers               | 
+|    1 | Tier1                |   7.13% | Rubber               | 
+|    1 | Tier1                |   7.57% | Plastic              | 
+|    1 | Tier1                |   7.65% | Wooden Train         | 
+|    1 | Tier1                |   7.75% | Steel                | 
+|    1 | Tier1                |   7.80% | Toy Furniture        | 
+|    2 | Components           |   2.15% | Fried Chicken        | 
+|    2 | Components           |   3.52% | Cooked Vegetables    | 
+|    2 | Components           |   3.85% | Exterior Body        | 
+|    2 | Components           |   3.93% | Interior Body        | 
+|    2 | Components           |   3.96% | Combustion Engine    | 
+|    2 | Components           |   3.96% | Binary Switcher      | 
+|    2 | Components           |   4.40% | Axles                | 
+|    2 | Tier2                |   1.23% | Chicken Soup         | 
+|    2 | Tier2                |   2.98% | Beef Stew            | 
+|    2 | Tier2                |   3.05% | Cheese               | 
+|    2 | Tier2                |   3.09% | Chocolate Bar        | 
+|    2 | Tier2                |   3.16% | Teddy Bear           | 
+|    2 | Tier2                |   3.48% | Chocolate Cake       | 
+|    2 | Tier2                |   4.48% | Dough                | 
+|    2 | Tier2                |   4.50% | Heavy Fabric         | 
+|    2 | Tier2                |   4.52% | Ceramics             | 
+|    2 | Tier2                |   5.04% | Light Bulbs          | 
+|    2 | Tier2                |   5.04% | Diodes               | 
+|    2 | Tier2                |   5.14% | Bottles              | 
+|    2 | Tier2                |   5.14% | Glass Tubes          | 
+|    2 | Tier2                |   5.18% | Furniture Base (L)   | 
+|    2 | Tier2                |   5.18% | Furniture Base (S)   | 
+|    2 | Tier2                |   5.18% | Wooden Barrels       | 
+|    2 | Tier2                |   5.38% | Wall Panels          | 
+|    2 | Tier2                |   5.42% | Biofuel              | 
+|    2 | Tier2                |   5.48% | Printed Paper        | 
+|    2 | Tier2                |   5.56% | Radiator             | 
+|    2 | Tier2                |   5.62% | Capacitors           | 
+|    2 | Tier2                |   5.78% | Refrigerator         | 
+|    2 | Tier2                |   5.85% | Marbles              | 
+|    2 | Tier2                |   5.85% | Bag Of Chips         | 
+|    2 | Tier2                |   5.90% | Cardboard            | 
+|    2 | Tier2                |   6.00% | Doll                 | 
+|    2 | Tier2                |   6.04% | Stovetop             | 
+|    2 | Tier2                |   6.11% | Steel Barrel         | 
+|    2 | Tier2                |   6.18% | Light Fabric         | 
+|    2 | Tier2                |   6.30% | Punch Cards          | 
+|    2 | Tier2                |   6.35% | Toy Train Set        | 
+|    2 | Tier2                |   6.40% | Buttons              | 
+|    2 | Tier2                |   6.64% | Rubber Tubes         | 
+|    2 | Tier2                |   6.64% | Tire                 | 
+|    2 | Tier2                |   6.72% | Plastic Cutlery      | 
+|    2 | Tier2                |   6.83% | Paint                | 
+|    2 | Tier2                |   6.91% | Cans                 | 
+|    2 | Tier2                |   6.91% | Steel Frame          | 
+|    2 | Tier2                |   7.18% | Adhesive             | 
+|    3 | Components           |   3.20% | Chicken Dinner       | 
+|    3 | Components           |   3.94% | Body Chassis         | 
+|    3 | Components           |   3.97% | Computer Memory      | 
+|    3 | Components           |   3.97% | Processor            | 
+|    3 | Components           |   4.06% | Rolling Chassis      | 
+|    3 | Components           |   4.17% | Interface            | 
+|    3 | Components           |   4.28% | Dinner Container     | 
+|    3 | Tier3                |   3.64% | Winter Clothes       | 
+|    3 | Tier3                |   3.80% | Pizza                | 
+|    3 | Tier3                |   3.94% | Burgers              | 
+|    3 | Tier3                |   4.06% | Work Clothes         | 
+|    3 | Tier3                |   4.16% | Leather Furniture    | 
+|    3 | Tier3                |   4.19% | Canned Mutton        | 
+|    3 | Tier3                |   4.20% | Orange Soda          | 
+|    3 | Tier3                |   4.28% | Oven                 | 
+|    3 | Tier3                |   4.29% | Waffles              | 
+|    3 | Tier3                |   4.31% | Headlights           | 
+|    3 | Tier3                |   4.35% | Newspapers           | 
+|    3 | Tier3                |   4.38% | Berry Pie            | 
+|    3 | Tier3                |   4.42% | Couch                | 
+|    3 | Tier3                |   4.44% | Hard Cider Donuts    | 
+|    3 | Tier3                |   4.48% | Interior Lining      | 
+|    3 | Tier3                |   4.51% | Radio Receiver       | 
+|    3 | Tier3                |   4.62% | Brandy               | 
+|    3 | Tier3                |   4.71% | Deluxe Books         | 
+|    3 | Tier3                |   4.78% | Quilt                | 
+|    3 | Tier3                |   4.93% | Fish and Chips       | 
+|    3 | Tier3                |   4.96% | Telephone            | 
+|    3 | Tier3                |   5.00% | Car Seat             | 
+|    3 | Tier3                |   5.03% | Canned Fish          | 
+|    3 | Tier3                |   5.17% | Engine Block         | 
+|    3 | Tier3                |   5.25% | Beer                 | 
+|    3 | Tier3                |   5.25% | Grain Whiskey        | 
+|    3 | Tier3                |   5.25% | Vodka                | 
+|    3 | Tier3                |   5.28% | Plastic Furniture    | 
+|    3 | Tier3                |   5.30% | Office Furniture     | 
+|    3 | Tier3                |   5.35% | Books                | 
+|    3 | Tier3                |   5.42% | Napkins              | 
+|    3 | Tier3                |   5.44% | Reinforced Wall      | 
+|    3 | Tier3                |   5.47% | Summer Clothes       | 
+|    3 | Tier3                |   5.52% | Dollhouse            | 
+|    3 | Tier3                |   5.54% | Thin Cardboard       | 
+|    3 | Tier3                |   5.64% | Easter Eggs          | 
