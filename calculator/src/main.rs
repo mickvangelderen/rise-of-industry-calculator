@@ -3,137 +3,12 @@
 use std::{collections::HashMap, rc::Rc};
 
 use rise_of_industry_calculator::{
-    serialization::ProductPriceFormula, BuildingIndex, GameData, ModuleIndex, ProductIndex,
-    ProductVec, Query, RecipeIndex, RecipeVec,
+    serialization::ProductPriceFormula, BuildingEfficiency, BuildingIndex, GameData, ModuleIndex,
+    ProductIndex, ProductVec, Query, RecipeIndex, RecipeVec, TransportKind, BASE_COST_TO_UPKEEP,
 };
 
-// Assets\Scripts\Assembly-CSharp\ProjectAutomata\Upkeep.cs
-// This variable is called `buildingCostPercentage` and comes from the prefab files.
-// While it varies for some logistic buildings, it's the same for everything else so I'll just hard code it.
-/// The ratio of upkeep to base cost.
-const BASE_COST_TO_UPKEEP: f64 = 0.025;
-
-fn get_upkeep_price_component(recipe: Query<'_, RecipeIndex>) -> f64 {
-    let processor = recipe
-        .data()
-        .buildings()
-        .filter(|building| building.available_recipes().any(|x| x == recipe))
-        .exactly_one()
-        .unwrap();
-    let upkeep = processor.base_cost() as f64 * BASE_COST_TO_UPKEEP;
-    let module = recipe.required_module();
-    let module_upkeep = module
-        .map(|module| module.base_cost() as f64 * BASE_COST_TO_UPKEEP)
-        .unwrap_or(0.0);
-    upkeep + module_upkeep * 3.0
-}
-
-fn compute_product_prices(data: &GameData) -> ProductVec<f64> {
-    // Counts how many recipes still need to be evaluated for a product.
-    let mut product_recipe_counts: ProductVec<usize> = data
-        .products()
-        .map(|product| product.producing_recipes().count())
-        .collect();
-    let mut product_values: ProductVec<Option<f64>> = data.products().map(|_| None).collect();
-
-    let mut recipe_upkeep: RecipeVec<f64> = data
-        .recipes()
-        .map(|recipe| get_upkeep_price_component(recipe))
-        .collect();
-
-    let mut todo_recipes: Vec<RecipeIndex> = data.recipe.indices().collect();
-    let mut temp_recipes = vec![];
-    while !todo_recipes.is_empty() {
-        std::mem::swap(&mut todo_recipes, &mut temp_recipes);
-        for recipe in temp_recipes.drain(..) {
-            let recipe = data.query(recipe);
-
-            let Some(ingredients_value) = recipe.inputs().try_fold(0.0, |sum, input| {
-                if product_recipe_counts[input.product_index] > 0 {
-                    return None;
-                }
-                let price = product_values[input.product_index].unwrap();
-                Some(sum + price * -input.amount as f64)
-            }) else {
-                todo_recipes.push(*recipe);
-                continue;
-            };
-
-            let upkeep = recipe_upkeep[*recipe];
-
-            let recipe_output = recipe.outputs().map(|entry| entry.amount).sum::<i64>() as f64;
-            let recipe_days = recipe.days() as f64;
-
-            for entry in recipe.outputs() {
-                let value = match entry.product().price_formula() {
-                    ProductPriceFormula::Factories => {
-                        (ingredients_value + ((upkeep / 30.0) * recipe_days)) / recipe_output
-                    }
-                    ProductPriceFormula::FarmProduce => ingredients_value * 2.8,
-                    ProductPriceFormula::Farms => {
-                        ((ingredients_value * 3.0) + ((upkeep / 30.0) * recipe_days))
-                            / (recipe_output * 3.0)
-                    }
-                    ProductPriceFormula::Gatherers => {
-                        upkeep / ((3.0 * recipe_output) * (30.0 / recipe_days))
-                    }
-                    ProductPriceFormula::Livestock => {
-                        ((((ingredients_value * 3.0) + ((upkeep / 30.0) * recipe_days))
-                            / (recipe_output * 3.0))
-                            * (recipe_output - entry.amount as f64))
-                            / recipe_output
-                    }
-                    ProductPriceFormula::RawResources => 75.0 * recipe_days * 3.25,
-                };
-
-                product_recipe_counts[entry.product_index] -= 1;
-                product_values[entry.product_index] =
-                    Some(match product_values[entry.product_index] {
-                        Some(existing) => f64::min(existing, value),
-                        None => value,
-                    });
-            }
-        }
-    }
-
-    data.products()
-        .map(|product| {
-            product_values[*product].unwrap() * product.product_category().price_modifier()
-        })
-        .collect()
-}
-
-// Assets\Scripts\Assembly-CSharp\ProjectAutomata\BuildingEfficiency.cs
-#[derive(Default)]
-pub enum BuildingEfficiency {
-    P025,
-    P050,
-    P075,
-    #[default]
-    P100,
-    P125,
-    P150,
-    P200,
-}
-
-impl BuildingEfficiency {
-    pub fn production(&self) -> f64 {
-        match self {
-            BuildingEfficiency::P025 => 0.25,
-            BuildingEfficiency::P050 => 0.50,
-            BuildingEfficiency::P075 => 0.75,
-            BuildingEfficiency::P100 => 1.00,
-            BuildingEfficiency::P125 => 1.25,
-            BuildingEfficiency::P150 => 1.50,
-            BuildingEfficiency::P200 => 2.00,
-        }
-    }
-
-    // See Assets\Scripts\Assembly-CSharp\ProjectAutomata\ContentCreationModels\CCCBuildingEfficiencyModel.cs.
-    pub fn upkeep(&self) -> f64 {
-        self.production()
-    }
-}
+pub(crate) mod iter_ext;
+use iter_ext::ExactlyOne;
 
 pub struct BuildingInstance {
     pub id: BuildingIndex,
@@ -171,33 +46,11 @@ impl BuildingInstance {
     }
 }
 
-pub struct TransportKind {
-    pub name: String,
-    pub base_price: i64,
-    pub tile_price: i64,
-}
-
 pub struct Transport {
     pub kind: Rc<TransportKind>,
     pub description: String,
     pub tiles: i64,
     pub amount_per_day: f64,
-}
-
-trait ExactlyOne: Iterator + Sized {
-    fn exactly_one(self) -> Option<Self::Item>;
-}
-
-impl<T> ExactlyOne for T
-where
-    T: Iterator,
-{
-    fn exactly_one(mut self) -> Option<Self::Item> {
-        match (self.next(), self.next()) {
-            (Some(first), None) => Some(first),
-            _ => None,
-        }
-    }
 }
 
 struct Context<'data> {
@@ -330,7 +183,7 @@ fn main() {
         BuildingInstance {
             id: *farm,
             recipe_index: *cotton_recipe,
-            modules: Some((5, *cotton_field)),
+            modules: Some((4, *cotton_field)),
             efficiency: Default::default(),
         },
     );
@@ -352,17 +205,17 @@ fn main() {
         BuildingInstance {
             id: *farm,
             recipe_index: *berry_recipe,
-            modules: Some((5, *berry_field)),
+            modules: Some((2, *berry_field)),
             efficiency: Default::default(),
         },
     );
 
     let water_siphons = (
-        2,
+        1,
         BuildingInstance {
             id: *water_siphon,
             recipe_index: *water_siphon_water_recipe,
-            modules: Some((3, *water_siphon_water_recipe.required_module().unwrap())),
+            modules: Some((4, *water_siphon_water_recipe.required_module().unwrap())),
             efficiency: Default::default(),
         },
     );
@@ -377,7 +230,7 @@ fn main() {
         Transport {
             kind: Rc::clone(&truck),
             description: "Local Transport".to_string(),
-            tiles: 15,
+            tiles: 20,
             amount_per_day: water_siphons.0 as f64
                 * water_siphons.1.production_per_day_of(data, *water).unwrap()
                 + berry_farms.0 as f64
@@ -419,58 +272,133 @@ fn main() {
         water_siphons,
     ];
 
-    // let water_harvesters = (
-    //     1i64,
-    //     BuildingInstance {
-    //         id: water_siphon.id,
-    //         recipe_index: water_siphon_water_recipe.id,
-    //         modules: Some((5, data.recipe_module(water_siphon_water_recipe).id)),
-    //         efficiency: Default::default(),
-    //     },
-    // );
-
-    // let cocoa_plantations: (i64, BuildingInstance) = (
-    //     2i64,
-    //     BuildingInstance {
-    //         id: plantation.id,
-    //         recipe_index: cocoa_recipe.id,
-    //         modules: Some((5, cocoa_field.id)),
-    //         efficiency: Default::default(),
-    //     },
-    // );
-
-    // let building_groups = vec![water_harvesters, cocoa_plantations];
-
-    // let truck = Rc::new(TransportKind {
-    //     name: "Truck".to_string(),
-    //     base_price: 250,
-    //     tile_price: 10,
-    // });
-
-    // let transports = vec![
-    //     Transport {
-    //         kind: Rc::clone(&truck),
-    //         description: "Water to Cocoa Plantations".to_string(),
-    //         tiles: 10,
-    //         amount_per_day: water_harvesters.0 as f64
-    //             * water_harvesters
-    //                 .1
-    //                 .production_per_day_of(data, water.id)
-    //                 .unwrap(),
-    //     },
-    //     Transport {
-    //         kind: Rc::clone(&truck),
-    //         description: "Cocoa Plantations to Farmers Market".to_string(),
-    //         tiles: 100,
-    //         amount_per_day: cocoa_plantations.0 as f64
-    //             * cocoa_plantations
-    //                 .1
-    //                 .production_per_day_of(data, cocoa.id)
-    //                 .unwrap(),
-    //     },
-    // ];
-
     simulate(data, &context, building_groups, transports);
+
+    let (building_groups, transports) = auto_build(data, truck, *napkins, 4.0);
+    simulate(data, &context, building_groups, transports);
+}
+
+fn auto_build(
+    data: &GameData,
+    truck: Rc<TransportKind>,
+    product_index: ProductIndex,
+    target_sales_per_month: f64,
+) -> (Vec<(i64, BuildingInstance)>, Vec<Transport>) {
+    let mut buildings = vec![];
+    let mut transports = vec![];
+
+    let mut production_map: ProductVec<f64> = data.products().map(|_| 0.0).collect();
+    let mut consumption_map: ProductVec<f64> = data.products().map(|_| 0.0).collect();
+    let mut sales_map: ProductVec<f64> = data
+        .products()
+        .map(|p| {
+            if *p == product_index {
+                target_sales_per_month / 30.0
+            } else {
+                0.0
+            }
+        })
+        .collect();
+
+    'outer: loop {
+        for product in data.products() {
+            let production = production_map[*product];
+            let sales = sales_map[*product];
+
+            let mut add_building = |count: i64, instance: BuildingInstance| {
+                let building = data.query(instance.id);
+                let recipe = data.query(instance.recipe_index);
+                for entry in recipe.entries() {
+                    let amount_per_day =
+                        count as f64 * instance.productivity() * entry.amount as f64
+                            / recipe.easy_chains_days();
+                    production_map[entry.product_index] += amount_per_day;
+                    if amount_per_day < 0.0 {
+                        transports.push(Transport {
+                            kind: Rc::clone(&truck),
+                            description: format!(
+                                "{} to {} for {}",
+                                entry.product().name(),
+                                building.name(),
+                                recipe.name()
+                            ),
+                            tiles: 20,
+                            amount_per_day: -amount_per_day,
+                        })
+                    }
+                }
+                buildings.push((count, instance));
+            };
+
+            if production < sales {
+                let recipe = product.producing_recipes().next().unwrap();
+                let entry = recipe
+                    .outputs()
+                    .find(|e| e.product_index == *product)
+                    .unwrap();
+                let production_per_day = entry.amount as f64 / recipe.easy_chains_days();
+                let recipe_count = ((sales - production) / production_per_day).ceil() as i64;
+
+                let building_index = *data
+                    .buildings()
+                    .filter(|b| b.available_recipes().any(|r| *r == *recipe))
+                    .exactly_one()
+                    .unwrap();
+                if let Some(module) = recipe.required_module() {
+                    if recipe_count / 5 > 0 {
+                        add_building(
+                            recipe_count / 5,
+                            BuildingInstance {
+                                id: building_index,
+                                modules: Some((5, *module)),
+                                recipe_index: *recipe,
+                                efficiency: Default::default(),
+                            },
+                        );
+                    }
+
+                    if recipe_count % 5 != 0 {
+                        add_building(
+                            1,
+                            BuildingInstance {
+                                id: building_index,
+                                modules: Some((recipe_count % 5, *module)),
+                                recipe_index: *recipe,
+                                efficiency: Default::default(),
+                            },
+                        );
+                    }
+                } else {
+                    add_building(
+                        recipe_count,
+                        BuildingInstance {
+                            id: building_index,
+                            modules: None,
+                            recipe_index: *recipe,
+                            efficiency: Default::default(),
+                        },
+                    );
+                }
+
+                continue 'outer;
+            }
+        }
+
+        for product in data.products() {
+            let sales = production_map[*product];
+            if sales > 0.0 {
+                transports.push(Transport {
+                    kind: Rc::clone(&truck),
+                    description: format!("sales of {}", product.name()),
+                    tiles: 200,
+                    amount_per_day: sales,
+                });
+            }
+        }
+        break;
+    }
+
+    (buildings, transports)
 }
 
 fn simulate(
@@ -499,34 +427,22 @@ fn simulate(
         }
     }
 
-    {
-        let prices = compute_product_prices(data);
-        for product in data.products() {
-            println!(
-                "  {} ({:?}): {}",
-                product.name(),
-                *product,
-                prices[*product]
-            );
-        }
+    println!("setup:");
+    for (count, building) in &building_groups {
+        println!(
+            "  | {count:4}x | {:20} | {:4} | {:20} |",
+            data.query(building.id).name(),
+            building.modules.as_ref().map_or(1, |&(count, _)| count),
+            data.query(building.recipe_index).name(),
+        );
     }
-
-    let prices = [
-        (context.berries, 12660.0),
-        (context.light_fabric, 55650.0),
-        (context.cotton, 13560.0),
-        (context.fibers, 27220.0),
-        (context.napkins, 109830.0),
-    ];
+    println!();
 
     println!("sales per month:");
     let mut monthly_revenue = 0.0;
-    for (product_index, price) in prices {
-        let units_per_month = production_map
-            .get(&product_index)
-            .copied()
-            .unwrap_or_default()
-            * 30.0;
+    for (&product_index, &production_per_day) in &production_map {
+        let units_per_month = production_per_day * 30.0;
+        let price = data.query(product_index).price() * 1.5;
         let total = units_per_month * price;
         println!(
             "  | {name:20} | {units:7.1} units | {price:7.1}k $/unit | {total:7.1}k $ |",
