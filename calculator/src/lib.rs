@@ -228,6 +228,7 @@ impl_soa! {
         entries: Vec<RecipeEntry>,
         days: i64,
         required_modules: Vec<ModuleIndex>,
+        tier: i64,
     }
     index = RecipeIndex;
     vec = RecipeVec;
@@ -462,6 +463,7 @@ impl GameData {
                         .into_iter()
                         .map(|value| guid_to_module[&value])
                         .collect(),
+                    tier: value.tier,
                 })
                 .collect(),
             building: buildings

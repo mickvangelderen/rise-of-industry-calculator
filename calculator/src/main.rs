@@ -53,39 +53,90 @@ pub struct Transport {
     pub amount_per_day: f64,
 }
 
-struct Context<'data> {
-    data: &'data GameData,
-
-    cocoa: ProductIndex,
-    water: ProductIndex,
-    cotton: ProductIndex,
-    fibers: ProductIndex,
-    napkins: ProductIndex,
-    berries: ProductIndex,
-    light_fabric: ProductIndex,
-
-    farm: BuildingIndex,
-    plantation: BuildingIndex,
-    water_siphon: BuildingIndex,
-    water_well: BuildingIndex,
-
-    cocoa_recipe: RecipeIndex,
-    cotton_recipe: RecipeIndex,
-    fibers_recipe: RecipeIndex,
-    napkins_recipe: RecipeIndex,
-    berry_recipe: RecipeIndex,
-    water_well_water_recipe: RecipeIndex,
-    water_siphon_water_recipe: RecipeIndex,
-
-    cocoa_field: ModuleIndex,
-    cotton_field: ModuleIndex,
-    berry_field: ModuleIndex,
-}
-
 fn main() {
     env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn")).init();
 
     let data = &GameData::load(std::path::Path::new("data.json")).unwrap();
+
+    let truck = Rc::new(TransportKind {
+        name: "Truck".to_string(),
+        base_price: 250,
+        tile_price: 10,
+    });
+
+    println!("## Details");
+    let roi_map: ProductVec<f64> = data
+        .products()
+        .map(|product| {
+            println!("### Product: {}", product.name());
+            let (buildings, transports) = auto_build(data, &truck, *product, 6.0);
+            simulate(data, buildings, transports)
+        })
+        .collect();
+
+    let tier_map: ProductVec<i64> = data
+        .products()
+        .map(|product| product.producing_recipes().map(|r| r.tier()).min().unwrap())
+        .collect();
+
+    let mut tier_sorted_indices: Vec<ProductIndex> =
+        data.products().map(|product| *product).collect();
+    tier_sorted_indices.sort_by(|&a, &b| {
+        let a = data.query(a);
+        let b = data.query(b);
+        tier_map[*a]
+            .cmp(&tier_map[*b])
+            .then_with(|| (roi_map[*a]).partial_cmp(&roi_map[*b]).unwrap())
+            .then_with(|| a.product_category().cmp(&b.product_category()))
+            .then_with(|| a.name().cmp(b.name()))
+    });
+
+    println!("## Return on Investment Overview");
+    for product in tier_sorted_indices {
+        let product = data.query(product);
+        println!(
+            "  | {tier:4} | {roi:6.2}% | {category:20} | {product:20} | ",
+            tier = tier_map[*product],
+            category = product.product_category().name(),
+            product = product.name(),
+            roi = roi_map[*product] * 100.0
+        );
+    }
+    println!();
+}
+
+fn napkin_build(
+    data: &GameData,
+    truck: &Rc<TransportKind>,
+) -> (Vec<(i64, BuildingInstance)>, Vec<Transport>) {
+    struct Context<'data> {
+        data: &'data GameData,
+
+        cocoa: ProductIndex,
+        water: ProductIndex,
+        cotton: ProductIndex,
+        fibers: ProductIndex,
+        napkins: ProductIndex,
+        berries: ProductIndex,
+        light_fabric: ProductIndex,
+
+        farm: BuildingIndex,
+        plantation: BuildingIndex,
+        water_siphon: BuildingIndex,
+        water_well: BuildingIndex,
+
+        cocoa_recipe: RecipeIndex,
+        cotton_recipe: RecipeIndex,
+        fibers_recipe: RecipeIndex,
+        napkins_recipe: RecipeIndex,
+        berry_recipe: RecipeIndex,
+        water_well_water_recipe: RecipeIndex,
+        water_siphon_water_recipe: RecipeIndex,
+
+        cocoa_field: ModuleIndex,
+        cotton_field: ModuleIndex,
+        berry_field: ModuleIndex,
+    }
 
     let cocoa = data.product_by_name("Cocoa");
     let water = data.product_by_name("Water");
@@ -220,15 +271,9 @@ fn main() {
         },
     );
 
-    let truck = Rc::new(TransportKind {
-        name: "Truck".to_string(),
-        base_price: 250,
-        tile_price: 10,
-    });
-
     let transports = vec![
         Transport {
-            kind: Rc::clone(&truck),
+            kind: Rc::clone(truck),
             description: "Local Transport".to_string(),
             tiles: 20,
             amount_per_day: water_siphons.0 as f64
@@ -241,7 +286,7 @@ fn main() {
                     * cotton_farms.1.production_per_day_of(data, *cotton).unwrap(),
         },
         Transport {
-            kind: Rc::clone(&truck),
+            kind: Rc::clone(truck),
             description: "Sale Transport".to_string(),
             tiles: 200,
             amount_per_day: light_fabric_factories.0 as f64
@@ -272,15 +317,12 @@ fn main() {
         water_siphons,
     ];
 
-    simulate(data, &context, building_groups, transports);
-
-    let (building_groups, transports) = auto_build(data, truck, *napkins, 4.0);
-    simulate(data, &context, building_groups, transports);
+    (building_groups, transports)
 }
 
 fn auto_build(
     data: &GameData,
-    truck: Rc<TransportKind>,
+    truck: &Rc<TransportKind>,
     product_index: ProductIndex,
     target_sales_per_month: f64,
 ) -> (Vec<(i64, BuildingInstance)>, Vec<Transport>) {
@@ -315,7 +357,7 @@ fn auto_build(
                     production_map[entry.product_index] += amount_per_day;
                     if amount_per_day < 0.0 {
                         transports.push(Transport {
-                            kind: Rc::clone(&truck),
+                            kind: Rc::clone(truck),
                             description: format!(
                                 "{} to {} for {}",
                                 entry.product().name(),
@@ -388,7 +430,7 @@ fn auto_build(
             let sales = production_map[*product];
             if sales > 0.0 {
                 transports.push(Transport {
-                    kind: Rc::clone(&truck),
+                    kind: Rc::clone(truck),
                     description: format!("sales of {}", product.name()),
                     tiles: 200,
                     amount_per_day: sales,
@@ -403,10 +445,9 @@ fn auto_build(
 
 fn simulate(
     data: &GameData,
-    context: &Context<'_>,
     building_groups: Vec<(i64, BuildingInstance)>,
     transports: Vec<Transport>,
-) {
+) -> f64 {
     let mut monthly_operational_costs = building_groups
         .iter()
         .map(|&(count, ref instance)| count as f64 * instance.upkeep_per_month(data))
@@ -417,20 +458,26 @@ fn simulate(
         .map(|&(count, ref instance)| count as f64 * instance.purchase_price(data))
         .sum::<f64>();
 
-    let mut production_map: HashMap<ProductIndex, f64> = HashMap::new();
+    let mut production_map: ProductVec<f64> = data.products().map(|_| 0.0).collect();
+    let mut consumption_map: ProductVec<f64> = data.products().map(|_| 0.0).collect();
     for &(count, ref instance) in &building_groups {
         let recipe = data.query(instance.recipe_index);
         for ingredient in recipe.entries() {
-            *production_map.entry(ingredient.product_index).or_default() +=
+            let production_per_day =
                 count as f64 * instance.productivity() * ingredient.amount as f64
                     / recipe.easy_chains_days();
+            if production_per_day >= 0.0 {
+                production_map[ingredient.product_index] += production_per_day;
+            } else {
+                consumption_map[ingredient.product_index] -= production_per_day;
+            }
         }
     }
 
-    println!("setup:");
+    println!("#### Setup");
     for (count, building) in &building_groups {
         println!(
-            "  | {count:4}x | {:20} | {:4} | {:20} |",
+            "| {count:4}x | {:20} | {:4} | {:20} |",
             data.query(building.id).name(),
             building.modules.as_ref().map_or(1, |&(count, _)| count),
             data.query(building.recipe_index).name(),
@@ -438,41 +485,53 @@ fn simulate(
     }
     println!();
 
-    println!("sales per month:");
+    println!("#### Production, consumption and sales per month");
+    println!(
+        "| {:20} | {:>13} | {:>13} | {:>13} | {:>15} | {:>10} |",
+        "product", "produced", "consumed", "sold", "price per unit", "sales",
+    );
+    println!(
+        "|{}|{}|{}|{}|{}|{}|",
+        "-".repeat(22),
+        "-".repeat(15),
+        "-".repeat(15),
+        "-".repeat(15),
+        "-".repeat(17),
+        "-".repeat(12),
+    );
     let mut monthly_revenue = 0.0;
-    for (&product_index, &production_per_day) in &production_map {
-        let units_per_month = production_per_day * 30.0;
-        let price = data.query(product_index).price() * 1.5;
-        let total = units_per_month * price;
+    for product in data.products() {
+        let production_per_day = production_map[*product];
+        let consumption_per_day = consumption_map[*product];
+        if production_per_day.abs() < f64::EPSILON && consumption_per_day.abs() < f64::EPSILON {
+            continue;
+        }
+        let sold_per_day = production_per_day - consumption_per_day;
+        const PRICE_MODIFIER: f64 = 1.5;
+        let price_per_unit = product.price() * PRICE_MODIFIER;
+        let sales_per_month = sold_per_day * 30.0 * price_per_unit;
+
         println!(
-            "  | {name:20} | {units:7.1} units | {price:7.1}k $/unit | {total:7.1}k $ |",
-            name = data.query(product_index).name(),
-            units = units_per_month,
-            price = price / 1000.0,
-            total = total / 1000.0
+            "| {name:20} | {produced:7.1} units | {consumed:7.1} units | {sold:7.1} units | {price:7.1}k $/unit | {total:7.1}k $ |",
+            name = product.name(),
+            produced = production_per_day * 30.0,
+            consumed = consumption_per_day * 30.0,
+            sold = sold_per_day * 30.0,
+            price =  price_per_unit / 1000.0,
+            total = sales_per_month / 1000.0
         );
-        monthly_revenue += total;
+        monthly_revenue += sales_per_month;
     }
     println!();
 
-    println!("production per month:");
-    for (&product_index, &amount_per_day) in &production_map {
-        println!(
-            "  | {:20} | {:7.1} units |",
-            data.query(product_index).name(),
-            amount_per_day * 30.0
-        );
-    }
-    println!();
-
-    println!("transportation costs per month:");
+    println!("#### Transportation costs per month");
     for transport in &transports {
         let price_per_month = transport.amount_per_day
             * 30.0
             * (transport.kind.base_price + transport.tiles * transport.kind.tile_price) as f64;
         monthly_operational_costs += price_per_month;
         println!(
-            "  | {kind:7} | {amount:7.1} deliveries | {tiles:7} tiles | {total:7.1}k | {description:40} |",
+            "| {kind:7} | {amount:7.1} deliveries | {tiles:7} tiles | {total:7.1}k | {description:60} |",
             kind = &transport.kind.name,
             amount = transport.amount_per_day * 30.0,
             tiles = transport.tiles,
@@ -486,6 +545,7 @@ fn simulate(
 
     let roi = monthly_profit / initial_costs - (0.275 / 120.0);
 
+    println!("#### Summary");
     println!(
         "operational costs:    {:9.0}k",
         monthly_operational_costs / 1000.0
@@ -494,4 +554,7 @@ fn simulate(
     println!("profit:               {:9.0}k", monthly_profit / 1000.0);
     println!("initial costs:        {:9.0}k", initial_costs / 1000.0);
     println!("return on investment: {:9.2}%", roi * 100.0);
+    println!();
+
+    roi
 }
